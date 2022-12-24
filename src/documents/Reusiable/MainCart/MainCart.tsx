@@ -13,18 +13,23 @@ export type MainCartType = {
 const MainCart: React.FC<MainCartType> = ({data}) => {
     const classes = Styles();
     const query = useMediaQuery('@media(max-width: 650px)')
-    return(
+    return (
         <Box className={classes.mainCartWrapper}>
             {data.map((item: any) =>
                 <Box className={classes.mainCart} key={item.id}>
                     <FavoriteBorderIcon className={classes.favoriteIcon}/>
-                    <Image src={item.img} alt='image' width={query ? 120 : 180} height={query ? 120 : 180} className={classes.mainImage}/>
+                    {item.status === 'sale' ?
+                        <Typography className={classes.sale}>Top Sale</Typography> : item.status === 'new' ?
+                            <Typography className={classes.new}>Yangilik</Typography> : null
+                    }
+                    <Image src={item.img} alt='image' width={query ? 120 : 180} height={query ? 120 : 180}
+                           className={classes.mainImage}/>
                     <Typography className={classes.price}>{item.price}</Typography>
                     <Typography className={classes.title}>{item.title}</Typography>
                     <Typography className={classes.order}>{item.order} ta buyurtma</Typography>
                     <Box className={classes.footer}>
-                        <PrimaryButton text="Sotib olish" />
-                        <ShoppingCartIcon className={classes.shoppingCart} />
+                        <PrimaryButton text="Sotib olish"/>
+                        <ShoppingCartIcon className={classes.shoppingCart}/>
                     </Box>
                 </Box>
             )}

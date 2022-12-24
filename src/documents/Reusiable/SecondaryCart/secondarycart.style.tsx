@@ -19,6 +19,7 @@ export default makeStyles(() => ({
         background: "#fff",
         borderRadius: "10px",
         position: "relative",
+        boxShadow: "0.5px 0.5px 3px rgba(0, 0, 0, 0.2)",
         '@media(max-width: 650px)' : {
             height: '180px',
         },

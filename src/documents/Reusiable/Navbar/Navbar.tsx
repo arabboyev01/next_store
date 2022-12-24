@@ -25,7 +25,7 @@ const Navbar = () => {
                 <Box className={classes.likeButton}>
                     <ShoppingCartIcon className={classes.likeIcon} />
                 </Box>
-                <Button className={classes.catalogButton}>Kirish</Button>
+                <Button className={classes.loginButton}>Kirish</Button>
             </Box>
         </Box>
     )
