@@ -16,6 +16,11 @@ import appleImage from "../../../public/assets/brands/apple.png"
 import msiImage from "../../../public/assets/brands/msi.png"
 import miImage from "../../../public/assets/brands/mi.png"
 import vivoImage from "../../../public/assets/brands/vivo.png"
+import elmakonImage from "../../../public/assets/brands/elmakon.png"
+import goodImage from "../../../public/assets/brands/goodzoone.png"
+import mediaImage from "../../../public/assets/brands/mediapark.png"
+import sandiqImage from "../../../public/assets/brands/sandiq.png"
+import texnoImage from "../../../public/assets/brands/texnomart.png"
 export const CategoryCart: CategoryCartTypes[] = [
     {
         id: 1,
@@ -173,5 +178,27 @@ export const BrandsData: BrandsDataType[] = [
     {
         id:7,
         image:vivoImage,
+    },
+]
+export const BrandsStore: BrandsDataType[] = [
+    {
+        id:0,
+        image:elmakonImage,
+    },
+    {
+        id:1,
+        image:goodImage,
+    },
+    {
+        id:2,
+        image:mediaImage,
+    },
+    {
+        id:3,
+        image:sandiqImage,
+    },
+    {
+        id:4,
+        image:texnoImage,
     },
 ]

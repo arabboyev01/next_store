@@ -25,6 +25,15 @@ export default makeStyles(() => ({
             display: 'none',
         },
     },
+    loginButton: {
+        background: 'linear-gradient(270deg, rgba(77, 94, 246, 0.2), rgba(246, 77, 77, 0.2))',
+        color: "#000",
+        width: "109px",
+        height: "46px",
+        '@media(max-width: 650px)': {
+            display: 'none',
+        },
+    },
     catalogIcon: {
         marginRight: "15px",
     },

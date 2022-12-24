@@ -17,9 +17,16 @@ export default makeStyles(() => ({
         position: 'relative',
         padding: "10px 25px",
         borderRadius: "10px",
+        transition: "1s easy",
+        boxShadow: "0.5px 0.5px 3px rgba(0, 0, 0, 0.2)",
         '@media(max-width: 650px)': {
             padding: "5px 10px",
             height: "335px",
+        },
+        '&:hover': {
+            boxShadow: "0.5px 0.5px 3px rgba(0, 0, 0, 0.5)",
+            scale: '1.005',
+            cursor: 'pointer',
         },
     },
     favoriteIcon: {
@@ -27,6 +34,11 @@ export default makeStyles(() => ({
         right: "2%",
         marginTop: "17px",
         top: "-10px",
+        backgroundImage: 'linear-gradient(to right, #4D5EF6, #F64D4D);',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        backgroundClip: 'text',
+        textFillColor: 'transparent',
         '@media(max-width: 650px)': {
             right: "8%",
         },
@@ -69,5 +81,19 @@ export default makeStyles(() => ({
     shoppingCart: {
         color: "#6C757D",
         fontSize: '20px',
+    },
+    sale: {
+        position: "absolute",
+        background: "#FF0101",
+        padding: "5px",
+        color: "#fff",
+        borderRadius: "4px",
+    },
+    new: {
+        position: "absolute",
+        background: "#EB8528",
+        padding: "5px",
+        color: "#fff",
+        borderRadius: "4px",
     },
 }))
