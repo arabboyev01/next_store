@@ -4,5 +4,5 @@
   box-sizing: border-box;
 }
 body{
-  background-color: #ECF4FF;
+  background-color: #ECF4FF !important;
 }

@@ -1,4 +1,4 @@
-import {CategoryCartTypes, MainProductsType} from "../../../types/types";
+import {BrandsDataType, CategoryCartTypes, MainProductsType} from "../../../types/types";
 import cat1 from "../../../public/assets/categories/cat1.png"
 import cat2 from "../../../public/assets/categories/cat2.png"
 import cat3 from "../../../public/assets/categories/cat3.png"
@@ -8,6 +8,14 @@ import cat6 from "../../../public/assets/categories/cat6.png"
 import cat7 from "../../../public/assets/categories/cat7.png"
 import cat8 from "../../../public/assets/categories/cat8.png"
 import productImg from "../../../public/assets/images/productImage.png"
+import hpImage from "../../../public/assets/brands/hp.png"
+import acerImage from "../../../public/assets/brands/acer.png"
+import asusImage from "../../../public/assets/brands/asus.png"
+import samsungImage from "../../../public/assets/brands/samsung.png"
+import appleImage from "../../../public/assets/brands/apple.png"
+import msiImage from "../../../public/assets/brands/msi.png"
+import miImage from "../../../public/assets/brands/mi.png"
+import vivoImage from "../../../public/assets/brands/vivo.png"
 export const CategoryCart: CategoryCartTypes[] = [
     {
         id: 1,
@@ -131,5 +139,39 @@ export const MainProducts: MainProductsType[] = [
         price: '299 000 so’m',
         status: '',
         order: 230
+    },
+]
+export const BrandsData: BrandsDataType[] = [
+    {
+        id:0,
+        image:hpImage,
+    },
+    {
+        id:1,
+        image:acerImage,
+    },
+    {
+        id:2,
+        image:asusImage,
+    },
+    {
+        id:3,
+        image:samsungImage,
+    },
+    {
+        id:4,
+        image:appleImage,
+    },
+    {
+        id:5,
+        image:msiImage,
+    },
+    {
+        id:6,
+        image:miImage,
+    },
+    {
+        id:7,
+        image:vivoImage,
     },
 ]

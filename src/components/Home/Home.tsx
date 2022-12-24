@@ -40,6 +40,9 @@ const HomeComponent = () => {
                     <SeeMoreButton text='Koproq korish' />
                 </Box>
             </Box>
+            <Box className={classes.page}>
+                <MainTitle title="Dokonlarimiz" />
+            </Box>
         </Box>
     )
 }
