@@ -17,4 +17,7 @@ export default makeStyles(() => ({
     mainSales: {
         paddingTop: "40px",
     },
+    page: {
+        paddingTop: "86px",
+    },
 }))

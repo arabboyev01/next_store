@@ -18,3 +18,7 @@ export type MainProductsType = {
     status: string,
     order: number,
 }
+export type BrandsDataType = {
+    id:number,
+    image: any
+}
