@@ -6,6 +6,10 @@ export default makeStyles(() => ({
         height: "70px",
         boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.5)",
         background: "#fff",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 100,
     },
     contentWrapper: {
         maxWidth: "1230px",
