@@ -7,7 +7,16 @@ import cat5 from "../../../public/assets/categories/cat5.png"
 import cat6 from "../../../public/assets/categories/cat6.png"
 import cat7 from "../../../public/assets/categories/cat7.png"
 import cat8 from "../../../public/assets/categories/cat8.png"
-import productImg from "../../../public/assets/images/productImage.png"
+import productImg1 from "../../../public/assets/images/productImage.png"
+import productImg2 from "../../../public/assets/images/laptop5.png"
+import productImg3 from "../../../public/assets/images/laptop6.png"
+import productImg4 from "../../../public/assets/images/laptop7.png"
+import productImg5 from "../../../public/assets/images/laptop8.png"
+import productImg6 from "../../../public/assets/images/laptop9.png"
+import productImg7 from "../../../public/assets/images/laptop10.png"
+import productImg8 from "../../../public/assets/images/laptop11.png"
+import productImg9 from "../../../public/assets/images/laptop8.png"
+import productImg10 from "../../../public/assets/images/laptop5.png"
 import hpImage from "../../../public/assets/brands/hp.png"
 import acerImage from "../../../public/assets/brands/acer.png"
 import asusImage from "../../../public/assets/brands/asus.png"
@@ -68,82 +77,222 @@ export const MainProducts: MainProductsType[] = [
     {
         id: 1,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg,
+        img: productImg1,
         price: '299 000 so’m',
         status: 'sale',
-        order: 1230
+        order: 1230,
+        color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
     },
     {
         id: 2,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg,
+        img: productImg2,
         price: '299 000 so’m',
         status: 'new',
-        order: 230
+        order: 230,color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
+
     },
     {
         id: 3,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg,
+        img: productImg3,
         price: '299 000 so’m',
         status: '',
-        order: 230
+        order: 230,
+        color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
     },
     {
         id: 4,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg,
+        img: productImg4,
         price: '299 000 so’m',
         status: 'sale',
-        order: 230
+        order: 230,
+        color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
     },
     {
         id: 5,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg,
+        img: productImg5,
         price: '299 000 so’m',
         status: '',
-        order: 230
+        order: 230,
+        color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
     },
     {
         id: 6,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg,
+        img: productImg6,
         price: '299 000 so’m',
         status: '',
-        order: 230
+        order: 230,
+        color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
     },
     {
         id: 7,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg,
+        img: productImg7,
         price: '299 000 so’m',
         status: 'new',
-        order: 230
+        order: 230,
+        color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
     },
     {
         id: 8,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg,
+        img: productImg8,
         price: '299 000 so’m',
         status: '',
-        order: 230
+        order: 230,
+        color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
     },
     {
         id: 9,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg,
+        img: productImg9,
         price: '299 000 so’m',
         status: '',
-        order: 230
+        order: 230,
+        color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
     },
     {
         id: 10,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg,
+        img: productImg10,
         price: '299 000 so’m',
         status: '',
-        order: 230
+        order: 230,
+        color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
     },
 ]
 export const BrandsData: BrandsDataType[] = [
