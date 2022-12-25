@@ -22,3 +22,11 @@ export type BrandsDataType = {
     id:number,
     image: any
 }
+export type SingleProductType = {
+    current?: any
+    addToCart?: any
+    cart?:  any
+}
+export type CartType = {
+    cart: any,
+}
