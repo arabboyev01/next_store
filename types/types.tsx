@@ -17,6 +17,7 @@ export type MainProductsType = {
     price: string,
     status: string,
     order: number,
+    color: any,
 }
 export type BrandsDataType = {
     id:number,

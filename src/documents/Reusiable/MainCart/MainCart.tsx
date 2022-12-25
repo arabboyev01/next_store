@@ -29,7 +29,7 @@ const MainCart: React.FC<MainCartType> = ({mainData, addToCart, loadCurrentItem}
     }
     return (
         <Box className={classes.mainCartWrapper}>
-            {alert ? <AlertComponent /> : null}
+            {alert ? <AlertComponent/> : null}
             {mainData.map((item: any) =>
                 <Box className={classes.mainCart} key={item.id}>
                     <FavoriteBorderIcon className={classes.favoriteIcon}/>
@@ -46,7 +46,9 @@ const MainCart: React.FC<MainCartType> = ({mainData, addToCart, loadCurrentItem}
                         </Link>
                     </Box>
                     <Box className={classes.footer}>
-                        <PrimaryButton text="Sotib olish"/>
+                        <Link href='/single-product' style={{textDecoration: 'none', color: "#000"}}>
+                            <PrimaryButton text="Sotib olish"/>
+                        </Link>
                         <ShoppingCartIcon className={classes.shoppingCart} onClick={() => handleSetCart(item.id)}/>
                     </Box>
                 </Box>
