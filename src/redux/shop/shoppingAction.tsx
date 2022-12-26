@@ -29,6 +29,7 @@ export const adjustItemQty = (itemID: any, qty: any) => {
 };
 
 export const loadCurrentItem = (item: any) => {
+    window.localStorage.setItem('productID', JSON.stringify(item))
     return {
         type: actionTypes.LOAD_CURRENT_ITEM,
         payload: item,

@@ -8,17 +8,21 @@ import ProductDetail from "./ProductDetail/ProductDetail";
 import Image from "next/image";
 import {useMediaQuery} from "@mui/material";
 
-const SingleProduct: React.FC<SingleProductType> = ({current, addToCart}) => {
+const SingleProduct: React.FC<SingleProductType> = ({addToCart}) => {
     const classes = Styles();
-    const query = useMediaQuery('@media(max-width: 650px)')
+    const query = useMediaQuery('@media(max-width: 650px)');
+    const storeData = typeof window !== "undefined" ? window.localStorage.getItem("productID") : undefined;
+    // @ts-ignore
+    const mainData = JSON.parse(storeData);
+
     return (
         <Box className={classes.singleProducts}>
             <Box className={classes.productHeader}>
                 <Box className={classes.imageWrapper}>
-                    <Image src={current.img.src} alt='product_image' width={query ? 300 : 387} height={query ? 300 : 387} style={{objectFit: "contain"}}/>
+                    <Image src={mainData.img.src} alt='product_image' width={query ? 300 : 387} height={query ? 300 : 387} style={{objectFit: "contain"}}/>
                 </Box>
                 <Box>
-                    <ProductDetail current={current} addToCart={addToCart}/>
+                    <ProductDetail current={mainData} addToCart={addToCart}/>
                 </Box>
             </Box>
         </Box>

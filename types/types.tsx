@@ -26,7 +26,6 @@ export type BrandsDataType = {
 export type SingleProductType = {
     current?: any
     addToCart?: any
-    cart?:  any
 }
 export type CartType = {
     cart: any,

@@ -4,7 +4,7 @@ import React from "react";
 import {Button, Typography} from "@mui/material";
 
 export type ProductDetail = {
-    current: any,
+    current?: any,
     addToCart?: any
 }
 const ProductDetail: React.FC<ProductDetail> = ({current, addToCart}) => {
@@ -23,4 +23,5 @@ const ProductDetail: React.FC<ProductDetail> = ({current, addToCart}) => {
         </Box>
     )
 }
+
 export default ProductDetail;
