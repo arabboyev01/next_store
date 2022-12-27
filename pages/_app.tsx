@@ -5,12 +5,14 @@ import {ThemeProvider} from '@mui/material/styles';
 import {Provider} from "react-redux";
 import "../styles/globals.css";
 import store from "../src/redux/store";
+import { Toaster } from 'react-hot-toast';
 
 function MyApp({Component, pageProps}: AppProps) {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
             <Provider store={store}>
+                <Toaster position='top-center' reverseOrder={false} />
                 <Component {...pageProps} />
             </Provider>
         </ThemeProvider>

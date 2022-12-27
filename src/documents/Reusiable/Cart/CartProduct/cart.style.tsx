@@ -1,0 +1,193 @@
+import {makeStyles} from "@mui/styles";
+
+export default makeStyles(() => ({
+    item: {
+        maxWidth: "813px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: 'start',
+        gap: "20px",
+    },
+    cartWrapper: {
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'start',
+        background: "#fff",
+        padding: "25px",
+        borderRadius: "10px",
+        position: "relative",
+        '@media(max-width: 650px)' : {
+            maxWidth: "360px",
+            flexDirection: "column",
+            margin: "0 auto",
+        },
+    },
+    contentWrapper: {
+        maxWidth: "500px",
+        margin: "0 auto",
+        paddingLeft: "10px",
+        '@media(max-width: 650px)' : {
+            maxWidth: "360px",
+            margin: "0 auto",
+            paddingLeft: 0,
+        },
+    },
+    name: {
+        paddingBottom: "10px",
+        borderBottom: "1px solid #E4E7EE",
+        maxWidth: "400px",
+        fontSize: '20px',
+        lineHeight: "26px",
+        '@media(max-width: 650px)' : {
+            fontSize: '15px',
+            lineHeight: "16px",
+            height: "16px",
+            maxWidth: "360px",
+            paddingBottom: "40px",
+        },
+    },
+    price: {
+        fontSize: '24px',
+        lineHeight: "28.8px",
+        paddingTop: "20px",
+    },
+    color: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        paddingTop: "10px",
+        paddingBottom: "10px",
+        borderBottom: "1px dashed #E4E7EE",
+    },
+    boxColor: {
+        width: "22px",
+        height: "22px",
+        background: "#BEBBC2",
+        borderRadius: "4px",
+    },
+    colorName: {
+        fontSize: '18px',
+        lineHeight: "21px",
+        color: '#455262',
+        paddingLeft: "10px",
+    },
+    footer: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        '@media(max-width: 650px)' : {
+            flexDirection: "column",
+            alignItems: 'start',
+        },
+    },
+    qtyCounter: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        '@media(max-width: 650px)' : {
+            marginTop: "20px",
+        },
+    },
+    qty: {
+        width: "100px",
+        height: "50px",
+        background: "#EEF1F4",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: 'center',
+        paddingTop: "10px",
+        fontSize: '24px',
+        lineHeight: "26px",
+    },
+    store: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: 'start',
+    },
+    storeName: {
+        fontSize: "18px",
+        color: "#6C757D",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        paddingTop: "20px",
+        '@media(max-width: 650px)' : {
+            fontSize: '14px',
+            lineHeight: "16px",
+        },
+    },
+    icon: {
+        marginRight: "10px",
+    },
+    span: {
+        fontSize: '18px',
+        lineHeight: "21px",
+        color: "#000",
+        fontWeight: 600,
+        marginLeft: "10px",
+        '@media(max-width: 650px)' : {
+            fontSize: '14px',
+            lineHeight: "16px",
+        },
+    },
+    decButton: {
+        background: "#0D63F3",
+        height: "50px",
+        width: "50px",
+        borderRadius: "50%",
+        border: 'none',
+        marginRight: "-15px",
+        zIndex: 1,
+        cursor: "pointer",
+        marginLeft: "12px",
+        '@media(max-width: 650px)' : {
+            marginLeft: 0,
+        },
+    },
+    incButton: {
+        background: "#0D63F3",
+        height: "50px",
+        width: "50px",
+        borderRadius: "50%",
+        border: 'none',
+        marginLeft: "-15px",
+        zIndex: 1,
+        cursor: "pointer",
+    },
+    decIcon: {
+        color: "#fff",
+        paddingTop: "2px",
+    },
+    incIcon: {
+        color: "#fff",
+        paddingTop: "2px",
+    },
+    decNum: {
+        paddingLeft: "12px",
+        color: "#2CB708",
+        fontSize: '18px',
+        lineHeight: "22px",
+        '@media(max-width: 650px)' : {
+            paddingLeft: "5px",
+            fontSize: '14px',
+            lineHeight: "16px",
+        }
+    },
+    deleteIcon: {
+        position: "absolute",
+        top: '10%',
+        right: "5%",
+        color: "#D80027",
+        fontSize: "25px",
+        cursor: "pointer",
+        '&:hover': {
+            scale: 1.1,
+        },
+        '@media(max-width: 650px)' : {
+            top: '89%',
+            right: "8%",
+            fontSize: "25px",
+        },
+    },
+}))

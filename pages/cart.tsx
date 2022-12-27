@@ -2,17 +2,18 @@ import Head from 'next/head'
 import {Box} from "@mui/system";
 import Layout from "../src/Layout/Layout";
 import React from "react";
-import SingleProductComponent from "../src/documents/Reusiable/SingleProduct/SingleProduct"
-const SingleProduct = () => {
+import CartItself from "../src/components/CartComponent/CartIteself";
+
+const Cart = () => {
     return (
         <Box>
             <Head>
-                <title>Mahsulot haqida</title>
+                <title>Savatchangiz</title>
             </Head>
             <Layout>
-                <SingleProductComponent />
+                <CartItself />
             </Layout>
         </Box>
     )
 }
-export default SingleProduct
+export default Cart

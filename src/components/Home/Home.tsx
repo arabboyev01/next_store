@@ -9,18 +9,11 @@ import SeeMoreButton from "../../documents/Reusiable/SeeMore/SeeMore";
 import {useMediaQuery} from "@mui/material";
 import MainCart from "../../documents/Reusiable/MainCart/MainCart";
 import Brands from "../../documents/Reusiable/Brands/Brands";
-import {useDispatch} from "react-redux";
-import React, {useEffect} from "react";
-import { connect } from "react-redux";
-import {mapStateToProps} from "./props";
 
 const HomeComponent = () => {
     const classes = Style();
     const query = useMediaQuery('@media(max-width: 650px)');
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({ type: 'Add_to_products', payload: MainProducts });
-    }, [dispatch,MainProducts]);
+
     return(
         <Box className={classes.homeWrapper}>
             <Box className={classes.contentWrapper}>
@@ -65,4 +58,4 @@ const HomeComponent = () => {
     )
 }
 
-export default connect(mapStateToProps)(HomeComponent);
+export default HomeComponent;

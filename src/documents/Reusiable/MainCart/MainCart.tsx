@@ -1,39 +1,28 @@
 import Styles from "./maincart.style"
 import {Box} from "@mui/system";
-import React, {useState} from "react";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Image from "next/image";
 import {Typography, useMediaQuery} from "@mui/material";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import {connect} from "react-redux";
-import {loadCurrentItem, addToCart} from "../../../redux/shop/shoppingAction";
 import Link from "next/link";
-import AlertComponent from "../Alert/Alert";
+import { setAddItemToCart } from "../../../redux/CartSlice"
+import { useDispatch } from "react-redux";
 
-export type MainCartType = {
-    mainData?: any,
-    addToCart: any
-    loadCurrentItem: any
-}
-const MainCart: React.FC<MainCartType> = ({mainData, addToCart, loadCurrentItem}) => {
+const MainCart = ({mainData}: any) => {
     const classes = Styles();
     const query = useMediaQuery('@media(max-width: 650px)')
-    const [alert, setAlert] = useState(false);
-    const handleSetCart = (e: any) => {
-        addToCart(e);
-        setAlert(true);
-        setTimeout(() => {
-            setAlert(false);
-        }, 2000)
-    }
+    const dispatch = useDispatch();
+    const onAddToCart = (item: any) => {
+        dispatch(setAddItemToCart(item));
+    };
+
     return (
         <Box className={classes.mainCartWrapper}>
-            {alert ? <AlertComponent/> : null}
             {mainData.map((item: any) =>
                 <Box className={classes.mainCart} key={item.id}>
                     <FavoriteBorderIcon className={classes.favoriteIcon}/>
-                    <Box onClick={() => loadCurrentItem(item)}>
+                    <Box>
                         <Link href='/single-product' style={{textDecoration: 'none', color: "#000"}}>
                             {item.status === 'sale' ?
                                 <Typography className={classes.sale}>Top Sale</Typography> : item.status === 'new' ?
@@ -49,18 +38,11 @@ const MainCart: React.FC<MainCartType> = ({mainData, addToCart, loadCurrentItem}
                         <Link href='/single-product' style={{textDecoration: 'none', color: "#000"}}>
                             <PrimaryButton text="Sotib olish"/>
                         </Link>
-                        <ShoppingCartIcon className={classes.shoppingCart} onClick={() => handleSetCart(item.id)}/>
+                        <ShoppingCartIcon className={classes.shoppingCart} onClick={()=> onAddToCart(item)}/>
                     </Box>
                 </Box>
             )}
         </Box>
     )
 }
-
-const mapDispatchToProps = (dispatch: any) => {
-    return {
-        addToCart: (id: any) => dispatch(addToCart(id)),
-        loadCurrentItem: (item: any) => dispatch(loadCurrentItem(item)),
-    };
-};
-export default connect(null, mapDispatchToProps)(MainCart);
+export default MainCart;

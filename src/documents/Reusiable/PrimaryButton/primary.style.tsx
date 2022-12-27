@@ -2,7 +2,7 @@ import {makeStyles} from "@mui/styles";
 
 export default makeStyles(() => ({
     button: {
-        width: "130px",
+        maxWidth: "250px",
         height: "40px",
         background: "#0D63F3",
         color: "#fff",

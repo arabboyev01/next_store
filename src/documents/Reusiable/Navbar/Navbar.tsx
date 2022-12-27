@@ -8,23 +8,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
-import React, {useState,useEffect} from "react";
-import {connect} from "react-redux";
-import {mapStateToProps} from "../../../components/Home/props";
-import {CartType} from "../../../../types/types";
+import Link from "next/link";
+import { useSelector } from 'react-redux';
+import { selectTotalQTY } from "../../../redux/CartSlice";
 
-const Navbar: React.FC<CartType> = ({cart}) => {
+const Navbar = () => {
     const classes = Styles();
     const query = useMediaQuery('max-width: 650px')
-    const [cartCount, setCartCount] = useState(0);
-    let count = 0
-    useEffect(() => {
-        cart.forEach((item: any) => (
-            count += item.qty
-        ))
-        setCartCount(count)
-    }, [cart, cartCount]);
-
+    const totalQTY = useSelector(selectTotalQTY);
     return (
         <Box className={classes.navWrapper}>
             <Box className={classes.contentWrapper}>
@@ -38,8 +29,10 @@ const Navbar: React.FC<CartType> = ({cart}) => {
                     <FavoriteBorderIcon className={classes.likeIcon}/>
                 </Box>
                 <Box className={classes.likeButton}>
-                    <Badge badgeContent={cartCount} color="primary">
-                        <ShoppingCartIcon className={classes.likeIcon}/>
+                    <Badge badgeContent={totalQTY} color="primary">
+                        <Link href='/cart'>
+                            <ShoppingCartIcon className={classes.likeIcon}/>
+                        </Link>
                     </Badge>
                 </Box>
                 <Button className={classes.loginButton}>Kirish</Button>
@@ -47,4 +40,4 @@ const Navbar: React.FC<CartType> = ({cart}) => {
         </Box>
     )
 }
-export default connect(mapStateToProps)(Navbar);
+export default Navbar;
