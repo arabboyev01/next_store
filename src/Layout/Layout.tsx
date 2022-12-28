@@ -9,7 +9,7 @@ export type LayoutType = {
 const Layout: React.FC<LayoutType> = ({children}) => {
     return (
         <Box style={{position: "relative"}}>
-            <Navbar/>
+            {/*<Navbar/>*/}
             <Box>{children}</Box>
             <Footer />
         </Box>
