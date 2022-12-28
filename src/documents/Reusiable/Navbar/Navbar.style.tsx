@@ -12,15 +12,15 @@ export default makeStyles(() => ({
         zIndex: 100,
         overflow: "hidden",
     },
-    mainToolbar:{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: 'center',
-        justifyContent: "space-between",
+    link:{
+        paddingTop: "2px",
     },
     icon: {
         color: "#000",
         fontSize: "1.7rem",
+    },
+    drawer: {
+        padding: "5px 20px",
     },
     contentWrapper: {
         maxWidth: "1230px",
@@ -29,12 +29,21 @@ export default makeStyles(() => ({
         background: "#fff",
         border: "none",
         boxShadow: "none",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "space-between",
+        width: "100%",
     },
     catalogButton: {
         background: 'linear-gradient(to right, #4D5EF6, #F64D4D)',
         color: "#fff",
         width: "149px",
         height: "46px",
+        gap: '10px',
+        '@media(max-width: 900px)': {
+            display: 'none',
+        },
     },
     loginButton: {
         background: 'linear-gradient(270deg, rgba(77, 94, 246, 0.2), rgba(246, 77, 77, 0.2))',
@@ -52,6 +61,9 @@ export default makeStyles(() => ({
         display: "flex",
         flexDirection: "row",
         alignItems: 'center',
+        '@media(max-width: 900px)': {
+            display: 'none',
+        },
     },
     searchInput: {
         maxWidth: "336px",
@@ -116,7 +128,6 @@ export default makeStyles(() => ({
         width: "80vw !important",
         paddingTop: "30px",
     },
-    closeIcon: {},
     headWrapper: {
         display: "flex",
         flexDirection: "row",

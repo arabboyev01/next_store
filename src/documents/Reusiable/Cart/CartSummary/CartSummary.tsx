@@ -26,7 +26,6 @@ const CartSummary = () => {
         }
     },[]);
 
-    console.log(navState)
     return(
         <Box className={navState ? classes.sticky : classes.summaryWrapper}>
             <Typography className={classes.name}>Buyurtma</Typography>

@@ -13,10 +13,8 @@ const DrawerComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const classes = Style()
     return (
-        <Box>
-            <IconButton
-                onClick={() => setOpenDrawer(!openDrawer)}
-            >
+        <Box className={classes.drawer}>
+            <IconButton onClick={() => setOpenDrawer(!openDrawer)}>
                 <MenuIcon className={classes.icon}/>
             </IconButton>
             <Drawer
@@ -26,12 +24,8 @@ const DrawerComponent = () => {
                 onClose={() => setOpenDrawer(false)}
             >
                 <Box className={classes.headWrapper}>
-                    <Box style={{cursor: 'pointer'}}>
-                        <Link href="/">
-                            <Image width={70} height={30} src={NextLogo} alt="logo"/>
-                        </Link>
-                    </Box>
-                    <CloseIcon onClick={() => setOpenDrawer(!openDrawer)} className={classes.closeIcon}/>
+                    <Link href="/" className={classes.link}><Image width={70} height={30} src={NextLogo} alt="logo"/></Link>
+                    <CloseIcon onClick={() => setOpenDrawer(!openDrawer)} className={classes.icon}/>
                 </Box>
                 <Box className={classes.navLinks}>
                     <NavLinks/>
