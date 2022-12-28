@@ -2,13 +2,13 @@ import {makeStyles} from "@material-ui/styles";
 
 export default makeStyles(() => ({
     navWrapper: {
+        position: "fixed",
+        top: 0,
+        left: 0,
         width: "100%",
         height: "70px",
         boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.5)",
         background: "#fff",
-        position: "fixed",
-        top: 0,
-        left: 0,
         zIndex: 100,
         overflow: "hidden",
     },
@@ -34,6 +34,9 @@ export default makeStyles(() => ({
         alignItems: 'center',
         justifyContent: "space-between",
         width: "100%",
+        '@media(max-width: 900px)': {
+            padding: "10px 20px",
+        },
     },
     catalogButton: {
         background: 'linear-gradient(to right, #4D5EF6, #F64D4D)',
