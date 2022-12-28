@@ -9,14 +9,14 @@ import DrawerComponent from "./DrawerComponent"
 import NavLinks from "./NavLinks"
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-
+import AppBar from '@mui/material/AppBar';
 const Navbar = () => {
     const classes = Styles();
     const theme = useTheme();
     const query = useMediaQuery(theme.breakpoints.down("md"));
     return (
         <Box className={classes.navWrapper}>
-            <Box className={classes.contentWrapper}>
+            <AppBar className={classes.contentWrapper} position='relative'>
                 <Link href="/" className={classes.link}><Image width={query ? 70 : 100} height={query ? 30 : 45} src={NextLogo} alt="logo"/></Link>
                 <Button className={classes.catalogButton}><MenuIcon/> Katalog</Button>
                 <Box className={classes.searchInputWrapper}>
@@ -24,7 +24,7 @@ const Navbar = () => {
                     <button className={classes.submitButton}><SearchIcon className={classes.searchIcon}/></button>
                 </Box>
                 {query ? <DrawerComponent/> : <NavLinks/>}
-            </Box>
+            </AppBar>
         </Box>
     )
 }
