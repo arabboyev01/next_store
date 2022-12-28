@@ -1,4 +1,4 @@
-import {makeStyles} from "@mui/styles";
+import {makeStyles} from "@material-ui/styles";
 
 export default makeStyles(() => ({
     navWrapper: {
@@ -10,33 +10,37 @@ export default makeStyles(() => ({
         top: 0,
         left: 0,
         zIndex: 100,
+        overflow: "hidden",
+    },
+    mainToolbar:{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "space-between",
+    },
+    icon: {
+        color: "#000",
+        fontSize: "1.7rem",
     },
     contentWrapper: {
         maxWidth: "1230px",
         margin: "0 auto",
         paddingTop: "10px",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: 'center',
-        justifyContent: "space-between",
+        background: "#fff",
+        border: "none",
+        boxShadow: "none",
     },
     catalogButton: {
         background: 'linear-gradient(to right, #4D5EF6, #F64D4D)',
         color: "#fff",
         width: "149px",
         height: "46px",
-        '@media(max-width: 650px)': {
-            display: 'none',
-        },
     },
     loginButton: {
         background: 'linear-gradient(270deg, rgba(77, 94, 246, 0.2), rgba(246, 77, 77, 0.2))',
         color: "#000",
         width: "109px",
         height: "46px",
-        '@media(max-width: 650px)': {
-            display: 'none',
-        },
     },
     catalogIcon: {
         marginRight: "15px",
@@ -56,8 +60,8 @@ export default makeStyles(() => ({
         border: "1px solid #E4E7EE",
         borderTopLeftRadius: "8px",
         borderBottomLeftRadius: "8px",
-        '@media(max-width: 650px)': {
-            maxWidth: "106px",
+        '@media(max-width: 900px)': {
+            maxWidth: "206px",
         },
     },
     searchIcon: {
@@ -82,13 +86,42 @@ export default makeStyles(() => ({
         flexDirection: "column",
         alignItems: "center",
         borderRadius: "8px",
-        '@media(max-width: 650px)': {
-            display: 'none',
-        },
     },
     likeIcon: {
         marginTop: "8px",
         fontSize: "18px",
         color: "#0D63F3",
+    },
+    drawerWrapper: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "space-between",
+    },
+    linkWrapper: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "space-between",
+        gap:"20px",
+        '@media(max-width: 900px)': {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: 'start',
+            padding: "0 20px"
+        },
+    },
+    navLinks:{
+        height: "100vh",
+        width: "80vw !important",
+        paddingTop: "30px",
+    },
+    closeIcon: {},
+    headWrapper: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "space-between",
+        padding: "20px",
     },
 }));
