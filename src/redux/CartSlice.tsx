@@ -15,12 +15,6 @@ const CartSlice = createSlice({
     initialState,
     name: "cart",
     reducers: {
-        setOpenCart: (state: any, action: any) => {
-            state.cartState = action.payload.cartState;
-        },
-        setCloseCart: (state: any, action: any) => {
-            state.cartState = action.payload.cartState;
-        },
         setAddItemToCart: (state: any, action: any) => {
             const itemIndex = state.cartItems.findIndex((item: any) => item.id === action.payload.id);
             console.log()
@@ -105,8 +99,6 @@ const CartSlice = createSlice({
 });
 
 export const {
-    setOpenCart,
-    setCloseCart,
     setAddItemToCart,
     setRemoveItemFromCart,
     setIncreaseItemQTY,
