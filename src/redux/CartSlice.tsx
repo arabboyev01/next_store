@@ -4,11 +4,11 @@ const initialState = {
     cartState: false,
     // cartItems: window.localStorage.getItem("cart")
     //     // @ts-ignore
-    //     ? JSON.parse(localStorage.getItem("cart"))
+    //     ? JSON.parse(localStorage.getItem("cart")) : [], // Let Suppose Database
     cartItems: [], // Let Suppose Database
     singleProduct: [],
     cartTotalAmount: 0,
-    cartTotalQantity: 0,
+    cartTotalQuantity: 0,
 };
 
 const CartSlice = createSlice({
@@ -17,13 +17,14 @@ const CartSlice = createSlice({
     reducers: {
         setAddItemToCart: (state: any, action: any) => {
             const itemIndex = state.cartItems.findIndex((item: any) => item.id === action.payload.id);
-            console.log()
             if (itemIndex >= 0) {
                 state.cartItems[itemIndex].cartQuantity += 1;
+                state.cartTotalQuantity += 1
                 toast.success(`Savatga qo'shildi`);
             } else {
                 const temp = { ...action.payload, cartQuantity: 1 };
                 state.cartItems.push(temp);
+                state.cartTotalQuantity += 1
 
                 toast.success(`${action.payload.title} Savatga qo'shildi`);
             }
@@ -37,9 +38,11 @@ const CartSlice = createSlice({
         },
 
         setRemoveItemFromCart: (state: any, action: any) => {
-             state.cartItems = state.cartItems.filter(
-                (item: any) => item.id !== action.payload.id
-            );
+
+                state.cartItems = state.cartItems.filter(
+                    (item: any) => item.id !== action.payload.id
+                );
+
 
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
 
@@ -112,6 +115,6 @@ export const selectSingleItem = (state: any) => state.cart.singleProduct;
 export const selectCartItems = (state: any) => state.cart.cartItems;
 
 export const selectTotalAmount = (state: any) => state.cart.cartTotalAmount;
-export const selectTotalQTY = (state: any) => state.cart.cartTotalQantity;
+export const selectTotalQTY = (state: any) => state.cart.cartTotalQuantity;
 
 export default CartSlice.reducer;

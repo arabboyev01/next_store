@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/styles";
 
 export default makeStyles(() => ({
     navWrapper: {
-        position: "fixed",
+        position: "relative",
         top: 0,
         left: 0,
         width: "100%",
