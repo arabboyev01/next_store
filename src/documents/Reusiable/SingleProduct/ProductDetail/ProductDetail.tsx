@@ -5,14 +5,16 @@ import {Button, Typography} from "@mui/material";
 
 export type ProductDetailType = {
     handleOpen: (e: any) => void
+    data?: any
 }
-const ProductDetail:React.FC<handleOpen> = ({handleOpen}) => {
+const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
     const classes = Style();
     return (
         <Box className={classes.detailWrapper}>
-            <Typography className={classes.mainTitle}>Main Title here</Typography>
+            <Typography className={classes.mainTitle}>{data.title}</Typography>
             <Typography className={classes.text}>Rangi</Typography>
             <Box className={classes.colorBox}>
+                {data}
                 <Box className={classes.box}></Box>
             </Box>
             <Typography className={classes.price}>Narxi / dona</Typography>

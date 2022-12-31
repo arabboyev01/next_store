@@ -10,8 +10,7 @@ const initialState = {
     cartTotalAmount: 0,
     cartTotalQantity: 0,
 };
-console.log(initialState)
-console.log(initialState.cartItems)
+
 const CartSlice = createSlice({
     initialState,
     name: "cart",
@@ -24,10 +23,9 @@ const CartSlice = createSlice({
         },
         setAddItemToCart: (state: any, action: any) => {
             const itemIndex = state.cartItems.findIndex((item: any) => item.id === action.payload.id);
-
+            console.log()
             if (itemIndex >= 0) {
                 state.cartItems[itemIndex].cartQuantity += 1;
-
                 toast.success(`Savatga qo'shildi`);
             } else {
                 const temp = { ...action.payload, cartQuantity: 1 };
@@ -80,13 +78,13 @@ const CartSlice = createSlice({
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
         },
 
-        setClearCartItems: (state: any, action: any) => {
+        setClearCartItems: (state: any) => {
             state.cartItems = [];
             toast.success(`Savatcha tozalandi`);
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
         },
 
-        setGetTotals: (state: any, action: any) => {
+        setGetTotals: (state: any) => {
             let { totalAmount, totalQTY } = state.cartItems.reduce((cartTotal: any, cartItem:any)=> {
                 const { price, cartQuantity } = cartItem;
                 const totalPrice = price * cartQuantity;
