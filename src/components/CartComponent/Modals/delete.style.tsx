@@ -1,30 +1,32 @@
 import {makeStyles} from "@mui/styles";
 
+
+export const modalWrapper = {
+    background: '#FBFBFB',
+    borderRadius: "15px",
+}
 export default makeStyles(() => ({
-    modalWrapper: {
-        position: 'absolute' as 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        maxWidth: '604px',
-        background: '#FBFBFB',
-        border: 'none',
-        padding: "40px",
-        width: "100%",
+    contentWrapper: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        borderRadius: "15px",
+        padding: "10px 30px",
         '@media(max-width: 650px)': {
-            maxWidth: '360px',
+            padding: "5px",
         },
     },
     title: {
         fontSize: "26px",
         lineHeight: "31px",
-        maxWidth: "426px",
+        maxWidth: "460px",
         textAlign: "center",
         paddingTop: "20px",
+        '@media(max-width: 650px)': {
+            maxWidth: '350px',
+            fontSize: "14px",
+            lineHeight: "18px",
+            paddingTop: "10px",
+        },
     },
     delete: {
         width: "90px",
@@ -34,21 +36,25 @@ export default makeStyles(() => ({
         flexDirection: "column",
         alignItems: "center",
         borderRadius: "50%",
+        '@media(max-width: 650px)': {
+            width: "60px",
+            height: "60px",
+        },
     },
     deleteIcon: {
         fontSize: "30px",
         marginTop: "30px",
         color: "#D80027",
+        '@media(max-width: 650px)': {
+            marginTop: "15px",
+        },
     },
     buttons: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        paddingTop:'30px',
+        paddingTop: '30px',
         gap: "30px",
-        '@media(max-width: 650px)': {
-            flexDirection: "column",
-        },
     },
     goBack: {
         background: "#D80027",
@@ -60,7 +66,11 @@ export default makeStyles(() => ({
             background: "#D80027 !important",
             opacity: 0.9,
             cursor: 'pointer',
-        }
+        },
+        '@media(max-width: 650px)': {
+            padding: '15px 17px',
+            fontSize: "12px",
+        },
     },
     yesDelete: {
         background: "#fff",
@@ -72,6 +82,10 @@ export default makeStyles(() => ({
             background: "#fff !important",
             opacity: 0.9,
             cursor: 'pointer',
-        }
+        },
+        '@media(max-width: 650px)': {
+            padding: '15px 17px',
+            fontSize: "12px",
+        },
     },
 }))

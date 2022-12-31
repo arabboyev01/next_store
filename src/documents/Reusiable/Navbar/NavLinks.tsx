@@ -10,7 +10,7 @@ import {selectTotalQTY} from "../../../redux/CartSlice";
 
 const NavLinks = () => {
     const classes = Style();
-    const totalQTY = useSelector(selectTotalQTY);
+    const {totalQTY} = useSelector(selectTotalQTY);
     return (
         <Box className={classes.linkWrapper}>
             <Box className={classes.likeButton}>

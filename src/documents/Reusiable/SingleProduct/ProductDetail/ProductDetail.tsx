@@ -3,7 +3,10 @@ import {Box} from "@mui/system";
 import React from "react";
 import {Button, Typography} from "@mui/material";
 
-const ProductDetail = () => {
+export type ProductDetailType = {
+    handleOpen: (e: any) => void
+}
+const ProductDetail:React.FC<handleOpen> = ({handleOpen}) => {
     const classes = Style();
     return (
         <Box className={classes.detailWrapper}>
@@ -13,7 +16,7 @@ const ProductDetail = () => {
                 <Box className={classes.box}></Box>
             </Box>
             <Typography className={classes.price}>Narxi / dona</Typography>
-            <Button className={classes.add}>Savatga Otish</Button>
+            <Button className={classes.add} onClick={handleOpen}>Savatga Otish</Button>
         </Box>
     )
 }

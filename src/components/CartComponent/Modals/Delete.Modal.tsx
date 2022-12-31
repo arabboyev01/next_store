@@ -1,11 +1,14 @@
 import {Box} from "@mui/system";
-import Style from "./delete.style"
+import Style, {modalWrapper} from "./delete.style"
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+// @ts-ignore
+import Rodal from 'rodal';
+import 'rodal/lib/rodal.css';
+import {useMediaQuery} from "@mui/material";
 export type DeleteModalType = {
     title: string,
     open: any,
@@ -15,15 +18,20 @@ export type DeleteModalType = {
 }
 const DeleteModal: React.FC<DeleteModalType> = ({title, handleClose, open, onRemoveItem, item}) => {
     const classes = Style();
+    const query = useMediaQuery('@media(max-width: 600px)')
     return (
         <Box>
-            <Modal
-                open={open}
+            <Rodal
+                animation="slideDown"
+                closeOnEsc={true}
+                showCloseButton={false}
+                visible={open}
                 onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
+                customStyles={modalWrapper}
+                width={query ? 350 : 602}
+                height={query ? 227 : 346}
             >
-                <Box className={classes.modalWrapper}>
+                <Box className={classes.contentWrapper}>
                     <Box className={classes.delete}>
                         <DeleteIcon className={classes.deleteIcon}/>
                     </Box>
@@ -36,7 +44,7 @@ const DeleteModal: React.FC<DeleteModalType> = ({title, handleClose, open, onRem
                         </Box>
                     </Box>
                 </Box>
-            </Modal>
+            </Rodal>
         </Box>
     )
 }

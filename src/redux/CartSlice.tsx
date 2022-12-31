@@ -1,16 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
-
 const initialState = {
     cartState: false,
     // cartItems: window.localStorage.getItem("cart")
     //     // @ts-ignore
     //     ? JSON.parse(localStorage.getItem("cart"))
     cartItems: [], // Let Suppose Database
+    singleProduct: [],
     cartTotalAmount: 0,
     cartTotalQantity: 0,
 };
 console.log(initialState)
+console.log(initialState.cartItems)
 const CartSlice = createSlice({
     initialState,
     name: "cart",
@@ -22,9 +23,7 @@ const CartSlice = createSlice({
             state.cartState = action.payload.cartState;
         },
         setAddItemToCart: (state: any, action: any) => {
-            const itemIndex = state.cartItems.findIndex(
-                (item: any) => item.id === action.payload.id
-            );
+            const itemIndex = state.cartItems.findIndex((item: any) => item.id === action.payload.id);
 
             if (itemIndex >= 0) {
                 state.cartItems[itemIndex].cartQuantity += 1;
@@ -38,6 +37,11 @@ const CartSlice = createSlice({
             }
 
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
+        },
+
+        setSingleProduct: (state: any, action: any) => {
+            const filter =  {...action.payload}
+            state.singleProduct.push(filter);
         },
 
         setRemoveItemFromCart: (state: any, action: any) => {
@@ -110,10 +114,11 @@ export const {
     setIncreaseItemQTY,
     setDecreaseItemQTY,
     setClearCartItems,
-    setGetTotals
+    setGetTotals,
+    setSingleProduct
 } = CartSlice.actions;
 
-export const selectCartState = (state: any) => state.cart.cartState;
+export const selectSingleItem = (state: any) => state.cart.singleProduct;
 export const selectCartItems = (state: any) => state.cart.cartItems;
 
 export const selectTotalAmount = (state: any) => state.cart.cartTotalAmount;

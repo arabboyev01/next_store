@@ -75,6 +75,28 @@ export const CategoryCart: CategoryCartTypes[] = [
 
 export const MainProducts: MainProductsType[] = [
     {
+        id: 0,
+        title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
+        img: productImg1,
+        price: '299 000 so’m',
+        status: 'sale',
+        order: 1230,
+        color: [
+            {
+                digit: "#BEBBC2",
+            },
+            {
+                digit: "#F9DED7",
+            },
+            {
+                digit: "#FCE9DB",
+            },
+            {
+                digit: "#E8E8EA",
+            },
+        ],
+    },
+    {
         id: 1,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg1,
@@ -349,5 +371,44 @@ export const BrandsStore: BrandsDataType[] = [
     {
         id:4,
         image:texnoImage,
+    },
+]
+
+export const numsRange = [
+    {
+        id: 1,
+    },
+    {
+        id: 2,
+    },
+    {
+        id: 3,
+    },
+    {
+        id: 4,
+    },
+    {
+        id: 5,
+    },
+    {
+        id: 6,
+    },
+    {
+        id: 7,
+    },
+    {
+        id: 8,
+    },
+    {
+        id: 9,
+    },
+    {
+        id: 10,
+    },
+    {
+        id: 11,
+    },
+    {
+        id: 12,
     },
 ]
