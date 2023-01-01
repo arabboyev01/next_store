@@ -11,7 +11,6 @@ import {selectTotalQTY} from "../../../redux/CartSlice";
 const NavLinks = () => {
     const classes = Style();
     const totalQTY = useSelector(selectTotalQTY);
-    console.log(totalQTY)
     return (
         <Box className={classes.linkWrapper}>
             <Box className={classes.likeButton}>

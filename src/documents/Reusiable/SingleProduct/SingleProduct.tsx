@@ -9,23 +9,27 @@ import {useSelector} from "react-redux";
 import {selectSingleItem} from "../../../redux/CartSlice";
 const SingleProduct = () => {
     const classes = Styles();
+    const mainData = typeof window !== "undefined" ? window.localStorage.getItem("cart") : undefined;
+    const singleProduct = useSelector(selectSingleItem);
+    const data = singleProduct[singleProduct.length - 1]
+
     const query = useMediaQuery('@media(max-width: 650px)');
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleCLose = () => setOpen(false);
-    const singleProduct = useSelector(selectSingleItem);
-    const data = singleProduct[singleProduct.length - 1]
+    console.log(data)
+    console.log(mainData)
     return (
         <Box className={classes.singleProducts}>
             <PaymentTerm open={open} handleCLose={handleCLose}/>
-            <Box className={classes.productHeader}>
-                <Box className={classes.imageWrapper}>
-                    <Image src={data.img.src} alt='product_image' width={query ? 300 : 387} height={query ? 300 : 387} style={{objectFit: "contain"}}/>
+                <Box className={classes.productHeader} >
+                    <Box className={classes.imageWrapper}>
+                        <Image src={data.img.src} alt='product_image' width={query ? 300 : 387} height={query ? 300 : 387} style={{objectFit: "contain"}}/>
+                    </Box>
+                    <Box>
+                        <ProductDetail handleOpen={handleOpen} data={data}/>
+                    </Box>
                 </Box>
-                <Box>
-                    <ProductDetail handleOpen={handleOpen} data={data}/>
-                </Box>
-            </Box>
         </Box>
     )
 }

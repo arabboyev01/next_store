@@ -8,7 +8,7 @@ export default makeStyles(() => ({
         width: "100%",
         height: "70px",
         boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.5)",
-        background: "#fff",
+        background: "#fff !important",
         zIndex: 100,
         overflow: "hidden",
     },

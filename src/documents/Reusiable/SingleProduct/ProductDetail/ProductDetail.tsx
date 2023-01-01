@@ -14,7 +14,7 @@ const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
             <Typography className={classes.mainTitle}>{data.title}</Typography>
             <Typography className={classes.text}>Rangi</Typography>
             <Box className={classes.colorBox}>
-                {data.color((item: any, index: number) =>
+                {data.color.map((item: any, index: number) =>
                     <Box className={classes.box} key={index} style={{backgroundColor: `${item.digit}`}}></Box>
                 )}
             </Box>
