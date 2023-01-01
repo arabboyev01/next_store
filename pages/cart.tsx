@@ -16,4 +16,4 @@ const Cart = () => {
         </Box>
     )
 }
-export default Cart
+export default Cart;

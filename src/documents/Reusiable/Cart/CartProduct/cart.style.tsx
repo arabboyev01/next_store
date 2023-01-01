@@ -6,7 +6,7 @@ export default makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         alignItems: 'start',
-        gap: "20px",
+        // gap: "20px",
     },
     cartWrapper: {
         width: "100%",
@@ -17,10 +17,12 @@ export default makeStyles(() => ({
         padding: "25px",
         borderRadius: "10px",
         position: "relative",
+        marginBottom: '20px',
         '@media(max-width: 650px)' : {
             maxWidth: "360px",
             flexDirection: "column",
             margin: "0 auto",
+            marginTop: '20px',
         },
     },
     contentWrapper: {

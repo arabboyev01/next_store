@@ -77,10 +77,10 @@ export const MainProducts: MainProductsType[] = [
     {
         id: 0,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg1,
-        price: '299 000 so’m',
-        status: 'sale',
-        order: 1230,
+        img: productImg10,
+        price: '299000',
+        status: '',
+        order: 230,
         color: [
             {
                 digit: "#BEBBC2",
@@ -100,7 +100,7 @@ export const MainProducts: MainProductsType[] = [
         id: 1,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg1,
-        price: '299 000 so’m',
+        price: '299000',
         status: 'sale',
         order: 1230,
         color: [
@@ -122,7 +122,7 @@ export const MainProducts: MainProductsType[] = [
         id: 2,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg2,
-        price: '299 000 so’m',
+        price: '299000',
         status: 'new',
         order: 230,color: [
             {
@@ -144,7 +144,7 @@ export const MainProducts: MainProductsType[] = [
         id: 3,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg3,
-        price: '299 000 so’m',
+        price: '299000',
         status: '',
         order: 230,
         color: [
@@ -166,7 +166,7 @@ export const MainProducts: MainProductsType[] = [
         id: 4,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg4,
-        price: '299 000 so’m',
+        price: '299000',
         status: 'sale',
         order: 230,
         color: [
@@ -188,7 +188,7 @@ export const MainProducts: MainProductsType[] = [
         id: 5,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg5,
-        price: '299 000 so’m',
+        price: '299000',
         status: '',
         order: 230,
         color: [
@@ -210,7 +210,7 @@ export const MainProducts: MainProductsType[] = [
         id: 6,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg6,
-        price: '299 000 so’m',
+        price: '299000',
         status: '',
         order: 230,
         color: [
@@ -232,7 +232,7 @@ export const MainProducts: MainProductsType[] = [
         id: 7,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg7,
-        price: '299 000 so’m',
+        price: '299000',
         status: 'new',
         order: 230,
         color: [
@@ -254,7 +254,7 @@ export const MainProducts: MainProductsType[] = [
         id: 8,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg8,
-        price: '299 000 so’m',
+        price: '299000',
         status: '',
         order: 230,
         color: [
@@ -276,29 +276,7 @@ export const MainProducts: MainProductsType[] = [
         id: 9,
         title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg9,
-        price: '299 000 so’m',
-        status: '',
-        order: 230,
-        color: [
-            {
-                digit: "#BEBBC2",
-            },
-            {
-                digit: "#F9DED7",
-            },
-            {
-                digit: "#FCE9DB",
-            },
-            {
-                digit: "#E8E8EA",
-            },
-        ],
-    },
-    {
-        id: 10,
-        title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
-        img: productImg10,
-        price: '299 000 so’m',
+        price: '299000',
         status: '',
         order: 230,
         color: [

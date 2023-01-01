@@ -5,7 +5,6 @@ import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
 import CloseIcon from "@mui/icons-material/Close";
 import {Typography, useMediaQuery} from "@mui/material";
-import {booleanLiteral} from "@babel/types";
 import React from "react";
 import {numsRange} from "../../../DumbData/DumbData";
 import PrimaryButton from "../../PrimaryButton/PrimaryButton";

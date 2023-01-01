@@ -3,15 +3,12 @@ import Styles from "./cart.style"
 import {Typography} from "@mui/material";
 import CartProduct from "../../documents/Reusiable/Cart/CartProduct/CartProduct";
 import CartSummary from "../../documents/Reusiable/Cart/CartSummary/CartSummary";
-import React from "react";
+import {useSelector} from "react-redux";
+import {selectTotalQTY} from "../../redux/CartSlice";
 
-export type CartComponentType = {
-    totalQTY?:  any
-}
-
-const CartComponent: React.FC<CartComponentType> = ({ totalQTY }) => {
+const CartComponent = () => {
     const classes = Styles();
-
+    const totalQTY = useSelector(selectTotalQTY);
     return (
         <Box className={classes.cartWrapper}>
             <Typography className={classes.ordinaryText}>Savatchangizda: <span className={classes.span}>{totalQTY} ta mahsulot bor</span></Typography>
@@ -22,4 +19,4 @@ const CartComponent: React.FC<CartComponentType> = ({ totalQTY }) => {
         </Box>
     )
 }
-export default CartComponent
+export default CartComponent;

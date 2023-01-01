@@ -1,11 +1,12 @@
 import {makeStyles} from "@mui/styles";
 
 export default makeStyles(() => ({
-    button: {
+    submitButton: {
         width: '100%',
         height: "100%",
         background: "#0D63F3",
         color: "#fff",
+        padding: "10px 0",
         '&:hover': {
             opacity: 0.8,
             background: "#0D63F3 !important",
