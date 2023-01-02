@@ -11,7 +11,7 @@ import {Typography} from "@mui/material";
 import SubmitButton from "../../../SubmitButton/SubmitButton";
 
 const schema = Yup.object().shape({
-    approve: Yup.string().required(`${SEND_CODE_FORM.approve.label} is a required field.`),
+    approve: Yup.string().required(`${SEND_CODE_FORM.approve.label} kirgazishingiz talab qilinadi`),
 });
 const validate = makeValidate(schema);
 
@@ -23,7 +23,7 @@ const SendCode: React.FC<LoginFieldType> = ({handleCloseForget}) => {
     return(
         <Box className={classes.fieldWrapper}>
             <CloseIcon className={classes.closeIcon} onClick={handleCloseForget}/>
-            <Typography className={classes.title}>Telefon raqamini kiriting</Typography>
+            <Typography className={classes.title}>Kodni tasdiqlang</Typography>
             <Form
                 onSubmit={() => console.log('hi')}
                 validate={validate}

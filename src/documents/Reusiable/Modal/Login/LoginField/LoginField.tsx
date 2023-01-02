@@ -10,6 +10,8 @@ import React, {useState} from "react";
 import {Typography} from "@mui/material";
 import SubmitButton from "../../../SubmitButton/SubmitButton";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 const schema = Yup.object().shape({
     number: Yup.string().required(`${LOGIN_FORM_VALUES.number.label} is a required field.`),
@@ -25,6 +27,9 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
     const [open, setOpen] = useState(false);
     const handleOpenForget = () => setOpen(true)
     const handleCloseForget = () => setOpen(false)
+
+    const [visible, setVisible] = useState(false)
+    const handleVisible = () => setVisible(!visible)
     return(
         <Box className={classes.fieldWrapper}>
             <CloseIcon className={classes.closeIcon} onClick={handleClose}/>
@@ -39,7 +44,10 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
                                 <CssTextField {...LOGIN_FORM_VALUES.number} placeholder='Tel Raqam' type="text"/>
                             </Box>
                             <Box className={classes.fieldContainer}>
-                                <CssTextField {...LOGIN_FORM_VALUES.password} placeholder='Parol' type='password'/>
+                                <label className={classes.seePassword} onClick={handleVisible}>
+                                    {visible ? <VisibilityOffIcon className={classes.icon} /> : <VisibilityIcon className={classes.icon} />}
+                                </label>
+                                <CssTextField {...LOGIN_FORM_VALUES.password} placeholder='Parol' type={visible ? 'text' : 'password'}/>
                             </Box>
                             <Box className={classes.submit}>
                                 <SubmitButton loading={false} buttonText='Kirish'/>

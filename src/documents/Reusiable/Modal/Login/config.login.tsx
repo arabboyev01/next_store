@@ -17,7 +17,7 @@ export const SEND_CODE_FORM = {
         require: true,
     },
     approve: {
-        name: 'number',
+        name: 'approve',
         label: "Kod",
         require: true,
     }

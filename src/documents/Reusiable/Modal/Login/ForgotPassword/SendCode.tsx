@@ -11,7 +11,7 @@ import {Typography} from "@mui/material";
 import SubmitButton from "../../../SubmitButton/SubmitButton";
 
 const schema = Yup.object().shape({
-    number: Yup.string().required(`${SEND_CODE_FORM.number.label} is a required field.`),
+    number: Yup.string().required(`${SEND_CODE_FORM.number.label} kirgazishingiz talab qilinadi`),
 });
 const validate = makeValidate(schema);
 
