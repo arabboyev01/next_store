@@ -112,6 +112,7 @@ export default makeStyles(() => ({
         flexDirection: "row",
         alignItems: 'center',
         justifyContent: "space-between",
+        position: 'absolute',
     },
     linkWrapper: {
         display: "flex",

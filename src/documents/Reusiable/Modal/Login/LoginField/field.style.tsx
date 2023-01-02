@@ -30,6 +30,7 @@ export default makeStyles(() => ({
     fieldContainer: {
         marginTop: "25px",
         height: "40px",
+        position: "relative",
     },
     closeIcon: {
         position: "absolute",
@@ -52,5 +53,15 @@ export default makeStyles(() => ({
         color: '#0D63F3',
         marginTop: "16px",
         cursor: 'pointer',
+    },
+    seePassword:{
+        position: "absolute",
+        right: "10px",
+        top: "15px",
+        cursor: 'pointer',
+        zIndex: 100,
+    },
+    icon: {
+        color: "#000"
     },
 }))
