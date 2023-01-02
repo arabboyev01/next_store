@@ -2,9 +2,6 @@ import {makeStyles} from "@material-ui/styles";
 
 export default makeStyles(() => ({
     navWrapper: {
-        position: "relative",
-        top: 0,
-        left: 0,
         width: "100%",
         height: "70px",
         boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.5)",
@@ -19,9 +16,7 @@ export default makeStyles(() => ({
         color: "#000",
         fontSize: "1.7rem",
     },
-    drawer: {
-        padding: "5px 20px",
-    },
+
     contentWrapper: {
         maxWidth: "1230px",
         margin: "0 auto",
@@ -132,11 +127,22 @@ export default makeStyles(() => ({
         width: "80vw !important",
         paddingTop: "30px",
     },
-    headWrapper: {
+
+    navHeader: {
         display: "flex",
         flexDirection: "row",
-        alignItems: 'center',
+        alignItems: "center",
         justifyContent: "space-between",
-        padding: "20px",
+        flex: 0.2,
+    },
+    hamburger: {
+        display: "none",
+    },
+    linksContainer: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        flex: 0.8,
     },
 }));
