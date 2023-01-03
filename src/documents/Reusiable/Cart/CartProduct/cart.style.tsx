@@ -6,7 +6,8 @@ export default makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         alignItems: 'start',
-        // gap: "20px",
+        with: "100%",
+        marginTop: "20px",
     },
     cartWrapper: {
         width: "100%",

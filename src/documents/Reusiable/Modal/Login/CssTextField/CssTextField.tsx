@@ -1,5 +1,5 @@
 import {styled} from '@mui/material'
-import {TextField} from 'mui-rff'
+import {TextField, Select} from 'mui-rff'
 
 export const CssTextField = styled(TextField)(({}) => ({
     width: '100%',
@@ -33,3 +33,37 @@ export const CssTextField = styled(TextField)(({}) => ({
         display: "none",
     },
 }));
+
+export const CssSelectField = styled(Select)({
+
+    height: '100%',
+    borderRadius: '10px',
+
+    '& .MuiFormLabel-root-MuiInputLabel-root': {
+        color: 'rgba(0, 0, 0, 0.4)',
+        maxWidth: 'calc(100% - 50px)'
+    },
+    '& fieldset': {
+        borderColor: 'rgba(0, 0, 0, 0.4)',
+    },
+    '& svg': {
+        color: 'rgba(0, 0, 0, 0.4)',
+    },
+    '& .MuiInputBase-input': {
+        borderRadius: '10px',
+        color: 'rgba(0, 0, 0, 0.4)',
+    },
+    '&:hover': {
+        '&& fieldset': {
+            borderColor: 'rgba(0, 0, 0, 0.4)',
+        }
+    },
+    '&:active': {
+        '&& label': {
+            maxWidth: 'calc(100% - 1px)',
+        },
+        '&& fieldset': {
+            borderColor: 'rgba(0, 0, 0, 0.4)',
+        }
+    }
+});

@@ -3,10 +3,10 @@ import {makeStyles} from "@mui/styles";
 export default makeStyles(() => ({
     cartWrapper: {
         maxWidth: "1230px",
-        margin: "120px auto 0 auto",
+        margin: "50px auto 100px auto",
         '@media(max-width: 650px)' : {
             padding: "0 20px",
-            margin: "100px auto 0 auto",
+            margin: "30px auto 0 auto",
         },
     },
     contentWrapper: {

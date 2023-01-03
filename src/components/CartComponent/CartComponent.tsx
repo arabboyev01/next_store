@@ -5,16 +5,22 @@ import CartProduct from "../../documents/Reusiable/Cart/CartProduct/CartProduct"
 import CartSummary from "../../documents/Reusiable/Cart/CartSummary/CartSummary";
 import {useSelector} from "react-redux";
 import {selectTotalQTY} from "../../redux/CartSlice";
-
+import {useState} from "react"
+import SaleForm from "../../documents/Reusiable/SaleForm/SaleForm";
+import MainTitle from "../../documents/Reusiable/MainTitle/MainTitle";
 const CartComponent = () => {
     const classes = Styles();
     const totalQTY = useSelector(selectTotalQTY);
+    const [cart, setCart] =  useState(false);
+    const handleForm = () => setCart(!cart)
     return (
         <Box className={classes.cartWrapper}>
-            <Typography className={classes.ordinaryText}>Savatchangizda: <span className={classes.span}>{totalQTY} ta mahsulot bor</span></Typography>
+            {cart ? <MainTitle title="Buyurtmani rasmiylashtirish"/> :
+                <Typography className={classes.ordinaryText}>Savatchangizda: <span className={classes.span}>{totalQTY} ta mahsulot bor</span></Typography>
+            }
             <Box className={classes.contentWrapper}>
-                <CartProduct />
-                <CartSummary/>
+                {cart ? <SaleForm handleForm={handleForm} /> : <CartProduct />}
+                <CartSummary handleForm={handleForm} cart={cart}/>
             </Box>
         </Box>
     )

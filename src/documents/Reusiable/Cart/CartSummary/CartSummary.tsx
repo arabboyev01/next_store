@@ -4,8 +4,14 @@ import {Typography} from "@mui/material";
 import PrimaryButton from "../../PrimaryButton/PrimaryButton";
 import {useSelector} from "react-redux";
 import {selectTotalAmount} from "../../../../redux/CartSlice"
-import {useState, useEffect} from "react";
-const CartSummary = () => {
+import React, {useState, useEffect} from "react";
+import SubmitButton from "../../SubmitButton/SubmitButton";
+
+export type CartSummaryType = {
+    handleForm: any
+    cart: boolean
+}
+const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart}) => {
     const classes = Styles();
     const totalAmount = useSelector(selectTotalAmount);
     const [navState, setNavState] = useState(false);
@@ -40,7 +46,7 @@ const CartSummary = () => {
                 <Typography className={classes.priceCenter}>{totalAmount+ 40000} so&apos;m</Typography>
             </Box>
             <Box className={classes.buyBtn}>
-                <PrimaryButton text="Rasmiylashtirish"/>
+                {cart ? <SubmitButton buttonText="Rasmiylashtirish" /> : <PrimaryButton text="Rasmiylashtirish" onClick={handleForm}/>}
             </Box>
         </Box>
     )
