@@ -1,5 +1,5 @@
 import {Box} from "@mui/system";
-import Style from "./Navbar.style"
+import Style from "./Nav.style"
 import Badge from '@mui/material/Badge';
 import {Button} from "@mui/material";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';

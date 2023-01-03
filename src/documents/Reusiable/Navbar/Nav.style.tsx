@@ -1,4 +1,4 @@
-import {makeStyles} from "@material-ui/styles";
+import {makeStyles} from "@mui/styles";
 
 export default makeStyles(() => ({
     navWrapper: {
@@ -9,14 +9,14 @@ export default makeStyles(() => ({
         zIndex: 100,
         overflow: "hidden",
     },
-    link:{
-        paddingTop: "2px",
+    active: {
+        width: "100%",
+        height: "280px",
+        boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.5)",
+        background: "#fff !important",
+        zIndex: 100,
+        overflow: "hidden",
     },
-    icon: {
-        color: "#000",
-        fontSize: "1.7rem",
-    },
-
     contentWrapper: {
         maxWidth: "1230px",
         margin: "0 auto",
@@ -33,6 +33,41 @@ export default makeStyles(() => ({
             padding: "10px 20px",
         },
     },
+    link: {
+        paddingTop: "2px",
+        '@media(max-width: 900px)': {
+            paddingTop: "10px",
+        }
+    },
+    hamburger: {
+        display: "none",
+        '@media(max-width: 900px)': {
+            display: 'block',
+        },
+    },
+    navLinks: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        flex: 0.9,
+        justifyContent: "space-between",
+        '@media(max-width: 900px)': {
+            display: "none",
+        },
+    },
+    activeNavLinks: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        flex: 0.9,
+        justifyContent: "space-between",
+        '@media(max-width: 900px)': {
+            position: "absolute",
+            left: 0,
+            top: '100px',
+            zIndex: 100,
+        },
+    },
     catalogButton: {
         background: 'linear-gradient(to right, #4D5EF6, #F64D4D)',
         color: "#fff",
@@ -42,15 +77,6 @@ export default makeStyles(() => ({
         '@media(max-width: 900px)': {
             display: 'none',
         },
-    },
-    loginButton: {
-        background: 'linear-gradient(270deg, rgba(77, 94, 246, 0.2), rgba(246, 77, 77, 0.2))',
-        color: "#000",
-        width: "109px",
-        height: "46px",
-    },
-    catalogIcon: {
-        marginRight: "15px",
     },
     searchInputWrapper: {
         maxWidth: "396px",
@@ -88,6 +114,19 @@ export default makeStyles(() => ({
         borderBottomRightRadius: "8px",
         cursor: "pointer",
     },
+    linkWrapper: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "space-between",
+        gap:"20px",
+        '@media(max-width: 900px)': {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: 'start',
+            padding: "0 20px"
+        },
+    },
     likeButton: {
         width: "46px",
         height: "36px",
@@ -102,40 +141,10 @@ export default makeStyles(() => ({
         fontSize: "18px",
         color: "#0D63F3",
     },
-    linkWrapper: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: 'center',
-        justifyContent: "space-between",
-        gap:"20px",
-        '@media(max-width: 900px)': {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: 'start',
-            padding: "0 20px"
-        },
+    loginButton: {
+        background: 'linear-gradient(270deg, rgba(77, 94, 246, 0.2), rgba(246, 77, 77, 0.2))',
+        color: "#000",
+        width: "109px",
+        height: "46px",
     },
-    navLinks:{
-        height: "100vh",
-        width: "80vw !important",
-        paddingTop: "30px",
-    },
-
-    navHeader: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        flex: 0.2,
-    },
-    hamburger: {
-        display: "none",
-    },
-    linksContainer: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        flex: 0.8,
-    },
-}));
+}))

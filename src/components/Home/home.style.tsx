@@ -3,7 +3,7 @@ export default makeStyles(() => ({
     homeWrapper: {
         maxWidth: "1230px",
         height: "auto",
-        margin: "120px auto 0 auto",
+        margin: "20px auto 0 auto",
         '@media(max-width: 1230px)':{
             padding: "0 20px",
         },
