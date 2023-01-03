@@ -8,6 +8,7 @@ import {Button, useMediaQuery, useTheme} from "@mui/material";
 import {useState} from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import NavLinks from "./NavLinks";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Nav = () => {
     const classes = style();
@@ -19,7 +20,7 @@ const Nav = () => {
         <Box className={showLinks ? classes.active : classes.navWrapper}>
             <Box className={classes.contentWrapper}>
                 <Link href="/" className={classes.link}><Image width={query ? 70 : 100} height={query ? 30 : 45} src={NextLogo} alt="logo"/></Link>
-                <MenuIcon onClick={handleMobile} className={classes.hamburger}/>
+                {showLinks ? <CloseIcon onClick={handleMobile} className={classes.hamburger}/> : <MenuIcon onClick={handleMobile} className={classes.hamburger}/>}
                 <Box className={showLinks ? classes.activeNavLinks : classes.navLinks}>
                     <Button className={classes.catalogButton}><MenuIcon/> Katalog</Button>
                     <Box className={classes.searchInputWrapper}>

@@ -50,6 +50,7 @@ export default makeStyles(() => ({
         display: "none",
         '@media(max-width: 900px)': {
             display: 'block',
+            transition: "all 1s easy-in-out",
         },
     },
     navLinks: {
