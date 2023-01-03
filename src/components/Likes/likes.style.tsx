@@ -9,8 +9,19 @@ export default makeStyles(() => ({
         width: "100%",
         margin: "60px auto",
         '@media(max-width: 600px)': {
-            maxWidth: "360px",
+            maxWidth: "330px",
         },
+    },
+    ordinaryText: {
+        fontSize: "28px",
+        lineHeight: "33.2px",
+        fontWeight: 400,
+        marginBottom: '30px',
+        '@media(max-width: 650px)' : {
+            fontSize: "20px",
+            lineHeight: "24px",
+            marginBottom: '20px',
+        }
     },
     content: {
         width: "100%",
@@ -29,6 +40,7 @@ export default makeStyles(() => ({
             alignItems: "center",
             justifyContent: "center",
             height: "auto",
+            padding: "10px",
         },
     },
     likeIcon: {

@@ -22,6 +22,7 @@ const LikesComponent = () => {
     return(
         <Box className={classes.likeWrapper}>
             <Box className={classes.contentWrapper}>
+                <Typography className={classes.ordinaryText} >Saralangan mahsulotlar</Typography>
                 {MainProducts.map((item, index) =>
                     <Box className={classes.content} key={index}>
                         <FavoriteIcon className={classes.likeIcon}/>
