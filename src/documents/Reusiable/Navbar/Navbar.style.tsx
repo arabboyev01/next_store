@@ -102,13 +102,6 @@ export default makeStyles(() => ({
         fontSize: "18px",
         color: "#0D63F3",
     },
-    drawerWrapper: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: 'center',
-        justifyContent: "space-between",
-        position: 'absolute',
-    },
     linkWrapper: {
         display: "flex",
         flexDirection: "row",
