@@ -100,7 +100,7 @@ export default makeStyles(() => ({
     searchInput: {
         maxWidth: "336px",
         width: "100%",
-        padding: "10px 5px",
+        padding: "10px 15px",
         border: "1px solid #E4E7EE",
         borderTopLeftRadius: "8px",
         borderBottomLeftRadius: "8px",
