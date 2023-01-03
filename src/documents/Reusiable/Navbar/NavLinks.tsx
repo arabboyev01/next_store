@@ -21,7 +21,7 @@ const NavLinks = () => {
             <LoginComponent open={open} handleClose={handleClose} />
         <Box className={classes.linkWrapper}>
             <Box className={classes.likeButton}>
-                <FavoriteBorderIcon className={classes.likeIcon}/>
+                <Link href='/likes'><FavoriteBorderIcon className={classes.likeIcon}/></Link>
             </Box>
             <Box className={classes.likeButton}>
                 <Badge badgeContent={totalQTY} color="primary">

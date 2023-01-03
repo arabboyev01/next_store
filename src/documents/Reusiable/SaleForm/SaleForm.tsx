@@ -65,6 +65,7 @@ const SaleForm : React.FC <SaleFormType> = (handleForm) => {
                                 aria-label="empty textarea"
                                 {...SALES_FORM.textArea}
                                 className={classes.textArea}
+                                placeholder="Misol uchun: kechki payti 18:00 gacha yetkazilsin"
                             />
                         </Box>
                     </form>

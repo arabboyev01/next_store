@@ -9,7 +9,6 @@ export default makeStyles(() => ({
         padding: "50px 20px",
         marginLeft: "20px",
         width: "100%",
-        marginTop: "20px",
         '@media(max-width: 650px)' : {
             padding: "20px 10px",
             marginLeft: 0,

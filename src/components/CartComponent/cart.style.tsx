@@ -20,18 +20,18 @@ export default makeStyles(() => ({
         },
     },
     ordinaryText: {
-        fontSize: "28px",
-        lineHeight: "32px",
-        fontWeight: 600,
+        fontSize: "22px",
+        lineHeight: "24px",
+        fontWeight: 400,
         '@media(max-width: 650px)' : {
             fontSize: "20px",
             lineHeight: "24px",
         }
     },
     span: {
-        fontSize: "24px",
-        lineHeight: "28.8px",
-        fontWeight: 600,
+        fontSize: "22px",
+        lineHeight: "24px",
+        fontWeight: 400,
         color: "#0D63F3",
         '@media(max-width: 650px)' : {
             fontSize: "16px",
