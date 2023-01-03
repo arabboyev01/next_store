@@ -8,6 +8,9 @@ export default makeStyles(() => ({
         background: "#fff !important",
         zIndex: 100,
         overflow: "hidden",
+        position: "sticky",
+        top: 0,
+        left: 0,
     },
     active: {
         width: "100%",
@@ -16,6 +19,10 @@ export default makeStyles(() => ({
         background: "#fff !important",
         zIndex: 100,
         overflow: "hidden",
+        position: "sticky",
+        top: 0,
+        left: 0,
+        transition: "all 0.5s",
     },
     contentWrapper: {
         maxWidth: "1230px",

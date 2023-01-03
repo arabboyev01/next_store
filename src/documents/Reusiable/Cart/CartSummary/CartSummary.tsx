@@ -23,7 +23,6 @@ const CartSummary = () => {
             window.removeEventListener('scroll', onNavScroll);
         }
     },[]);
-    console.log(totalAmount)
 
     return(
         <Box className={navState ? classes.sticky : classes.summaryWrapper}>
