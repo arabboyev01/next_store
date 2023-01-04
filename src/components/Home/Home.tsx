@@ -9,6 +9,7 @@ import SeeMoreButton from "../../documents/Reusiable/SeeMore/SeeMore";
 import {useMediaQuery} from "@mui/material";
 import MainCart from "../../documents/Reusiable/MainCart/MainCart";
 import Brands from "../../documents/Reusiable/Brands/Brands";
+import Link from "next/link";
 
 const HomeComponent = () => {
     const classes = Style();
@@ -21,7 +22,9 @@ const HomeComponent = () => {
             </Box>
             <Box>
                 <MainTitle title="Kategoriyalar" />
-                <SecondaryCart data={CategoryCart} />
+                <Link href='/category' style={{textDecoration: 'none'}}>
+                    <SecondaryCart data={CategoryCart} />
+                </Link>
             </Box>
             <Box className={classes.seeMore}>
                 <SeeMoreButton text='Batafsil' />
@@ -40,18 +43,18 @@ const HomeComponent = () => {
                 <MainTitle title="Eng kop sotilganlar" />
                 <MainCart mainData={MainProducts}  />
                 <Box className={classes.seeMore}>
-                    <SeeMoreButton text='Koproq korish' />
+                    <SeeMoreButton text="Ko'proq ko'rish" />
                 </Box>
             </Box>
             <Box className={classes.page}>
-                <MainTitle title="Brendlar boyicha" />
+                <MainTitle title="Brendlar bo'yicha" />
                 <Brands data={BrandsData}/>
             </Box>
             <Box className={classes.contentWrapper}>
                 <MainCarousel data={SecondCarousel} height={query ? '100px' : '240px'}/>
             </Box>
             <Box className={classes.page}>
-                <MainTitle title="Dokonlarimiz" />
+                <MainTitle title="Do'konlarimiz" />
                 <Brands data={BrandsStore}/>
             </Box>
         </Box>

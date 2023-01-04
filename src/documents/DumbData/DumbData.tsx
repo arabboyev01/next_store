@@ -30,6 +30,10 @@ import goodImage from "../../../public/assets/brands/goodzoone.png"
 import mediaImage from "../../../public/assets/brands/mediapark.png"
 import sandiqImage from "../../../public/assets/brands/sandiq.png"
 import texnoImage from "../../../public/assets/brands/texnomart.png"
+import mac from "../../../public/assets/categories/mac.png"
+import phone from "../../../public/assets/categories/phone.png"
+import tablet from "../../../public/assets/categories/tablet.png"
+import pots from "../../../public/assets/categories/pots.png"
 export const CategoryCart: CategoryCartTypes[] = [
     {
         id: 1,
@@ -388,5 +392,28 @@ export const numsRange = [
     },
     {
         id: 12,
+    },
+]
+
+export const CATEGORY_BUTTONS = [
+    {
+        id: 0,
+        category: "MacBook",
+        image: mac,
+    },
+    {
+        id: 1,
+        category: "I Phone",
+        image: phone,
+    },
+    {
+        id: 2,
+        category: "IPad",
+        image: tablet,
+    },
+    {
+        id: 2,
+        category: "Airpods",
+        image: pots,
     },
 ]

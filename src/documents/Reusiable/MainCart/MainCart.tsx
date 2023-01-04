@@ -32,7 +32,7 @@ const MainCart = ({mainData}: any) => {
                                     <Typography className={classes.new}>Yangilik</Typography> : null}
                             <Image src={item.img} alt='image' width={query ? 120 : 180} height={query ? 120 : 180}
                                    className={classes.mainImage}/>
-                            <Typography className={classes.price}>{item.price}</Typography>
+                            <Typography className={classes.price}>{item.price} so&apos;m</Typography>
                             <Typography className={classes.title}>{item.title}</Typography>
                             <Typography className={classes.order}>{item.order} ta buyurtma</Typography>
                         </Link>

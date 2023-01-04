@@ -14,7 +14,8 @@ const CartComponent = () => {
     const handleForm = () => setCart(!cart)
     return (
         <Box className={classes.cartWrapper}>
-            {cart ? <Typography className={classes.ordinaryText} >Buyurtmani rasmiylashtirish</Typography> :
+            {cart ?
+                <Typography className={classes.ordinaryText} >Buyurtmani rasmiylashtirish</Typography> :
                 <Typography className={classes.ordinaryText}> Savatchangizda: <span className={classes.span}>{totalQTY} ta mahsulot bor</span></Typography>
             }
             <Box className={classes.contentWrapper}>

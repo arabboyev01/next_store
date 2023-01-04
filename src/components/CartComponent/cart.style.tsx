@@ -26,7 +26,7 @@ export default makeStyles(() => ({
         '@media(max-width: 650px)' : {
             fontSize: "20px",
             lineHeight: "24px",
-        }
+        },
     },
     span: {
         fontSize: "22px",
