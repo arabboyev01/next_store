@@ -3,7 +3,7 @@ import {makeStyles} from "@mui/styles";
 export default makeStyles(() => ({
     summaryWrapper: {
         maxWidth: "397px",
-        height: "428px",
+        height: "auto",
         borderRadius: "10px",
         background: "#fff",
         padding: "50px 20px",
@@ -15,9 +15,21 @@ export default makeStyles(() => ({
             marginTop: "20px",
         },
     },
+    quantity: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "center",
+        margin: "30px 0",
+        gap: "40px",
+    },
+    quant: {
+        fontSize: "22px",
+        lineHeight: "24px",
+    },
     sticky: {
         maxWidth: "397px",
-        height: "428px",
+        height: "auto",
         borderRadius: "10px",
         background: "#fff",
         padding: "50px 20px",
@@ -86,7 +98,9 @@ export default makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        marginTop: "30px",
         width: "100%",
+        maxWidth: "250px",
+        height: "64px",
+        margin: "30px auto 0 auto",
     },
 }))

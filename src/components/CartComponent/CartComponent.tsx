@@ -20,7 +20,7 @@ const CartComponent = () => {
             }
             <Box className={classes.contentWrapper}>
                 {cart ? <SaleForm handleForm={handleForm} /> : <CartProduct />}
-                <CartSummary handleForm={handleForm} cart={cart}/>
+                <CartSummary handleForm={handleForm} cart={cart} totalQTY={totalQTY}/>
             </Box>
         </Box>
     )

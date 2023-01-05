@@ -6,12 +6,15 @@ import {useSelector} from "react-redux";
 import {selectTotalAmount} from "../../../../redux/CartSlice"
 import React, {useState, useEffect} from "react";
 import SubmitButton from "../../SubmitButton/SubmitButton";
+import boxImage from "../../../../../public/assets/images/box.png";
+import Image from "next/image";
 
 export type CartSummaryType = {
     handleForm: any
     cart: boolean
+    totalQTY?: number
 }
-const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart}) => {
+const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY}) => {
     const classes = Styles();
     const totalAmount = useSelector(selectTotalAmount);
     const [navState, setNavState] = useState(false);
@@ -33,6 +36,11 @@ const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart}) => {
     return(
         <Box className={navState ? classes.sticky : classes.summaryWrapper}>
             <Typography className={classes.name}>Buyurtma</Typography>
+            {cart ? <Box className={classes.quantity}>
+                <Image src={boxImage.src} alt='image' width={90} height={90}/>
+                <Typography className={classes.quant}>{totalQTY} <br/> Buyurtma soni</Typography>
+            </Box> : null
+            }
             <Box className={classes.total}>
                 <Typography className={classes.text}>Umumiy summa: </Typography>
                 <Typography className={classes.price}>{totalAmount} so&apos;m</Typography>
