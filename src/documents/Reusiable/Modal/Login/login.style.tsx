@@ -45,13 +45,19 @@ export default makeStyles(() => ({
         color: "#6C757D",
         margin: "12px 0",
     },
+    link: {
+        textDecoration: "none",
+        width: '100%',
+        '@media(max-width: 600px)': {
+            width: "250px",
+        },
+    },
     signUp: {
         width: '100%',
         height: "40px",
         border: '.5px solid #6C757D',
         '@media(max-width: 600px)': {
             width: "250px",
-            height: "40px",
         },
     },
 }))

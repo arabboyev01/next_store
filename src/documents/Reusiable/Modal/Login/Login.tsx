@@ -42,7 +42,7 @@ const LoginModal: React.FC<LoginType> = ({open, handleClose}) => {
                                 <PrimaryButton text='Kirish' onClick={onClick}/>
                             </Box>
                             <Typography className={classes.divider}>Yoki</Typography>
-                            <Link href='sign-up' style={{textDecoration: "none"}}>
+                            <Link href='sign-up' className={classes.link}>
                                 <Button className={classes.signUp}>Ro&apos;yhatdan o&apos;tish</Button>
                             </Link>
                         </Box>
