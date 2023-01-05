@@ -9,7 +9,7 @@ export type LoginComponentType = {
 const LoginComponent: React.FC<LoginComponentType> = ({open, handleClose}) => {
     return(
         <Box>
-            <Login open={open} handleClose={handleClose}/>
+            <Login open={open} handleClose={handleClose} />
         </Box>
     )
 }

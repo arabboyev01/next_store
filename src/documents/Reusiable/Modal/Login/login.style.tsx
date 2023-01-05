@@ -3,6 +3,7 @@ import {makeStyles} from "@mui/styles";
 export const LoginModalStyle = {
     background: "#fff",
     borderRadius: "10px",
+    zIndex: 1000,
 }
 export default makeStyles(() => ({
     contentWrapper: {

@@ -7,30 +7,29 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Link from "next/link";
 import {useSelector} from "react-redux";
 import {selectTotalQTY} from "../../../redux/CartSlice";
-import {useState} from "react";
-import LoginComponent from "../../../components/LoginComponent/LoginComponent";
+import React from "react";
 
-const NavLinks = () => {
+export type NavLinksType = {
+    handleOpen?: (e: any) => void
+}
+
+const NavLinks:React.FC<NavLinksType> = ({handleOpen}) => {
     const classes = Style();
     const totalQTY = useSelector(selectTotalQTY);
-    const [open, setOpen] = useState(false);
-    const handleClose = () => setOpen(false);
-    const handleOpen = () => setOpen(true);
     return (
-        <Box>
-            <LoginComponent open={open} handleClose={handleClose} />
-        <Box className={classes.linkWrapper}>
-            <Box className={classes.likeButton}>
-                <Link href='/likes'><FavoriteBorderIcon className={classes.likeIcon}/></Link>
+        <>
+            <Box className={classes.linkWrapper}>
+                <Box className={classes.likeButton}>
+                    <Link href='/likes'><FavoriteBorderIcon className={classes.likeIcon}/></Link>
+                </Box>
+                <Box className={classes.likeButton}>
+                    <Badge badgeContent={totalQTY} color="primary">
+                        <Link href='/cart'> <ShoppingCartIcon className={classes.likeIcon}/></Link>
+                    </Badge>
+                </Box>
+                <Button className={classes.loginButton} onClick={handleOpen}>Kirish</Button>
             </Box>
-            <Box className={classes.likeButton}>
-                <Badge badgeContent={totalQTY} color="primary">
-                    <Link href='/cart'> <ShoppingCartIcon className={classes.likeIcon}/></Link>
-                </Badge>
-            </Box>
-            <Button className={classes.loginButton} onClick={handleOpen}>Kirish</Button>
-        </Box>
-        </Box>
+        </>
     )
 }
 export default NavLinks;
