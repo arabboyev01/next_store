@@ -18,6 +18,8 @@ const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY}) =>
     const classes = Styles();
     const totalAmount = useSelector(selectTotalAmount);
     const [navState, setNavState] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const handleLoading = () => setLoading(!loading);
     const onNavScroll = () => {
         if(window.scrollY > 75) {
             setNavState(true);
@@ -54,7 +56,7 @@ const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY}) =>
                 <Typography className={classes.priceCenter}>{totalAmount+ 40000} so&apos;m</Typography>
             </Box>
             <Box className={classes.buyBtn}>
-                {cart ? <SubmitButton buttonText="Rasmiylashtirish" /> : <PrimaryButton text="Rasmiylashtirish" onClick={handleForm}/>}
+                {cart ? <SubmitButton buttonText="Rasmiylashtirish" loading={loading} onClick={handleLoading}/> : <PrimaryButton text="Rasmiylashtirish" onClick={handleForm} />}
             </Box>
         </Box>
     )

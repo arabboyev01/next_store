@@ -29,7 +29,9 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
     const handleCloseForget = () => setOpen(false)
 
     const [visible, setVisible] = useState(false)
-    const handleVisible = () => setVisible(!visible)
+    const handleVisible = () => setVisible(!visible);
+    const [loading, setLoading] = useState(false);
+    const handleLoading = () => setLoading(!loading);
     return(
         <Box className={classes.fieldWrapper}>
             <CloseIcon className={classes.closeIcon} onClick={handleClose}/>
@@ -50,7 +52,7 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
                                 <CssTextField {...LOGIN_FORM_VALUES.password} placeholder='Parol' type={visible ? 'text' : 'password'}/>
                             </Box>
                             <Box className={classes.submit}>
-                                <SubmitButton loading={false} buttonText='Kirish'/>
+                                <SubmitButton loading={loading} buttonText='Kirish' onClick={handleLoading}/>
                             </Box>
                         </Box>
                     </form>

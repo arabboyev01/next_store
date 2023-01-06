@@ -22,7 +22,7 @@ const HomeComponent = () => {
             </Box>
             <Box>
                 <MainTitle title="Kategoriyalar" />
-                <Link href='/category' style={{textDecoration: 'none'}}>
+                <Link href='/category' style={{textDecoration: 'none', color: "#000"}}>
                     <SecondaryCart data={CategoryCart} />
                 </Link>
             </Box>

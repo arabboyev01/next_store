@@ -55,7 +55,19 @@ export default makeStyles(() => ({
     signUp: {
         width: '100%',
         height: "40px",
-        border: '.5px solid #6C757D',
+        background: '-webkit-linear-gradient(270deg, #4def56, #f64d4d)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        border: '.5px solid #000',
+        '&:before': {
+            content: '',
+            position: 'absolute',
+            top: 0, right: 0, bottom: 0, left: 0,
+            zIndex: '-1',
+            margin: '1px',
+            borderRadius: 'inherit',
+            background: '-webkit-linear-gradient(270deg, #4def56, #f64d4d)',
+        },
         '@media(max-width: 600px)': {
             width: "250px",
         },
