@@ -1,12 +1,13 @@
 import Style from "./Footer.style"
 import {Box} from "@mui/system";
-import {Typography} from "@mui/material";
+import {Typography, useMediaQuery} from "@mui/material";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TelegramIcon from '@mui/icons-material/Telegram';
 
 const Footer = () => {
     const classes = Style();
+    const query = useMediaQuery('@media(max-width: 600px)')
     return(
         <Box className={classes.footerWrapper}>
             <Box className={classes.contentWrapper}>
@@ -36,7 +37,7 @@ const Footer = () => {
                 </Box>
                 <Box className={classes.singleContent}>
                     <Typography className={classes.title}>Axbarot xizmati</Typography>
-                    <Typography className={classes.sub}>contact.@nextstore.uz</Typography>
+                    <Typography className={classes.sub}>contact. {query ? <br/> : null }@nextstore.uz</Typography>
                     <Typography className={classes.sub}>+998 97 712 96 96 <br/>+998 95 503 09 09</Typography>
                     <Typography className={classes.sub}>Sag’bon 186, Olmazor tumani, Toshkent, Ozbekiston</Typography>
                     <Box className={classes.socialIcons}>
