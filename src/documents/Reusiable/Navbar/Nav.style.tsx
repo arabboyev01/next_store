@@ -14,7 +14,7 @@ export default makeStyles(() => ({
     },
     active: {
         width: "100%",
-        height: "280px",
+        height: "330px",
         boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.5)",
         background: "#fff !important",
         zIndex: 100,
@@ -74,6 +74,7 @@ export default makeStyles(() => ({
             left: 0,
             top: '100px',
             zIndex: 100,
+            paddingTop: "30px",
         },
     },
     catalogButton: {
@@ -94,7 +95,10 @@ export default makeStyles(() => ({
         flexDirection: "row",
         alignItems: 'center',
         '@media(max-width: 900px)': {
-            display: 'none',
+            position: "absolute",
+            top: '-20px',
+            left: "20px",
+            width: "350px",
         },
     },
     searchInput: {

@@ -80,7 +80,7 @@ export const CategoryCart: CategoryCartTypes[] = [
 export const MainProducts: MainProductsType[] = [
     {
         id: 0,
-        title: 'Apple Airpods Pro simsiz quloqchin , Oq rangda',
+        title: 'Samsung Airpods Pro simsiz quloqchin , Oq rangda',
         img: productImg10,
         price: '299000',
         status: '',

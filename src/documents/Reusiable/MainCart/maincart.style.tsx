@@ -12,6 +12,8 @@ export default makeStyles(() => ({
     mainCart: {
         background: "#fff",
         height: "390px",
+        maxWidth: "250px",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         position: 'relative',
@@ -21,7 +23,8 @@ export default makeStyles(() => ({
         boxShadow: "0.5px 0.5px 3px rgba(0, 0, 0, 0.2)",
         '@media(max-width: 650px)': {
             padding: "5px 10px",
-            height: "335px",
+            height: "auto",
+            maxWidth: "180px",
         },
         '&:hover': {
             boxShadow: "0.5px 0.5px 3px rgba(0, 0, 0, 0.5)",

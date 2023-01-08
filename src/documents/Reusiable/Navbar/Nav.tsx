@@ -10,12 +10,18 @@ import SearchIcon from "@mui/icons-material/Search";
 import NavLinks from "./NavLinks";
 import CloseIcon from "@mui/icons-material/Close";
 import LoginComponent from "../../../components/LoginComponent/LoginComponent";
+import {setSearchValue} from "../../../redux/CartSlice";
+import {useDispatch} from "react-redux";
+import {useRouter} from "next/router";
 
 const Nav = () => {
     const classes = style();
     const theme = useTheme();
     const query = useMediaQuery(theme.breakpoints.down("md"));
     const [showLinks, setShowLinks] = useState(false);
+    const dispatch = useDispatch();
+    const router = useRouter();
+    const [inputValue, setInputValue] = useState('')
     const handleMobile = () => setShowLinks(!showLinks);
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
@@ -25,6 +31,12 @@ const Nav = () => {
             setShowLinks(false)
         }
     }, [open, setShowLinks])
+    const handleSendData = (data: any,) => {
+
+        dispatch(setSearchValue(data));
+        router.push({pathname: '/search'})
+    }
+
     return (
         <>
             <LoginComponent open={open} handleClose={handleClose}/>
@@ -35,8 +47,8 @@ const Nav = () => {
                 <Box className={showLinks ? classes.activeNavLinks : classes.navLinks}>
                     <Button className={classes.catalogButton}><MenuIcon/> Katalog</Button>
                     <Box className={classes.searchInputWrapper}>
-                        <input type="search" placeholder="Mahsulotni izlash" className={classes.searchInput}/>
-                        <button className={classes.submitButton}><SearchIcon className={classes.searchIcon}/></button>
+                        <input type="search" placeholder="Mahsulotni izlash" className={classes.searchInput} onChange={(e) => setInputValue(e.target.value)}/>
+                        <button className={classes.submitButton} onClick={() => handleSendData(inputValue)}><SearchIcon className={classes.searchIcon}/></button>
                     </Box>
                     <NavLinks handleOpen={handleOpen}/>
                 </Box>

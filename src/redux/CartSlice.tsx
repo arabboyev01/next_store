@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
+import {MainProducts} from "../documents/DumbData/DumbData";
 const initialState = {
     cartState: false,
     // cartItems: window.localStorage.getItem("cart")
@@ -7,6 +8,7 @@ const initialState = {
     //     ? JSON.parse(localStorage.getItem("cart")) : [], // Let Suppose Database
     cartItems: [], // Let Suppose Database
     singleProduct: [],
+    searchValue: [],
     cartTotalAmount: 0,
     cartTotalQuantity: 0,
 };
@@ -31,6 +33,13 @@ const CartSlice = createSlice({
 
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
         },
+        setSearchValue: (state: any, action: any) => {
+            const searchValue = MainProducts.filter(({title}) => title.toLowerCase().includes(action.payload))
+            state.searchValue.push(searchValue);
+
+            return
+        },
+
         setSingleProduct: (state: any, action: any) => {
             const filter = {...action.payload}
             state.singleProduct.push(filter);
@@ -74,12 +83,6 @@ const CartSlice = createSlice({
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
         },
 
-        setClearCartItems: (state: any) => {
-            state.cartItems = [];
-            toast.success(`Savatcha tozalandi`);
-            localStorage.setItem("cart", JSON.stringify(state.cartItems));
-        },
-
         setGetTotals: (state: any) => {
             let { totalAmount, totalQTY } = state.cartItems.reduce((cartTotal: any, cartItem:any)=> {
                 const { price, cartQuantity } = cartItem;
@@ -105,9 +108,9 @@ export const {
     setRemoveItemFromCart,
     setIncreaseItemQTY,
     setDecreaseItemQTY,
-    setClearCartItems,
     setGetTotals,
-    setSingleProduct
+    setSingleProduct,
+    setSearchValue
 } = CartSlice.actions;
 
 export const selectSingleItem = (state: any) => state.cart.singleProduct;
