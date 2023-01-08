@@ -4,16 +4,25 @@ export default makeStyles(() => ({
     detailWrapper: {
         maxWidth: "560px",
         margin: "0 auto",
-        marginLeft: "40px",
+        marginLeft: "100px",
         '@media(max-width: 650px)': {
             maxWidth: "380px",
             marginLeft: 0,
+            marginTop: "20px",
+            padding: "0 20px",
         },
     },
     mainTitle: {
         fontSize: "28px",
         fontWeight: 600,
         lineHeight: "34px",
+        borderBottom: "1px solid #E4E7EE",
+        paddingBottom: "10px",
+        '@media(max-width: 650px)': {
+            fontSize: "16px",
+            fontWeight: 600,
+            lineHeight: "19px",
+        },
     },
     text: {
         fontSize: "18px",
@@ -27,11 +36,17 @@ export default makeStyles(() => ({
         alignItems: "center",
         gap: "10px",
         marginTop: "17px",
+        '@media(max-width: 650px)': {
+            justifyContent: "space-between",
+        },
     },
     box: {
         width: "46px",
         height: "46px",
         borderRadius: "4px",
+        '@media(max-width: 650px)': {
+            width: "64px",
+        },
     },
     price: {
         fontSize: "48px",
@@ -39,9 +54,9 @@ export default makeStyles(() => ({
         lineHeight: "58px",
         marginTop: "40px",
         '@media(max-width: 650px)': {
-            fontSize: "28px",
-            fontWeight: 500,
-            lineHeight: "38px",
+            fontSize: "24px",
+            fontWeight: 600,
+            lineHeight: "29px",
             marginTop: "20px",
         },
     },
@@ -98,17 +113,25 @@ export default makeStyles(() => ({
         maxWidth: "400px",
         gap: "30px",
         '@media(max-width: 650px)': {
-            flexDirection: "column",
-            padding: "0 30px",
-            gap: 0,
+            flexDirection: "row",
+            padding:0,
+            gap: '20px',
         },
     },
     add:{
         border: ".5px solid #0D63F3",
-        width: "400px",
+        width: "250px",
+        height: "48px",
         '@media(max-width: 650px)': {
-            marginTop: "31px",
-            maxWidth: "300px",
+            width: "150px",
+            fontSize: "12px",
+        },
+    },
+    buyBtn: {
+        height: "48px",
+        width: "250px",
+        '@media(max-width: 650px)': {
+            width: "150px",
         },
     },
 }))

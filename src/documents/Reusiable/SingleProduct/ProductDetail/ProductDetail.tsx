@@ -35,7 +35,9 @@ const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
                 </Box>
             </Box>
             <Box className={classes.btnWrapper}>
-                <PrimaryButton text='Hozir sotib olish'/>
+                <Box className={classes.buyBtn}>
+                    <PrimaryButton text='Hozir sotib olish'/>
+                </Box>
                 <Button className={classes.add} onClick={() => onAddToCart(data)}>Savatchaga otish</Button>
             </Box>
         </Box>

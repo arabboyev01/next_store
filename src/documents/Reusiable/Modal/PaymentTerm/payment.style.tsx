@@ -6,8 +6,9 @@ export const ModalStyle = {
 export default makeStyles(() => ({
     contentWrapper: {
         padding: "30px 20px",
+        position: "relative",
         '@media(max-width: 600px)': {
-            padding: "20px 10px",
+            padding: "20px 0px",
         },
     },
     header: {
@@ -90,7 +91,7 @@ export default makeStyles(() => ({
         background: '#E4E7EE',
         WebkitAppearance: 'none',
         height: "20px",
-        borderRadius: "50px",
+        borderRadius: "20px",
         '&::-webkit-slider-thumb':{
             WebkitAppearance: 'none',
             backgroundColor: '#000',
@@ -106,6 +107,7 @@ export default makeStyles(() => ({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
+        marginLeft: "15px",
     },
     num: {
         marginTop: "10px",
@@ -118,10 +120,14 @@ export default makeStyles(() => ({
         marginTop: "35px",
     },
     button: {
-        marginTop: "20px",
-        width: "100%",
-        justifyContent: "end",
-        alignItems: "end",
-        textAlign:'end'
+        width: "290px",
+        height: "64px",
+        position: "absolute",
+        right: '20px',
+        bottom: "-50px",
+    },
+    priceUniq: {
+        fontSize: "36px",
+        lineHeight: "43px",
     },
 }))

@@ -17,7 +17,8 @@ export type PaymentTermType = {
 const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
     const classes = Style();
     const query = useMediaQuery('@media(max-width: 600px)')
-    const [initValue, setInitValue] = useState(price);
+    const [initValue, setInitValue] = useState(1);
+    const newPrice = Math.trunc(price)
     return(
         <Box>
             <Rodal
@@ -28,7 +29,7 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                 visible={open}
                 onClose={handleCLose}
                 width={query ? 350 : 800}
-                height={query ? 538 : 711}
+                height={query ? 588 : 711}
             >
                 <Box className={classes.contentWrapper}>
                     <Box className={classes.header}>
@@ -40,14 +41,13 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                         <Typography className={classes.mainDesc}>Muddatli to‘lo‘vdan foydalanish uchun sizdan “Passport” talab etiladi</Typography>
                     </Box>
                     <Box className={classes.priceWrapper}>
-                        <Typography className={classes.price}>{price / initValue} so&apos;m</Typography>
+                        <Typography className={classes.price}>{newPrice / initValue} so&apos;m</Typography>
                         <Typography className={classes.mainDesc}>Oyik to&apos;lov</Typography>
                     </Box>
                     <Typography className={classes.mainText}>Muddatini tanlang: (oy hisobida)</Typography>
                     <Box className={classes.form}>
                         <input type="range" id="volume" name="volume" min="1" max="12" className={classes.range}
-                        value={initValue} onChange={(e: any) => setInitValue(e.target.value)}
-                        />
+                        value={initValue} onChange={(e: any) => setInitValue(e.target.value)}/>
                         <Box className={classes.nums}>
                             {numsRange.map(item =>
                              <Typography className={classes.num} key={item.id}>{item.id}</Typography>
@@ -56,7 +56,7 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                     </Box>
                     <Box className={classes.footer}>
                         <Typography className={classes.title}>Umumiy to&apos;lov miqdori:</Typography>
-                        <Typography className={classes.title}>{price} so‘m</Typography>
+                        <Typography className={classes.priceUniq}>{price} so&apos;m</Typography>
                     </Box>
                     <Box className={classes.button}>
                         <PrimaryButton text='Rasmiylashtirish' />
