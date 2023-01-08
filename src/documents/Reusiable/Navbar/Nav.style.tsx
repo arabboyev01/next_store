@@ -3,7 +3,7 @@ import {makeStyles} from "@mui/styles";
 export default makeStyles(() => ({
     navWrapper: {
         width: "100%",
-        height: "70px",
+        height: "73px",
         boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.5)",
         background: "#fff !important",
         zIndex: 100,
@@ -14,7 +14,7 @@ export default makeStyles(() => ({
     },
     active: {
         width: "100%",
-        height: "330px",
+        height: "230px",
         boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.5)",
         background: "#fff !important",
         zIndex: 100,
@@ -98,7 +98,7 @@ export default makeStyles(() => ({
             position: "absolute",
             top: '-20px',
             left: "20px",
-            width: "350px",
+            width: "400px",
         },
     },
     searchInput: {
@@ -109,7 +109,10 @@ export default makeStyles(() => ({
         borderTopLeftRadius: "8px",
         borderBottomLeftRadius: "8px",
         '@media(max-width: 900px)': {
-            maxWidth: "206px",
+            width: "306px",
+        },
+        '@media(max-width: 375px)': {
+            width: "270px",
         },
     },
     searchIcon: {
@@ -133,10 +136,8 @@ export default makeStyles(() => ({
         justifyContent: "space-between",
         gap:"20px",
         '@media(max-width: 900px)': {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: 'start',
-            padding: "0 20px"
+            padding: "20px",
+            width: "360px",
         },
     },
     likeButton: {

@@ -1,7 +1,6 @@
 import bgImage from "../../../public/assets/images/carousel.image.png";
 import {HomeCarouselDataType} from "../../../types/types";
 import secondImage from "../../../public/assets/images/carousel2.png"
-
 export const HomeCarouselData: HomeCarouselDataType[] = [
     {
         id: 0,
@@ -38,3 +37,4 @@ export const SecondCarousel: HomeCarouselDataType[] = [
         image:secondImage,
     },
 ]
+
