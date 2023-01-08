@@ -19,17 +19,16 @@ export default makeStyles(() => ({
         position: 'relative',
         padding: "10px 25px",
         borderRadius: "10px",
-        transition: "1s easy",
-        boxShadow: "0.5px 0.5px 3px rgba(0, 0, 0, 0.2)",
+        boxShadow: "0.5px 0.5px 2px rgba(0, 0, 0, 0.2)",
+        transition: "transform 300ms ease-in-out",
         '@media(max-width: 650px)': {
             padding: "5px 10px",
             height: "auto",
             maxWidth: "170px",
         },
         '&:hover': {
-            boxShadow: "0.5px 0.5px 3px rgba(0, 0, 0, 0.5)",
-            scale: '1.005',
             cursor: 'pointer',
+            transform: 'translateY(-5px)',
         },
     },
     favoriteIcon: {
