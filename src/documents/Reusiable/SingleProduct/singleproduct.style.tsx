@@ -18,4 +18,10 @@ export default makeStyles(() => ({
             padding: "0 20px",
         },
     },
+    loader: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "20vh 0",
+    },
 }))

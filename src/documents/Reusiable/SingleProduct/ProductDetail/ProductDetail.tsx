@@ -2,6 +2,7 @@ import Style from "./productdetail.style"
 import {Box} from "@mui/system";
 import React from "react";
 import {Button, Typography} from "@mui/material";
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export type ProductDetailType = {
     handleOpen?: (e: any) => void
@@ -19,7 +20,17 @@ const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
                 )}
             </Box>
             <Typography className={classes.price}>{data.price} / dona</Typography>
-            <Button className={classes.add} onClick={handleOpen}>Savatga Otish</Button>
+            <Box className={classes.boxPrice}>
+                <Box className={classes.priceInfo}>
+                    <Typography className={classes.text1}>Muddatlik to&apos;lov</Typography>
+                    <Typography className={classes.text2}> 12 oyga</Typography>
+                    <Typography className={classes.price1}>{data.price} so&apos;m</Typography>
+                </Box>
+                <Box className={classes.arrow} onClick={handleOpen}>
+                    <KeyboardArrowRightIcon />
+                </Box>
+            </Box>
+            <Button className={classes.add}>Savatga Otish</Button>
         </Box>
     )
 }

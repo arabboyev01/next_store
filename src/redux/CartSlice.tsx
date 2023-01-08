@@ -30,13 +30,11 @@ const CartSlice = createSlice({
             }
 
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
-            localStorage.setItem("cartID", action.payload.id);
         },
-
         setSingleProduct: (state: any, action: any) => {
-            const filter =  {...action.payload}
+            const filter = {...action.payload}
             state.singleProduct.push(filter);
-        },
+            },
 
         setRemoveItemFromCart: (state: any, action: any) => {
 
