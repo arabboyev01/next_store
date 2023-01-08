@@ -30,17 +30,17 @@ const HomeComponent = () => {
                 <SeeMoreButton text='Batafsil' />
             </Box>
             <Box className={classes.mainSales}>
-                <MainTitle title="Eng kop sotilganlar" />
+                <MainTitle title="Eng ko'p sotilganlar" />
                 <MainCart mainData={MainProducts}  />
                 <Box className={classes.seeMore}>
-                    <SeeMoreButton text='Koproq korish' />
+                    <SeeMoreButton text="Ko'proq korish" />
                 </Box>
             </Box>
             <Box className={classes.contentWrapper}>
                 <MainCarousel data={SecondCarousel} height={query ? '100px' : '240px'}/>
             </Box>
             <Box className={classes.mainSales}>
-                <MainTitle title="Eng kop sotilganlar" />
+                <MainTitle title="Eng ko'p sotilganlar" />
                 <MainCart mainData={MainProducts}  />
                 <Box className={classes.seeMore}>
                     <SeeMoreButton text="Ko'proq ko'rish" />

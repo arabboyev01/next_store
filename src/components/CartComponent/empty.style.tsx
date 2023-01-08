@@ -7,13 +7,15 @@ export default makeStyles(() => ({
         flexDirection: "column",
         alignItems: "center",
         padding: "50px 0",
+        justifyContent: "center",
     },
     title: {
-        fontSize: "32px",
-        lineHeight: "36px",
-        fontWeight: 600,
+        fontSize: "20px",
+        lineHeight: "24px",
+        fontWeight: 400,
+        marginTop: "20px",
     },
     backBtn: {
-        marginTop: "50px",
+        marginTop: "20px",
     },
 }))

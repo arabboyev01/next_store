@@ -10,15 +10,17 @@ const EmptyCart = () => {
     const classes = Style();
 
     return (
-        <Box className={classes.empty}>
-            <Typography className={classes.title}>Sizning savatchingizda mahsulot yoq</Typography>
-            <Image src={empty.src} alt='empty' width={250} height={400}/>
-            <Box className={classes.backBtn}>
-                <Link href="/" style={{textDecoration: "none"}}>
-                    <PrimaryButton text='Mahsulotlarga qaytish'/>
-                </Link>
+        <>
+            <Box className={classes.empty}>
+                <Image src={empty.src} alt='empty' width={200} height={300}/>
+                <Typography className={classes.title}>Sizning savatchingizda mahsulot yo&apos;q</Typography>
+                <Box className={classes.backBtn}>
+                    <Link href="/" style={{textDecoration: "none"}}>
+                        <PrimaryButton text='Mahsulotlarga qaytish'/>
+                    </Link>
+                </Box>
             </Box>
-        </Box>
+        </>
     )
 }
 export default EmptyCart;
