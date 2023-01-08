@@ -35,11 +35,13 @@ const CartSlice = createSlice({
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
         },
         setSearchValue: (state: any, action: any) => {
-            const searchValue = MainProducts.filter(({title}) => title.toLowerCase().includes(action.payload))
-            state.searchValue.push(searchValue);
+            if(action.payload){
+                const searchValue = MainProducts.filter(({title}) => title.toLowerCase().includes(action.payload))
+                state.searchValue.push(searchValue);
 
-            state.inputName = action.payload;
-            return
+                state.inputName = action.payload;
+            }
+            return undefined;
         },
 
         setSingleProduct: (state: any, action: any) => {
