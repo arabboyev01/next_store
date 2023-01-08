@@ -10,8 +10,7 @@ const SearchData = () => {
     const classes = Style();
     const searchedValue = useSelector(setSearchValue);
     // @ts-ignore
-    const data = searchedValue.payload.cart.searchValue[0];
-    console.log(data);
+    const data = searchedValue.payload.cart.searchValue[searchedValue.payload.cart.searchValue.length - 1];
     return (
         <Box className={classes.searchDataWrapper}>
             {!data ?
