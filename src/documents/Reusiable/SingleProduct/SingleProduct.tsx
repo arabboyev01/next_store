@@ -43,7 +43,7 @@ const SingleProduct = () => {
                     <PaymentTerm open={open} handleCLose={handleCLose} price={filtered.price}/>
                     <Box className={classes.productHeader}>
                         <Box className={classes.imageWrapper}>
-                            <Image src={filtered.img.src} alt='product_image' width={query ? 300 : 387} height={query ? 300 : 387} className={classes.image}/>
+                            <Image src={filtered.img.src} alt='product_image' width={query ? 226 : 350} height={query ? 216 : 350} className={classes.image}/>
                         </Box>
                         <Box>
                             <ProductDetail handleOpen={handleOpen} data={filtered}/>

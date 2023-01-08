@@ -7,10 +7,18 @@ export default makeStyles(() => ({
     },
     imageWrapper: {
         maxWidth: "550px",
-        maxHeight: "546px",
+        height: "546px",
         background: "#fff",
         borderRadius: "8px",
         overflow: "hidden",
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        '@media(max-width: 650px)': {
+            width: "320px",
+            height: "320px",
+        },
     },
     productHeader: {
         display: "flex",
