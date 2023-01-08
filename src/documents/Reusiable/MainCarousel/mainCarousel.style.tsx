@@ -59,4 +59,8 @@ export default makeStyles(() => ({
             display: 'none',
         },
     },
+    carouselImage: {
+        objectFit: "cover",
+        borderRadius: "8px",
+    },
 }))

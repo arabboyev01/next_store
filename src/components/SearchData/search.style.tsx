@@ -27,4 +27,15 @@ export default makeStyles(() => ({
             textAlign:"center",
         },
     },
+    title: {
+        marginBottom: "40px",
+        fontSize: "28px",
+        lineHeight: "32px",
+        fontWeight: 500,
+        '@media(max-width: 600px)': {
+            fontSize: "14px",
+            lineHeight: "16px",
+            marginBottom: "20px",
+        },
+    },
 }))

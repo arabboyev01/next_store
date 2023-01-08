@@ -11,6 +11,7 @@ const initialState = {
     searchValue: [],
     cartTotalAmount: 0,
     cartTotalQuantity: 0,
+    inputName: '',
 };
 
 const CartSlice = createSlice({
@@ -37,6 +38,7 @@ const CartSlice = createSlice({
             const searchValue = MainProducts.filter(({title}) => title.toLowerCase().includes(action.payload))
             state.searchValue.push(searchValue);
 
+            state.inputName = action.payload;
             return
         },
 

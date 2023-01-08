@@ -18,7 +18,7 @@ const HomeComponent = () => {
     return(
         <Box className={classes.homeWrapper}>
             <Box className={classes.contentWrapper}>
-                <MainCarousel data={HomeCarouselData} height={query ? '100px' : '380px'}/>
+                <MainCarousel data={HomeCarouselData} height={query ? 100 : 380}/>
             </Box>
             <Box>
                 <MainTitle title="Kategoriyalar" />
@@ -37,7 +37,7 @@ const HomeComponent = () => {
                 </Box>
             </Box>
             <Box className={classes.contentWrapper}>
-                <MainCarousel data={SecondCarousel} height={query ? '100px' : '240px'}/>
+                <MainCarousel data={SecondCarousel} height={query ? 100 : 240}/>
             </Box>
             <Box className={classes.mainSales}>
                 <MainTitle title="Eng ko'p sotilganlar" />
@@ -51,7 +51,7 @@ const HomeComponent = () => {
                 <Brands data={BrandsData}/>
             </Box>
             <Box className={classes.contentWrapper}>
-                <MainCarousel data={SecondCarousel} height={query ? '100px' : '240px'}/>
+                <MainCarousel data={SecondCarousel} height={query ? 100 : 240}/>
             </Box>
             <Box className={classes.page}>
                 <MainTitle title="Do'konlarimiz" />

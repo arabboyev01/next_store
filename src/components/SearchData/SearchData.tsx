@@ -6,20 +6,24 @@ import MainCart from "../../documents/Reusiable/MainCart/MainCart";
 import {Typography, useMediaQuery} from "@mui/material";
 import NoData from "../../../public/assets/images/no-results.png"
 import Image from "next/image";
+
 const SearchData = () => {
     const classes = Style();
     const searchedValue = useSelector(setSearchValue);
     const query = useMediaQuery('@media(max-width: 600px)')
     // @ts-ignore
     const data = searchedValue.payload.cart.searchValue[searchedValue.payload.cart.searchValue.length - 1];
+    // @ts-ignore
+    const productName = searchedValue.payload.cart.inputName
     return (
         <Box className={classes.searchDataWrapper}>
+            {!data || data.length === 0 ? null :  <Typography className={classes.title}> “ {productName} “ so&apos;rovi uchun topildi : {data.length} ta mahsulot</Typography>}
             {!data || data.length === 0 ?
-                <Box className={classes.empty}>
-                    <Image src={NoData.src} alt='no data' width={query ? 50 : 130} height={query ? 50 : 130}/>
-                    <Typography className={classes.emptyText}>Siz so&apos;ragan mahsulot bo&apos;yicha hech narsa
-                        topilmadi</Typography>
-                </Box>
+                    <Box className={classes.empty}>
+                        <Image src={NoData.src} alt='no data' width={query ? 50 : 130} height={query ? 50 : 130}/>
+                        <Typography className={classes.emptyText}>Siz so&apos;ragan mahsulot bo&apos;yicha hech narsa
+                            topilmadi</Typography>
+                    </Box>
                 :
                 <MainCart mainData={data}/>
             }
