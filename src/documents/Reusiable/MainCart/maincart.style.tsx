@@ -24,7 +24,7 @@ export default makeStyles(() => ({
         '@media(max-width: 650px)': {
             padding: "5px 10px",
             height: "auto",
-            maxWidth: "180px",
+            maxWidth: "170px",
         },
         '&:hover': {
             boxShadow: "0.5px 0.5px 3px rgba(0, 0, 0, 0.5)",

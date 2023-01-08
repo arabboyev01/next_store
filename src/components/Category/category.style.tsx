@@ -34,7 +34,7 @@ export default makeStyles(() => ({
         marginTop: '25px',
         '@media(max-width: 650px)' : {
             flexDirection: "column",
-            padding: "0 20px",
+            padding: '0 15px',
         },
     },
     category: {
@@ -83,7 +83,8 @@ export default makeStyles(() => ({
         marginBottom: "50px",
         '@media(max-width: 650px)' : {
            flex: 1,
-            paddingLeft: "10px",
+            paddingLeft: 0,
+            width: "100%",
         },
     },
 }))
