@@ -71,7 +71,7 @@ export default makeStyles(() => ({
         boxShadow: "1px 1px 5px rgba(0, 0, 0, 0.3)",
         marginTop: "20px",
         '@media(max-width: 650px)': {
-            maxWidth: "350px",
+            maxWidth: "330px",
         },
     },
     priceInfo: {
