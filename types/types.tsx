@@ -30,3 +30,11 @@ export type SingleProductType = {
 export type CartType = {
     cart: any,
 }
+export type ProductDetailType = {
+    handleOpen?: (e: any) => void
+    data?: any
+}
+export type PrimaryButton = {
+    text?: string
+    onClick?: (e: any) => void
+}

@@ -25,9 +25,7 @@ const SingleProduct = () => {
     const handleCLose = () => setOpen(false);
     const fetchData = useCallback(() => {
         const fetchData = MainProducts.find((item: any) => item.id == id)
-        // @ts-ignore
         setFiltered(fetchData)
-
     }, [id]);
 
     useEffect(() => {
@@ -36,7 +34,7 @@ const SingleProduct = () => {
 
     return (
         <Box className={classes.singleProducts}>
-            {filtered === undefined ?
+            {!filtered ?
                 <Box className={classes.loader}>
                   <MainLoader />
                 </Box>
@@ -45,8 +43,7 @@ const SingleProduct = () => {
                     <PaymentTerm open={open} handleCLose={handleCLose} price={filtered.price}/>
                     <Box className={classes.productHeader}>
                         <Box className={classes.imageWrapper}>
-                            <Image src={filtered.img.src} alt='product_image' width={query ? 300 : 387}
-                                   height={query ? 300 : 387} style={{objectFit: "contain"}}/>
+                            <Image src={filtered.img.src} alt='product_image' width={query ? 300 : 387} height={query ? 300 : 387} style={{objectFit: "contain"}}/>
                         </Box>
                         <Box>
                             <ProductDetail handleOpen={handleOpen} data={filtered}/>

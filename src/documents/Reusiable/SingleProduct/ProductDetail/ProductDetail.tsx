@@ -3,13 +3,17 @@ import {Box} from "@mui/system";
 import React from "react";
 import {Button, Typography} from "@mui/material";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import {ProductDetailType} from "../../../../../types/types";
+import PrimaryButton from "../../PrimaryButton/PrimaryButton";
+import {setAddItemToCart} from "../../../../redux/CartSlice";
+import { useDispatch } from "react-redux";
 
-export type ProductDetailType = {
-    handleOpen?: (e: any) => void
-    data?: any
-}
 const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
     const classes = Style();
+    const dispatch = useDispatch();
+    const onAddToCart = (data: any) => {
+        dispatch(setAddItemToCart(data));
+    };
     return (
         <Box className={classes.detailWrapper}>
             <Typography className={classes.mainTitle}>{data.title}</Typography>
@@ -30,7 +34,10 @@ const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
                     <KeyboardArrowRightIcon />
                 </Box>
             </Box>
-            <Button className={classes.add}>Savatga Otish</Button>
+            <Box className={classes.btnWrapper}>
+                <PrimaryButton text='Hozir sotib olish'/>
+                <Button className={classes.add} onClick={() => onAddToCart(data)}>Savatchaga otish</Button>
+            </Box>
         </Box>
     )
 }

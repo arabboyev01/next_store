@@ -6,7 +6,7 @@ export default makeStyles(() => ({
         margin: "0 auto",
         marginLeft: "40px",
         '@media(max-width: 650px)': {
-            maxWidth: "360px",
+            maxWidth: "380px",
             marginLeft: 0,
         },
     },
@@ -45,13 +45,6 @@ export default makeStyles(() => ({
             marginTop: "20px",
         },
     },
-    add:{
-        marginTop: "62px",
-        border: ".5px solid #0D63F3",
-        '@media(max-width: 650px)': {
-            marginTop: "31px",
-        },
-    },
     boxPrice: {
         display: "flex",
         flexDirection: "row",
@@ -62,6 +55,9 @@ export default makeStyles(() => ({
         borderRadius: "10px",
         boxShadow: "1px 1px 5px rgba(0, 0, 0, 0.3)",
         marginTop: "20px",
+        '@media(max-width: 650px)': {
+            maxWidth: "350px",
+        },
     },
     priceInfo: {
         padding: "20px 15px",
@@ -94,5 +90,25 @@ export default makeStyles(() => ({
         marginRight: "15px",
         borderRadius: "50px",
         cursor: "pointer",
+    },
+    btnWrapper: {
+        display: "flex",
+        alignItems: "center",
+        margin: "62px 0",
+        maxWidth: "400px",
+        gap: "30px",
+        '@media(max-width: 650px)': {
+            flexDirection: "column",
+            padding: "0 30px",
+            gap: 0,
+        },
+    },
+    add:{
+        border: ".5px solid #0D63F3",
+        width: "400px",
+        '@media(max-width: 650px)': {
+            marginTop: "31px",
+            maxWidth: "300px",
+        },
     },
 }))
