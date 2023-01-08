@@ -125,9 +125,16 @@ export default makeStyles(() => ({
         position: "absolute",
         right: '20px',
         bottom: "-50px",
+        '@media(max-width: 600px)': {
+            bottom: "-70px",
+        }
     },
     priceUniq: {
         fontSize: "36px",
         lineHeight: "43px",
+        '@media(max-width: 600px)': {
+            fontSize: "18px",
+            lineHeight: "18.8px",
+        },
     },
 }))
