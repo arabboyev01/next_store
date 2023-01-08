@@ -9,5 +9,9 @@ export default makeStyles(() => ({
         fontSize: "18px",
         lineHeight: "22px",
         fontWeight: 600,
+        '&:hover': {
+            background: "#fff !important",
+            opacity: 0.7,
+        },
     }
 }))
