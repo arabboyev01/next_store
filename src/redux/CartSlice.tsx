@@ -25,7 +25,7 @@ const CartSlice = createSlice({
                 state.cartTotalQuantity += 1
                 toast.success(`Savatga qo'shildi`);
             } else {
-                const temp = { ...action.payload, cartQuantity: 1 };
+                const temp = { ...action.payload, cartQuantity: 1 }
                 state.cartItems.push(temp);
                 state.cartTotalQuantity += 1
 
@@ -51,10 +51,13 @@ const CartSlice = createSlice({
 
         setRemoveItemFromCart: (state: any, action: any) => {
 
-                state.cartItems = state.cartItems.filter(
-                    (item: any) => item.id !== action.payload.id
-                );
-
+                // state.cartItems = state.cartItems.filter(
+                //     (item: any) => item.id !== action.payload.id
+                // );
+            console.log(action.payload)
+            const remove = state.cartItems.findIndex(({id}: any) => id == action.payload)
+            state.cartItems.slice(remove, -1);
+            console.log(state.cartItems)
 
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
 

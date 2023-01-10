@@ -8,10 +8,7 @@ import Link from "next/link";
 import {useSelector} from "react-redux";
 import {selectTotalQTY} from "../../../redux/CartSlice";
 import React from "react";
-
-export type NavLinksType = {
-    handleOpen?: (e: any) => void
-}
+import {NavLinksType} from "../../../../types/types";
 
 const NavLinks:React.FC<NavLinksType> = ({handleOpen}) => {
     const classes = Style();

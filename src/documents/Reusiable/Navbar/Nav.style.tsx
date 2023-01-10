@@ -12,18 +12,6 @@ export default makeStyles(() => ({
         top: 0,
         left: 0,
     },
-    active: {
-        width: "100%",
-        height: "230px",
-        boxShadow: "0 4px 4px 0 rgba(0, 0, 0, 0.5)",
-        background: "#fff !important",
-        zIndex: 100,
-        overflow: "hidden",
-        position: "sticky",
-        top: 0,
-        left: 0,
-        transition: "all 0.5s",
-    },
     contentWrapper: {
         maxWidth: "1230px",
         margin: "0 auto",
@@ -36,22 +24,9 @@ export default makeStyles(() => ({
         alignItems: 'center',
         justifyContent: "space-between",
         width: "100%",
-        '@media(max-width: 900px)': {
-            padding: "10px 20px",
-        },
     },
     link: {
         paddingTop: "2px",
-        '@media(max-width: 900px)': {
-            paddingTop: "10px",
-        }
-    },
-    hamburger: {
-        display: "none",
-        '@media(max-width: 900px)': {
-            display: 'block',
-            transition: "all 1s easy-in-out",
-        },
     },
     navLinks: {
         display: "flex",
@@ -59,23 +34,6 @@ export default makeStyles(() => ({
         alignItems: 'center',
         flex: 0.9,
         justifyContent: "space-between",
-        '@media(max-width: 900px)': {
-            display: "none",
-        },
-    },
-    activeNavLinks: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: 'center',
-        flex: 0.9,
-        justifyContent: "space-between",
-        '@media(max-width: 900px)': {
-            position: "absolute",
-            left: 0,
-            top: '100px',
-            zIndex: 100,
-            paddingTop: "30px",
-        },
     },
     catalogButton: {
         background: 'linear-gradient(to right, #4D5EF6, #F64D4D)',
@@ -83,9 +41,6 @@ export default makeStyles(() => ({
         width: "149px",
         height: "46px",
         gap: '10px',
-        '@media(max-width: 900px)': {
-            display: 'none',
-        },
     },
     searchInputWrapper: {
         maxWidth: "396px",
@@ -94,12 +49,6 @@ export default makeStyles(() => ({
         display: "flex",
         flexDirection: "row",
         alignItems: 'center',
-        '@media(max-width: 900px)': {
-            position: "absolute",
-            top: '-20px',
-            left: "20px",
-            width: "400px",
-        },
     },
     searchInput: {
         maxWidth: "336px",
@@ -108,12 +57,6 @@ export default makeStyles(() => ({
         border: "1px solid #E4E7EE",
         borderTopLeftRadius: "8px",
         borderBottomLeftRadius: "8px",
-        '@media(max-width: 900px)': {
-            width: "306px",
-        },
-        '@media(max-width: 375px)': {
-            width: "270px",
-        },
     },
     searchIcon: {
         fontSize: '17px',
@@ -135,10 +78,6 @@ export default makeStyles(() => ({
         alignItems: 'center',
         justifyContent: "space-between",
         gap:"20px",
-        '@media(max-width: 900px)': {
-            padding: "20px",
-            width: "360px",
-        },
     },
     likeButton: {
         width: "46px",

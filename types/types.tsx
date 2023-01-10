@@ -38,3 +38,6 @@ export type PrimaryButton = {
     text?: string
     onClick?: (e: any) => void
 }
+export type NavLinksType = {
+    handleOpen?: (e: any) => void
+}
