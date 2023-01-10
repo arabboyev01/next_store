@@ -14,7 +14,7 @@ const SearchData = () => {
     // @ts-ignore
     const data = searchedValue.payload.cart.searchValue[searchedValue.payload.cart.searchValue.length - 1];
     // @ts-ignore
-    const productName = searchedValue.payload.cart.inputName
+    const productName = searchedValue.payload.cart.inputName.toLocaleUpperCase();
     return (
         <Box className={classes.searchDataWrapper}>
             {!data || data.length === 0 ? null :  <Typography className={classes.title}> “ {productName} “ so&apos;rovi uchun topildi : {data.length} ta mahsulot</Typography>}
