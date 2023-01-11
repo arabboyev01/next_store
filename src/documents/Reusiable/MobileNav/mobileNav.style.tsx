@@ -77,6 +77,7 @@ export default makeStyles(() => ({
         top: '30px',
         width: "300px",
         height: "100vh",
+        transition: '.2s ease-in-out',
     },
     activeMainContent: {
         position: "fixed",
@@ -90,7 +91,7 @@ export default makeStyles(() => ({
         flexDirection: "column",
         alignItems: 'start',
         padding: "30px 20px",
-        transition: '0.2s ease',
+        transition: '.2s ease-in-out',
     },
     closeMenuIcon: {
         position: "absolute",
