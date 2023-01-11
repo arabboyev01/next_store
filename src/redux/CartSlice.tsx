@@ -47,6 +47,12 @@ const CartSlice = createSlice({
 
         setRemoveItemFromCart: (state: any, action: any) => {
             state.cartItems = state.cartItems.filter(({id}: any) => id !== action.payload.id);
+            console.log(state.cartTotalQuantity)
+            if(state.cartTotalQuantity == 1){
+                state.cartTotalQuantity = 0;
+            }else{
+                state.cartItems.cartQuantity -= 1;
+            }
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
             toast.success(`${action.payload.title} savatchadan o'chirib tashlandi.`);
         },
