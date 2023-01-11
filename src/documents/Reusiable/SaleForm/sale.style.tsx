@@ -9,7 +9,7 @@ export default makeStyles(() => ({
         borderRadius: "10px",
         width: "100%",
         '@media(max-width: 600px)': {
-            maxWidth: "335px",
+            maxWidth: "400px",
             height: "auto",
             padding: "30px 10px",
         },
