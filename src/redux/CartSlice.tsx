@@ -47,7 +47,6 @@ const CartSlice = createSlice({
 
         setRemoveItemFromCart: (state: any, action: any) => {
             state.cartItems = state.cartItems.filter(({id}: any) => id !== action.payload.id);
-            console.log(state.cartTotalQuantity)
             if(state.cartTotalQuantity == 1){
                 state.cartTotalQuantity = 0;
             }else{

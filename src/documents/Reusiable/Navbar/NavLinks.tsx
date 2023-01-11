@@ -10,20 +10,22 @@ import {selectTotalQTY} from "../../../redux/CartSlice";
 import React from "react";
 import {NavLinksType} from "../../../../types/types";
 
-const NavLinks:React.FC<NavLinksType> = ({handleOpen}) => {
+const NavLinks: React.FC<NavLinksType> = ({handleOpen}) => {
     const classes = Style();
     const totalQTY = useSelector(selectTotalQTY);
     return (
         <>
             <Box className={classes.linkWrapper}>
-                <Box className={classes.likeButton}>
-                    <Link href='/likes'><FavoriteBorderIcon className={classes.likeIcon}/></Link>
-                </Box>
-                <Box className={classes.likeButton}>
-                    <Badge badgeContent={totalQTY} color="primary">
-                        <Link href='/cart'> <ShoppingCartIcon className={classes.likeIcon}/></Link>
-                    </Badge>
-                </Box>
+                <Link href='/likes' style={{cursor: "pointer"}}>
+                    <Box className={classes.likeButton}>
+                        <FavoriteBorderIcon className={classes.likeIcon}/>
+                    </Box>
+                </Link>
+                <Link href='/cart' style={{cursor: "pointer"}}>
+                    <Box className={classes.likeButton}>
+                        <Badge badgeContent={totalQTY} color="primary"><ShoppingCartIcon className={classes.likeIcon}/></Badge>
+                    </Box>
+                </Link>
                 <Button className={classes.loginButton} onClick={handleOpen}>Kirish</Button>
             </Box>
         </>

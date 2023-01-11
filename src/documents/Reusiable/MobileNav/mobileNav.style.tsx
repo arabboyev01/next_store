@@ -56,6 +56,7 @@ export default makeStyles(() => ({
         borderTopLeftRadius: "8px",
         borderBottomLeftRadius: "8px",
         border: "1px solid #E4E7EE",
+        fontSize:"18px",
     },
     searchIcon: {
         fontSize: '17px',
@@ -64,7 +65,7 @@ export default makeStyles(() => ({
     submitButton: {
         background: "#0D63F3",
         border: "none",
-        height: "37px",
+        height: "41.5px",
         width: "60px",
         marginLeft: "-4px",
         borderTopRightRadius: '8px',
