@@ -24,7 +24,8 @@ export default makeStyles(() => ({
         '@media(max-width: 650px)': {
             padding: "5px 10px",
             height: "auto",
-            maxWidth: "170px",
+            minWidth: "150px",
+            maxWidth: "250px",
         },
         '&:hover': {
             cursor: 'pointer',

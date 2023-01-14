@@ -35,7 +35,6 @@ const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height}) => {
                 {data.map((item: any) =>
                     <SwiperSlide
                         key={item.id}
-                        // style={{backgroundImage: `url(${item.image.src})`, height: height}}
                         className={classes.swiper}
                     >
                         <Image src={item.image.src} alt='rasm' width={query ? 350 : 1230} height={height} className={classes.carouselImage}/>

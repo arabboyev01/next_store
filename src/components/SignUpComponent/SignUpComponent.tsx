@@ -37,7 +37,7 @@ const SignUpComponent = () => {
                                 </Box>
                                 <Box className={classes.fieldContainer}>
                                     <CssTextField {...SIGN_UP_FORM_VALUES.lastName} placeholder='Familiyangiz'
-                                                  type='password'/>
+                                                  type='text'/>
                                 </Box>
                             </Box>
                             <Box className={classes.itemsContainer}>
@@ -53,7 +53,7 @@ const SignUpComponent = () => {
                             <Box className={classes.itemsContainer}>
                                 <Box className={classes.fieldContainer}>
                                     <CssTextField {...SIGN_UP_FORM_VALUES.password2} placeholder='Parolni tasdiqlang'
-                                                  type="text"/>
+                                                  type="password"/>
                                 </Box>
                                 <Box className={classes.submit}>
                                     <SubmitButton loading={false} buttonText='Kirish'/>

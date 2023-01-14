@@ -19,7 +19,7 @@ export default makeStyles(() => ({
         position: "relative",
         marginBottom: '20px',
         '@media(max-width: 650px)' : {
-            maxWidth: "360px",
+            maxWidth: "400px",
             flexDirection: "column",
             margin: "0 auto",
             marginTop: '20px',
