@@ -5,7 +5,7 @@ import Image from "next/image";
 import NextLogo from "../../../../public/assets/images/next_logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import {Button} from "@mui/material";
-import {useState} from "react";
+import {useEffect, useState, useCallback} from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import NavLinks from "./NavLinks";
 import LoginComponent from "../../../components/LoginComponent/LoginComponent";
@@ -22,10 +22,17 @@ const Nav = () => {
     const handleClose = () => setOpen(false);
     const handleOpen = () => setOpen(true);
 
-    const handleSendData = (data: any,) => {
+    const handleSendData = useCallback((data: any,) => {
         dispatch(setSearchValue(data));
         router.push({pathname: '/search'})
-    }
+        console.log(inputValue)
+    }, [inputValue])
+
+    useEffect(() => {
+        window.addEventListener('keydown', (e: any) => {
+            if(e.key === 'Enter') handleSendData(inputValue);
+        })
+    }, [handleSendData, inputValue])
 
     return (
         <>

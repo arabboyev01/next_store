@@ -17,9 +17,7 @@ const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height}) => {
     const classes = Style();
     const query = useMediaQuery('@media(max-width: 650px)');
     const setting = {
-        pagination: {
-            clickable: true,
-        },
+        pagination: { clickable: true },
         slidesPerView: 1,
         navigation: {nextEl: "#swiper-forward", prevEl: "#swiper-back"},
     }
@@ -28,16 +26,10 @@ const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height}) => {
             <button className={classes.arrowBack} id="swiper-back">
                 <ArrowBackIosIcon className={classes.navigateIcon} />
             </button>
-            <Swiper
-                modules={[Pagination, Navigation]}
-                {...setting}
-            >
+            <Swiper modules={[Pagination, Navigation]}{...setting} >
                 {data.map((item: any) =>
-                    <SwiperSlide
-                        key={item.id}
-                        className={classes.swiper}
-                    >
-                        <Image src={item.image.src} alt='rasm' width={query ? 350 : 1230} height={height} className={classes.carouselImage}/>
+                    <SwiperSlide key={item.id} className={classes.swiper}>
+                        <Image src={item.image.src} alt='rasm' width={query ? 388 : 1230} height={height} className={classes.carouselImage}/>
                     </SwiperSlide>
                 )}
             </Swiper>

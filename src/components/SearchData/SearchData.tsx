@@ -18,10 +18,10 @@ const SearchData = () => {
     return (
         <Box className={classes.searchDataWrapper}>
             {!data || data.length === 0 ? null :  <Typography className={classes.title}> “ {productName} “ so&apos;rovi uchun topildi : {data.length} ta mahsulot</Typography>}
-            {!data || data.length === 0 ?
+            {!data || data.length === 0 || undefined ?
                     <Box className={classes.empty}>
                         <Image src={NoData.src} alt='no data' width={query ? 50 : 130} height={query ? 50 : 130}/>
-                        <Typography className={classes.emptyText}>Siz so&apos;ragan mahsulot bo&apos;yicha hech narsa
+                        <Typography className={classes.emptyText}>Siz so&apos;ragan “ {productName} “ mahsuloti bo&apos;yicha hech narsa
                             topilmadi</Typography>
                     </Box>
                 :
