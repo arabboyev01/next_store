@@ -11,9 +11,9 @@ import {makeValidate} from "mui-rff";
 
 
 const schema = Yup.object().shape({
-    firstName: Yup.string().required(`${SIGN_UP_FORM_VALUES.firstName.label} kirgazishing talab qilinadi.`),
-    lastName: Yup.string().required(`${SIGN_UP_FORM_VALUES.lastName.label} kirgazishing talab qilinadi.`),
-    telNumber: Yup.string().required(`${SIGN_UP_FORM_VALUES.telNumber.label} kirgazishing talab qilinadi.`),
+    firstname: Yup.string().required(`${SIGN_UP_FORM_VALUES.firstName.label} kirgazishing talab qilinadi.`),
+    lastname: Yup.string().required(`${SIGN_UP_FORM_VALUES.lastName.label} kirgazishing talab qilinadi.`),
+    telnumber: Yup.string().required(`${SIGN_UP_FORM_VALUES.telNumber.label} kirgazishing talab qilinadi.`),
     password1: Yup.string().required(`${SIGN_UP_FORM_VALUES.password1.label} kirgazishing talab qilinadi.`),
     password2: Yup.string().required(`${SIGN_UP_FORM_VALUES.password2.label} kirgazishing talab qilinadi.`),
 });
