@@ -25,8 +25,7 @@ const Nav = () => {
     const handleSendData = useCallback((data: any,) => {
         dispatch(setSearchValue(data));
         router.push({pathname: '/search'})
-        console.log(inputValue)
-    }, [inputValue])
+    }, [dispatch, router])
 
     useEffect(() => {
         window.addEventListener('keydown', (e: any) => {
