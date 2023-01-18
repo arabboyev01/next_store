@@ -6,12 +6,9 @@ import Image from "next/image";
 import {useMediaQuery} from "@mui/material";
 import PaymentTerm from "../Modal/PaymentTerm/PaymentTerm";
 import {useSelector} from "react-redux";
-import {selectSingleItem} from "../../../redux/CartSlice";
-import {MainProducts} from "../../DumbData/DumbData";
+import {fetchData, selectSingleItem} from "../../../redux/CartSlice";
 import {useRouter} from 'next/router'
 import MainLoader from "../MainLoader/MainLoader";
-import axios from "axios";
-import {apiAddress} from "../../../../config";
 
 const SingleProduct = () => {
     const classes = Styles();
@@ -23,24 +20,17 @@ const SingleProduct = () => {
     const [open, setOpen] = useState(false);
     const [filtered, setFiltered] = useState(data);
     const [mainData, setData] = useState([])
-
-    useEffect(() => {
-        axios.get(`${apiAddress}/product`).then((data) => {
-            setData(data.data.content)
-        }).catch(error => {
-            console.log(error)
-        })
-    }, [apiAddress, setData])
+    useEffect(() => {fetchData(setData)}, [])
     const handleOpen = () => setOpen(true);
     const handleCLose = () => setOpen(false);
-    const fetchData = useCallback(() => {
+    const fetchSingleData = useCallback(() => {
         const fetchData = mainData.find((item: any) => item.id == id)
         setFiltered(fetchData)
     }, [id, mainData]);
 
     useEffect(() => {
-        fetchData()
-    }, [fetchData]);
+        fetchSingleData()
+    }, [fetchSingleData]);
 
     return (
         <Box className={classes.singleProducts}>

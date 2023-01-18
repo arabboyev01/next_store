@@ -5,38 +5,31 @@ import Image from "next/image";
 import {Typography, useMediaQuery} from "@mui/material";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { setAddItemToCart, setSingleProduct } from "../../../redux/CartSlice"
-import { useDispatch } from "react-redux";
+import {setAddItemToCart, setSingleProduct, fetchData} from "../../../redux/CartSlice"
+import {useDispatch} from "react-redux";
 import { useRouter } from 'next/router'
-import {useState, useEffect} from "react";
-import {apiAddress} from "../../../../config";
-import axios from "axios";
+import React, {useState, useEffect} from 'react'
+import MainLoader from "../MainLoader/MainLoader";
 
-const MainCart = ({mainData}: any) => {
+const MainCart = () => {
     const classes = Styles();
-    const [data, setData] = useState<any | undefined>([])
     const query = useMediaQuery('@media(max-width: 650px)')
     const dispatch = useDispatch();
-    const onAddToCart = (data: any) => {
-        dispatch(setAddItemToCart(data));
-    };
     const router = useRouter()
     const handleSingleProduct = (data: any) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
-
-    useEffect(() => {
-        axios.get(`${apiAddress}/product`).then((data) => {
-            setData(data.data.content)
-        }).catch(error => {
-            console.log(error)
-        })
-    }, [apiAddress, setData])
+    const [data, setData] = useState([])
+    useEffect(() => {fetchData(setData)}, [])
 
     return (
         <Box className={classes.mainCartWrapper}>
-            {data.map((item: any) =>
+            {data.length === 0 ?
+                <Box className={classes.loader}>
+                    <MainLoader />
+                </Box> :
+                data.map((item: any) =>
                 <Box className={classes.mainCart} key={item.id}>
                     <FavoriteBorderIcon className={classes.favoriteIcon}/>
                     <Box onClick={() => handleSingleProduct(item)}>
@@ -52,7 +45,7 @@ const MainCart = ({mainData}: any) => {
                         <Box onClick={() => router.push({pathname: '/single-products', query: {id: item.id}})}>
                             <PrimaryButton text="Sotib olish"/>
                         </Box>
-                        <ShoppingCartIcon className={classes.shoppingCart} onClick={()=> onAddToCart(item)}/>
+                        <ShoppingCartIcon className={classes.shoppingCart} onClick={()=> dispatch(setAddItemToCart(item))}/>
                     </Box>
                 </Box>
             )}

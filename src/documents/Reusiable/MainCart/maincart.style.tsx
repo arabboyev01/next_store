@@ -99,4 +99,10 @@ export default makeStyles(() => ({
         color: "#fff",
         borderRadius: "4px",
     },
+   loader:{
+       display: "flex",
+       alignItems: "center",
+       justifyContent: "center",
+       padding: "10vh 0",
+   }
 }))

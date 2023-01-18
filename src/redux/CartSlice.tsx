@@ -1,11 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 import {apiAddress} from "../../config";
-const data: any = [];
-const fetchData = () => {
-    return fetch(`${apiAddress}/product`).then((res) => res.json()).then((res) => data.push(res.content))
+import axios from "axios";
+export const data: any = [];
+export const fetchData = (upload: any) => {
+     axios.get(`${apiAddress}/product`).then((res) => {
+         upload(res.data.content)
+         data.push(res.data.content)
+     })
+    return
 }
-fetchData();
 const initialState = {
     cartState: false,
     cartItems: [],
@@ -106,7 +110,7 @@ export const {
     setDecreaseItemQTY,
     setGetTotals,
     setSingleProduct,
-    setSearchValue
+    setSearchValue,
 } = CartSlice.actions;
 
 export const selectSingleItem = (state: any) => state.cart.singleProduct;
