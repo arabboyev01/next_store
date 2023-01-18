@@ -47,10 +47,10 @@ const CartProduct = () => {
                 <>
                     <DeleteModal title={`Siz rostdan ham ushbu ${item.title} o‘chirmoqchimisiz?`} item={item} open={open} handleClose={handleClose} onRemoveItem={onRemoveItem}/>
                     <Box className={classes.cartWrapper} key={index}>
-                        <Image src={item.img.src} alt='image' width={236} height={236}/>
+                        <Image src={item.photoUrl} alt='image' width={236} height={236}/>
                         <Box className={classes.contentWrapper}>
                             <DeleteIcon className={classes.deleteIcon} onClick={handleOpen}/>
-                            <Typography className={classes.name}>{item.title}</Typography>
+                            <Typography className={classes.name}>{item.name}</Typography>
                             <Typography className={classes.price}>{item.price}</Typography>
                             <Box className={classes.color}>
                                 <Box className={classes.boxColor}></Box>
@@ -65,7 +65,7 @@ const CartProduct = () => {
                                     <Typography className={classes.storeName}>
                                         <DeliveryDiningIcon className={classes.icon}/>Yetkazib berish <span
                                         className={classes.span}>Bor</span>
-                                        <span className={classes.decNum}>30 000 som</span>
+                                        <span className={classes.decNum}>40 000 som</span>
                                     </Typography>
                                     <Box className={classes.qtyCounter}>
                                         <button className={classes.decButton} onClick={() => onDecreaseItemQTY(item)}>

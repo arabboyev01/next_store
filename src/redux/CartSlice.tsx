@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
-import {MainProducts} from "../documents/DumbData/DumbData";
+import {apiAddress} from "../../config";
+const data: any = [];
+const fetchData = () => {
+    return fetch(`${apiAddress}/product`).then((res) => res.json()).then((res) => data.push(res.content))
+}
+fetchData();
 const initialState = {
     cartState: false,
-    // cartItems: window.localStorage.getItem("cart")
-    //     // @ts-ignore
-    //     ? JSON.parse(localStorage.getItem("cart")) : [], // Let Suppose Database
-    cartItems: [], // Let Suppose Database
+    cartItems: [],
     singleProduct: [],
     searchValue: [],
     cartTotalAmount: 0,
@@ -29,7 +31,7 @@ const CartSlice = createSlice({
                 state.cartItems.push(temp);
                 state.cartTotalQuantity += 1
 
-                toast.success(`${action.payload.title} Savatga qo'shildi`);
+                toast.success(`${action.payload.name} Savatga qo'shildi`);
             }
 
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
@@ -37,7 +39,7 @@ const CartSlice = createSlice({
         setSearchValue: (state: any, action: any) => {
             const loweredValue = action.payload.toLowerCase();
             if(action.payload){
-                const searchValue = MainProducts.filter(({title}) => title.toLowerCase().includes(loweredValue))
+                const searchValue = data[0].filter((item: any) => item.name.toLowerCase().includes(loweredValue))
                 state.searchValue.push(searchValue);
 
                 state.inputName = action.payload;
@@ -53,7 +55,7 @@ const CartSlice = createSlice({
                 state.cartItems.cartQuantity -= 1;
             }
             localStorage.setItem("cart", JSON.stringify(state.cartItems));
-            toast.success(`${action.payload.title} savatchadan o'chirib tashlandi.`);
+            toast.success(`${action.payload.name} savatchadan o'chirib tashlandi.`);
         },
         setSingleProduct: (state: any, action: any) => {
             const filter = {...action.payload}
