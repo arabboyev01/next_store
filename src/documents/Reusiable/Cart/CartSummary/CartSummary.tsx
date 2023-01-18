@@ -4,36 +4,27 @@ import {Typography} from "@mui/material";
 import PrimaryButton from "../../PrimaryButton/PrimaryButton";
 import {useSelector} from "react-redux";
 import {selectTotalAmount} from "../../../../redux/CartSlice"
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import boxImage from "../../../../../public/assets/images/box.png";
 import Image from "next/image";
+import {CartSummaryType} from "../../../../../types/types"
 
-export type CartSummaryType = {
-    handleForm: any
-    cart: boolean
-    totalQTY?: number
-}
 const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY}) => {
     const classes = Styles();
     const totalAmount = useSelector(selectTotalAmount);
     const [navState, setNavState] = useState(false);
     const [loading, setLoading] = useState(false);
     const handleLoading = () => setLoading(!loading);
-    const onNavScroll = () => {
-        if(window.scrollY > 75) {
-            setNavState(true);
-        } else {
-            setNavState(false);
-        }
-    }
-    useEffect(() => {
-        window.addEventListener('scroll', onNavScroll);
 
-        return () => {
-            window.removeEventListener('scroll', onNavScroll);
-        }
-    },[]);
+    const onNavScroll = useCallback(() => {
+        window.scrollY > 75 ? setNavState(true) : setNavState(false);
+    }, [setNavState])
+
+    useEffect(() => {
+        window.addEventListener('scroll', onNavScroll)
+        return () => window.removeEventListener('scroll', onNavScroll)
+    },[onNavScroll])
 
     return(
         <Box className={navState ? classes.sticky : classes.summaryWrapper}>
