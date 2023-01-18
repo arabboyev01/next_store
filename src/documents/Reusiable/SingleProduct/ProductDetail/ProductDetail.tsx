@@ -16,13 +16,13 @@ const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
     };
     return (
         <Box className={classes.detailWrapper}>
-            <Typography className={classes.mainTitle}>{data.title}</Typography>
-            <Typography className={classes.text}>Rangi</Typography>
-            <Box className={classes.colorBox}>
-                {data.color.map((item: any, index: number) =>
-                    <Box className={classes.box} key={index} style={{backgroundColor: `${item.digit}`}}></Box>
-                )}
-            </Box>
+            <Typography className={classes.mainTitle}>{data.name}</Typography>
+            <Typography className={classes.text}>{data.description}</Typography>
+            {/*<Box className={classes.colorBox}>*/}
+            {/*    {data.color.map((item: any, index: number) =>*/}
+            {/*        <Box className={classes.box} key={index} style={{backgroundColor: `${item.digit}`}}></Box>*/}
+            {/*    )}*/}
+            {/*</Box>*/}
             <Typography className={classes.price}>{data.price} / dona</Typography>
             <Box className={classes.boxPrice}>
                 <Box className={classes.priceInfo}>
