@@ -10,6 +10,8 @@ import {selectSingleItem} from "../../../redux/CartSlice";
 import {MainProducts} from "../../DumbData/DumbData";
 import {useRouter} from 'next/router'
 import MainLoader from "../MainLoader/MainLoader";
+import axios from "axios";
+import {apiAddress} from "../../../../config";
 
 const SingleProduct = () => {
     const classes = Styles();
@@ -20,13 +22,21 @@ const SingleProduct = () => {
     const query = useMediaQuery('@media(max-width: 650px)');
     const [open, setOpen] = useState(false);
     const [filtered, setFiltered] = useState(data);
+    const [mainData, setData] = useState([])
 
+    useEffect(() => {
+        axios.get(`${apiAddress}/product`).then((data) => {
+            setData(data.data.content)
+        }).catch(error => {
+            console.log(error)
+        })
+    }, [apiAddress, setData])
     const handleOpen = () => setOpen(true);
     const handleCLose = () => setOpen(false);
     const fetchData = useCallback(() => {
-        const fetchData = MainProducts.find((item: any) => item.id == id)
+        const fetchData = mainData.find((item: any) => item.id == id)
         setFiltered(fetchData)
-    }, [id]);
+    }, [id, mainData]);
 
     useEffect(() => {
         fetchData()
@@ -43,7 +53,7 @@ const SingleProduct = () => {
                     <PaymentTerm open={open} handleCLose={handleCLose} price={filtered.price}/>
                     <Box className={classes.productHeader}>
                         <Box className={classes.imageWrapper}>
-                            <Image src={filtered.img.src} alt='product_image' width={query ? 226 : 350} height={query ? 216 : 350} className={classes.image}/>
+                            <Image src={filtered.photoUrl} alt='product_image' width={query ? 226 : 350} height={query ? 216 : 350} className={classes.image}/>
                         </Box>
                         <Box>
                             <ProductDetail handleOpen={handleOpen} data={filtered}/>

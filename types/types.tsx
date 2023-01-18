@@ -41,3 +41,8 @@ export type PrimaryButton = {
 export type NavLinksType = {
     handleOpen?: (e: any) => void
 }
+export type CartSummaryType = {
+    handleForm: any
+    cart: boolean
+    totalQTY?: number
+}
