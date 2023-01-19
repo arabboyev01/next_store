@@ -1,7 +1,7 @@
 import {Box} from "@mui/system";
 import style from "./category.style"
 import {Typography, useMediaQuery} from "@mui/material";
-import {CATEGORY_BUTTONS, MainProducts} from "../../documents/DumbData/DumbData";
+import {CATEGORY_BUTTONS} from "../../documents/DumbData/DumbData";
 import Image from "next/image";
 import MainCart from "../../documents/Reusiable/MainCart/MainCart";
 
@@ -23,7 +23,7 @@ const CategoryComponent = () => {
                     )}
                 </Box>
                 <Box className={classes.productWrapper}>
-                    <MainCart mainData={MainProducts}/>
+                    <MainCart/>
                 </Box>
             </Box>
         </Box>
