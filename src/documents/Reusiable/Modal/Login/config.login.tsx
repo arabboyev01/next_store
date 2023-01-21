@@ -34,9 +34,9 @@ export const SIGN_UP_FORM_VALUES = {
         label: "Familiyangiz",
         require: true,
     },
-    telNumber: {
-        name: 'telnumber',
-        label: "Tel raqamingiz",
+    email: {
+        name: 'email',
+        label: "E-mailingiz",
         require: true,
     },
     password1: {

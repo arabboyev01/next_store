@@ -11,16 +11,15 @@ import {makeValidate} from "mui-rff";
 
 
 const schema = Yup.object().shape({
-    firstname: Yup.string().required(`${SIGN_UP_FORM_VALUES.firstName.label} kirgazishing talab qilinadi.`),
-    lastname: Yup.string().required(`${SIGN_UP_FORM_VALUES.lastName.label} kirgazishing talab qilinadi.`),
-    telnumber: Yup.string().required(`${SIGN_UP_FORM_VALUES.telNumber.label} kirgazishing talab qilinadi.`),
-    password1: Yup.string().required(`${SIGN_UP_FORM_VALUES.password1.label} kirgazishing talab qilinadi.`),
-    password2: Yup.string().required(`${SIGN_UP_FORM_VALUES.password2.label} kirgazishing talab qilinadi.`),
+    firstname: Yup.string().required(`${SIGN_UP_FORM_VALUES.firstName.label} talab qilinadi.`),
+    lastname: Yup.string().required(`${SIGN_UP_FORM_VALUES.lastName.label}talab qilinadi.`),
+    email: Yup.string().required(`${SIGN_UP_FORM_VALUES.email.label} talab qilinadi.`),
+    password1: Yup.string().required(`${SIGN_UP_FORM_VALUES.password1.label} talab qilinadi.`),
+    password2: Yup.string().required(`${SIGN_UP_FORM_VALUES.password2.label} talab qilinadi.`),
 });
 const validate = makeValidate(schema);
 const SignUpComponent = () => {
     const classes = Style();
-
     return (
         <Box className={classes.signUpWrapper}>
             <Typography className={classes.title}>Ro&apos;yhatdan o&apos;tish </Typography>
@@ -42,7 +41,7 @@ const SignUpComponent = () => {
                             </Box>
                             <Box className={classes.itemsContainer}>
                                 <Box className={classes.fieldContainer}>
-                                    <CssTextField {...SIGN_UP_FORM_VALUES.telNumber} placeholder='Tel Raqam'
+                                    <CssTextField {...SIGN_UP_FORM_VALUES.email} placeholder='E-mailingiz'
                                                   type="text"/>
                                 </Box>
                                 <Box className={classes.fieldContainer}>
