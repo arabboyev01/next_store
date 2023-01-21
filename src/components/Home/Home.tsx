@@ -9,10 +9,15 @@ import SeeMoreButton from "../../documents/Reusiable/SeeMore/SeeMore";
 import {useMediaQuery} from "@mui/material";
 import MainCart from "../../documents/Reusiable/MainCart/MainCart";
 import Brands from "../../documents/Reusiable/Brands/Brands";
+import {useEffect, useState} from "react";
+import {fetchData} from "../../redux/CartSlice";
 
 const HomeComponent = () => {
     const classes = Style();
     const query = useMediaQuery('@media(max-width: 650px)');
+    const [data, setData] = useState([])
+    useEffect(() => {fetchData(setData)}, [])
+
     return (
         <Box className={classes.homeWrapper}>
             <Box className={classes.contentWrapper}>
@@ -27,7 +32,7 @@ const HomeComponent = () => {
             </Box>
             <Box className={classes.mainSales}>
                 <MainTitle title="Eng ko'p sotilganlar"/>
-                <MainCart/>
+                <MainCart mainData={data}/>
                 <Box className={classes.seeMore}>
                     <SeeMoreButton text="Ko'proq korish"/>
                 </Box>
@@ -37,7 +42,7 @@ const HomeComponent = () => {
             </Box>
             <Box className={classes.mainSales}>
                 <MainTitle title="Eng ko'p sotilganlar"/>
-                <MainCart/>
+                <MainCart mainData={data}/>
                 <Box className={classes.seeMore}>
                     <SeeMoreButton text="Ko'proq ko'rish"/>
                 </Box>

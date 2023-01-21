@@ -12,16 +12,16 @@ import SubmitButton from "../../../SubmitButton/SubmitButton";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import axios from "axios";
+import {apiAddress} from "../../../../../../config";
+import {LoginFieldType} from "../../../../../../types/types";
 
 const schema = Yup.object().shape({
-    number: Yup.string().required(`${LOGIN_FORM_VALUES.number.label} is a required field.`),
-    password: Yup.string().required(`${LOGIN_FORM_VALUES.password.label} is a required field.`),
+    username: Yup.string().required(`${LOGIN_FORM_VALUES.username.label}. majburiy.`),
+    password: Yup.string().required(`${LOGIN_FORM_VALUES.password.label} majburiy.`),
 });
 const validate = makeValidate(schema);
 
-export type LoginFieldType = {
-    handleClose?: (e: any) => void
-}
 const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
     const classes = Style();
     const [open, setOpen] = useState(false);
@@ -31,19 +31,35 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
     const [visible, setVisible] = useState(false)
     const handleVisible = () => setVisible(!visible);
     const [loading, setLoading] = useState(false);
-    const handleLoading = () => setLoading(!loading);
+    const login = async (values: any) => {
+        setLoading(true)
+        axios.post(`${apiAddress}/auth/login`, {
+            username: values.email,
+            password: values.password
+        }).then((data) => {
+            if (data?.data?.token) {
+                console.log('here', data?.data?.token)
+                localStorage.setItem("tokenKey", data?.data?.token)
+            }
+        }).catch((error) => {
+            console.log(error);
+        }).finally(() => {
+            setLoading(false)
+        })
+    }
+
     return(
         <Box className={classes.fieldWrapper}>
             <CloseIcon className={classes.closeIcon} onClick={handleClose}/>
             <Typography className={classes.title}>Telefon raqam orqali kirish</Typography>
             <Form
-                onSubmit={() => console.log('hi')}
+                onSubmit={login}
                 validate={validate}
                 render={({handleSubmit}) => (
                     <form onSubmit={handleSubmit} noValidate style={{width: '100%'}}>
                         <Box className={classes.itemsContainer}>
                             <Box className={classes.fieldContainer}>
-                                <CssTextField {...LOGIN_FORM_VALUES.number} placeholder='Tel Raqam' type="text"/>
+                                <CssTextField {...LOGIN_FORM_VALUES.username} placeholder='E-mailingizni kiriting' type="text"/>
                             </Box>
                             <Box className={classes.fieldContainer}>
                                 <label className={classes.seePassword} onClick={handleVisible}>
@@ -52,7 +68,7 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
                                 <CssTextField {...LOGIN_FORM_VALUES.password} placeholder='Parol' type={visible ? 'text' : 'password'}/>
                             </Box>
                             <Box className={classes.submit}>
-                                <SubmitButton loading={loading} buttonText='Kirish' onClick={handleLoading}/>
+                                <SubmitButton loading={loading} buttonText='Kirish'/>
                             </Box>
                         </Box>
                     </form>

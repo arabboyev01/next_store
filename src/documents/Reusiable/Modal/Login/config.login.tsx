@@ -1,7 +1,7 @@
 export const LOGIN_FORM_VALUES = {
-    number: {
-        name: 'number',
-        label: "Tel raqam",
+    username: {
+        name: 'username',
+        label: "E-mailingizni kiriting",
         require: true,
     },
     password: {

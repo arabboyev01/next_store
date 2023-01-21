@@ -20,7 +20,7 @@ const SecondaryCart: React.FC<SecondaryCartType> = ({data}) => {
             {data.map((item:any) =>
                 <Box onClick={() => HandleDataById(item.id)} key={item.id}>
                     <Box className={classes.secondaryCart}>
-                        <Image src={item.img} alt="image" width={query ? 120 : 136} height={query ? 120 : 136} className={classes.itemImage}/>
+                        <Image src={item.img} loading="lazy" alt="image" width={query ? 120 : 136} height={query ? 120 : 136} className={classes.itemImage}/>
                         <Typography className={classes.text}>{item.name}</Typography>
                     </Box>
                 </Box>

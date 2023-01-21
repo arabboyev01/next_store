@@ -5,13 +5,14 @@ import Image from "next/image";
 import {Typography, useMediaQuery} from "@mui/material";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import {setAddItemToCart, setSingleProduct, fetchData} from "../../../redux/CartSlice"
+import {setAddItemToCart, setSingleProduct,} from "../../../redux/CartSlice"
 import {useDispatch} from "react-redux";
 import { useRouter } from 'next/router'
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import MainLoader from "../MainLoader/MainLoader";
+import {mainDataType} from "../../../../types/types";
 
-const MainCart = () => {
+const MainCart: React.FC<mainDataType> = ({mainData}) => {
     const classes = Styles();
     const query = useMediaQuery('@media(max-width: 650px)')
     const dispatch = useDispatch();
@@ -20,23 +21,21 @@ const MainCart = () => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
-    const [data, setData] = useState([])
-    useEffect(() => {fetchData(setData)}, [])
 
     return (
         <Box className={classes.mainCartWrapper}>
-            {data.length === 0 ?
+            {mainData.length === 0 ?
                 <Box className={classes.loader}>
                     <MainLoader />
                 </Box> :
-                data.map((item: any) =>
+                mainData.map((item: any) =>
                 <Box className={classes.mainCart} key={item.id}>
                     <FavoriteBorderIcon className={classes.favoriteIcon}/>
                     <Box onClick={() => handleSingleProduct(item)}>
                             {item.state === 'New' ?
                                 <Typography className={classes.sale}>Yangilik</Typography> : item.status === 'New' ?
                                     <Typography className={classes.new}>Yangilik</Typography> : null}
-                            <Image src={item.photoUrl} alt='image' width={query ? 120 : 180} height={query ? 120 : 180} className={classes.mainImage}/>
+                            <Image src={item.photoUrl} alt='image' loading="lazy" width={query ? 120 : 180} height={query ? 120 : 180} className={classes.mainImage}/>
                             <Typography className={classes.price}>{item.price} so&apos;m</Typography>
                             <Typography className={classes.title}>{item.name}</Typography>
                             <Typography className={classes.order}>{item.phone}</Typography>

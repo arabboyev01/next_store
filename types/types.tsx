@@ -46,3 +46,9 @@ export type CartSummaryType = {
     cart: boolean
     totalQTY?: number
 }
+export type LoginFieldType = {
+    handleClose?: (e: any) => void
+}
+export type mainDataType = {
+    mainData: any
+}
