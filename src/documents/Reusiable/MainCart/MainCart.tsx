@@ -24,11 +24,11 @@ const MainCart: React.FC<mainDataType> = ({mainData}) => {
 
     return (
         <Box className={classes.mainCartWrapper}>
-            {mainData.length === 0 ?
-                <Box className={classes.loader}>
-                    <MainLoader />
-                </Box> :
-                mainData.map((item: any) =>
+            {/*{mainData.length === 0 ?*/}
+            {/*    <Box className={classes.loader}>*/}
+            {/*        <MainLoader />*/}
+            {/*    </Box> :*/}
+            {mainData.map((item: any) =>
                 <Box className={classes.mainCart} key={item.id}>
                     <FavoriteBorderIcon className={classes.favoriteIcon}/>
                     <Box onClick={() => handleSingleProduct(item)}>
