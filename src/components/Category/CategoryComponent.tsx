@@ -4,26 +4,13 @@ import {Typography, useMediaQuery} from "@mui/material";
 import {CATEGORY_BUTTONS} from "../../documents/DumbData/DumbData";
 import Image from "next/image";
 import MainCart from "../../documents/Reusiable/MainCart/MainCart";
-import {useEffect, useState} from "react";
-import {fetchData} from "../../redux/CartSlice";
-// import {useRouter} from "next/router";
-// import {useState, useEffect} from "react"
-// import axios from "axios";
-// import {apiAddress} from "../../../config";
+import {useSelector} from "react-redux";
 
 const CategoryComponent = () => {
     const classes = style()
     const query = useMediaQuery('@media(max-width: 650px)')
-    // const router = useRouter()
-    // const {id} = router.query
-    // const [data, mainData] = useState([])
-    // useEffect(() => {
-    //     axios.get(`${apiAddress}/category/${Number(id)}/`).then((data) => mainData(data))
-    //         .catch((err) => console.log(err))
-    // }, [mainData])
-    // console.log(data)
-    const [data, setData] = useState([])
-    useEffect(() => {fetchData(setData)}, [])
+    const {mainData} = useSelector((state: any) => state.cart);
+    const data = mainData[mainData.length - 1]
 
     return (
         <Box className={classes.categoryWrapper}>
