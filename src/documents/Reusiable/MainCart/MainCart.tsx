@@ -21,15 +21,14 @@ const MainCart: React.FC<mainDataType> = ({mainData}) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
-    console.log(mainData)
 
     return (
         <Box className={classes.mainCartWrapper}>
-            {/*{mainData.length === 0 ?*/}
-            {/*    <Box className={classes.loader}>*/}
-            {/*        <MainLoader />*/}
-            {/*    </Box> :*/}
-            {mainData.map((item: any) =>
+            {mainData === undefined ?
+                <Box className={classes.loader}>
+                    <MainLoader />
+                </Box> :
+                mainData.content.map((item: any) =>
                 <Box className={classes.mainCart} key={item.id}>
                     <FavoriteBorderIcon className={classes.favoriteIcon}/>
                     <Box onClick={() => handleSingleProduct(item)}>

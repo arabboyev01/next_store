@@ -1,12 +1,14 @@
-import { FallingLines } from  'react-loader-spinner'
+import { Oval } from  'react-loader-spinner'
 const MainLoader = () => {
     return(
-        <FallingLines
+        <Oval
             color="#0072b1"
-            width="100"
             visible={true}
             // @ts-ignore
-            ariaLabel='falling-lines-loading'
+            ariaLabel='oval-loading'
+            height={60}
+            width={60}
+            secondaryColor="#ccc"
         />
     )
 }

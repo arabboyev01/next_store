@@ -5,10 +5,7 @@ import Nav from "../documents/Reusiable/Navbar/Nav";
 import {useMediaQuery} from "@mui/material";
 import MobileNav from "../documents/Reusiable/MobileNav/MobileNav";
 
-export type LayoutType = {
-    children?: any
-}
-const Layout: React.FC<LayoutType> = ({children}) => {
+const Layout = ({children}: {children: React.ReactNode}) => {
     const query = useMediaQuery('@media(max-width: 900px)')
     return (
         <Box>

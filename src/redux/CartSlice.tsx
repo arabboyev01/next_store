@@ -1,16 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 import {apiAddress} from "../../config";
-import axios from "axios";
-export const data: any = [];
-export const fetchData = (upload: any) => {
-     axios.get(`${apiAddress}/product`).then((res) => {
-         upload(res.data.content)
-         data.push(res.data.content)
-     })
-    return
-}
+
+export const fetchData = createAsyncThunk('cart/getAllCartData', async () => {
+    const response = await fetch(`${apiAddress}/product`)
+    return await response.json();
+})
+
 const initialState = {
+    mainData: [],
     cartState: false,
     cartItems: [],
     singleProduct: [],
@@ -18,11 +16,16 @@ const initialState = {
     cartTotalAmount: 0,
     cartTotalQuantity: 0,
     inputName: '',
-};
+}
 
 const CartSlice = createSlice({
     initialState,
     name: "cart",
+    extraReducers:(builder) => {
+      builder.addCase(fetchData.fulfilled, (state: any, action: any) => {
+          state.mainData.push(action.payload)
+      });
+    },
     reducers: {
         setAddItemToCart: (state: any, action: any) => {
             const itemIndex = state.cartItems.findIndex((item: any) => item.id === action.payload.id);
@@ -43,7 +46,7 @@ const CartSlice = createSlice({
         setSearchValue: (state: any, action: any) => {
             const loweredValue = action.payload.toLowerCase();
             if(action.payload){
-                const searchValue = data[0].filter((item: any) => item.name.toLowerCase().includes(loweredValue))
+                const searchValue = state.mainData[0]?.find((item: any) => item.name.toLowerCase().includes(loweredValue))
                 state.searchValue.push(searchValue);
 
                 state.inputName = action.payload;
@@ -112,7 +115,6 @@ export const {
     setSingleProduct,
     setSearchValue,
 } = CartSlice.actions;
-
 export const selectSingleItem = (state: any) => state.cart.singleProduct;
 export const selectCartItems = (state: any) => state.cart.cartItems;
 

@@ -7,16 +7,15 @@ import {BrandsData, BrandsStore, CategoryCart} from "../../documents/DumbData/Du
 import MainTitle from "../../documents/Reusiable/MainTitle/MainTitle";
 import SeeMoreButton from "../../documents/Reusiable/SeeMore/SeeMore";
 import {useMediaQuery} from "@mui/material";
-import MainCart from "../../documents/Reusiable/MainCart/MainCart";
 import Brands from "../../documents/Reusiable/Brands/Brands";
-import {useEffect, useState} from "react";
-import {fetchData} from "../../redux/CartSlice";
+import {useSelector} from "react-redux";
+import MainCart from "../../documents/Reusiable/MainCart/MainCart";
 
 const HomeComponent = () => {
     const classes = Style();
     const query = useMediaQuery('@media(max-width: 650px)');
-    const [data, setData] = useState([])
-    useEffect(() => {fetchData(setData)}, [])
+    const {mainData} = useSelector((state: any) => state.cart);
+    const data = mainData[mainData.length - 1]
 
     return (
         <Box className={classes.homeWrapper}>

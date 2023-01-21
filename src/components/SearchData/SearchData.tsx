@@ -12,7 +12,8 @@ const SearchData = () => {
     const searchedValue = useSelector(setSearchValue);
     const query = useMediaQuery('@media(max-width: 600px)')
     // @ts-ignore
-    const data = searchedValue.payload.cart.searchValue[searchedValue.payload.cart.searchValue.length - 1];
+    const data = searchedValue.payload.cart.searchValue;
+    console.log(searchedValue)
     // @ts-ignore
     const productName = searchedValue.payload.cart.inputName.toLocaleUpperCase();
     return (

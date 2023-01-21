@@ -6,25 +6,24 @@ import Image from "next/image";
 import {useMediaQuery} from "@mui/material";
 import PaymentTerm from "../Modal/PaymentTerm/PaymentTerm";
 import {useSelector} from "react-redux";
-import {fetchData, selectSingleItem} from "../../../redux/CartSlice";
+import {selectSingleItem} from "../../../redux/CartSlice";
 import {useRouter} from 'next/router'
 import MainLoader from "../MainLoader/MainLoader";
 
 const SingleProduct = () => {
     const classes = Styles();
     const singleProduct = useSelector(selectSingleItem);
-    const data = singleProduct[singleProduct.length - 1]
+    const data = singleProduct[singleProduct.length]
     const router = useRouter()
     const {id} = router.query
     const query = useMediaQuery('@media(max-width: 650px)');
     const [open, setOpen] = useState(false);
     const [filtered, setFiltered] = useState(data);
-    const [mainData, setData] = useState([])
-    useEffect(() => {fetchData(setData)}, [])
+    const {mainData} = useSelector((state: any) => state.cart);
     const handleOpen = () => setOpen(true);
     const handleCLose = () => setOpen(false);
     const fetchSingleData = useCallback(() => {
-        const fetchData = mainData.find((item: any) => item.id == id)
+        const fetchData = mainData[mainData.length - 1]?.content?.find((item: any) => item.id == id)
         setFiltered(fetchData)
     }, [id, mainData]);
 
@@ -36,14 +35,15 @@ const SingleProduct = () => {
         <Box className={classes.singleProducts}>
             {!filtered ?
                 <Box className={classes.loader}>
-                  <MainLoader />
+                    <MainLoader/>
                 </Box>
                 :
                 <>
                     <PaymentTerm open={open} handleCLose={handleCLose} price={filtered.price}/>
                     <Box className={classes.productHeader}>
                         <Box className={classes.imageWrapper}>
-                            <Image src={filtered.photoUrl} alt='product_image' width={query ? 226 : 350} height={query ? 216 : 350} className={classes.image}/>
+                            <Image src={filtered.photoUrl} alt='product_image' width={query ? 226 : 350}
+                                   height={query ? 216 : 350} className={classes.image}/>
                         </Box>
                         <Box>
                             <ProductDetail handleOpen={handleOpen} data={filtered}/>
