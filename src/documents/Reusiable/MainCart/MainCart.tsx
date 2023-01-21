@@ -21,6 +21,7 @@ const MainCart: React.FC<mainDataType> = ({mainData}) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
+    console.log(mainData)
 
     return (
         <Box className={classes.mainCartWrapper}>
