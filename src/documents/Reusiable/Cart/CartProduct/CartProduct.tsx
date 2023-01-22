@@ -23,30 +23,22 @@ const CartProduct = () => {
     const classes = Styles();
     const dispatch = useDispatch();
     const cartItems = useSelector(selectCartItems);
-    const onRemoveItem = (data: any) => {
-        dispatch(setRemoveItemFromCart(data))
-    }
+    const onRemoveItem = (data: any) => dispatch(setRemoveItemFromCart(data))
 
-    const onIncreaseItemQTY = (data: any) => {
-        dispatch(setIncreaseItemQTY(data))
-    }
-    const onDecreaseItemQTY = (data: any) => {
-        dispatch(setDecreaseItemQTY(data))
-    }
     useEffect(() => {
-        // @ts-ignore
         dispatch(setGetTotals())
     }, [cartItems, dispatch])
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
     return (
         <Box className={classes.item}>
-            {cartItems.map((item: any, index: number) =>
-                <>
-                    <DeleteModal title={`Siz rostdan ham ushbu ${item.title} o‘chirmoqchimisiz?`} item={item} open={open} handleClose={handleClose} onRemoveItem={onRemoveItem}/>
-                    <Box className={classes.cartWrapper} key={index}>
+            {cartItems?.map((item: any, index: number) =>
+                <Box key={index}>
+                    <DeleteModal title={`Siz rostdan ham ushbu ${item.title} o‘chirmoqchimisiz?`} item={item}
+                                 open={open} handleClose={handleClose} onRemoveItem={onRemoveItem}/>
+                    <Box className={classes.cartWrapper}>
                         <Image src={item.photoUrl} alt='image' width={236} height={236}/>
                         <Box className={classes.contentWrapper}>
                             <DeleteIcon className={classes.deleteIcon} onClick={handleOpen}/>
@@ -68,11 +60,13 @@ const CartProduct = () => {
                                         <span className={classes.decNum}>40 000 som</span>
                                     </Typography>
                                     <Box className={classes.qtyCounter}>
-                                        <button className={classes.decButton} onClick={() => onDecreaseItemQTY(item)}>
+                                        <button className={classes.decButton}
+                                                onClick={() => dispatch(setDecreaseItemQTY(item))}>
                                             <ChevronLeftIcon className={classes.decIcon}/>
                                         </button>
                                         <Typography className={classes.qty}>{item.cartQuantity}</Typography>
-                                        <button className={classes.incButton} onClick={() => onIncreaseItemQTY(item)}>
+                                        <button className={classes.incButton}
+                                                onClick={() => dispatch(setIncreaseItemQTY(item))}>
                                             <ChevronRightIcon className={classes.incIcon}/>
                                         </button>
                                     </Box>
@@ -80,7 +74,7 @@ const CartProduct = () => {
                             </Box>
                         </Box>
                     </Box>
-                </>
+                </Box>
             )}
         </Box>
     )
