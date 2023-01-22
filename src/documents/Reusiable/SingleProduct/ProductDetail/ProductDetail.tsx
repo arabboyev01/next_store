@@ -7,6 +7,9 @@ import {ProductDetailType} from "../../../../../types/types";
 import PrimaryButton from "../../PrimaryButton/PrimaryButton";
 import {setAddItemToCart} from "../../../../redux/CartSlice";
 import { useDispatch } from "react-redux";
+import StoreIcon from '@mui/icons-material/Store';
+import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
     const classes = Style();
@@ -39,6 +42,9 @@ const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
                     <PrimaryButton text='Hozir sotib olish'/>
                 </Box>
                 <Button className={classes.add} onClick={() => onAddToCart(data)}>Savatchaga otish</Button>
+            </Box>
+            <Box className={classes.delivery}>
+
             </Box>
         </Box>
     )
