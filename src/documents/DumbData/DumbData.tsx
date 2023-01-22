@@ -1,4 +1,4 @@
-import {BrandsDataType, CategoryCartTypes} from "../../../types/types";
+import {BrandsDataType, CategoryCartTypes, deliveryDumbDataType} from "../../../types/types";
 import cat1 from "../../../public/assets/categories/cat1.png"
 import cat2 from "../../../public/assets/categories/cat2.png"
 import cat3 from "../../../public/assets/categories/cat3.png"
@@ -24,6 +24,7 @@ import mac from "../../../public/assets/categories/mac.png"
 import phone from "../../../public/assets/categories/phone.png"
 import tablet from "../../../public/assets/categories/tablet.png"
 import pots from "../../../public/assets/categories/pots.png"
+
 export const CategoryCart: CategoryCartTypes[] = [
     {
         id: 1,
@@ -69,58 +70,58 @@ export const CategoryCart: CategoryCartTypes[] = [
 
 export const BrandsData: BrandsDataType[] = [
     {
-        id:0,
-        image:hpImage,
+        id: 0,
+        image: hpImage,
     },
     {
-        id:1,
-        image:acerImage,
+        id: 1,
+        image: acerImage,
     },
     {
-        id:2,
-        image:asusImage,
+        id: 2,
+        image: asusImage,
     },
     {
-        id:3,
-        image:samsungImage,
+        id: 3,
+        image: samsungImage,
     },
     {
-        id:4,
-        image:appleImage,
+        id: 4,
+        image: appleImage,
     },
     {
-        id:5,
-        image:msiImage,
+        id: 5,
+        image: msiImage,
     },
     {
-        id:6,
-        image:miImage,
+        id: 6,
+        image: miImage,
     },
     {
-        id:7,
-        image:vivoImage,
+        id: 7,
+        image: vivoImage,
     },
 ]
 export const BrandsStore: BrandsDataType[] = [
     {
-        id:0,
-        image:elmakonImage,
+        id: 0,
+        image: elmakonImage,
     },
     {
-        id:1,
-        image:goodImage,
+        id: 1,
+        image: goodImage,
     },
     {
-        id:2,
-        image:mediaImage,
+        id: 2,
+        image: mediaImage,
     },
     {
-        id:3,
-        image:sandiqImage,
+        id: 3,
+        image: sandiqImage,
     },
     {
-        id:4,
-        image:texnoImage,
+        id: 4,
+        image: texnoImage,
     },
 ]
 
@@ -185,3 +186,9 @@ export const CATEGORY_BUTTONS = [
         image: pots,
     },
 ]
+export const deliveryDumbData: deliveryDumbDataType = {
+    name: 'Apple',
+    delivery: 15000,
+    day: '15 kun',
+}
+

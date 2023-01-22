@@ -52,3 +52,8 @@ export type LoginFieldType = {
 export type mainDataType = {
     mainData: any
 }
+export type deliveryDumbDataType = {
+    name: string
+    delivery: number
+    day: string
+}

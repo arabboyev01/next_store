@@ -1,6 +1,5 @@
 import styles from './likes.style'
 import {Box} from "@mui/system";
-import {MainProducts} from "../../documents/DumbData/DumbData";
 import Image from "next/image";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import {Button, Typography, useMediaQuery} from "@mui/material";
@@ -9,26 +8,33 @@ import StoreIcon from "@mui/icons-material/Store";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 import PrimaryButton from "../../documents/Reusiable/PrimaryButton/PrimaryButton";
 import {setAddItemToCart} from "../../redux/CartSlice";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import CloseIcon from '@mui/icons-material/Close';
+import MainLoader from "../../documents/Reusiable/MainLoader/MainLoader";
 const LikesComponent = () => {
     const classes = styles();
     const dispatch = useDispatch();
     const onAddToCart = (data: any) => {
         dispatch(setAddItemToCart(data));
     };
+    const {mainData} = useSelector((state: any) => state.cart);
+    const data = mainData[mainData.length - 1]
 
     const query = useMediaQuery('@media(max-width: 600px)')
     return(
         <Box className={classes.likeWrapper}>
             <Box className={classes.contentWrapper}>
                 <Typography className={classes.ordinaryText} >Saralangan mahsulotlar</Typography>
-                {MainProducts.map((item, index) =>
+                {data === undefined ?
+                    <Box className={classes.loader}>
+                        <MainLoader />
+                    </Box> :
+                    data.content.map((item: any, index: any) =>
                     <Box className={classes.content} key={index}>
                         <FavoriteIcon className={classes.likeIcon}/>
-                        <Image src={item.img.src} alt="image" width={query ? 180 : 236} height={query ? 180 : 236}/>
+                        <Image src={item.photoUrl} alt="image" width={query ? 180 : 236} height={query ? 180 : 236}/>
                         <Box className={classes.mainContent}>
-                            <Typography className={classes.name}>{item.title}</Typography>
+                            <Typography className={classes.name}>{item.name}</Typography>
                             <Typography className={classes.price}>{item.price} so&apos;m</Typography>
                             <Box className={classes.color}>
                                 <Box className={classes.boxColor}></Box>

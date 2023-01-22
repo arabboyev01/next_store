@@ -135,6 +135,11 @@ export default makeStyles(() => ({
         },
     },
     delivery: {
-
+        width: "551px",
+        height: "127px",
+        borderRadius: "10px",
+        '@media(max-width: 650px)': {
+            width: "320px",
+        },
     },
 }))

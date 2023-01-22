@@ -104,5 +104,13 @@ export default makeStyles(() => ({
        alignItems: "center",
        justifyContent: "center",
        padding: "10vh 0",
-   }
+   },
+    imageWrapper:{
+        width: "180px",
+        height: "180px",
+        '@media(max-width: 650px)':{
+            width: "120px",
+            height: "120px",
+        }
+    },
 }))
