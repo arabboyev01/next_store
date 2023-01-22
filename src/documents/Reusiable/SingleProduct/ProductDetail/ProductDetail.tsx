@@ -42,7 +42,7 @@ const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
                 <Button className={classes.add} onClick={() => onAddToCart(data)}>Savatchaga otish</Button>
             </Box>
             <Box className={classes.delivery}>
-                <DeliveryService />
+                <DeliveryService name={data.name}/>
             </Box>
         </Box>
     )

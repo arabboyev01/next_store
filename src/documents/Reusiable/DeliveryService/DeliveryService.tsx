@@ -5,14 +5,14 @@ import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import LoopIcon from '@mui/icons-material/Loop';
 import {Typography} from "@mui/material";
 import {deliveryDumbData} from "../../DumbData/DumbData";
-const DeliveryService = () => {
+const DeliveryService = ({name}: any) => {
     const classes = Style()
     return(
         <Box className={classes.deliveryWrapper}>
             <Box className={classes.singleLine}>
                 <StoreIcon className={classes.icon} />
                 <Typography className={classes.name}>Brend: </Typography>
-                <Typography className={classes.brandName}>{deliveryDumbData.name}</Typography>
+                <Typography className={classes.brandName}>{name}</Typography>
             </Box>
             <Box className={classes.singleLine}>
                 <DeliveryDiningIcon className={classes.icon} />
