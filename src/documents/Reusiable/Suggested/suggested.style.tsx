@@ -35,11 +35,10 @@ export default makeStyles(() => ({
     },
     header: {
         display: "flex",
-        // flexDirection: "row",
+        flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
         gap: '100px',
-        textAlign: 'start',
         '@media(max-width: 600px)': {
             gap: '50px',
             marginTop: '30px',
@@ -57,6 +56,7 @@ export default makeStyles(() => ({
         maxWidth: "372px",
         margin: "0 auto",
         paddingLeft: "20px",
+        textAlign: 'start',
         '@media(max-width: 600px)': {
             maxWidth: "272px",
         },
@@ -64,6 +64,7 @@ export default makeStyles(() => ({
     shop: {
         fontSize: "16px",
         fontWeight: 700,
+        width: '120px',
     },
     price: {
         color: '#1E1E1E',
