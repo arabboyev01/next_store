@@ -3,12 +3,16 @@ export default makeStyles(() => ({
     suggestWrapper: {
         maxWidth: '1230px',
         margin: '60px auto',
-        maxHeight: "574px",
-        height: "100%",
+        height: "574px",
         width: "100%",
         padding: "23px",
         background: "#fff",
         borderRadius: "10px",
+        '@media(max-width: 600px)': {
+            maxWidth: '90%',
+            padding: "20px",
+            height: "auto",
+        },
     },
     category: {
         padding: "10px",
@@ -24,13 +28,28 @@ export default makeStyles(() => ({
         borderBottom: "1px solid #E4E7EE",
         paddingBottom: "5px",
         paddingTop: '10px',
+        '@media(max-width: 600px)': {
+            flexDirection: "column",
+            alignItems: "start",
+        },
     },
     header: {
+        display: "flex",
+        // flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: '100px',
+        textAlign: 'start',
+        '@media(max-width: 600px)': {
+            gap: '50px',
+            marginTop: '30px',
+        },
+    },
+    headers: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        textAlign: 'start',
     },
     name: {
         fontSize: "14px",
@@ -38,12 +57,22 @@ export default makeStyles(() => ({
         maxWidth: "372px",
         margin: "0 auto",
         paddingLeft: "20px",
+        '@media(max-width: 600px)': {
+            maxWidth: "272px",
+        },
     },
     shop: {
         fontSize: "16px",
         fontWeight: 700,
-        textAlign: 'start',
     },
-    price: {},
-    status: {},
+    price: {
+        color: '#1E1E1E',
+    },
+    status: {
+        color: "#0D63F3",
+    },
+    button: {
+        background: "#ECF4FF",
+        color: "#0D63F3",
+    },
 }))

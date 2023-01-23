@@ -197,7 +197,7 @@ export const SUGGESTION_DATA: SUGGESION_DATA_TYPE[] = [
         image: image,
         name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
         shop: "Sandiq shop",
-        price: "15 232 000",
+        price: "15232000",
         status: "Yangi",
     },
     {
@@ -205,7 +205,7 @@ export const SUGGESTION_DATA: SUGGESION_DATA_TYPE[] = [
         image: image,
         name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
         shop: "Mac Bro",
-        price: "15 232 000",
+        price: "16232000",
         status: "Yangi",
     },
     {
@@ -213,7 +213,7 @@ export const SUGGESTION_DATA: SUGGESION_DATA_TYPE[] = [
         image: image,
         name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
         shop: "Xiaomi",
-        price: "15 232 000",
+        price: "10232000",
         status: "Yangi",
     },
     {
@@ -221,7 +221,7 @@ export const SUGGESTION_DATA: SUGGESION_DATA_TYPE[] = [
         image: image,
         name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
         shop: "Mac Bro",
-        price: "15 232 000",
+        price: "11232000",
         status: "Yangi",
     },
     {
@@ -229,7 +229,7 @@ export const SUGGESTION_DATA: SUGGESION_DATA_TYPE[] = [
         image: image,
         name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
         shop: "Sandiq shop",
-        price: "15 232 000",
+        price: "9232000",
         status: "Yangi",
     },
     {
@@ -237,7 +237,7 @@ export const SUGGESTION_DATA: SUGGESION_DATA_TYPE[] = [
         image: image,
         name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
         shop: "Sandiq shop",
-        price: "15 232 000",
+        price: "8232000",
         status: "Yangi",
     },
     {
@@ -245,7 +245,7 @@ export const SUGGESTION_DATA: SUGGESION_DATA_TYPE[] = [
         image: image,
         name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
         shop: "Sandiq shop",
-        price: "15 232 000",
+        price: "7232000",
         status: "Yangi",
     },
 ]
