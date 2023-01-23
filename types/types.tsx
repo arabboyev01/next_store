@@ -57,3 +57,11 @@ export type deliveryDumbDataType = {
     delivery: number
     day: string
 }
+export type SUGGESION_DATA_TYPE = {
+    id: number,
+    image: any,
+    name: string,
+    shop: string,
+    price: string,
+    status: string,
+}

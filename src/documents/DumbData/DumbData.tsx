@@ -1,4 +1,4 @@
-import {BrandsDataType, CategoryCartTypes, deliveryDumbDataType} from "../../../types/types";
+import {BrandsDataType, CategoryCartTypes, deliveryDumbDataType, SUGGESION_DATA_TYPE} from "../../../types/types";
 import cat1 from "../../../public/assets/categories/cat1.png"
 import cat2 from "../../../public/assets/categories/cat2.png"
 import cat3 from "../../../public/assets/categories/cat3.png"
@@ -24,7 +24,7 @@ import mac from "../../../public/assets/categories/mac.png"
 import phone from "../../../public/assets/categories/phone.png"
 import tablet from "../../../public/assets/categories/tablet.png"
 import pots from "../../../public/assets/categories/pots.png"
-
+import image from "../../../public/assets/images/productImage.png"
 export const CategoryCart: CategoryCartTypes[] = [
     {
         id: 1,
@@ -191,4 +191,62 @@ export const deliveryDumbData: deliveryDumbDataType = {
     delivery: 15000,
     day: '15 kun',
 }
+export const SUGGESTION_DATA: SUGGESION_DATA_TYPE[] = [
+    {
+        id: 0,
+        image: image,
+        name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
+        shop: "Sandiq shop",
+        price: "15 232 000",
+        status: "Yangi",
+    },
+    {
+        id: 1,
+        image: image,
+        name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
+        shop: "Mac Bro",
+        price: "15 232 000",
+        status: "Yangi",
+    },
+    {
+        id: 2,
+        image: image,
+        name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
+        shop: "Xiaomi",
+        price: "15 232 000",
+        status: "Yangi",
+    },
+    {
+        id: 3,
+        image: image,
+        name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
+        shop: "Mac Bro",
+        price: "15 232 000",
+        status: "Yangi",
+    },
+    {
+        id: 4,
+        image: image,
+        name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
+        shop: "Sandiq shop",
+        price: "15 232 000",
+        status: "Yangi",
+    },
+    {
+        id: 5,
+        image: image,
+        name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
+        shop: "Sandiq shop",
+        price: "15 232 000",
+        status: "Yangi",
+    },
+    {
+        id: 6,
+        image: image,
+        name: "Notebook Apple Macbook Pro 13\" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB",
+        shop: "Sandiq shop",
+        price: "15 232 000",
+        status: "Yangi",
+    },
+]
 
