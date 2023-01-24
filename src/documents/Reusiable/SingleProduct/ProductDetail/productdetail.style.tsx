@@ -94,6 +94,11 @@ export default makeStyles(() => ({
         fontSize: "40px",
         fontWeight: 400,
         lineHeight: "24px",
+        '@media(max-width: 650px)': {
+            fontSize: "18px",
+            fontWeight: 500,
+            lineHeight: "19px",
+        },
     },
     arrow: {
         width: "50px",

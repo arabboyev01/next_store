@@ -11,6 +11,7 @@ import {useRouter} from 'next/router'
 import React from 'react'
 import MainLoader from "../MainLoader/MainLoader";
 import {mainDataType} from "../../../../types/types";
+import {commafy} from "../Suggested/global";
 
 const MainCart: React.FC<mainDataType> = ({mainData}) => {
     const classes = Styles();
@@ -39,7 +40,7 @@ const MainCart: React.FC<mainDataType> = ({mainData}) => {
                                 <Image src={item.photoUrl} alt='image' loading="lazy" width={query ? 120 : 180}
                                        height={query ? 120 : 180} className={classes.mainImage}/>
                             </Box>
-                            <Typography className={classes.price}>{item.price} so&apos;m</Typography>
+                            <Typography className={classes.price}>{commafy(item.price)} so&apos;m</Typography>
                             <Typography className={classes.title}>{item.name}</Typography>
                             <Typography className={classes.order}>{item.phone}</Typography>
                         </Box>

@@ -83,7 +83,7 @@ const MobileNav = () => {
                         <Typography className={classes.chapters}>Biz haqimizda </Typography>
                     </Box>
                     <Box className={classes.contact}>
-                        <Typography className={classes.title}>Axbarot xizmati</Typography>
+                        <Typography className={classes.title}>Axborot xizmati</Typography>
                         <Typography className={classes.concatDetail}>contact.@nextstore.uz</Typography>
                         <Typography className={classes.concatDetail}>+998 95 503 09 09</Typography>
                     </Box>

@@ -31,7 +31,7 @@ const Suggested = () => {
                     </Box>
                     <Box className={classes.header}>
                         <Typography className={classes.shop}>{shop}</Typography>
-                        <Typography className={classes.price}>{commafy(price)}</Typography>
+                        <Typography className={classes.price}>{commafy(price)} so&apos;m</Typography>
                     </Box>
                     <Box className={classes.header}>
                         <Typography className={classes.status}>{status}</Typography>

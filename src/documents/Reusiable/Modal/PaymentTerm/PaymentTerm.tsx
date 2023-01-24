@@ -9,6 +9,7 @@ import React from "react";
 import {numsRange} from "../../../DumbData/DumbData";
 import PrimaryButton from "../../PrimaryButton/PrimaryButton";
 import {useState} from "react";
+import {commafy} from "../../Suggested/global";
 export type PaymentTermType = {
     open: boolean
     handleCLose: (e: any) => void
@@ -41,7 +42,7 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                         <Typography className={classes.mainDesc}>Muddatli to‘lo‘vdan foydalanish uchun sizdan “Passport” talab etiladi</Typography>
                     </Box>
                     <Box className={classes.priceWrapper}>
-                        <Typography className={classes.price}>{newPrice / initValue} so&apos;m</Typography>
+                        <Typography className={classes.price}>{commafy(newPrice / initValue)} so&apos;m</Typography>
                         <Typography className={classes.mainDesc}>Oyik to&apos;lov</Typography>
                     </Box>
                     <Typography className={classes.mainText}>Muddatini tanlang: (oy hisobida)</Typography>
@@ -56,7 +57,7 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                     </Box>
                     <Box className={classes.footer}>
                         <Typography className={classes.title}>Umumiy to&apos;lov miqdori:</Typography>
-                        <Typography className={classes.priceUniq}>{price} so&apos;m</Typography>
+                        <Typography className={classes.priceUniq}>{commafy(price)} so&apos;m</Typography>
                     </Box>
                     <Box className={classes.button}>
                         <PrimaryButton text='Rasmiylashtirish' />

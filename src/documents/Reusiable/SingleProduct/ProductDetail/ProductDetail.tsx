@@ -8,6 +8,7 @@ import PrimaryButton from "../../PrimaryButton/PrimaryButton";
 import {setAddItemToCart} from "../../../../redux/CartSlice";
 import { useDispatch } from "react-redux";
 import DeliveryService from "../../DeliveryService/DeliveryService";
+import {commafy} from "../../Suggested/global";
 
 const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
     const classes = Style();
@@ -24,12 +25,12 @@ const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
             {/*        <Box className={classes.box} key={index} style={{backgroundColor: `${item.digit}`}}></Box>*/}
             {/*    )}*/}
             {/*</Box>*/}
-            <Typography className={classes.price}>{data.price} / dona</Typography>
+            <Typography className={classes.price}>{commafy(data.price)} / dona</Typography>
             <Box className={classes.boxPrice}>
                 <Box className={classes.priceInfo}>
                     <Typography className={classes.text1}>Muddatlik to&apos;lov</Typography>
                     <Typography className={classes.text2}> 12 oyga</Typography>
-                    <Typography className={classes.price1}>{data.price} so&apos;m</Typography>
+                    <Typography className={classes.price1}>{commafy(data.price)} so&apos;m</Typography>
                 </Box>
                 <Box className={classes.arrow} onClick={handleOpen}>
                     <KeyboardArrowRightIcon />
