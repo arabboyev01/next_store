@@ -7,7 +7,7 @@ const nextConfig = {
         protocol: 'http',
         hostname: '31.220.60.207',
         port: '',
-        pathname: '/nextstore',
+        pathname: '/nextstore/**',
       },
     ],
   },

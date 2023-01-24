@@ -43,7 +43,7 @@ const SingleProduct = () => {
                     <PaymentTerm open={open} handleCLose={handleCLose} price={filtered.price}/>
                     <Box className={classes.productHeader}>
                         <Box className={classes.imageWrapper}>
-                            <Image src={filtered.photoUrl} alt='product_image' width={query ? 226 : 350}
+                            <Image src={'http://31.220.60.207/nextstore/api/photos/download/7605fe40-e37a-45b6-ab4c-519a32271bf6'} alt='product_image' width={query ? 226 : 350}
                                    height={query ? 216 : 350} className={classes.image}/>
                         </Box>
                         <Box>
