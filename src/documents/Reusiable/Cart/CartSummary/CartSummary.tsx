@@ -9,6 +9,7 @@ import SubmitButton from "../../SubmitButton/SubmitButton";
 import boxImage from "../../../../../public/assets/images/box.png";
 import Image from "next/image";
 import {CartSummaryType} from "../../../../../types/types"
+import {commafy} from "../../Suggested/global";
 
 const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY}) => {
     const classes = Styles();
@@ -36,7 +37,7 @@ const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY}) =>
             }
             <Box className={classes.total}>
                 <Typography className={classes.text}>Umumiy summa: </Typography>
-                <Typography className={classes.price}>{totalAmount} so&apos;m</Typography>
+                <Typography className={classes.price}>{commafy(totalAmount)} so&apos;m</Typography>
             </Box>
             <Box className={classes.delivery}>
                 <Typography className={classes.text}>Yetkazish summa: </Typography>
@@ -44,7 +45,7 @@ const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY}) =>
             </Box>
             <Box className={classes.summa}>
                 <Typography className={classes.textCenter}>Yetkazish summa</Typography>
-                <Typography className={classes.priceCenter}>{totalAmount+ 40000} so&apos;m</Typography>
+                <Typography className={classes.priceCenter}>{commafy(totalAmount+ 40000)} so&apos;m</Typography>
             </Box>
             <Box className={classes.buyBtn}>
                 {cart ? <SubmitButton buttonText="Rasmiylashtirish" loading={loading} onClick={handleLoading}/> : <PrimaryButton text="Rasmiylashtirish" onClick={handleForm} />}

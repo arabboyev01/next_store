@@ -13,7 +13,6 @@ const SearchData = () => {
     const query = useMediaQuery('@media(max-width: 600px)')
     // @ts-ignore
     const data = searchedValue.payload.cart.searchValue;
-    console.log(searchedValue)
     // @ts-ignore
     const productName = searchedValue.payload.cart.inputName.toLocaleUpperCase();
     return (
