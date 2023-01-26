@@ -50,7 +50,7 @@ const CartProduct = () => {
                             </Box>
                             <Box className={classes.store}>
                                 <Typography className={classes.storeName}>
-                                    <StoreIcon className={classes.icon}/>Dokon <span
+                                    <StoreIcon className={classes.icon}/>Do&apos;kon <span
                                     className={classes.span}>MacBro</span>
                                 </Typography>
                                 <Box className={classes.footer}>

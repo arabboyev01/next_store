@@ -49,7 +49,7 @@ export default makeStyles(() => ({
     mainImage: {
         objectFit: 'contain',
         '@media(max-width: 650px)': {
-            marginTop: "20px",
+            marginLeft: "5px",
         },
     },
     price: {

@@ -7,6 +7,9 @@ export default makeStyles(() => ({
         flexDirection: "column",
         alignItems: 'start',
         with: "100%",
+        '@media(max-width: 650px)' : {
+            maxWidth: "430px",
+        },
     },
     cartWrapper: {
         width: "100%",
@@ -19,7 +22,7 @@ export default makeStyles(() => ({
         position: "relative",
         marginBottom: '20px',
         '@media(max-width: 650px)' : {
-            maxWidth: "400px",
+            width: "100%",
             flexDirection: "column",
             margin: "0 auto",
             marginTop: '20px',
