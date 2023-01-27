@@ -4,10 +4,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '31.220.60.207',
+        protocol: 'https',
+        hostname: 'nextstore.in',
         port: '',
-        pathname: '/nextstore/**',
+        pathname: '/nextstore',
       },
     ],
   },

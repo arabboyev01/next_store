@@ -37,7 +37,7 @@ const MainCart: React.FC<mainDataType> = ({mainData}) => {
                                 <Typography className={classes.sale}>Yangilik</Typography> : item.status === 'New' ?
                                     <Typography className={classes.new}>Yangilik</Typography> : null}
                             <Box className={classes.imageWrapper}>
-                                <Image src={'http://31.220.60.207/nextstore/api/photos/download/7605fe40-e37a-45b6-ab4c-519a32271bf6'} alt='image' loading="lazy" width={query ? 120 : 180}
+                                <Image src={item.photoUrl} alt='image' loading="lazy" width={query ? 120 : 180}
                                        height={query ? 120 : 180} className={classes.mainImage}/>
                             </Box>
                             <Typography className={classes.price}>{commafy(item.price)} so&apos;m</Typography>
