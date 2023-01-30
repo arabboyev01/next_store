@@ -40,8 +40,8 @@ export default makeStyles(() => ({
         width: "350px",
     },
     submit: {
-        width: "350px",
+        maxWidth: "350px",
         height: "50px",
-        marginTop: "30px",
+        margin: "30px auto 0 auto",
     },
 }))
