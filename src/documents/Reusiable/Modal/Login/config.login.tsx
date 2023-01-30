@@ -49,4 +49,9 @@ export const SIGN_UP_FORM_VALUES = {
         label: "Parolingizni qayta kirgazing",
         require: true,
     },
+    phone: {
+        name: 'phone',
+        label: "Tel raqamingizni kirgazing",
+        require: true,
+    },
 }
