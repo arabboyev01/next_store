@@ -37,11 +37,9 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
     const changeValidate = () => {
         // @ts-ignore
         dispatch(validateLogin(true))
-        handleClose
-
         return
     }
-    const login = async (values: any) => {
+    const login = (values: any) => {
         setLoading(true)
         axios.post(`${apiAddress}/auth/login`, {
             username: values.username,
@@ -50,9 +48,8 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
             if (data?.data?.id_token) {
                 console.log('here', data?.data?.id_token)
                 localStorage.setItem("tokenKey", data?.data?.id_token)
+                changeValidate()
             }
-            changeValidate()
-            console.log(data)
         }).catch((error) => {
             console.log(error);
         }).finally(() => {
