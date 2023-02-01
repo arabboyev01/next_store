@@ -15,7 +15,7 @@ const Layout = ({children}: {children: React.ReactNode}) => {
             // @ts-ignore
             dispatch(validateLogin(true))
         }
-    }, [dispatch])
+    }, [dispatch,validateLogin])
     return (
         <Box>
             {query ? <MobileNav /> : <Nav/>}
