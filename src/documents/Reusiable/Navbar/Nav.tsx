@@ -9,8 +9,8 @@ import {useEffect, useState, useCallback} from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import NavLinks from "./NavLinks";
 import LoginComponent from "../../../components/LoginComponent/LoginComponent";
-import {setSearchValue, validataionCode} from "../../../redux/CartSlice";
-import {useDispatch, useSelector} from "react-redux";
+import {setSearchValue } from "../../../redux/CartSlice";
+import {useDispatch} from "react-redux";
 import {useRouter} from "next/router";
 
 const Nav = () => {
@@ -21,9 +21,6 @@ const Nav = () => {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleOpen = () => setOpen(true);
-
-    const validateLogin = useSelector(validataionCode)
-    console.log(validateLogin)
 
     const handleSendData = useCallback((data: any,) => {
         dispatch(setSearchValue(data));
@@ -48,7 +45,7 @@ const Nav = () => {
                             <input type="search" placeholder="Mahsulotni izlash" className={classes.searchInput} onChange={(e) => setInputValue(e.target.value)}/>
                             <button className={classes.submitButton} onClick={() => handleSendData(inputValue)}><SearchIcon className={classes.searchIcon}/></button>
                         </Box>
-                        <NavLinks handleOpen={handleOpen}/>
+                         <NavLinks handleOpen={handleOpen}/>
                     </Box>
                 </Box>
             </Box>

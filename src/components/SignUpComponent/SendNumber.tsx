@@ -10,8 +10,9 @@ import * as Yup from "yup";
 import {makeValidate} from "mui-rff";
 import axios from "axios";
 import {apiAddress} from "../../../config";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {validateLogin} from "../../redux/CartSlice"
+import {useRouter} from "next/router";
 
 const schema = Yup.object().shape({
     confirm: Yup.string().required(`${SIGN_UP_FORM_VALUES.confirm.label} talab qilinadi.`),
@@ -24,25 +25,24 @@ export type Props = {
 const SendNumber: React.FC<Props> = ({username}) => {
     const classes = Style()
     const [loading, setLoading] = React.useState(false)
-    const validateNumber = useSelector(validateLogin)
     const dispatch = useDispatch()
+    const router = useRouter()
     const changeValidate = () => {
         // @ts-ignore
-        dispatch(validateNumber(true))
+        dispatch(validateLogin(true))
+        router.push('/')
     }
     const userName = username.slice(12)
     console.log(userName)
     const Confirm = (values: any) => {
         setLoading(true)
-        axios.post(`${apiAddress}/user`, {
+        axios.post(`${apiAddress}/user/verify`, {
             smsCode: values.confirm,
             username: userName
         }, {headers: {'Content-Type': 'application/json'}}).then((data) => {
-            if (data?.data?.token) {
-                console.log('here', data?.data?.token)
-                localStorage.setItem('tokenKey', data?.data?.token)
+            if (data?.data?.id_token) {
+                localStorage.setItem('tokenKey', data?.data?.id_token)
             }
-            console.log(data)
             changeValidate()
         }).catch((error) => {
             console.log(error);

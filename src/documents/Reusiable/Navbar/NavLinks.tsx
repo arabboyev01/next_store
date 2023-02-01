@@ -6,13 +6,16 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Link from "next/link";
 import {useSelector} from "react-redux";
-import {selectTotalQTY} from "../../../redux/CartSlice";
+import {selectTotalQTY, validataionCode} from "../../../redux/CartSlice";
 import React from "react";
 import {NavLinksType} from "../../../../types/types";
+import User from "./User";
 
 const NavLinks: React.FC<NavLinksType> = ({handleOpen}) => {
     const classes = Style();
     const totalQTY = useSelector(selectTotalQTY);
+    const validateLogin = useSelector(validataionCode)
+    console.log(validateLogin)
     return (
         <>
             <Box className={classes.linkWrapper}>
@@ -26,7 +29,7 @@ const NavLinks: React.FC<NavLinksType> = ({handleOpen}) => {
                         <Badge badgeContent={totalQTY} color="primary"><ShoppingCartIcon className={classes.likeIcon}/></Badge>
                     </Box>
                 </Link>
-                <Button className={classes.loginButton} onClick={handleOpen}>Kirish</Button>
+                {validateLogin ? <User /> : <Button className={classes.loginButton} onClick={handleOpen}>Kirish</Button>}
             </Box>
         </>
     )

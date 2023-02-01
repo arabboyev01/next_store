@@ -5,7 +5,7 @@ import Image from "next/image";
 import NextLogo from "../../../../public/assets/images/next_logo.png";
 import Link from "next/link";
 import SearchIcon from "@mui/icons-material/Search";
-import {selectTotalQTY, setSearchValue} from "../../../redux/CartSlice";
+import {selectTotalQTY, setSearchValue, validataionCode} from "../../../redux/CartSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {useRouter} from "next/router";
 import React, {useEffect, useState} from "react";
@@ -14,6 +14,7 @@ import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {Button, Typography} from "@mui/material";
 import LoginComponent from "../../../components/LoginComponent/LoginComponent";
+import User from "../Navbar/User";
 
 const MobileNav = () => {
     const classes = style();
@@ -32,6 +33,7 @@ const MobileNav = () => {
     const handleMobileMenu = () => {
         setMobile(!mobile)
     }
+    const validateLogin = useSelector(validataionCode)
     const totalQTY = useSelector(selectTotalQTY);
     useEffect(() => {
         if(open){
@@ -73,7 +75,7 @@ const MobileNav = () => {
                 <Box className={mobile ? classes.activeMainContent : classes.mainContent}>
                     <CloseIcon onClick={handleMobileMenu} className={classes.closeMenuIcon}/>
                     <Link href="/" className={classes.link}><Image width={81} height={31} src={NextLogo} alt="logo"/></Link>
-                    <Button className={classes.loginButton} onClick={handleOpen}>Kirish</Button>
+                    {validateLogin ? <User /> : <Button className={classes.loginButton} onClick={handleOpen}>Kirish</Button>}
                     <Box className={classes.chapter}>
                         <Typography className={classes.title}>Bo&apos;limlar</Typography>
                         <Typography className={classes.chapters}><Link href='likes' style={{color: "#000", textDecoration: "none"}}>Yoqtirgan mahsulotlarim </Link></Typography>
