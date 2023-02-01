@@ -15,6 +15,8 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import axios from "axios";
 import {apiAddress} from "../../../../../../config";
 import {LoginFieldType} from "../../../../../../types/types";
+import {validateLogin} from "../../../../../redux/CartSlice";
+import {useDispatch} from "react-redux";
 
 const schema = Yup.object().shape({
     username: Yup.string().required(`${LOGIN_FORM_VALUES.username.label}. majburiy.`),
@@ -31,6 +33,7 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
     const [visible, setVisible] = useState(false)
     const handleVisible = () => setVisible(!visible);
     const [loading, setLoading] = useState(false);
+    const dispatch = useDispatch();
 
     const login = (values: any) => {
         setLoading(true)
@@ -41,6 +44,8 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
             if (data?.data?.id_token) {
                 console.log('here', data?.data?.id_token)
                 localStorage.setItem("tokenKey", data?.data?.id_token)
+                // @ts-ignore
+                dispatch(validateLogin(true))
             }
         }).catch((error) => {
             console.log(error);
