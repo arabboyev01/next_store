@@ -15,7 +15,6 @@ const NavLinks: React.FC<NavLinksType> = ({handleOpen}) => {
     const classes = Style();
     const totalQTY = useSelector(selectTotalQTY);
     const validateLogin = useSelector(validataionCode)
-    console.log(validateLogin)
     return (
         <>
             <Box className={classes.linkWrapper}>

@@ -30,7 +30,7 @@ const SendNumber: React.FC<Props> = ({username}) => {
     const changeValidate = () => {
         // @ts-ignore
         dispatch(validateLogin(true))
-        router.push('/')
+        router.push({pathname: '/'})
     }
     const userName = username.slice(12)
     console.log(userName)
