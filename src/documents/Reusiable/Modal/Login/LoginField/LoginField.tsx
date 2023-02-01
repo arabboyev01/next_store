@@ -42,10 +42,11 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
             password: values.password
         }, {headers: {'Content-Type': 'application/json'}}).then((data) => {
             if (data?.data?.id_token) {
-                console.log('here', data?.data?.id_token)
                 localStorage.setItem("tokenKey", data?.data?.id_token)
                 // @ts-ignore
                 dispatch(validateLogin(true))
+                // @ts-ignore
+                handleClose()
             }
         }).catch((error) => {
             console.log(error);
