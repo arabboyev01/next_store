@@ -1,7 +1,6 @@
 import Styles from "./maincart.style"
 import {Box} from "@mui/system";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import Image from "next/image";
 import {Typography, useMediaQuery} from "@mui/material";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -37,8 +36,8 @@ const MainCart: React.FC<mainDataType> = ({mainData}) => {
                                 <Typography className={classes.sale}>Yangilik</Typography> : item.status === 'New' ?
                                     <Typography className={classes.new}>Yangilik</Typography> : null}
                             <Box className={classes.imageWrapper}>
-                                <Image src={item.photoUrl} alt='image' loading="lazy" width={query ? 120 : 180}
-                                       height={query ? 120 : 180} className={classes.mainImage}/>
+                                <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt='image'  width={query ? '120px' : '180px'}
+                                       height={query ? '120px' : '180px'} className={classes.mainImage}/>
                             </Box>
                             <Typography className={classes.price}>{commafy(item.price)} so&apos;m</Typography>
                             <Typography className={classes.title}>{item.name}</Typography>

@@ -24,20 +24,17 @@ const validate = makeValidate(schema);
 const SignUpComponent = () => {
     const classes = Style();
     const [loading, setLoading] = useState(false)
-    const customConfig = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
+
     const signUp = (values: any) => {
         setLoading(true)
-        axios.post(`${apiAddress}/user`, JSON.stringify({
-            firstName: values.firstname,
-            lastName: values.lastname,
-            phone: values.phone,
-            username: values.email,
-            password: values.password1
-        }), customConfig).then((data) => {
+        axios.post(`${apiAddress}/user/`, {
+            "firstName": values.firstname,
+            "lastName": values.lastname,
+            "phone": values.phone,
+            "imageId": "",
+            "username": values.email,
+            "password": values.password1,
+        }).then((data) => {
             if (data?.data?.token) {
                 console.log('here', data?.data?.token)
                 localStorage.setItem('tokenKey', data?.data?.token)

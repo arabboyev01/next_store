@@ -1,6 +1,5 @@
 import {Box} from "@mui/system";
 import Styles from "./cart.style"
-import Image from "next/image";
 import {Typography} from "@mui/material";
 import StoreIcon from '@mui/icons-material/Store';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
@@ -39,7 +38,7 @@ const CartProduct = () => {
                     <DeleteModal title={`Siz rostdan ham ushbu ${item.title} o‘chirmoqchimisiz?`} item={item}
                                  open={open} handleClose={handleClose} onRemoveItem={onRemoveItem}/>
                     <Box className={classes.cartWrapper}>
-                        <Image src={item.photoUrl} alt='image' width={236} height={236}/>
+                        <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt='image' width={236} height={236}/>
                         <Box className={classes.contentWrapper}>
                             <DeleteIcon className={classes.deleteIcon} onClick={handleOpen}/>
                             <Typography className={classes.name}>{item.name}</Typography>

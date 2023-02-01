@@ -2,7 +2,6 @@ import {Box} from "@mui/system";
 import Styles from "./singleproduct.style"
 import React, {useCallback, useEffect, useState} from "react";
 import ProductDetail from "./ProductDetail/ProductDetail";
-import Image from "next/image";
 import {useMediaQuery} from "@mui/material";
 import PaymentTerm from "../Modal/PaymentTerm/PaymentTerm";
 import {useSelector} from "react-redux";
@@ -43,7 +42,7 @@ const SingleProduct = () => {
                     <PaymentTerm open={open} handleCLose={handleCLose} price={filtered.price}/>
                     <Box className={classes.productHeader}>
                         <Box className={classes.imageWrapper}>
-                            <Image src={filtered.photoUrl} alt='product_image' width={query ? 226 : 350}
+                            <img src={`https://nextstore.in/nextstore${filtered.photoUrl}`} alt='product_image' width={query ? 226 : 350}
                                    height={query ? 216 : 350} className={classes.image}/>
                         </Box>
                         <Box>
