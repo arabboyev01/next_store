@@ -8,7 +8,7 @@ import MainTitle from "../../documents/Reusiable/MainTitle/MainTitle";
 import SeeMoreButton from "../../documents/Reusiable/SeeMore/SeeMore";
 import {useMediaQuery} from "@mui/material";
 import Brands from "../../documents/Reusiable/Brands/Brands";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import MainCart from "../../documents/Reusiable/MainCart/MainCart";
 
 const HomeComponent = () => {

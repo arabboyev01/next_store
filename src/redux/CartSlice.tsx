@@ -1,23 +1,7 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
-import {apiAddress} from "../../config";
-
-const searchData: any = []
-export const fetchData = createAsyncThunk('cart/getAllCartData', async () => {
-    const response = await fetch(`${apiAddress}/product`)
-    return await response.json();
-})
-
-const initialState = {
-    mainData: [],
-    cartState: false,
-    cartItems: [],
-    singleProduct: [],
-    searchValue: [],
-    cartTotalAmount: 0,
-    cartTotalQuantity: 0,
-    inputName: '',
-}
+import {fetchData} from "./fetchData";
+import {initialState} from "./fetchData";
 
 const CartSlice = createSlice({
     initialState,
@@ -25,7 +9,6 @@ const CartSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchData.fulfilled, (state: any, action: any) => {
             state.mainData.push(action.payload)
-            searchData.push(action.payload)
         });
     },
     reducers: {
@@ -47,8 +30,8 @@ const CartSlice = createSlice({
         },
         setSearchValue: (state: any, action: any) => {
             const loweredValue = action.payload.toLowerCase();
-            if (action.payload && searchData) {
-                const searchValue = searchData[0].filter((item: any) => item.name.toLowerCase().includes(loweredValue))
+            if (action.payload ) {
+                const searchValue = state.cart.mainData[0].filter((item: any) => item.name.toLowerCase().includes(loweredValue))
                 state.searchValue.push(searchValue);
 
                 state.inputName = action.payload;
