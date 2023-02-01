@@ -11,7 +11,7 @@ const CategoryComponent = () => {
     const query = useMediaQuery('@media(max-width: 650px)')
     const {mainData} = useSelector((state: any) => state.cart);
     const data = mainData[mainData.length - 1]
-    const firstData = data === undefined ? undefined : data
+    const firstData = data === undefined ? undefined : data.content
 
     return (
         <Box className={classes.categoryWrapper}>
