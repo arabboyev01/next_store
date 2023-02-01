@@ -38,6 +38,9 @@ const CartSlice = createSlice({
             }
             return undefined;
         },
+        validateLogin: (state: any, action: any) => {
+            return state.validate = action.payload
+        },
 
         setRemoveItemFromCart: (state: any, action: any) => {
             state.cartItems = state.cartItems.filter(({id}: any) => id !== action.payload.id);
@@ -99,11 +102,14 @@ export const {
     setGetTotals,
     setSingleProduct,
     setSearchValue,
+    validateLogin
 } = CartSlice.actions;
 export const selectSingleItem = (state: any) => state.cart.singleProduct;
 export const selectCartItems = (state: any) => state.cart.cartItems;
 
 export const selectTotalAmount = (state: any) => state.cart.cartTotalAmount;
 export const selectTotalQTY = (state: any) => state.cart.cartTotalQuantity;
+
+export const validataionCode = (state: any) => state.cart.validate
 
 export default CartSlice.reducer;

@@ -9,8 +9,8 @@ import {useEffect, useState, useCallback} from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import NavLinks from "./NavLinks";
 import LoginComponent from "../../../components/LoginComponent/LoginComponent";
-import {setSearchValue} from "../../../redux/CartSlice";
-import {useDispatch} from "react-redux";
+import {setSearchValue, validataionCode} from "../../../redux/CartSlice";
+import {useDispatch, useSelector} from "react-redux";
 import {useRouter} from "next/router";
 
 const Nav = () => {
@@ -21,6 +21,9 @@ const Nav = () => {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleOpen = () => setOpen(true);
+
+    const validateLogin = useSelector(validataionCode)
+    console.log(validateLogin)
 
     const handleSendData = useCallback((data: any,) => {
         dispatch(setSearchValue(data));

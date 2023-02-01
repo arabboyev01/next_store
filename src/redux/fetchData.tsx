@@ -13,4 +13,5 @@ export const initialState = {
     cartTotalAmount: 0,
     cartTotalQuantity: 0,
     inputName: '',
+    validate: false,
 }

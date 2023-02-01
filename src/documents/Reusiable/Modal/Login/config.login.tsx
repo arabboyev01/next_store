@@ -54,4 +54,9 @@ export const SIGN_UP_FORM_VALUES = {
         label: "Tel raqamingizni kirgazing",
         require: true,
     },
+    confirm: {
+        name: 'confirm',
+        label: 'Raqamni kirgazing',
+        require: true,
+    }
 }
