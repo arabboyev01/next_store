@@ -1,6 +1,5 @@
 import styles from './likes.style'
 import {Box} from "@mui/system";
-import Image from "next/image";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import {Button, Typography, useMediaQuery} from "@mui/material";
 import * as React from "react";
@@ -32,7 +31,7 @@ const LikesComponent = () => {
                     data.content.map((item: any, index: any) =>
                     <Box className={classes.content} key={index}>
                         <FavoriteIcon className={classes.likeIcon}/>
-                        <Image src={item.photoUrl} alt="image" width={query ? 180 : 236} height={query ? 180 : 236}/>
+                        <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt="image" width={query ? 180 : 236} height={query ? 180 : 236}/>
                         <Box className={classes.mainContent}>
                             <Typography className={classes.name}>{item.name}</Typography>
                             <Typography className={classes.price}>{item.price} so&apos;m</Typography>
