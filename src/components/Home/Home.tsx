@@ -16,6 +16,8 @@ const HomeComponent = () => {
     const query = useMediaQuery('@media(max-width: 650px)');
     const {mainData} = useSelector((state: any) => state.cart);
     const data = mainData[mainData.length - 1]
+    const firstSlice = data === undefined ? undefined : data.content.slice(0, 5)
+    const secondSlice = data === undefined ? undefined : data.content.slice(5, 10)
 
     return (
         <Box className={classes.homeWrapper}>
@@ -31,7 +33,7 @@ const HomeComponent = () => {
             </Box>
             <Box className={classes.mainSales}>
                 <MainTitle title="Eng ko'p sotilganlar"/>
-                <MainCart mainData={data}/>
+                <MainCart mainData={firstSlice}/>
                 <Box className={classes.seeMore}>
                     <SeeMoreButton text="Ko'proq korish"/>
                 </Box>
@@ -41,7 +43,7 @@ const HomeComponent = () => {
             </Box>
             <Box className={classes.mainSales}>
                 <MainTitle title="Eng ko'p sotilganlar"/>
-                <MainCart mainData={data}/>
+                <MainCart mainData={secondSlice}/>
                 <Box className={classes.seeMore}>
                     <SeeMoreButton text="Ko'proq ko'rish"/>
                 </Box>

@@ -11,6 +11,7 @@ const CategoryComponent = () => {
     const query = useMediaQuery('@media(max-width: 650px)')
     const {mainData} = useSelector((state: any) => state.cart);
     const data = mainData[mainData.length - 1]
+    const firstData = data === undefined ? undefined : data
 
     return (
         <Box className={classes.categoryWrapper}>
@@ -27,7 +28,7 @@ const CategoryComponent = () => {
                     )}
                 </Box>
                 <Box className={classes.productWrapper}>
-                    <MainCart mainData={data}/>
+                    <MainCart mainData={firstData}/>
                 </Box>
             </Box>
         </Box>

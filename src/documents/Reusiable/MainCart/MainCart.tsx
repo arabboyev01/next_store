@@ -28,7 +28,7 @@ const MainCart: React.FC<mainDataType> = ({mainData}) => {
                 <Box className={classes.loader}>
                     <MainLoader/>
                 </Box> :
-                 mainData.content.map((item: any) =>
+                 mainData.map((item: any) =>
                     <Box className={classes.mainCart} key={item.id}>
                         <FavoriteBorderIcon className={classes.favoriteIcon}/>
                         <Box onClick={() => handleSingleProduct(item)}>
