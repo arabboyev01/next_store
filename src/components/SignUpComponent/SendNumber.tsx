@@ -42,8 +42,10 @@ const SendNumber: React.FC<Props> = ({username}) => {
         }, {headers: {'Content-Type': 'application/json'}}).then((data) => {
             if (data?.data?.id_token) {
                 localStorage.setItem('tokenKey', data?.data?.id_token)
+                if(localStorage.getItem('tokenKey')){
+                    changeValidate()
+                }
             }
-            changeValidate()
         }).catch((error) => {
             console.log(error);
         }).finally(() => {

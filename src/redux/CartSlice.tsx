@@ -39,7 +39,7 @@ const CartSlice = createSlice({
             return undefined;
         },
         validateLogin: (state: any, action: any) => {
-            return state.validate = action.payload
+             state.validate = action.payload
         },
 
         setRemoveItemFromCart: (state: any, action: any) => {

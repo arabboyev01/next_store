@@ -48,7 +48,9 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
             if (data?.data?.id_token) {
                 console.log('here', data?.data?.id_token)
                 localStorage.setItem("tokenKey", data?.data?.id_token)
-                changeValidate()
+                if(localStorage.getItem('tokenKey')){
+                    changeValidate()
+                }
             }
         }).catch((error) => {
             console.log(error);
@@ -60,7 +62,7 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
     return(
         <Box className={classes.fieldWrapper}>
             <CloseIcon className={classes.closeIcon} onClick={handleClose}/>
-            <Typography className={classes.title}>Telefon raqam orqali kirish</Typography>
+            <Typography className={classes.title} onClick={changeValidate}>Telefon raqam orqali kirish</Typography>
             <Form
                 onSubmit={login}
                 validate={validate}
