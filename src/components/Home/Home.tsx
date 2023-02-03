@@ -25,7 +25,7 @@ const HomeComponent = () => {
                 <MainCarousel data={HomeCarouselData} height={query ? 100 : 380}/>
             </Box>
             <Box>
-                <MainTitle title="Kategoriyalar"/>
+                <MainTitle title="Kategoriyalar" />
                 <SecondaryCart data={CategoryCart}/>
             </Box>
             <Box className={classes.seeMore}>
@@ -33,7 +33,7 @@ const HomeComponent = () => {
             </Box>
             <Box className={classes.mainSales}>
                 <MainTitle title="Eng ko'p sotilganlar"/>
-                <MainCart mainData={firstSlice}/>
+                <MainCart mainData={firstSlice} carousel='carousel'/>
                 <Box className={classes.seeMore}>
                     <SeeMoreButton text="Ko'proq korish"/>
                 </Box>
@@ -43,7 +43,7 @@ const HomeComponent = () => {
             </Box>
             <Box className={classes.mainSales}>
                 <MainTitle title="Eng ko'p sotilganlar"/>
-                <MainCart mainData={secondSlice}/>
+                <MainCart mainData={secondSlice} carousel='carousel'/>
                 <Box className={classes.seeMore}>
                     <SeeMoreButton text="Ko'proq ko'rish"/>
                 </Box>

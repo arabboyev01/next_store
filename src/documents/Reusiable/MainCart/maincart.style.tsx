@@ -9,6 +9,13 @@ export default makeStyles(() => ({
             gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 2fr))',
         },
     },
+    carousel: {
+        display: 'flex',
+        flexDirection: "row",
+        alignItems: "center",
+        overflowX: "auto",
+        gap: "20px",
+    },
     mainCart: {
         background: "#fff",
         height: "390px",

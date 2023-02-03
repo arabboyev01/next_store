@@ -51,6 +51,7 @@ export type LoginFieldType = {
 }
 export type mainDataType = {
     mainData: any
+    carousel?: string
 }
 export type deliveryDumbDataType = {
     name: string
