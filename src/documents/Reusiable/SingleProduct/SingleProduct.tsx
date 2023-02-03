@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 import MainLoader from '../MainLoader/MainLoader';
 import Suggested from '../Suggested/Suggested';
 import { ProductDetailFetch } from './ProductDescription/ProductDescription'
+import { ProductDescriptionSingle } from './ProductDescription/index'
 
 const SingleProduct = () => {
     const classes = Styles();
@@ -32,7 +33,7 @@ const SingleProduct = () => {
     useEffect(() => {
         fetchSingleData()
         ProductDetailFetch(id)
-    }, [fetchSingleData, ProductDetailFetch]);
+    }, [fetchSingleData]);
 
     return (
         <Box className={classes.singleProducts}>
@@ -56,6 +57,7 @@ const SingleProduct = () => {
                 </>
             }
             <Suggested/>
+            <ProductDescriptionSingle />
         </Box>
     )
 }
