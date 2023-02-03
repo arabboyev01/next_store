@@ -24,7 +24,7 @@ const SendCode: React.FC<LoginFieldType> = ({handleCloseForget, onClick}) => {
     return(
         <Box className={classes.fieldWrapper}>
             <CloseIcon className={classes.closeIcon} onClick={handleCloseForget}/>
-            <Typography className={classes.title}>Telefon raqamini kiriting</Typography>
+            <Typography className={classes.title}>Emailingizni kiriting</Typography>
             <Form
                 onSubmit={() => console.log('hi')}
                 validate={validate}
@@ -32,7 +32,7 @@ const SendCode: React.FC<LoginFieldType> = ({handleCloseForget, onClick}) => {
                     <form onSubmit={handleSubmit} noValidate style={{width: '100%'}}>
                         <Box className={classes.itemsContainer}>
                             <Box className={classes.fieldContainer}>
-                                <CssTextField {...SEND_CODE_FORM.number} placeholder='+998 9* *** ** **' type="text"/>
+                                <CssTextField {...SEND_CODE_FORM.number} type="text"/>
                             </Box>
                             <Box className={classes.submit} onClick={onClick}>
                                 <SubmitButton loading={false} buttonText='Kodni qabul qilish'/>

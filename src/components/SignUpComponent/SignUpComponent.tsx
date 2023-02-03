@@ -55,7 +55,7 @@ const SignUpComponent = () => {
                                                           type="text"/>
                                         </Box>
                                         <Box className={classes.fieldContainer}>
-                                            <CssTextField {...SIGN_UP_FORM_VALUES.phone} placeholder='Tel raqam'
+                                            <CssTextField {...SIGN_UP_FORM_VALUES.phone} placeholder='+9989********'
                                                           type="text"/>
                                         </Box>
                                     </Box>
