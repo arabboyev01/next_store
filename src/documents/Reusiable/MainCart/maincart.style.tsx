@@ -112,6 +112,9 @@ export default makeStyles(() => ({
        justifyContent: "center",
        padding: "10vh 0",
    },
+    carouselLoader: {
+       padding: "10vh 45%",
+    },
     imageWrapper:{
         width: "180px",
         height: "180px",

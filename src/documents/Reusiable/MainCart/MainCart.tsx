@@ -25,7 +25,7 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
     return (
         <Box className={ carousel ? classes.carousel : classes.mainCartWrapper}>
             {mainData === undefined ?
-                <Box className={classes.loader}>
+                <Box className={ carousel ? classes.carouselLoader : classes.loader }>
                     <MainLoader/>
                 </Box> :
                 mainData.map((item: any) =>
