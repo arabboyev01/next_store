@@ -66,3 +66,9 @@ export type SUGGESION_DATA_TYPE = {
     price: string,
     status: string,
 }
+export type PROFILE_LINK_DATA_TYPE = {
+    id: number,
+    icon: any,
+    name: string
+    type?: string
+}

@@ -1,9 +1,6 @@
 import {apiAddress} from "../../config";
 import {createAsyncThunk} from "@reduxjs/toolkit";
-export const fetchData = createAsyncThunk('cart/getAllCartData', async () => {
-    const response = await fetch(`${apiAddress}/product`)
-    return await response.json();
-})
+
 export const initialState = {
     mainData: [],
     cartState: false,
@@ -15,3 +12,8 @@ export const initialState = {
     inputName: '',
     validate: false,
 }
+
+export const fetchData = createAsyncThunk('cart/getAllCartData', async () => {
+    const response = await fetch(`${apiAddress}/product`)
+    return await response.json();
+})

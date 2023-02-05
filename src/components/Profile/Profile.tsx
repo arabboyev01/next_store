@@ -1,14 +1,10 @@
 import {useSelector} from "react-redux";
 import {validataionCode} from "../../redux/CartSlice";
-import {Box} from "@mui/system";
+import ProfileComponent from "../ProfileComponent/ProfileComponent"
 
 const Profile = () => {
     const validate = useSelector(validataionCode)
 
-    return(
-        <Box>
-            {validate ? "Bu sizning profilingiz" : "Iltimos ro'yhatdan o'ting"}
-        </Box>
-    )
+    return validate ? <ProfileComponent /> : "Iltimos ro'yhatdan o'ting"
 }
 export default Profile

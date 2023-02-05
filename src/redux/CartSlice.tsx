@@ -30,12 +30,15 @@ const CartSlice = createSlice({
         },
         setSearchValue: (state: any, action: any) => {
             const loweredValue = action.payload.toLowerCase();
-            if (action.payload ) {
-                const searchValue = state.cart.mainData[0].filter((item: any) => item.name.toLowerCase().includes(loweredValue))
+            const data = state.mainData === undefined ? undefined : state.mainData[state.mainData.length - 1]
+
+            if (action.payload && data !== undefined) {
+                const searchValue = data.filter((item: any) => item.name.toLowerCase().includes(loweredValue))
                 state.searchValue.push(searchValue);
 
                 state.inputName = action.payload;
             }
+
             return undefined;
         },
         validateLogin: (state: any, action: any) => {
