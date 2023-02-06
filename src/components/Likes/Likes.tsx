@@ -20,7 +20,9 @@ const LikesComponent = () => {
     const data = mainData[mainData.length - 1]
 
     const query = useMediaQuery('@media(max-width: 600px)')
+
     return(
+
         <Box className={classes.likeWrapper}>
             <Box className={classes.contentWrapper}>
                 <Typography className={classes.ordinaryText} >Saralangan mahsulotlar</Typography>
@@ -31,7 +33,8 @@ const LikesComponent = () => {
                     data.content.map((item: any, index: any) =>
                     <Box className={classes.content} key={index}>
                         <FavoriteIcon className={classes.likeIcon}/>
-                        <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt="image" width={query ? 180 : 236} height={query ? 180 : 236}/>
+                        <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt="image" width={query ? 180 : 236}
+                             height={query ? 180 : 236}/>
                         <Box className={classes.mainContent}>
                             <Typography className={classes.name}>{item.name}</Typography>
                             <Typography className={classes.price}>{item.price} so&apos;m</Typography>
@@ -40,7 +43,7 @@ const LikesComponent = () => {
                                 <Typography className={classes.colorName}>Kosmik kulrang</Typography>
                             </Box>
                             <Typography className={classes.storeName}>
-                                <StoreIcon className={classes.icon}/>Dokon <span
+                                <StoreIcon className={classes.icon}/><span>Do&apos;kon</span> <span
                                 className={classes.span}>MacBro</span>
                             </Typography>
                             <Typography className={classes.storeName}>

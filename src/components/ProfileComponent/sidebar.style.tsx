@@ -6,6 +6,11 @@ export default makeStyles(() => ({
         height: "514px",
         background: "#fff",
         borderRadius: '10px',
+        '@media(max-width: 900px)': {
+            maxWidth: "400px",
+            width: "100%",
+            margin: "0 auto",
+        },
     },
     header: {
         display: "flex",
