@@ -9,20 +9,17 @@ import { selectSingleItem } from '../../../redux/CartSlice';
 import { useRouter } from 'next/router'
 import MainLoader from '../MainLoader/MainLoader';
 import Suggested from '../Suggested/Suggested';
-import { ProductDetailFetch } from './ProductDescription/ProductDescription'
-import { ProductDescriptionSingle } from './ProductDescription/index'
 
 const SingleProduct = () => {
     const classes = Styles();
-    const router = useRouter()
-    const {id} = router.query
     const singleProduct = useSelector(selectSingleItem);
     const data = singleProduct[singleProduct.length]
     const query = useMediaQuery('@media(max-width: 650px)');
     const [open, setOpen] = useState(false);
     const [filtered, setFiltered] = useState(data);
     const {mainData} = useSelector((state: any) => state.cart);
-
+    const router = useRouter()
+    const {id} = router.query
     const handleOpen = () => setOpen(true);
     const handleCLose = () => setOpen(false);
     const fetchSingleData = useCallback(() => {
@@ -32,7 +29,6 @@ const SingleProduct = () => {
 
     useEffect(() => {
         fetchSingleData()
-        ProductDetailFetch(id)
     }, [fetchSingleData]);
 
     return (
@@ -57,7 +53,6 @@ const SingleProduct = () => {
                 </>
             }
             <Suggested/>
-            <ProductDescriptionSingle />
         </Box>
     )
 }
