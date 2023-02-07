@@ -23,7 +23,7 @@ const ProfileLikes = () => {
     return(
         <Box className={classes.likeWrapper}>
             <Box className={classes.contentWrapper}>
-                <Typography className={classes.ordinaryText} >Saralangan mahsulotlar</Typography>
+                <Typography className={classes.ordinaryText} >Sevimli mahsulotlar</Typography>
                 {data === undefined ?
                     <Box className={classes.loader}>
                         <MainLoader />
