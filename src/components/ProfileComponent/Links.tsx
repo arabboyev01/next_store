@@ -4,11 +4,11 @@ import { Box } from '@mui/system'
 import style from "./sidebar.style"
 import { Typography } from '@mui/material'
 
-const Links = ({id, name, icon, handlePage, type }: PROFILE_LINK_DATA_TYPE) => {
+const Links = ({id, name, icon, handlePage, type, height, isActive }: PROFILE_LINK_DATA_TYPE) => {
     const classes = style()
     return(
         // @ts-ignore
-        <Box className={classes.linksWrapper} key={id} onClick={() => handlePage(type)}>
+        <Box className={isActive == height ? classes.activeLink : classes.linksWrapper} key={id} onClick={() => handlePage(type, id)}>
             <Box className={classes.icons}>{icon}</Box>
             <Typography className={classes.linkName}>{name}</Typography>
         </Box>

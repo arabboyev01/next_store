@@ -71,5 +71,7 @@ export type PROFILE_LINK_DATA_TYPE = {
     icon: any,
     name: string
     type?: string
-    handlePage?: (e: any) => void
+    height: number
+    handlePage?: (category: any, active: number) => void,
+    isActive?: number | null
 }

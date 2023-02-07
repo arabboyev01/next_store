@@ -35,6 +35,15 @@ export default makeStyles(() => ({
         borderTop: ".5px solid #E4E7EE",
         cursor: "pointer",
     },
+    activeLink: {
+        display: "flex",
+        alignItems: "center",
+        padding: "0 40px",
+        height: "70px",
+        borderTop: ".5px solid #E4E7EE",
+        cursor: "pointer",
+        background: 'linear-gradient(270deg, rgba(235, 240, 246, 0) 0%, #EBF0F6 46.65%, rgba(235, 240, 246, 0) 100%)',
+    },
     icons: {
         width: "33px",
         height: "33px",

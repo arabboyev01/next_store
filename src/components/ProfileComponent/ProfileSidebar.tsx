@@ -10,9 +10,10 @@ import Links from './Links'
 import { PROFILE_LINK_DATA_TYPE } from '../../../types/types'
 
 export type Props = {
-    handlePage: (e: any) => any
+    handlePage: (category: any, active: number) => any
+    isActive: number | null
 }
-const ProfileSidebar: React.FC<Props> = ({handlePage}) => {
+const ProfileSidebar: React.FC<Props> = ({handlePage, isActive}) => {
     const classes = style()
     const token = window.localStorage.getItem('tokenKey')
     // @ts-ignore
@@ -25,8 +26,9 @@ const ProfileSidebar: React.FC<Props> = ({handlePage}) => {
                 <Typography className={classes.names}>{ decoded.fullName}</Typography>
             </Box>
             <Box className={classes.links}>
-                {PROFILE_LINK_DATA.map(({id, name, icon, type }: PROFILE_LINK_DATA_TYPE) => {
-                    return <Links id={id} name={name} icon={icon} key={id} type={type} handlePage={handlePage}/>
+                {PROFILE_LINK_DATA.map(({id, name, icon, type, height, isActive }: PROFILE_LINK_DATA_TYPE) => {
+                    return <Links id={id} name={name} icon={icon} key={id} type={type} handlePage={handlePage} height={height}
+                                  isActive={isActive} />
                 })}
             </Box>
         </Box>

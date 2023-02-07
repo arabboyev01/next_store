@@ -7,20 +7,23 @@ import {useState} from "react"
 const ProfileComponent = () => {
     const classes = style()
     const [profileItem, setProfileItem] = useState(null);
-    const handlePage = (category: any) => {
-        if(category === 'likes'){
-             // @ts-ignore
-            setProfileItem(<ProfileLikes />)
+    const [isActive, setIsActive] = useState<null | number>(null)
+    const handlePage = (category: any, active: number) => {
+        setIsActive(active)
+        if (category === 'likes') {
+            // @ts-ignore
+            setProfileItem(<ProfileLikes/>)
         }
         if (category === 'order') {
             // @ts-ignore
-             setProfileItem(<ProfileOrders />)
+            setProfileItem(<ProfileOrders/>)
         }
     }
+    console.log(isActive)
     return(
         <Box className={classes.mainWrapper}>
             <Box className={classes.sideBar}>
-                <ProfileSidebar handlePage={handlePage}/>
+                <ProfileSidebar handlePage={handlePage} isActive={isActive}/>
             </Box>
             <Box className={classes.content}>
                 {profileItem}
