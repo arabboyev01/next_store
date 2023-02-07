@@ -45,11 +45,15 @@ export default makeStyles(() => ({
             justifyContent: "center",
             height: "auto",
             padding: "10px",
+            maxWidth: "360px",
         },
     },
     mainContent: {
         marginLeft: "15px",
         maxWidth: "400px",
+        '@media(max-width: 600px)': {
+            width: "300px",
+        },
     },
     name: {
         fontSize: "20px",

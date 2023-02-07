@@ -5,19 +5,13 @@ import StoreIcon from '@mui/icons-material/Store'
 import CloseIcon from '@mui/icons-material/Close'
 import * as React from 'react'
 import style from "./order.style"
-import { useDispatch, useSelector } from 'react-redux'
-import { setAddItemToCart } from '../../../redux/CartSlice'
-import PrimaryButton from '../../../documents/Reusiable/PrimaryButton/PrimaryButton'
+import { useSelector } from 'react-redux'
+
 
 const ProfileOrders = () => {
     const classes = style()
-    const dispatch = useDispatch();
-    const onAddToCart = (data: any) => {
-        dispatch(setAddItemToCart(data));
-    };
     const {mainData} = useSelector((state: any) => state.cart);
     const data = mainData[mainData.length - 1]
-
     const query = useMediaQuery('@media(max-width: 600px)')
 
     return(
@@ -40,7 +34,7 @@ const ProfileOrders = () => {
                                 <Typography className={classes.colorName}>Kosmik kulrang</Typography>
                             </Box>
                             <Typography className={classes.storeName}>
-                                <StoreIcon className={classes.icon}/> <span> Dokon</span> <span
+                                <StoreIcon className={classes.icon}/> <span> Do&apos;kon</span> <span
                                 className={classes.span}>MacBro</span>
                             </Typography>
                         </Box>

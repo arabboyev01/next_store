@@ -7,8 +7,7 @@ export default makeStyles(() => ({
         background: "#fff",
         borderRadius: '10px',
         '@media(max-width: 900px)': {
-            maxWidth: "400px",
-            width: "100%",
+            maxWidth: "360px",
             margin: "0 auto",
         },
     },

@@ -6,6 +6,8 @@ export default makeStyles(() => ({
         marginLeft: "30px",
         '@media(max-width: 900px)': {
              marginLeft: 0,
+            maxWidth: "360px",
+            width: "100%",
         },
     },
     contentWrapper: {
