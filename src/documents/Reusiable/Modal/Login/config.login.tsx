@@ -13,7 +13,7 @@ export const LOGIN_FORM_VALUES = {
 export const SEND_CODE_FORM = {
     number: {
         name: 'number',
-        label: "Tel raqam",
+        label: "E mail",
         require: true,
     },
     approve: {
