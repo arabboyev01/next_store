@@ -87,6 +87,7 @@ export default makeStyles(() => ({
         flexDirection: "column",
         alignItems: "center",
         borderRadius: "8px",
+        cursor: "pointer",
     },
     likeIcon: {
         marginTop: "8px",

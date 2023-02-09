@@ -39,7 +39,7 @@ export type PrimaryButton = {
     onClick?: (e: any) => void
 }
 export type NavLinksType = {
-    handleOpen?: (e: any) => void
+    handleOpen?: any
 }
 export type CartSummaryType = {
     handleForm: any
