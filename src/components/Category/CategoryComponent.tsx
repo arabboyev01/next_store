@@ -5,6 +5,10 @@ import {CATEGORY_BUTTONS} from "../../documents/DumbData/DumbData";
 import Image from "next/image";
 import MainCart from "../../documents/Reusiable/MainCart/MainCart";
 import {useSelector} from "react-redux";
+import { useCallback, useEffect, useState } from 'react'
+import { apiAddress } from '../../../config'
+import axios from "axios"
+import { useRouter } from 'next/router'
 
 const CategoryComponent = () => {
     const classes = style()
@@ -12,6 +16,22 @@ const CategoryComponent = () => {
     const {mainData} = useSelector((state: any) => state.cart);
     const data = mainData[mainData.length - 1]
     const firstData = data === undefined ? undefined : data.content
+    const router = useRouter()
+    const {id} = router.query
+    const [categoryData, setMainData] = useState([])
+    console.log(id)
+
+    const getDataByCategory = useCallback(() => {
+        axios.get(`${apiAddress}/category`).then((data) => {
+            setMainData(data.data)
+        }).catch(err => console.log(err))
+    }, [apiAddress, id])
+
+    useEffect(() => {
+        getDataByCategory()
+    }, [getDataByCategory])
+
+    console.log(categoryData)
 
     return (
         <Box className={classes.categoryWrapper}>
