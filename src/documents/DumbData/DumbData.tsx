@@ -42,28 +42,24 @@ export const PROFILE_LINK_DATA: PROFILE_LINK_DATA_TYPE[] = [
         icon: <LibraryAddCheckIcon/>,
         name: 'Mening buyurtmalarim',
         type: 'order',
-        height: 0,
     },
     {
         id: 1,
         icon: <FavoriteBorderIcon/>,
         name: 'Sevimlilar',
         type: 'likes',
-        height: 0,
     },
     {
         id: 2,
         icon: <LocationOnIcon/>,
         name: 'Manzillar',
         type: 'location',
-        height: 0,
     },
     {
         id: 3,
         icon: <LogoutIcon/>,
         name: 'Tizimdan chiqish',
         type: 'logout',
-        height: 0,
     },
 ]
 export const CategoryCart: CategoryCartTypes[] = [

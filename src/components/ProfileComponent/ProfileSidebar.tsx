@@ -10,13 +10,12 @@ import Links from './Links'
 import { PROFILE_LINK_DATA_TYPE } from '../../../types/types'
 
 export type Props = {
-    handlePage: (category: any, active: number) => any
+    handlePage: (category: any) => any
     isActive: number | null
 }
 const ProfileSidebar: React.FC<Props> = ({handlePage, isActive}) => {
     const classes = style()
-    const token = window.localStorage.getItem('tokenKey')
-    // @ts-ignore
+    const token: any | string | null = window.localStorage.getItem('tokenKey')
     const decoded: unknown | any = jwt_decode(token)
 
     return (
@@ -26,10 +25,9 @@ const ProfileSidebar: React.FC<Props> = ({handlePage, isActive}) => {
                 <Typography className={classes.names}>{ decoded.fullName}</Typography>
             </Box>
             <Box className={classes.links}>
-                {PROFILE_LINK_DATA.map(({id, name, icon, type, height, isActive }: PROFILE_LINK_DATA_TYPE) => {
-                    return <Links id={id} name={name} icon={icon} key={id} type={type} handlePage={handlePage} height={height}
-                                  isActive={isActive} />
-                })}
+                {PROFILE_LINK_DATA.map(({id, name, icon, type }: PROFILE_LINK_DATA_TYPE) =>
+                     <Links id={id} name={name} icon={icon} key={id} type={type} handlePage={handlePage} isActive={isActive} />
+                )}
             </Box>
         </Box>
     )

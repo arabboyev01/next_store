@@ -8,8 +8,8 @@ const ProfileComponent = () => {
     const classes = style()
     const [profileItem, setProfileItem] = useState(null);
     const [isActive, setIsActive] = useState<null | number>(null)
-    const handlePage = (category: any, active: number) => {
-        setIsActive(active)
+    const handlePage = (category: any) => {
+        setIsActive(category)
         if (category === 'likes') {
             // @ts-ignore
             setProfileItem(<ProfileLikes/>)
@@ -19,7 +19,6 @@ const ProfileComponent = () => {
             setProfileItem(<ProfileOrders/>)
         }
     }
-    console.log(isActive)
     return(
         <Box className={classes.mainWrapper}>
             <Box className={classes.sideBar}>
