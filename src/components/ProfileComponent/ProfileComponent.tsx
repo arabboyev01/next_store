@@ -3,7 +3,7 @@ import { Box } from '@mui/system'
 import ProfileSidebar from './ProfileSidebar'
 import ProfileLikes from '../ProfileComponent/ProfileDescriptions/ProfileLikes'
 import ProfileOrders from '../ProfileComponent/ProfileOrders'
-import {useState} from "react"
+import { useCallback, useEffect, useState } from 'react'
 const ProfileComponent = () => {
     const classes = style()
     const [profileItem, setProfileItem] = useState(null);
@@ -19,9 +19,21 @@ const ProfileComponent = () => {
             setProfileItem(<ProfileOrders/>)
         }
     }
+    const [stickySide, setNavState] = useState(false);
+
+    const onNavScroll = useCallback(() => {
+        window.scrollY > 75 ? setNavState(true) : setNavState(false);
+    }, [setNavState])
+
+    useEffect(() => {
+        window.addEventListener('scroll', onNavScroll)
+        return () => window.removeEventListener('scroll', onNavScroll)
+    },[onNavScroll])
+    console.log(stickySide)
+
     return(
         <Box className={classes.mainWrapper}>
-            <Box className={classes.sideBar}>
+            <Box className={stickySide ? classes.stickyMain : classes.sideBar}>
                 <ProfileSidebar handlePage={handlePage} isActive={isActive}/>
             </Box>
             <Box className={classes.content}>

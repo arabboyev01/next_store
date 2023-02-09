@@ -1,5 +1,5 @@
 import { Box } from '@mui/system'
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import style from "./sidebar.style"
 import user from "../../../public/assets/images/user.png"
 import Image from 'next/image'
@@ -17,6 +17,7 @@ const ProfileSidebar: React.FC<Props> = ({handlePage, isActive}) => {
     const classes = style()
     const token: any | string | null = window.localStorage.getItem('tokenKey')
     const decoded: unknown | any = jwt_decode(token)
+
 
     return (
         <Box className={classes.sidebar}>

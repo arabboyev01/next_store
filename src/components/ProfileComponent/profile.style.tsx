@@ -11,6 +11,16 @@ export default makeStyles(() => ({
             alignItems: 'center',
         },
     },
+    stickyMain: {
+        flex: 0.3,
+        position: "sticky",
+        top: "100px",
+        '@media(max-width: 900px)': {
+            flex: 1,
+            position: "relative",
+            top: 0,
+        },
+    },
     sideBar: {
         flex: 0.3,
         '@media(max-width: 900px)': {
