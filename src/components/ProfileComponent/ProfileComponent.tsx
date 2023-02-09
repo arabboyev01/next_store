@@ -1,13 +1,17 @@
-import style from "./profile.style"
+import style from './profile.style'
 import { Box } from '@mui/system'
 import ProfileSidebar from './ProfileSidebar'
 import ProfileLikes from '../ProfileComponent/ProfileDescriptions/ProfileLikes'
 import ProfileOrders from '../ProfileComponent/ProfileOrders'
 import { useCallback, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+
 const ProfileComponent = () => {
     const classes = style()
     const [profileItem, setProfileItem] = useState(null);
     const [isActive, setIsActive] = useState<null | number>(null)
+    const router = useRouter();
+    console.log(router)
     const handlePage = (category: any) => {
         setIsActive(category)
         if (category === 'likes') {
@@ -17,6 +21,11 @@ const ProfileComponent = () => {
         if (category === 'order') {
             // @ts-ignore
             setProfileItem(<ProfileOrders/>)
+        }
+
+        if (category === 'logout') {
+            window.localStorage.removeItem('tokenKey')
+            router.push({pathname: '/'})
         }
     }
     const [stickySide, setNavState] = useState(false);
@@ -28,10 +37,9 @@ const ProfileComponent = () => {
     useEffect(() => {
         window.addEventListener('scroll', onNavScroll)
         return () => window.removeEventListener('scroll', onNavScroll)
-    },[onNavScroll])
-    console.log(stickySide)
+    }, [onNavScroll])
 
-    return(
+    return (
         <Box className={classes.mainWrapper}>
             <Box className={stickySide ? classes.stickyMain : classes.sideBar}>
                 <ProfileSidebar handlePage={handlePage} isActive={isActive}/>
