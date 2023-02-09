@@ -24,8 +24,10 @@ const ProfileComponent = () => {
         }
 
         if (category === 'logout') {
-            window.localStorage.removeItem('tokenKey')
+            localStorage.removeItem('tokenKey')
             router.push({pathname: '/'})
+
+            setTimeout(() => router.reload(), 200)
         }
     }
     const [stickySide, setNavState] = useState(false);
