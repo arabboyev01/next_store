@@ -11,11 +11,41 @@ export default makeStyles(() => ({
         fontSize: '28px',
         lineHeight: '32px',
         fontWeight: 600,
+        paddingBottom: "20px",
+    },
+    subTitle: {
+        fontSize: '24px',
+        lineHeight: '28.8px',
+        fontWeight: 500,
+        marginTop: '50px',
     },
     mainData: {
-        marginTop: '50px',
+        marginTop: '30px',
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(346px, 1fr))',
         gridGap: '10px',
+    },
+    sub: {
+        fontSize: '16px',
+        lineHeight: '18.8px',
+        fontWeight: 500,
+        color: "#455262",
+        paddingBottom: "5px",
+        paddingLeft: "5px",
+    },
+    singleField: {
+        maxWidth: "346px",
+    },
+    shortField: {
+        maxWidth: "150px",
+    },
+    additionalBox: {
+        display: 'flex',
+        flexDirection: "row",
+        alignItems: 'center',
+    },
+    button: {
+        marginTop: "20px",
+        marginLeft: '10px',
     },
 }))

@@ -13,5 +13,15 @@ export const PERSONAL_DATA = {
         name: 'email',
         label: "E-mail kiriting",
         require: true,
-    }
+    },
+    new_password: {
+        name: 'new_password',
+        label: "Yangi parol kiriting",
+        require: true,
+    },
+    code: {
+        name: 'code',
+        label: "Sms codeni kiriting",
+        require: true,
+    },
 }
