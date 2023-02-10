@@ -9,9 +9,10 @@ const schema = Yup.object().shape({
     email: Yup.string().required(`${PERSONAL_DATA.email.label} majburiy.`),
 });
 const validate = makeValidate(schema);
+
 const PersonalData = () => {
 
-    return <Dumb validate={validate}/>
+    return <Dumb validate={validate} />
 }
 
 export default PersonalData

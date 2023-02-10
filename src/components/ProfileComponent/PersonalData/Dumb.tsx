@@ -5,6 +5,7 @@ import { CssTextField } from '../../../documents/Reusiable/Modal/Login/CssTextFi
 import { PERSONAL_DATA } from './config'
 import { Form } from 'react-final-form'
 import React from 'react'
+import PrimaryButton from '../../../documents/Reusiable/PrimaryButton/PrimaryButton'
 
 const Dumb = ({validate}: any) => {
     const classes = style();
@@ -54,6 +55,9 @@ const Dumb = ({validate}: any) => {
                     </form>
                 )}
             />
+            <Box className={classes.saveButton}>
+                <PrimaryButton text="O'zgarishlaeni saqlash"/>
+            </Box>
         </Box>
     )
 }

@@ -57,4 +57,9 @@ export default makeStyles(() => ({
         marginTop: "20px",
         marginLeft: '10px',
     },
+    saveButton: {
+        maxWidth: '250px',
+        height: '64px',
+        marginTop: '30px',
+    },
 }))

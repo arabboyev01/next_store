@@ -37,6 +37,7 @@ export type ProductDetailType = {
 export type PrimaryButton = {
     text?: string
     onClick?: (e: any) => void
+    disable?: boolean
 }
 export type NavLinksType = {
     handleOpen?: any
