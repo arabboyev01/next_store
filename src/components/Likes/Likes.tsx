@@ -19,7 +19,6 @@ const LikesComponent = () => {
     };
     const {mainData} = useSelector((state: any) => state.cart)
     const data = mainData[mainData.length - 1]
-
     const query = useMediaQuery('@media(max-width: 600px)')
 
     return (

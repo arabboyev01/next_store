@@ -33,7 +33,8 @@ const SendNumber: React.FC<Props> = ({username}) => {
         router.push({pathname: '/'})
     }
     const userName = username.slice(12)
-    console.log(userName)
+    console.log(username)
+
     const Confirm = (values: any) => {
         setLoading(true)
         axios.post(`${apiAddress}/user/verify`, {
