@@ -6,6 +6,12 @@ export default makeStyles(() => ({
         background: '#fff',
         borderRadius: '10px',
         marginLeft: '20px',
+        '@media(max-width: 650px)': {
+            maxWidth: "360px",
+            marginLeft: 0,
+            marginTop: "20px",
+             padding: '20px',
+        },
     },
     title: {
         fontSize: '28px',
@@ -24,6 +30,9 @@ export default makeStyles(() => ({
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(346px, 1fr))',
         gridGap: '10px',
+        '@media(max-width: 650px)': {
+           gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
+        },
     },
     sub: {
         fontSize: '16px',
