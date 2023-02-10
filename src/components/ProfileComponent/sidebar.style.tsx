@@ -17,6 +17,7 @@ export default makeStyles(() => ({
         alignItems: "center",
         justifyContent: 'center',
         padding: "30px",
+        cursor: "pointer",
     },
     names: {
         fontSize: "26px",

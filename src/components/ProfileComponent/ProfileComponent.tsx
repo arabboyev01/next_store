@@ -5,22 +5,24 @@ import ProfileLikes from '../ProfileComponent/ProfileDescriptions/ProfileLikes'
 import ProfileOrders from '../ProfileComponent/ProfileOrders'
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-
+import PersonalData from "./PersonalData"
 const ProfileComponent = () => {
     const classes = style()
-    const [profileItem, setProfileItem] = useState(null);
+    const [profileItem, setProfileItem] = useState(<PersonalData />);
     const [isActive, setIsActive] = useState<null | number>(null)
     const router = useRouter();
 
     const handlePage = (category: any) => {
         setIsActive(category)
         if (category === 'likes') {
-            // @ts-ignore
             setProfileItem(<ProfileLikes/>)
         }
         if (category === 'order') {
-            // @ts-ignore
             setProfileItem(<ProfileOrders/>)
+        }
+
+        if (category === null) {
+            setProfileItem(<PersonalData/>)
         }
 
         if (category === 'logout') {

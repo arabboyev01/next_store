@@ -21,7 +21,7 @@ const ProfileSidebar: React.FC<Props> = ({handlePage, isActive}) => {
 
     return (
         <Box className={classes.sidebar}>
-            <Box className={classes.header}>
+            <Box className={classes.header} onClick={() => handlePage(null)}>
                 <Image src={user.src} alt='user' width={108} height={108}/>
                 <Typography className={classes.names}>{ decoded.fullName}</Typography>
             </Box>
