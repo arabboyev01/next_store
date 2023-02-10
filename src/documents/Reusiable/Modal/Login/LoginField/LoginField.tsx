@@ -58,7 +58,7 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
     return(
         <Box className={classes.fieldWrapper}>
             <CloseIcon className={classes.closeIcon} onClick={handleClose}/>
-            <Typography className={classes.title}>Telefon raqam orqali kirish</Typography>
+            <Typography className={classes.title}>E-mail orqali kirish</Typography>
             <Form
                 onSubmit={login}
                 validate={validate}
