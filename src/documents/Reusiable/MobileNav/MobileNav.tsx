@@ -24,6 +24,7 @@ const MobileNav = () => {
     const [mobile, setMobile] = useState(false);
     const [open, setOpen] = useState(false);
     const [navState, setNavState] = useState(false);
+    const validate = useSelector(validataionCode)
     const handleClose = () => setOpen(false);
     const handleOpen = () => setOpen(true);
     const handleSendData = (data: any,) => {
@@ -55,6 +56,10 @@ const MobileNav = () => {
             window.removeEventListener('scroll', onNavScroll);
         }
     }, [])
+
+    const handlePersonalData = () => {
+        return validate ? router.push({pathname: '/likes'}) : handleOpen()
+    }
     return(
         <Box className={classes.mobileNavWrapper}>
             <LoginComponent open={open} handleClose={handleClose}/>
@@ -78,7 +83,7 @@ const MobileNav = () => {
                     {validateLogin ? <User /> : <Button className={classes.loginButton} onClick={handleOpen}>Kirish</Button>}
                     <Box className={classes.chapter}>
                         <Typography className={classes.title}>Bo&apos;limlar</Typography>
-                        <Typography className={classes.chapters}><Link href='likes' style={{color: "#000", textDecoration: "none"}}>Yoqtirgan mahsulotlarim </Link></Typography>
+                        <Typography className={classes.chapters} onClick={handlePersonalData} style={{color: "#000", textDecoration: "none"}}>Yoqtirgan mahsulotlarim </Typography>
                         <Typography className={classes.chapters}>Mahsulotlar katalogi</Typography>
                         <Typography className={classes.chapters}>Xizmatlarimiz</Typography>
                         <Typography className={classes.chapters}>Nasiya savdo</Typography>

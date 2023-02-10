@@ -11,7 +11,7 @@ const ProfileComponent = () => {
     const [profileItem, setProfileItem] = useState(null);
     const [isActive, setIsActive] = useState<null | number>(null)
     const router = useRouter();
-    console.log(router)
+
     const handlePage = (category: any) => {
         setIsActive(category)
         if (category === 'likes') {
