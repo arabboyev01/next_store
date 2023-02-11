@@ -19,10 +19,9 @@ const CategoryComponent = () => {
     const router = useRouter()
     const {id} = router.query
     const [categoryData, setMainData] = useState([])
-    console.log(id)
 
     const getDataByCategory = useCallback(() => {
-        axios.get(`${apiAddress}/category`).then((data) => {
+        axios.get(`${apiAddress}/category/${id}`).then((data) => {
             setMainData(data.data)
         }).catch(err => console.log(err))
     }, [apiAddress, id])
@@ -30,8 +29,6 @@ const CategoryComponent = () => {
     useEffect(() => {
         getDataByCategory()
     }, [getDataByCategory])
-
-    console.log(categoryData)
 
     return (
         <Box className={classes.categoryWrapper}>

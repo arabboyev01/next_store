@@ -31,8 +31,8 @@ const CartSlice = createSlice({
         setSearchValue: (state: any, action: any) => {
             const loweredValue = action.payload.toLowerCase();
             const data = state.mainData === undefined ? undefined : state.mainData[state.mainData.length - 1]
-
-            if (action.payload && data !== undefined) {
+            console.log(state.mainData)
+            if (data !== undefined) {
                 const searchValue = data.filter((item: any) => item.name.toLowerCase().includes(loweredValue))
                 state.searchValue.push(searchValue);
 
