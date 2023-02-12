@@ -16,7 +16,7 @@ const EmptyCart = () => {
                 <Box>
                     <Typography className={classes.title}>Sizning savatchingizda mahsulot yo&apos;q</Typography>
                     <ul className={classes.lists}>
-                        <li className={classes.list}>Mahsulotlar sahigasiga qayting</li>
+                        <li className={classes.list}>Mahsulotlar sahifasiga qayting</li>
                         <li className={classes.list}>Yoqtirgan mahsulotingizni tanlang</li>
                         <li className={classes.list}>Savatcha tugmasini bosing.</li>
                     </ul>
