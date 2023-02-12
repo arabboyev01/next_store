@@ -3,8 +3,6 @@ import { makeStyles } from '@mui/styles';
 export default makeStyles(() => ({
     head: {
         position: 'relative',
-        maxWidth: '1230px',
-        margin: "0 auto",
     },
     swiper: {
         display: 'flex',
@@ -17,7 +15,7 @@ export default makeStyles(() => ({
         margin: "0 auto",
         '--swiper-pagination-color': '#fff !important',
         '--swiper-navigation-color': '#fff !important',
-        padding: '0 50px',
+        padding: '0 30px',
         '@media(max-width: 650px)': {
             flexDirection: 'column',
             alignItems: 'center',

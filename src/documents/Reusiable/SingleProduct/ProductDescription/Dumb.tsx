@@ -11,9 +11,6 @@ const Dumb = () => {
         <Box className={classes.mainWrapper}>
             <Typography className={classes.title}>Mahsulot xususiyatlari</Typography>
             <Box className={classes.mainProductWrapper}>
-
-            </Box>
-            <Box className={classes.mainProductWrapper}>
                {PRODUCT_DESCRIPTION.map(({id, title, companyCode, productCode, saleCode, companyCode1}: ProductDescriptionType) => (
                     <ProductSection key={id} title={title} companyCode={companyCode} productCode={productCode}
                                     saleCode={saleCode} companyCode1={companyCode1}
