@@ -1,12 +1,12 @@
-import {Box} from "@mui/system";
-import Style from "./mainCarousel.style"
-import React from "react";
-import {Pagination, Navigation} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Box } from '@mui/system';
+import Style from './mainCarousel.style'
+import React from 'react';
+import { Pagination, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/bundle';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import Image from "next/image";
+import Image from 'next/image';
 import { Typography, useMediaQuery } from '@mui/material';
 import { HomeCarouselDataType } from '../../../../types/types'
 
@@ -19,26 +19,27 @@ const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height, bgColor}) 
     const classes = Style();
     const query = useMediaQuery('@media(max-width: 650px)');
     const setting = {
-        pagination: { clickable: true },
+        pagination: {clickable: true},
         slidesPerView: 1,
-        navigation: {nextEl: "#swiper-forward", prevEl: "#swiper-back"},
+        navigation: {nextEl: '#swiper-forward', prevEl: '#swiper-back'},
     }
 
-    return(
+    return (
         <Box className={classes.head}>
             <button className={classes.arrowBack} id="swiper-back">
-                <ArrowBackIosIcon className={classes.navigateIcon} />
+                <ArrowBackIosIcon className={classes.navigateIcon}/>
             </button>
             <Swiper modules={[Pagination, Navigation]}{...setting} >
                 {data?.map(({id, title, subtitle, image}: HomeCarouselDataType) =>
-                    <SwiperSlide key={id} className={classes.swiper} style={{backgroundColor: `${bgColor}`, height: `${height}`}}>
+                    <SwiperSlide key={id} className={classes.swiper}
+                                 style={{backgroundColor: `${bgColor}`, height: `${height}`}}>
                         <Box className={classes.textContent}>
                             <Typography className={classes.title}>{title}</Typography>
                             <Typography className={classes.sub}>{subtitle}</Typography>
                         </Box>
-                        <Box className={classes.images}>
-                            <Image src={image.src} alt='rasm' width={query ? 150 : 300} height={query ? 150 : 300}  />
-                        </Box>
+                        <Image src={image.src} alt="rasm" width={query ? 150 : 300} height={query ? 150 : 300}
+                               className={classes.images}
+                        />
                     </SwiperSlide>
                 )}
             </Swiper>
