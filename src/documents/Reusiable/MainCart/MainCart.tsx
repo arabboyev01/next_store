@@ -18,7 +18,7 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
     const classes = Styles();
     const query = useMediaQuery('@media(max-width: 650px)')
     const dispatch = useDispatch();
-    const router = useRouter()
+    const router = useRouter();
     const handleSingleProduct = (data: any) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
@@ -26,9 +26,9 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
     const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null
 
     const sendData = (id: string | number) => {
-        axios.get(`${apiAddress}/favorite-product/${id}`, { 'headers':
-                { 'Authorization': 'Bareer' + token }
-        }).then(data => console.log(data)).catch(err => console.log(err))
+        axios.get(`${apiAddress}/favorite-product/${id}`, { headers : {
+            'Authorization': 'Bareer ' + token
+        }}).then(data => console.log(data)).catch(err => console.log(err))
     }
 
     return (

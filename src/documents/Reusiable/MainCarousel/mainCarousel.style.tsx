@@ -4,6 +4,7 @@ export default makeStyles(() => ({
     head: {
         position: 'relative',
         maxWidth: '1230px',
+        margin: "0 auto",
     },
     swiper: {
         display: 'flex',
@@ -12,9 +13,9 @@ export default makeStyles(() => ({
         justifyContent: 'space-between',
         marginBottom: '4%',
         borderRadius: '8px',
-        padding: '10px 50px',
         '--swiper-pagination-color': '#fff !important',
         '--swiper-navigation-color': '#fff !important',
+        padding: '0 50px',
         '@media(max-width: 650px)': {
             flexDirection: 'column',
             alignItems: 'center',
@@ -71,6 +72,7 @@ export default makeStyles(() => ({
         },
     },
     textContent: {
+        maxWidth: "600px",
         '@media(max-width: 650px)': {
             maxWidth: '250px',
             margin: '0 auto',
