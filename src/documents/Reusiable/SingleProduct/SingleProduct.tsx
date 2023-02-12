@@ -9,6 +9,7 @@ import { selectSingleItem } from '../../../redux/CartSlice';
 import { useRouter } from 'next/router'
 import MainLoader from '../MainLoader/MainLoader';
 import Suggested from '../Suggested/Suggested';
+import ProductDescription from '../SingleProduct/ProductDescription/ProductDescription'
 
 const SingleProduct = () => {
     const classes = Styles();
@@ -53,6 +54,7 @@ const SingleProduct = () => {
                 </>
             }
             <Suggested/>
+            <ProductDescription />
         </Box>
     )
 }

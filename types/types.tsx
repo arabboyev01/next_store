@@ -1,4 +1,3 @@
-
 export interface HomeCarouselDataType {
     id: number,
     image: any,
@@ -20,7 +19,7 @@ export type MainProductsType = {
     color: any,
 }
 export type BrandsDataType = {
-    id:number,
+    id: number,
     image: any
 }
 export type SingleProductType = {
@@ -74,4 +73,12 @@ export type PROFILE_LINK_DATA_TYPE = {
     type?: string
     handlePage?: (category: any) => void,
     isActive?: number | null
+}
+export type ProductDescriptionType = {
+    id?: number,
+    title: string,
+    companyCode: string,
+    productCode: string,
+    saleCode: string,
+    companyCode1: string,
 }

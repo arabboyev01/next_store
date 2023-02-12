@@ -1,7 +1,7 @@
 import {
     BrandsDataType,
     CategoryCartTypes,
-    deliveryDumbDataType,
+    deliveryDumbDataType, ProductDescriptionType,
     PROFILE_LINK_DATA_TYPE,
     SUGGESION_DATA_TYPE
 } from '../../../types/types';
@@ -36,6 +36,72 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import LogoutIcon from '@mui/icons-material/Logout';
 
+export const PRODUCT_DESCRIPTION: ProductDescriptionType[] = [
+    {
+        id: 0,
+        title: 'Zavod mahsuloti ma\'lumotlari',
+        companyCode: "MJDPL01YL",
+        productCode: "600001825482",
+        saleCode: "MJDPL01YL",
+        companyCode1: "MJDPL01YL",
+    },
+    {
+        id: 1,
+        title: 'Zavod mahsuloti ma\'lumotlari',
+        companyCode: "MJDPL01YL",
+        productCode: "600001825482",
+        saleCode: "MJDPL01YL",
+        companyCode1: "MJDPL01YL",
+    },
+    {
+        id: 2,
+        title: 'Zavod mahsuloti ma\'lumotlari',
+        companyCode: "MJDPL01YL",
+        productCode: "600001825482",
+        saleCode: "MJDPL01YL",
+        companyCode1: "MJDPL01YL",
+    },
+    {
+        id: 3,
+        title: 'Zavod mahsuloti ma\'lumotlari',
+        companyCode: "MJDPL01YL",
+        productCode: "600001825482",
+        saleCode: "MJDPL01YL",
+        companyCode1: "MJDPL01YL",
+    },
+    {
+        id: 4,
+        title: 'Zavod mahsuloti ma\'lumotlari',
+        companyCode: "MJDPL01YL",
+        productCode: "600001825482",
+        saleCode: "MJDPL01YL",
+        companyCode1: "MJDPL01YL",
+    },
+    {
+        id: 5,
+        title: 'Zavod mahsuloti ma\'lumotlari',
+        companyCode: "MJDPL01YL",
+        productCode: "600001825482",
+        saleCode: "MJDPL01YL",
+        companyCode1: "MJDPL01YL",
+    },
+    {
+        id: 6,
+        title: 'Zavod mahsuloti ma\'lumotlari',
+        companyCode: "MJDPL01YL",
+        productCode: "600001825482",
+        saleCode: "MJDPL01YL",
+        companyCode1: "MJDPL01YL",
+    },
+    {
+        id: 7,
+        title: 'Zavod mahsuloti ma\'lumotlari',
+        companyCode: "MJDPL01YL",
+        productCode: "600001825482",
+        saleCode: "MJDPL01YL",
+        companyCode1: "MJDPL01YL",
+    },
+]
 export const PROFILE_LINK_DATA: PROFILE_LINK_DATA_TYPE[] = [
     {
         id: 0,
