@@ -3,6 +3,9 @@ import { makeStyles } from '@mui/styles';
 export default makeStyles(() => ({
     head: {
         position: 'relative',
+        '@media(max-width: 650px)': {
+            margin: "0 10px 10% 10px",
+        },
     },
     swiper: {
         display: 'flex',
@@ -11,15 +14,17 @@ export default makeStyles(() => ({
         justifyContent: 'space-between',
         marginBottom: '4%',
         borderRadius: '8px',
+        maxWidth: "1230px",
         margin: "0 auto",
         '--swiper-pagination-color': '#fff !important',
         '--swiper-navigation-color': '#fff !important',
         padding: '0 30px',
         '@media(max-width: 650px)': {
+            maxWidth: "400px",
+            margin: "0 0 10% 0",
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            marginBottom: '10%',
             padding: '20px',
         },
     },
