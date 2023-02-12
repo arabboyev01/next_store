@@ -3,25 +3,21 @@ import { makeStyles } from '@mui/styles';
 export default makeStyles(() => ({
     head: {
         position: 'relative',
-        '@media(max-width: 650px)': {
-            margin: "0 10px 10% 10px",
-        },
     },
     swiper: {
+        maxWidth: "1230px",
+        margin: "0 auto",
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         marginBottom: '4%',
         borderRadius: '8px',
-        maxWidth: "1230px",
-        margin: "0 auto",
         '--swiper-pagination-color': '#fff !important',
         '--swiper-navigation-color': '#fff !important',
-        padding: '0 30px',
         '@media(max-width: 650px)': {
             maxWidth: "400px",
-            margin: "0 0 10% 0",
+            marginBottom: "10%",
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
