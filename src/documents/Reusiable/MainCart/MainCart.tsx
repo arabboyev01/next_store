@@ -11,6 +11,8 @@ import React from 'react'
 import MainLoader from '../MainLoader/MainLoader';
 import { mainDataType } from '../../../../types/types';
 import { commafy } from '../Suggested/global';
+import axios from 'axios';
+import { apiAddress } from '../../../../config'
 
 const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
     const classes = Styles();
@@ -21,6 +23,13 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
+    const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null
+
+    const sendData = (id: string | number) => {
+        axios.get(`${apiAddress}/favorite-product/${id}`, { 'headers':
+                { 'Authorization': 'Bareer' + token }
+        }).then(data => console.log(data)).catch(err => console.log(err))
+    }
 
     return (
         <Box className={ carousel ? classes.carousel : classes.mainCartWrapper}>
@@ -30,7 +39,7 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
                 </Box> :
                 mainData.map((item: any) =>
                     <Box className={classes.mainCart} key={item.id}>
-                        <FavoriteBorderIcon className={classes.favoriteIcon}/>
+                        <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id)}/>
                         <Box onClick={() => handleSingleProduct(item)}>
                             {item.state === 'New' ?
                                 <Typography className={classes.sale}>Yangilik</Typography> : item.status === 'New' ?
