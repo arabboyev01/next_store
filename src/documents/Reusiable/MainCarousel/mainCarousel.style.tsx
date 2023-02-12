@@ -11,7 +11,6 @@ export default makeStyles(() => ({
         justifyContent: 'space-between',
         marginBottom: '4%',
         borderRadius: '8px',
-        maxWidth: '1230px',
         margin: "0 auto",
         '--swiper-pagination-color': '#fff !important',
         '--swiper-navigation-color': '#fff !important',
@@ -22,7 +21,6 @@ export default makeStyles(() => ({
             justifyContent: 'center',
             marginBottom: '10%',
             padding: '20px',
-            maxWidth: '340px',
         },
     },
     navigateIcon: {
@@ -72,7 +70,6 @@ export default makeStyles(() => ({
         },
     },
     textContent: {
-        maxWidth: "600px",
         '@media(max-width: 650px)': {
             maxWidth: '250px',
             margin: '0 auto',
@@ -83,6 +80,7 @@ export default makeStyles(() => ({
         fontSize: '54px',
         lineHeight: '50px',
         color: '#fff',
+        maxWidth: "600px",
         '@media(max-width: 650px)': {
             fontSize: '28px',
             lineHeight: '30px',
