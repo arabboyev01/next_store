@@ -13,6 +13,8 @@ export default makeStyles(() => ({
         justifyContent: 'space-between',
         marginBottom: '4%',
         borderRadius: '8px',
+        maxWidth: '1230px',
+        margin: "0 auto",
         '--swiper-pagination-color': '#fff !important',
         '--swiper-navigation-color': '#fff !important',
         padding: '0 50px',
