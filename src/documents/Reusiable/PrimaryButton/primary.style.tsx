@@ -6,6 +6,8 @@ export default makeStyles(() => ({
         height: "100%",
         background: "#0D63F3",
         color: "#fff",
+        borderRadius: "8px",
+        fontSize: "14px",
         '&:hover': {
             opacity: 0.8,
             background: "#0D63F3 !important",
