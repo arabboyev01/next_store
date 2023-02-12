@@ -27,7 +27,7 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
 
     const sendData = (id: string | number) => {
         axios.get(`${apiAddress}/favorite-product/${id}`, { headers : {
-            'Authorization': 'Bareer ' + token
+            Authorization: `Bareer ${token}`
         }}).then(data => console.log(data)).catch(err => console.log(err))
     }
 

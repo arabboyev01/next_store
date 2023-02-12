@@ -92,9 +92,10 @@ export default makeStyles(() => ({
     },
     shoppingCart: {
         color: "#6C757D",
-        fontSize: '20px',
+        fontSize: '25px',
         '@media(max-width: 650px)': {
            marginLeft: "25px",
+            fontSize: '20px',
         },
     },
     sale: {
