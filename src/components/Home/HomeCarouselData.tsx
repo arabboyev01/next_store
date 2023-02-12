@@ -1,40 +1,57 @@
-import bgImage from "../../../public/assets/images/carousel.image.png";
-import {HomeCarouselDataType} from "../../../types/types";
-import secondImage from "../../../public/assets/images/carousel2.png"
+import sale from '../../../public/assets/images/sale.png';
+import { HomeCarouselDataType } from '../../../types/types';
+import secondImage from '../../../public/assets/images/elektronics.png'
+
 export const HomeCarouselData: HomeCarouselDataType[] = [
     {
         id: 0,
-        image:bgImage,
+        title: 'Mahsulot narxidan 1% qaytaramiz.',
+        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        image: sale,
     },
     {
         id: 1,
-        image:bgImage,
+       title: 'Mahsulot narxidan 1% qaytaramiz.',
+        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        image: sale,
     },
     {
         id: 2,
-        image:bgImage,
+        title: 'Mahsulot narxidan 1% qaytaramiz.',
+        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        image: sale,
     },
     {
         id: 3,
-        image:bgImage,
+        title: 'Mahsulot narxidan 1% qaytaramiz.',
+        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        image: sale,
     },
 ]
 export const SecondCarousel: HomeCarouselDataType[] = [
     {
         id: 0,
-        image:secondImage,
+        title:"Eng sara elektronikani bizdan topishingiz mumkin",
+        subtitle: "Biz sizga yordam berganimizdan mamnunimz",
+        image: secondImage,
     },
     {
         id: 1,
-        image:secondImage,
+        title:"Eng sara elektronikani bizdan topishingiz mumkin",
+        subtitle: "Biz sizga yordam berganimizdan mamnunimz",
+        image: secondImage,
     },
     {
         id: 2,
-        image:secondImage,
+        title:"Eng sara elektronikani bizdan topishingiz mumkin",
+        subtitle: "Biz sizga yordam berganimizdan mamnunimz",
+        image: secondImage,
     },
     {
         id: 3,
-        image:secondImage,
+        title:"Eng sara elektronikani bizdan topishingiz mumkin",
+        subtitle: "Biz sizga yordam berganimizdan mamnunimz",
+        image: secondImage,
     },
 ]
 
