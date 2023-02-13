@@ -7,7 +7,7 @@ import 'swiper/css/bundle';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Image from 'next/image';
-import { Button, Typography, useMediaQuery } from '@mui/material';
+import { Button, grid2Classes, Typography, useMediaQuery } from '@mui/material';
 import { HomeCarouselDataType } from '../../../../types/types'
 
 export type MainCarouselPropsType = {
@@ -29,7 +29,7 @@ const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height, bgColor, c
 
     return (
         <Box className={classes.head}>
-            <button className={classes.arrowBack} id="swiper-back">
+            <button className={buttonText ? classes.arrowBackPrimary : classes.arrowBack} id="swiper-back">
                 <ArrowBackIosIcon className={classes.navigateIcon}/>
             </button>
             <Swiper modules={[Pagination, Navigation]}{...setting}
@@ -48,7 +48,7 @@ const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height, bgColor, c
                     </SwiperSlide>
                 )}
             </Swiper>
-            <button className={classes.arrowForward} id="swiper-forward">
+            <button className={buttonText ? classes.arrowForwardPrimary : classes.arrowForward} id="swiper-forward">
                 <ArrowForwardIosIcon className={classes.navigateIcon}/>
             </button>
         </Box>
