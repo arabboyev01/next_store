@@ -32,7 +32,7 @@ const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height, bgColor}) 
             <Swiper modules={[Pagination, Navigation]}{...setting} >
                 {data?.map(({id, title, subtitle, image}: HomeCarouselDataType) =>
                     <SwiperSlide key={id} className={classes.swiper}
-                                 style={{backgroundColor: `${bgColor}`, height: `${height}`}}>
+                                 style={{backgroundColor: bgColor, height: height}}>
                         <Box className={classes.textContent}>
                             <Typography className={classes.title}>{title}</Typography>
                             <Typography className={classes.sub}>{subtitle}</Typography>

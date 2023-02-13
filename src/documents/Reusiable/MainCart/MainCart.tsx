@@ -23,17 +23,19 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
-    const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null
+    const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
+
     const sendData = (id: string | number) => {
-        axios.get(`${apiAddress}/favorite-product/${id}`, { headers : {
-            "Authorization": `Bearer ${token}`
+        console.log(id)
+        axios.post(`${apiAddress}/favorite-product/${id}`, {productId: id}, { headers : {
+            Authorization: `Bearer ${token}`
         }}).then(data => console.log(data)).catch(err => console.log(err))
     }
 
     return (
-        <Box className={ carousel ? classes.carousel : classes.mainCartWrapper}>
+        <Box className={carousel ? classes.carousel : classes.mainCartWrapper}>
             {mainData === undefined ?
-                <Box className={ carousel ? classes.carouselLoader : classes.loader }>
+                <Box className={carousel ? classes.carouselLoader : classes.loader}>
                     <MainLoader/>
                 </Box> :
                 mainData.map((item: any) =>

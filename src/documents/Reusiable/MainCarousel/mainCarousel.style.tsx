@@ -16,12 +16,11 @@ export default makeStyles(() => ({
         '--swiper-pagination-color': '#fff !important',
         '--swiper-navigation-color': '#fff !important',
         '@media(max-width: 650px)': {
-            maxWidth: "400px",
+            maxWidth: "360px",
             marginBottom: "10%",
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
-            padding: '20px',
+            padding: '10px 0',
         },
     },
     navigateIcon: {
