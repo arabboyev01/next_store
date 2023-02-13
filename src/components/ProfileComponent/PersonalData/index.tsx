@@ -4,7 +4,7 @@ import {PERSONAL_DATA} from "./config"
 import { makeValidate } from 'mui-rff'
 
 const schema = Yup.object().shape({
-    firstname: Yup.string().required(`${PERSONAL_DATA.firstName.label}. majburiy.`),
+    firstname: Yup.string().required(`${PERSONAL_DATA.firstName.name}. majburiy.`),
     lastname: Yup.string().required(`${PERSONAL_DATA.lastName.label} majburiy.`),
     email: Yup.string().required(`${PERSONAL_DATA.email.label} majburiy.`),
 });

@@ -26,11 +26,10 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
     }
 
     const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-    const sendData = (id: string | number) => {
-        console.log(id)
-        axios.post(`${apiAddress}/favorite-product/${id}`, {productId: id}, { headers : {
+    const sendData = (id: number) => {
+        axios.get(`${apiAddress}/favorite-product/${id}`, { headers : {
             Authorization: `Bearer ${token}`
-        }}).then(data => console.log(data)).catch(err => console.log(err))
+        }}).then(res => console.log(res)).catch(err => console.log(err))
     }
 
     return (

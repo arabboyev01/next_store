@@ -7,10 +7,9 @@ export default makeStyles(() => ({
         borderRadius: '10px',
         marginLeft: '20px',
         '@media(max-width: 650px)': {
-            maxWidth: "360px",
-            marginLeft: 0,
-            marginTop: "20px",
-             padding: '20px',
+            maxWidth: "430px",
+            margin: "20px auto 0 auto",
+            padding: '15px',
         },
     },
     title: {

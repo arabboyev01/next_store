@@ -3,25 +3,30 @@ export const PERSONAL_DATA = {
         name: 'firstname',
         label: "Ismingizni kiriting",
         require: true,
+        header: 'Ismingiz',
     },
     lastName: {
         name: 'lastname',
         label: "Familiyangizni kiriting",
         require: true,
+        header: 'Familiyangiz',
     },
     email: {
         name: 'email',
-        label: "E-mail kiriting",
+        label: "E-mailingizni kiriting",
         require: true,
+        header: 'E-mail',
     },
     new_password: {
         name: 'new_password',
         label: "Yangi parol kiriting",
         require: true,
+        header: 'Yangi parol',
     },
     code: {
         name: 'code',
-        label: "Sms codni kiriting",
+        label: "Sms-kod kiriting",
         require: true,
+        header: 'Sms kod',
     },
 }
