@@ -22,7 +22,7 @@ const HomeComponent = () => {
     return (
         <Box className={classes.homeWrapper}>
             <Box className={classes.contentWrapper}>
-                <MainCarousel data={HomeCarouselData} height={query ? 200 : 380} bgColor='rgb(48, 149, 41)'/>
+                <MainCarousel data={HomeCarouselData} height={query ? 200 : 330} bgColor='rgb(48, 149, 41)' color='#fff'/>
             </Box>
             <Box>
                 <MainTitle title="Kategoriyalar" />
@@ -39,7 +39,7 @@ const HomeComponent = () => {
                 </Box>
             </Box>
             <Box className={classes.contentWrapper}>
-                <MainCarousel data={SecondCarousel} height={240} bgColor='#333'/>
+                <MainCarousel data={SecondCarousel} height={240} bgColor='#333' color='#fff'/>
             </Box>
             <Box className={classes.mainSales}>
                 <MainTitle title="Eng ko'p sotilganlar"/>
@@ -53,7 +53,7 @@ const HomeComponent = () => {
                 <Brands data={BrandsData}/>
             </Box>
             <Box className={classes.contentWrapper}>
-                <MainCarousel data={SecondCarousel} height={240} bgColor='#333'/>
+                <MainCarousel data={SecondCarousel} height={240} bgColor='#333' color='#fff'/>
             </Box>
             <Box className={classes.page}>
                 <MainTitle title="Do'konlarimiz"/>

@@ -16,11 +16,22 @@ export default makeStyles(() => ({
         '--swiper-pagination-color': '#fff !important',
         '--swiper-navigation-color': '#fff !important',
         '@media(max-width: 650px)': {
-            maxWidth: "360px",
+            maxWidth: "380px",
             marginBottom: "10%",
             flexDirection: 'column',
             alignItems: 'center',
             padding: '10px 0',
+            justifyContent: "center",
+        },
+    },
+    slide:{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: "space-evenly",
+        '@media(max-width: 650px)': {
+            flexDirection: 'column',
+            justifyContent: "center",
         },
     },
     navigateIcon: {
@@ -81,6 +92,20 @@ export default makeStyles(() => ({
         lineHeight: '50px',
         color: '#fff',
         maxWidth: "600px",
+        marginTop: "-10px",
+        '@media(max-width: 650px)': {
+            fontSize: '28px',
+            lineHeight: '30px',
+            color: '#fff',
+            maxWidth: '300px',
+        },
+    },
+    textTop: {
+        fontSize: '54px',
+        lineHeight: '50px',
+        color: '#fff',
+        maxWidth: "600px",
+        marginTop: "-50px",
         '@media(max-width: 650px)': {
             fontSize: '28px',
             lineHeight: '30px',
@@ -94,8 +119,26 @@ export default makeStyles(() => ({
         marginTop: '20px',
     },
     images: {
+        objectFit: 'contain',
         '@media(max-width: 650px)': {
             display: 'none',
+        },
+    },
+    showImage: {
+        objectFit: 'contain',
+    },
+    buttons: {
+        position: "absolute",
+        bottom: "30px",
+        left: "110px",
+        width: "200px",
+        height: '54px',
+        background: "#0D63F3",
+        color: "#fff",
+        '@media(max-width: 650px)': {
+            left: "90px",
+             height: '48px',
+            width: "180px",
         },
     },
 }))

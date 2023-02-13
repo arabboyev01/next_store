@@ -10,6 +10,9 @@ import { useRouter } from 'next/router'
 import MainLoader from '../MainLoader/MainLoader';
 import Suggested from '../Suggested/Suggested';
 import ProductDescription from '../SingleProduct/ProductDescription/ProductDescription'
+import MainCarousel from '../MainCarousel/MainCarousel'
+import { SuggestedDataCarousel } from '../../DumbData/DumbData'
+import MainCart from '../MainCart/MainCart'
 
 const SingleProduct = () => {
     const classes = Styles();
@@ -23,6 +26,9 @@ const SingleProduct = () => {
     const {id} = router.query
     const handleOpen = () => setOpen(true);
     const handleCLose = () => setOpen(false);
+    const secondData = mainData[mainData.length - 1]
+    const secondSlice = secondData === undefined ? undefined : secondData.content.slice(0, 5)
+
     const fetchSingleData = useCallback(() => {
         const fetchData = mainData[mainData.length - 1]?.content?.find((item: any) => item.id == id)
         setFiltered(fetchData)
@@ -31,6 +37,7 @@ const SingleProduct = () => {
     useEffect(() => {
         fetchSingleData()
     }, [fetchSingleData]);
+
 
     return (
         <Box className={classes.singleProducts}>
@@ -54,7 +61,14 @@ const SingleProduct = () => {
                 </>
             }
             <Suggested/>
-            <ProductDescription />
+            <ProductDescription/>
+            <Box className={classes.suggested}>
+                <MainCart mainData={secondSlice} carousel="carousel"/>
+            </Box>
+            <Box className={classes.carousel}>
+                <MainCarousel data={SuggestedDataCarousel} height={query ? 433 : 320} bgColor="#FFE9BD" color="#000"
+                              sticky buttonText="Batafsil"/>
+            </Box>
         </Box>
     )
 }

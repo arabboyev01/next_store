@@ -31,8 +31,7 @@ export default makeStyles(() => ({
         marginTop: "30px",
         '@media(max-width: 650px)': {
             height: "auto",
-            minWidth: "200px",
-            maxWidth: "390px",
+            width: "200px",
             padding:"20px 15px",
             alignItems: 'center',
         },

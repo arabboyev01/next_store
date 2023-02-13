@@ -39,4 +39,15 @@ export default makeStyles(() => ({
         justifyContent: "center",
         padding: "20vh 0",
     },
+    carousel: {
+        marginTop: "60px",
+        margin: "60px 20px 0 20px",
+    },
+    suggested: {
+        maxWidth: '1230px',
+        margin: "0 auto",
+        '@media(max-width: 650px)': {
+            marginLeft: "20px",
+        },
+    },
 }))

@@ -1,7 +1,7 @@
 import {
     BrandsDataType,
     CategoryCartTypes,
-    deliveryDumbDataType, ProductDescriptionType,
+    deliveryDumbDataType, HomeCarouselDataType, ProductDescriptionType,
     PROFILE_LINK_DATA_TYPE,
     SUGGESION_DATA_TYPE
 } from '../../../types/types';
@@ -35,7 +35,35 @@ import LibraryAddCheckIcon from '@mui/icons-material/LibraryAddCheck'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import LogoutIcon from '@mui/icons-material/Logout';
+import Iphone from "../../../public/assets/images/iphone.png"
+import sale from 'public/assets/images/sale.png'
 
+export const SuggestedDataCarousel: HomeCarouselDataType[] = [
+    {
+        id: 0,
+        title: 'Mahsulot narxidan 1% qaytaramiz.',
+        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        image: Iphone,
+    },
+    {
+        id: 1,
+       title: 'Mahsulot narxidan 1% qaytaramiz.',
+        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        image: Iphone,
+    },
+    {
+        id: 2,
+        title: 'Mahsulot narxidan 1% qaytaramiz.',
+        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        image: Iphone,
+    },
+    {
+        id: 3,
+        title: 'Mahsulot narxidan 1% qaytaramiz.',
+        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        image: Iphone,
+    },
+]
 export const PRODUCT_DESCRIPTION: ProductDescriptionType[] = [
     {
         id: 0,
