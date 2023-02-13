@@ -43,6 +43,7 @@ export default makeStyles(() => ({
         alignItems:"start",
         flex: 0.2,
         gap: '20px',
+        margin: "20px 0 50px 0",
         '@media(max-width: 650px)' : {
             flexDirection: "row",
             alignItems:"center",
@@ -56,7 +57,7 @@ export default makeStyles(() => ({
     },
     categoryBox: {
         maxWidth:'210px',
-        height: '220px',
+        height: '210px',
         background: "#fff",
         display: "flex",
         flexDirection: "column",
@@ -67,6 +68,9 @@ export default makeStyles(() => ({
             width:'210px',
             height: '170px',
         },
+    },
+    image: {
+        objectFit: 'contain',
     },
     name: {
         color: '#6C757D',

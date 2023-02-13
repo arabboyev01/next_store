@@ -38,7 +38,9 @@ const CategoryComponent = () => {
                     {CATEGORY_BUTTONS.map(({id, image, category}) =>
                         <Box key={id} className={classes.categoryBox}>
                             <Box>
-                                <Image src={image.src} alt='category_image' width={query ? 130 : 180} height={query ? 100 : 134}/>
+                                <Image src={image.src} alt='category_image' width={query ? 130 : 180} height={query ? 100 : 134}
+                                className={classes.image}
+                                />
                             </Box>
                             <Typography className={classes.name}>{category}</Typography>
                         </Box>
