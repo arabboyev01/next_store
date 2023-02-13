@@ -60,8 +60,8 @@ const SingleProduct = () => {
                     </Box>
                 </>
             }
-            <Suggested/>
             <ProductDescription/>
+            <Suggested/>
             <Box className={classes.suggested}>
                 <MainCart mainData={secondSlice} carousel="carousel"/>
             </Box>
