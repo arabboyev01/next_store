@@ -12,6 +12,8 @@ const getData = () => {
 }
 getData();
 
+console.log(searchData)
+
 const CartSlice = createSlice({
     initialState,
     name: "cart",
@@ -40,7 +42,7 @@ const CartSlice = createSlice({
         setSearchValue: (state: any, action: any) => {
             const loweredValue = action.payload.toLowerCase();
             if (searchData && action.payload) {
-                const searchValue = searchData.filter((item: any) => item.name.toLowerCase().includes(loweredValue))
+                const searchValue = searchData.filter(({name}: any) => name.toLowerCase().includes(loweredValue))
                 state.searchValue.push(searchValue);
 
                 state.inputName = action.payload;
