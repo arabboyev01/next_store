@@ -24,10 +24,9 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
     const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null
-
     const sendData = (id: string | number) => {
         axios.get(`${apiAddress}/favorite-product/${id}`, { headers : {
-            Authorization: `Bareer ${token}`
+            "Authorization": `Bearer ${token}`
         }}).then(data => console.log(data)).catch(err => console.log(err))
     }
 

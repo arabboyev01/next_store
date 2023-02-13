@@ -32,14 +32,12 @@ const SendNumber: React.FC<Props> = ({username}) => {
         dispatch(validateLogin(true))
         router.push({pathname: '/'})
     }
-    const userName = username.slice(12)
-    console.log(username)
 
     const Confirm = (values: any) => {
         setLoading(true)
         axios.post(`${apiAddress}/user/verify`, {
             smsCode: values.confirm,
-            username: userName
+            username: username
         }, {headers: {'Content-Type': 'application/json'}}).then((data) => {
             if (data?.data?.id_token) {
                 localStorage.setItem('tokenKey', data?.data?.id_token)
