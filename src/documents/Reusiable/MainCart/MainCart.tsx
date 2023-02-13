@@ -19,12 +19,13 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
     const query = useMediaQuery('@media(max-width: 650px)');
     const dispatch = useDispatch();
     const router = useRouter();
+
     const handleSingleProduct = (data: any) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
-    const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
 
+    const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
     const sendData = (id: string | number) => {
         console.log(id)
         axios.post(`${apiAddress}/favorite-product/${id}`, {productId: id}, { headers : {
