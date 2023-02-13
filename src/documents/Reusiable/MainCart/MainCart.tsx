@@ -1,4 +1,4 @@
-import Styles from './maincart.style'
+import Styles from './maincart.style';
 import { Box } from '@mui/system';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Typography, useMediaQuery } from '@mui/material';
@@ -6,17 +6,17 @@ import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { setAddItemToCart, setSingleProduct, } from '../../../redux/CartSlice'
 import { useDispatch } from 'react-redux';
-import { useRouter } from 'next/router'
-import React from 'react'
+import { useRouter } from 'next/router';
+import React from 'react';
 import MainLoader from '../MainLoader/MainLoader';
 import { mainDataType } from '../../../../types/types';
 import { commafy } from '../Suggested/global';
 import axios from 'axios';
-import { apiAddress } from '../../../../config'
+import { apiAddress } from '../../../../config';
 
 const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
     const classes = Styles();
-    const query = useMediaQuery('@media(max-width: 650px)')
+    const query = useMediaQuery('@media(max-width: 650px)');
     const dispatch = useDispatch();
     const router = useRouter();
     const handleSingleProduct = (data: any) => {
@@ -43,12 +43,16 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
                         <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id)}/>
                         <Box onClick={() => handleSingleProduct(item)}>
                             {item.state === 'New' ?
-                                <Typography className={classes.sale}>Yangilik</Typography> : item.status === 'New' ?
-                                    <Typography className={classes.new}>Yangilik</Typography> : null}
+                                <Typography className={classes.sale}>Yangilik</Typography> :
+                                item.status === 'New' ? <Typography className={classes.new}>Yangilik</Typography> : null
+                            }
                             <Box className={classes.imageWrapper}>
-                                <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt="image"
+                                <img src={`https://nextstore.in/nextstore${item.photoUrl}`}
+                                     alt="image"
                                      width={query ? '120px' : '180px'}
-                                     height={query ? '120px' : '180px'} className={classes.mainImage}/>
+                                     height={query ? '120px' : '180px'}
+                                     className={classes.mainImage}
+                                />
                             </Box>
                             <Typography className={classes.price}>{commafy(item.price)} so&apos;m</Typography>
                             <Typography className={classes.title}>{item.name}</Typography>
@@ -58,8 +62,7 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
                             <Box onClick={() => router.push({pathname: '/single-products', query: {id: item.id}})}>
                                 <PrimaryButton text="Sotib olish"/>
                             </Box>
-                            <ShoppingCartIcon className={classes.shoppingCart}
-                                              onClick={() => dispatch(setAddItemToCart(item))}/>
+                            <ShoppingCartIcon className={classes.shoppingCart} onClick={() => dispatch(setAddItemToCart(item))}/>
                         </Box>
                     </Box>
                 )}
