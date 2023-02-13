@@ -54,6 +54,16 @@ export default makeStyles(() => ({
             right: "8%",
         },
     },
+    favoriteIconLiked: {
+        position: 'absolute',
+        right: "2%",
+        marginTop: "17px",
+        top: "-3px",
+        color: '#bf0000',
+        '@media(max-width: 650px)': {
+            right: "8%",
+        },
+    },
     mainImage: {
         objectFit: 'contain',
         '@media(max-width: 650px)': {

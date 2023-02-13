@@ -7,12 +7,13 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { setAddItemToCart, setSingleProduct, } from '../../../redux/CartSlice'
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, {useState} from 'react';
 import MainLoader from '../MainLoader/MainLoader';
 import { mainDataType } from '../../../../types/types';
 import { commafy } from '../Suggested/global';
 import axios from 'axios';
 import { apiAddress } from '../../../../config';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
     const classes = Styles();
@@ -24,12 +25,16 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
+    const [liked, setLiked] = useState<null | string>(null)
 
     const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
     const sendData = (id: number) => {
         axios.get(`${apiAddress}/favorite-product/${id}`, { headers : {
             Authorization: `Bearer ${token}`
-        }}).then(res => console.log(res)).catch(err => console.log(err))
+        }}).then(res => {
+            setLiked(res.data.message)
+            console.log(res)
+        }).catch(err => console.log(err))
     }
 
     return (
@@ -40,7 +45,12 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
                 </Box> :
                 mainData.map((item: any) =>
                     <Box className={classes.mainCart} key={item.id}>
-                        <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id)}/>
+                        {}
+
+                        {liked === null ? <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id)}/> : null }
+                        {liked === "the product was added to the favorite"? <FavoriteIcon className={classes.favoriteIconLiked} onClick={() => sendData(item.id)}/> : null}
+                        {liked === "Remove favorite product" ? <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id)}/> : null }
+
                         <Box onClick={() => handleSingleProduct(item)}>
                             {item.state === 'New' ?
                                 <Typography className={classes.sale}>Yangilik</Typography> :

@@ -303,17 +303,17 @@ export const CATEGORY_BUTTONS = [
     },
     {
         id: 1,
-        category: 'I Phone',
+        category: 'iPhone',
         image: phone,
     },
     {
         id: 2,
-        category: 'IPad',
+        category: 'iPad',
         image: tablet,
     },
     {
         id: 2,
-        category: 'Airpods',
+        category: 'AirPods',
         image: pots,
     },
 ]

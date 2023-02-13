@@ -10,6 +10,10 @@ import { setAddItemToCart, validataionCode } from '../../redux/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 import MainLoader from '../../documents/Reusiable/MainLoader/MainLoader';
+import { useEffect } from 'react'
+import axios from 'axios'
+import { apiAddress } from '../../../config'
+import { useState } from 'react'
 
 const LikesComponent = () => {
     const classes = styles();
@@ -20,6 +24,19 @@ const LikesComponent = () => {
     const {mainData} = useSelector((state: any) => state.cart)
     const data = mainData[mainData.length - 1]
     const query = useMediaQuery('@media(max-width: 600px)')
+
+    const [favoriteData, setFavoriteData] = useState<any>(null)
+
+    useEffect(() => {
+        axios.get(`${apiAddress}/favorite-product`).then(res => {
+            setFavoriteData(res);
+            console.log(res)
+        }).catch(err => console.log(err))
+
+
+    }, [])
+
+    console.log(favoriteData)
 
     return (
         <Box className={classes.likeWrapper}>
