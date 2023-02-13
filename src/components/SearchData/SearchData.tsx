@@ -12,9 +12,12 @@ const SearchData = () => {
     const searchedValue = useSelector(setSearchValue);
     const query = useMediaQuery('@media(max-width: 600px)')
     // @ts-ignore
-    const data = searchedValue.payload.cart.searchValue;
+    const data = searchedValue.payload.cart.searchValue[0];
+    // const lastData = data[data.length - 1]
     // @ts-ignore
     const productName = searchedValue.payload.cart.inputName.toLocaleUpperCase();
+    console.log(data)
+    console.log(searchedValue)
     return (
         <Box className={classes.searchDataWrapper}>
             {!data || data.length === 0 ? null :  <Typography className={classes.title}> “ {productName} “ so&apos;rovi uchun topildi : {data.length} ta mahsulot</Typography>}

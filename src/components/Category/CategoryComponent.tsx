@@ -21,7 +21,7 @@ const CategoryComponent = () => {
     const [categoryData, setMainData] = useState([])
 
     const getDataByCategory = useCallback(() => {
-        axios.get(`${apiAddress}/category/${id}`).then((data) => {
+        axios.get(`${apiAddress}/category`).then((data) => {
             setMainData(data.data)
         }).catch(err => console.log(err))
     }, [apiAddress, id])
@@ -29,6 +29,8 @@ const CategoryComponent = () => {
     useEffect(() => {
         getDataByCategory()
     }, [getDataByCategory])
+
+    console.log(categoryData)
 
     return (
         <Box className={classes.categoryWrapper}>
