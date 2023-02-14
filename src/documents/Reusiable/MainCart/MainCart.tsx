@@ -36,6 +36,7 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
             console.log(res)
         }).catch(err => console.log(err))
     }
+    console.log(mainData)
 
     return (
         <Box className={carousel ? classes.carousel : classes.mainCartWrapper}>
@@ -45,12 +46,9 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
                 </Box> :
                 mainData.map((item: any) =>
                     <Box className={classes.mainCart} key={item.id}>
-                        {}
-
-                        {liked === null ? <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id)}/> : null }
-                        {liked === "the product was added to the favorite"? <FavoriteIcon className={classes.favoriteIconLiked} onClick={() => sendData(item.id)}/> : null}
-                        {liked === "Remove favorite product" ? <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id)}/> : null }
-
+                        {item.isFavorite ? <FavoriteIcon className={classes.favoriteIconLiked} onClick={() => sendData(item.id)}/> :
+                            <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id)}/>
+                        }
                         <Box onClick={() => handleSingleProduct(item)}>
                             {item.state === 'New' ?
                                 <Typography className={classes.sale}>Yangilik</Typography> :

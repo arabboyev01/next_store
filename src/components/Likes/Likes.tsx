@@ -26,15 +26,17 @@ const LikesComponent = () => {
     const query = useMediaQuery('@media(max-width: 600px)')
 
     const [favoriteData, setFavoriteData] = useState<any>(null)
+    const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
 
     useEffect(() => {
-        axios.get(`${apiAddress}/favorite-product`).then(res => {
-            setFavoriteData(res);
+        axios.get(`${apiAddress}/favorite-product`,  {headers: {
+            Authorization: `Basic ${token}`
+            }}).then(res => {
+            setFavoriteData(res.data);
             console.log(res)
         }).catch(err => console.log(err))
 
-
-    }, [])
+    }, [token])
 
     console.log(favoriteData)
 
