@@ -13,6 +13,8 @@ import ProductDescription from '../SingleProduct/ProductDescription/ProductDescr
 import MainCarousel from '../MainCarousel/MainCarousel'
 import { SuggestedDataCarousel } from '../../DumbData/DumbData'
 import MainCart from '../MainCart/MainCart'
+import axios from 'axios'
+import { apiAddress } from '../../../../config'
 
 const SingleProduct = () => {
     const classes = Styles();
@@ -22,6 +24,7 @@ const SingleProduct = () => {
     const [open, setOpen] = useState(false);
     const [filtered, setFiltered] = useState(data);
     const {mainData} = useSelector((state: any) => state.cart);
+    const [suggestedData, setSuggestData] = useState([])
     const router = useRouter()
     const {id} = router.query
     const handleOpen = () => setOpen(true);
@@ -37,6 +40,10 @@ const SingleProduct = () => {
     useEffect(() => {
         fetchSingleData()
     }, [fetchSingleData]);
+
+    useEffect(() => {
+        axios.get(`${apiAddress}/advertising`).then(res => setSuggestData(res.data)).catch(err => console.log(err))
+    }, [])
 
 
     return (
@@ -63,7 +70,7 @@ const SingleProduct = () => {
             <ProductDescription/>
             <Suggested/>
             <Box className={classes.suggested}>
-                <MainCart mainData={secondSlice} carousel="carousel"/>
+                <MainCart mainData={suggestedData} carousel="carousel"/>
             </Box>
             <Box className={classes.carousel}>
                 <MainCarousel data={SuggestedDataCarousel} height={query ? 433 : 320} bgColor="#FFE9BD" color="#000"
