@@ -2,7 +2,7 @@ import axios from "axios";
 import {apiAddress} from "../../../config";
 import { validateLogin } from '../../redux/CartSlice'
 
-export const signUp = (values: any, setLoading: any, setValidation: any, setUserName: any, dispatch: any | never) => {
+export const signUp = (values: any, setLoading: any, setValidation: any, setUserName: any, dispatch: any | never, setError: boolean | any) => {
     setLoading(true)
     axios.post(`${apiAddress}/user`,{
         firstName: values.firstname,
@@ -24,7 +24,7 @@ export const signUp = (values: any, setLoading: any, setValidation: any, setUser
     }).catch((error) => {
         console.log(error);
         if(error.response.status === 400){
-            setValidation(true)
+            setError(true)
         }
     }).finally(() => {
         setLoading(false)

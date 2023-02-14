@@ -44,4 +44,9 @@ export default makeStyles(() => ({
         height: "50px",
         margin: "30px auto 0 auto",
     },
+    error: {
+        fontSize: "14px",
+        color: "#bf0000",
+        marginLeft: "10px",
+    },
 }))

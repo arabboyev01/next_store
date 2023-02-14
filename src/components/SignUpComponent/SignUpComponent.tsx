@@ -27,8 +27,10 @@ const SignUpComponent = () => {
     const [loading, setLoading] = useState(false)
     const [validation, setValidation] = useState(false);
     const [firstUserName, setUserName] = useState('')
+    const [error, setError] = useState(false)
     const dispatch = useDispatch()
-    const SignUp = (values: string | any) => signUp(values, setLoading, setValidation, setUserName, dispatch)
+    const SignUp = (values: string | any) => signUp(values, setLoading, setValidation, setUserName, dispatch, setError)
+    console.log(error);
 
     return (
         <>
@@ -55,6 +57,7 @@ const SignUpComponent = () => {
                                         <Box className={classes.fieldContainer}>
                                             <CssTextField {...SIGN_UP_FORM_VALUES.email} placeholder='E-mailingiz'
                                                           type="text"/>
+                                            {error ? <Typography className={classes.error}>Email ro&apos;yhatga olingan</Typography> : null }
                                         </Box>
                                         <Box className={classes.fieldContainer}>
                                             <CssTextField {...SIGN_UP_FORM_VALUES.phone} placeholder='+9989********'
