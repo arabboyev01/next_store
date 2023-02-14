@@ -49,14 +49,14 @@ const Dumb = ({validate}: any) => {
                                     <CssTextField {...PERSONAL_DATA.code} placeholder="Sms-code"
                                                   type="text"/>
                                 </Box>
-                                <Button className={classes.button}>SMS kodga so&apos;ro&apos;v</Button>
+                                <Button className={classes.button}>SMS kodni yuborish</Button>
                             </Box>
                         </Box>
                     </form>
                 )}
             />
             <Box className={classes.saveButton}>
-                <PrimaryButton text="O'zgarishlaeni saqlash"/>
+                <PrimaryButton text="O'zgarishlarni saqlash"/>
             </Box>
         </Box>
     )

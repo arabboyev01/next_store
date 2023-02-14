@@ -25,7 +25,7 @@ export const PERSONAL_DATA = {
     },
     code: {
         name: 'code',
-        label: "Sms-kod kiriting",
+        label: "Sms kodni kiriting",
         require: true,
         header: 'Sms kod',
     },
