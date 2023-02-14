@@ -1,7 +1,8 @@
 import axios from "axios";
 import {apiAddress} from "../../../config";
+import { validateLogin } from '../../redux/CartSlice'
 
-export const signUp = (values: any, setLoading: any, setValidation: any, setUserName: any) => {
+export const signUp = (values: any, setLoading: any, setValidation: any, setUserName: any, dispatch: any | never) => {
     setLoading(true)
     axios.post(`${apiAddress}/user`,{
         firstName: values.firstname,
@@ -16,8 +17,10 @@ export const signUp = (values: any, setLoading: any, setValidation: any, setUser
             localStorage.setItem('tokenKey', data?.data?.token)
             setUserName(data?.data?.message)
         }
-        console.log(data)
         setValidation(true)
+        // @ts-ignore
+        dispatch(validateLogin(true))
+
     }).catch((error) => {
         console.log(error);
     }).finally(() => {

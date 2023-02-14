@@ -25,7 +25,7 @@ const ProfileLikes = () => {
 
     const query = useMediaQuery('@media(max-width: 600px)')
 
-    const [favoriteData, setFavoriteData] = useState<any>([])
+    const [favoriteData, setFavoriteData] = useState([]);
     const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
 
     useEffect(() => {

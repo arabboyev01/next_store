@@ -11,6 +11,7 @@ import {makeValidate} from "mui-rff";
 import {useState} from 'react'
 import {signUp} from "./SignUpPost";
 import SendNumber from "./SendNumber";
+import { useDispatch } from 'react-redux'
 
 const schema = Yup.object().shape({
     firstname: Yup.string().required(`${SIGN_UP_FORM_VALUES.firstName.label} talab qilinadi.`),
@@ -26,7 +27,8 @@ const SignUpComponent = () => {
     const [loading, setLoading] = useState(false)
     const [validation, setValidation] = useState(false);
     const [firstUserName, setUserName] = useState('')
-    const SignUp = (values: string | any) => signUp(values, setLoading, setValidation, setUserName)
+    const dispatch = useDispatch()
+    const SignUp = (values: string | any) => signUp(values, setLoading, setValidation, setUserName, dispatch)
 
     return (
         <>

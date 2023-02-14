@@ -36,7 +36,6 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import LogoutIcon from '@mui/icons-material/Logout';
 import Iphone from "../../../public/assets/images/iphone.png"
-import empty from '../../../public/assets/images/empty.png'
 
 export const SuggestedDataCarousel: HomeCarouselDataType[] = [
     {
@@ -387,5 +386,4 @@ export const emptyData = {
     desc2: "Yoqtirgan mahsulotingizni tanlang",
     desc3: "Yurakcha tugmasini bosing",
     buttonText: "Mahsulotlarga qaytish",
-    image: empty,
 }

@@ -3,14 +3,15 @@ import {makeStyles} from "@mui/styles";
 export default makeStyles(() => ({
     empty: {
         display: "flex",
-        flexDirection: "column",
-        alignItems: "start",
-        maxWidth: "400px",
+        flexDirection: "row",
+        alignItems: "center",
+        maxWidth: "500px",
         margin: "10px auto",
         '@media(max-width: 600px)':{
-            margin: "50px auto",
+            margin: "50px 30px",
             flexDirection: "column",
             alignItems: "center",
+
         },
     },
     title: {
@@ -21,7 +22,7 @@ export default makeStyles(() => ({
         '@media(max-width: 600px)':{
             fontSize: "18px",
             lineHeight: "20px",
-            marginTop: "10px",
+            marginTop: "30px",
         },
     },
     backBtn: {
