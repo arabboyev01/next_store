@@ -32,14 +32,12 @@ const LikesComponent = () => {
 
     useEffect(() => {
         axios.get(`${apiAddress}/favorite-product`,  {headers: {
-            Authorization: `Basic ${token}`
+            Authorization: `Bearer ${token}`
             }}).then(res => {
             setFavoriteData(res.data);
             console.log(res)
         }).catch(err => console.log(err))
-
     }, [token])
-    console.log(favoriteData)
     return (
         <Box className={classes.likeWrapper}>
             <Box className={classes.contentWrapper}>
@@ -48,7 +46,7 @@ const LikesComponent = () => {
                     <Box className={classes.loader}>
                         <EmptyData data={emptyData}/>
                     </Box> :
-                    data.content.map((item: any, index: any) =>
+                    favoriteData.map((item: any, index: any) =>
                         <Box className={classes.content} key={index}>
                             <FavoriteIcon className={classes.likeIcon}/>
                             <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt="image"

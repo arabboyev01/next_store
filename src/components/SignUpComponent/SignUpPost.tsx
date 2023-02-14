@@ -23,6 +23,9 @@ export const signUp = (values: any, setLoading: any, setValidation: any, setUser
 
     }).catch((error) => {
         console.log(error);
+        if(error.response.status === 400){
+            setValidation(true)
+        }
     }).finally(() => {
         setLoading(false)
     })

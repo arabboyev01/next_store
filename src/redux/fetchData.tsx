@@ -20,7 +20,4 @@ export const fetchData = createAsyncThunk('cart/getAllCartData', async () => {
     return await response.json();
 })
 
- typeof window !== 'undefined' ? window.addEventListener('load', function () {
-  const fetchInterval = 500;
-  setInterval(fetchData, fetchInterval);
-}) : null
+
