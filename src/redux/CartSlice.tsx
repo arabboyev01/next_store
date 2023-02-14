@@ -12,8 +12,6 @@ const getData = () => {
 }
 getData();
 
-console.log(searchData)
-
 const CartSlice = createSlice({
     initialState,
     name: "cart",
