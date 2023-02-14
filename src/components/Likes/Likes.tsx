@@ -9,11 +9,12 @@ import PrimaryButton from '../../documents/Reusiable/PrimaryButton/PrimaryButton
 import { setAddItemToCart, validataionCode } from '../../redux/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
-import MainLoader from '../../documents/Reusiable/MainLoader/MainLoader';
 import { useEffect } from 'react'
 import axios from 'axios'
 import { apiAddress } from '../../../config'
 import { useState } from 'react'
+import EmptyData from '../../documents/Reusiable/EmptyData/EmptyData'
+import { emptyData } from '../../documents/DumbData/DumbData'
 
 const LikesComponent = () => {
     const classes = styles();
@@ -42,10 +43,10 @@ const LikesComponent = () => {
     return (
         <Box className={classes.likeWrapper}>
             <Box className={classes.contentWrapper}>
-                <Typography className={classes.ordinaryText}>Saralangan mahsulotlar</Typography>
-                {data === undefined ?
+                {favoriteData.length === 0 ? null : <Typography className={classes.ordinaryText}>Saralangan mahsulotlar</Typography>}
+                {favoriteData.length === 0 ?
                     <Box className={classes.loader}>
-                        <MainLoader/>
+                        <EmptyData data={emptyData}/>
                     </Box> :
                     data.content.map((item: any, index: any) =>
                         <Box className={classes.content} key={index}>
