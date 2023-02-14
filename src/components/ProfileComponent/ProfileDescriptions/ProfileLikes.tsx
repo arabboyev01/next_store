@@ -16,7 +16,8 @@ import { apiAddress } from '../../../../config'
 
 const ProfileLikes = () => {
     const classes = style()
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
+
     const onAddToCart = (data: any) => {
         dispatch(setAddItemToCart(data));
     };
@@ -31,7 +32,7 @@ const ProfileLikes = () => {
     useEffect(() => {
         axios.get(`${apiAddress}/favorite-product`, {
             headers: {
-                Authorization: `Basic ${token}`
+                Authorization: `Bearer ${token}`
             }
         }).then(res => {
             setFavoriteData(res.data);
@@ -39,8 +40,6 @@ const ProfileLikes = () => {
         }).catch(err => console.log(err))
 
     }, [token])
-
-    console.log(favoriteData);
 
     return (
         favoriteData.length === 0 ? <EmptyData data={emptyData}/> :
