@@ -30,7 +30,6 @@ const SignUpComponent = () => {
     const [error, setError] = useState(false)
     const dispatch = useDispatch()
     const SignUp = (values: string | any) => signUp(values, setLoading, setValidation, setUserName, dispatch, setError)
-    console.log(error);
 
     return (
         <>

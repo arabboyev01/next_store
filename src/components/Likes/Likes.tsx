@@ -6,7 +6,7 @@ import * as React from 'react';
 import StoreIcon from '@mui/icons-material/Store';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import PrimaryButton from '../../documents/Reusiable/PrimaryButton/PrimaryButton';
-import { setAddItemToCart, validataionCode } from '../../redux/CartSlice';
+import { setAddItemToCart } from '../../redux/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 import { useEffect } from 'react'
@@ -35,9 +35,9 @@ const LikesComponent = () => {
             Authorization: `Bearer ${token}`
             }}).then(res => {
             setFavoriteData(res.data);
-            console.log(res)
         }).catch(err => console.log(err))
     }, [token])
+
     return (
         <Box className={classes.likeWrapper}>
             <Box className={classes.contentWrapper}>

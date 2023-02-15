@@ -15,7 +15,15 @@ const Layout = ({children}: {children: React.ReactNode}) => {
             // @ts-ignore
             dispatch(validateLogin(true))
         }
-    }, [dispatch,validateLogin])
+        if(localStorage.getItem('tokenKey') === 'undefined'){
+            // @ts-ignore
+            dispatch(validateLogin(false))
+        }
+        if(!localStorage.getItem('tokenKey')){
+            // @ts-ignore
+            dispatch(validateLogin(false))
+        }
+    }, [dispatch])
     return (
         <Box>
             {query ? <MobileNav /> : <Nav/>}
