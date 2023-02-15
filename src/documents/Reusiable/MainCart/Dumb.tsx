@@ -43,7 +43,8 @@ const Dumb = ({classes, mainData, handleSingleProduct, carousel, sendData, query
                                 <PrimaryButton text="Sotib olish"/>
                             </Box>
                             <ShoppingCartIcon className={classes.shoppingCart}
-                                              onClick={() => dispatch(setAddItemToCart(item))}/>
+                                              onClick={() => dispatch(setAddItemToCart(item))}
+                            />
                         </Box>
                     </Box>
                 )}

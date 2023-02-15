@@ -15,7 +15,9 @@ export default makeStyles(() => ({
         alignItems: 'center',
         overflowX: 'auto',
         gap: '10px',
-        maxWidth: '400px',
+        '@media(max-width: 650px)': {
+            maxWidth: '400px',
+        },
     },
     mainCart: {
         background: '#fff',
