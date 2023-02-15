@@ -19,23 +19,21 @@ import { apiAddress } from '../../../../config'
 const SingleProduct = () => {
     const classes = Styles();
     const singleProduct = useSelector(selectSingleItem);
-    const data = singleProduct[singleProduct.length]
+    const data = singleProduct[singleProduct.length - 1]
     const query = useMediaQuery('@media(max-width: 650px)');
     const [open, setOpen] = useState(false);
-    const [filtered, setFiltered] = useState(data);
     const {mainData} = useSelector((state: any) => state.cart);
     const [suggestedData, setSuggestData] = useState([])
     const router = useRouter()
     const {id} = router.query
     const handleOpen = () => setOpen(true);
     const handleCLose = () => setOpen(false);
-    const secondData = mainData[mainData.length - 1]
-    const secondSlice = secondData === undefined ? undefined : secondData.content.slice(0, 5)
+    const [filtered, setFiltered] = useState(data);
 
     const fetchSingleData = useCallback(() => {
-        const fetchData = mainData[mainData.length - 1]?.content?.find((item: any) => item.id == id)
+        const fetchData = mainData[mainData?.length - 1]?.content?.find((item: any) => item.id == id)
         setFiltered(fetchData)
-    }, [id, mainData]);
+    }, [id, mainData, setFiltered]);
 
     useEffect(() => {
         fetchSingleData()
@@ -44,11 +42,11 @@ const SingleProduct = () => {
     useEffect(() => {
         axios.get(`${apiAddress}/advertising`).then(res => setSuggestData(res.data)).catch(err => console.log(err))
     }, [])
-
+    console.log(data)
 
     return (
         <Box className={classes.singleProducts}>
-            {!filtered ?
+            {filtered || data === undefined ?
                 <Box className={classes.loader}>
                     <MainLoader/>
                 </Box>
@@ -79,4 +77,4 @@ const SingleProduct = () => {
         </Box>
     )
 }
-export default SingleProduct;
+export default SingleProduct

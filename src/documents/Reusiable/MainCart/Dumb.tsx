@@ -39,7 +39,7 @@ const Dumb = ({classes, mainData, handleSingleProduct, carousel, sendData, query
                             <Typography className={classes.order}>{item.phone}</Typography>
                         </Box>
                         <Box className={classes.footer}>
-                            <Box onClick={() => router.push({pathname: '/single-products', query: {id: item.id}})}>
+                            <Box onClick={() => handleSingleProduct(item)}>
                                 <PrimaryButton text="Sotib olish"/>
                             </Box>
                             <ShoppingCartIcon className={classes.shoppingCart}
