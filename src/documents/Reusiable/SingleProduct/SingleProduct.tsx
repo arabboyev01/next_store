@@ -9,13 +9,15 @@ import Dumb from './Dumb'
 const SingleProduct = () => {
     const classes = Styles();
     const query = useMediaQuery('@media(max-width: 650px)');
-    const [open, setOpen] = useState(false);
-    const [suggestedData, setSuggestData] = useState([])
     const router = useRouter()
     const {id} = router.query
+
+    const [open, setOpen] = useState(false);
+    const [suggestedData, setSuggestData] = useState([])
+    const [single, setSingle] = useState([]);
+
     const handleOpen = () => setOpen(true);
     const handleCLose = () => setOpen(false);
-    const [single, setSingle] = useState([]);
 
     useEffect(() => {
         axios.get(`${apiAddress}/advertising`).then(res => setSuggestData(res.data)).catch(err => console.log(err))
