@@ -15,8 +15,6 @@ import { emptyProfile } from '../../../documents/DumbData/DumbData'
 
 const ProfileOrders = () => {
     const classes = style()
-    const {mainData} = useSelector((state: any) => state.cart);
-    const data = mainData[mainData.length - 1]
     const query = useMediaQuery('@media(max-width: 600px)')
     const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
     const [orderData, setOrderData] = React.useState([])
@@ -25,8 +23,6 @@ const ProfileOrders = () => {
             .then(res => setOrderData(res.data))
             .catch((err) => console.log(err))
     }, [token])
-
-    console.log(orderData)
 
     return (
         orderData.length === 0 ? <EmptyData data={emptyProfile}/> :

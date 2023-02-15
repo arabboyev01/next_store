@@ -2,6 +2,7 @@ import Dumb from "./Dumb"
 import * as Yup from 'yup'
 import {PERSONAL_DATA} from "./config"
 import { makeValidate } from 'mui-rff'
+import style from './main.style'
 
 const schema = Yup.object().shape({
     firstname: Yup.string().required(`${PERSONAL_DATA.firstName.name}. majburiy.`),
@@ -11,8 +12,9 @@ const schema = Yup.object().shape({
 const validate = makeValidate(schema);
 
 const PersonalData = () => {
+    const classes = style();
 
-    return <Dumb validate={validate} />
+    return <Dumb validate={validate} classes={classes}/>
 }
 
 export default PersonalData

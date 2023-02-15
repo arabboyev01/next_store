@@ -36,9 +36,7 @@ const ProfileLikes = () => {
             }
         }).then(res => {
             setFavoriteData(res.data);
-            console.log(res)
         }).catch(err => console.log(err))
-
     }, [token])
 
     return (
