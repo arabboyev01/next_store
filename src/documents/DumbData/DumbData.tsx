@@ -387,3 +387,10 @@ export const emptyData = {
     desc3: "Yurakcha tugmasini bosing",
     buttonText: "Mahsulotlarga qaytish",
 }
+export const emptyProfile = {
+    title: "Buyutmalar sahifangizda xech narsa topilmadi",
+    desc1: "Biror bir mahsulotni tanlang",
+    desc2: "Unga buyurtma bering",
+    desc3: "Va shu yerda buyurtmalaringizni ko'ring",
+    buttonText: "Mahsulotlarga qaytish",
+}
