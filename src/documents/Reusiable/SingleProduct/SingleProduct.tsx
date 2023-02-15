@@ -42,17 +42,15 @@ const SingleProduct = () => {
     useEffect(() => {
         axios.get(`${apiAddress}/advertising`).then(res => setSuggestData(res.data)).catch(err => console.log(err))
     }, [])
-    console.log(data)
 
     return (
         <Box className={classes.singleProducts}>
-            {filtered || data === undefined ?
+            {filtered === 'undefined' || !filtered ?
                 <Box className={classes.loader}>
                     <MainLoader/>
-                </Box>
-                :
-                <>
-                    <PaymentTerm open={open} handleCLose={handleCLose} price={filtered.price}/>
+                </Box>:
+                <Box>
+                    <PaymentTerm open={open} handleCLose={handleCLose} price={filtered}/>
                     <Box className={classes.productHeader}>
                         <Box className={classes.imageWrapper}>
                             <img src={`https://nextstore.in/nextstore${filtered.photoUrl}`} alt="product_image"
@@ -63,7 +61,7 @@ const SingleProduct = () => {
                             <ProductDetail handleOpen={handleOpen} data={filtered}/>
                         </Box>
                     </Box>
-                </>
+                </Box>
             }
             <ProductDescription/>
             <Suggested/>

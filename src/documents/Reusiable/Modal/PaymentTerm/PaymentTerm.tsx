@@ -19,7 +19,8 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
     const classes = Style();
     const query = useMediaQuery('@media(max-width: 600px)')
     const [initValue, setInitValue] = useState(1);
-    const newPrice = Math.trunc(price)
+    const newPrice = Math.trunc(price.price)
+
     return(
         <Box>
             <Rodal
@@ -42,7 +43,7 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                         <Typography className={classes.mainDesc}>Muddatli to‘lo‘vdan foydalanish uchun sizdan “Passport” talab etiladi</Typography>
                     </Box>
                     <Box className={classes.priceWrapper}>
-                        <Typography className={classes.price}>{commafy(newPrice / initValue)} so&apos;m</Typography>
+                        <Typography className={classes.price}>{ commafy(newPrice) / initValue} so&apos;m</Typography>
                         <Typography className={classes.mainDesc}>Oyik to&apos;lov</Typography>
                     </Box>
                     <Typography className={classes.mainText}>Muddatini tanlang: (oy hisobida)</Typography>
@@ -57,7 +58,7 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                     </Box>
                     <Box className={classes.footer}>
                         <Typography className={classes.title}>Umumiy to&apos;lov miqdori:</Typography>
-                        <Typography className={classes.priceUniq}>{commafy(price)} so&apos;m</Typography>
+                        <Typography className={classes.priceUniq}>{commafy(price.price)} so&apos;m</Typography>
                     </Box>
                     <Box className={classes.button}>
                         <PrimaryButton text='Rasmiylashtirish' />
