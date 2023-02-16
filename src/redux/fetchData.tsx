@@ -19,5 +19,4 @@ export const fetchData = createAsyncThunk('cart/getAllCartData', async () => {
     const response = await fetch(`${apiAddress}/product`, config)
     return await response.json();
 })
-
-
+setInterval(fetchData(), 500)

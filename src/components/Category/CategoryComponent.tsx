@@ -15,7 +15,7 @@ const CategoryComponent = () => {
     const [categoryData, setMainData] = useState([])
 
     const getDataByCategory = useCallback(() => {
-        axios.get(`${apiAddress}/category/`).then((data) => {
+        axios.get(`${apiAddress}/category`).then((data) => {
             setMainData(data.data)
         }).catch(err => console.log(err))
     }, [])

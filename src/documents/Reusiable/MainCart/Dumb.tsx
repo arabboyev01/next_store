@@ -9,14 +9,14 @@ import { setAddItemToCart } from '../../../redux/CartSlice'
 import React from 'react'
 import PrimaryButton from "../PrimaryButton/PrimaryButton"
 
-const Dumb = ({classes, mainData, handleSingleProduct, carousel, sendData, query, router, dispatch}: any) => (
+const Dumb = ({classes, mainData, handleSingleProduct, carousel, sendData, query, dispatch, liked}: any) => (
     <Box className={carousel ? classes.carousel : classes.mainCartWrapper}>
             {mainData === undefined ?
                 <Box className={carousel ? classes.carouselLoader : classes.loader}>
                     <MainLoader/>
                 </Box> :
                 mainData.map((item: any) =>
-                    <Box className={classes.mainCart} key={item.id}>
+                    <Box className={carousel ? classes.mainCartCarousel : classes.mainCart} key={item.id}>
                         {item.isFavorite ?
                             <FavoriteIcon className={classes.favoriteIconLiked} onClick={() => sendData(item.id)}/> :
                             <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id)}/>
