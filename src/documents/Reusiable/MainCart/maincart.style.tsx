@@ -38,6 +38,9 @@ export default makeStyles(() => ({
             minWidth: '150px',
             padding: '20px 5px',
             alignItems: 'center',
+            '&:hover': {
+                transform: 'translateY(0)'
+            },
         },
         '&:hover': {
             cursor: 'pointer',
@@ -60,9 +63,12 @@ export default makeStyles(() => ({
         '@media(max-width: 650px)': {
             height: 'auto',
             maxWidth: '300px',
-            minWidth: "180px",
+            minWidth: '180px',
             padding: '20px 5px',
             alignItems: 'center',
+            '&:hover': {
+                transform: 'translateY(0)'
+            },
         },
         '&:hover': {
             cursor: 'pointer',
@@ -115,8 +121,8 @@ export default makeStyles(() => ({
         fontWeight: 400,
         paddingTop: '10px',
         '@media(max-width: 650px)': {
-            height: "25px",
-            overflow: "hidden",
+            height: '25px',
+            overflow: 'hidden',
         },
     },
     order: {
