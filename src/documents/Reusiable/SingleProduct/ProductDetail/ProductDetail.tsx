@@ -25,7 +25,7 @@ const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
             {/*        <Box className={classes.box} key={index} style={{backgroundColor: `${item.digit}`}}></Box>*/}
             {/*    )}*/}
             {/*</Box>*/}
-            <Typography className={classes.price}>{commafy(data.price)} / dona</Typography>
+            <Typography className={classes.price}>{commafy(data.price)} so&apos;m</Typography>
             <Box className={classes.boxPrice}>
                 <Box className={classes.priceInfo}>
                     <Typography className={classes.text1}>Muddatlik to&apos;lov</Typography>

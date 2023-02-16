@@ -34,6 +34,7 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
     const handleVisible = () => setVisible(!visible);
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
+    const [showError, setShowError] = useState(false)
 
     const login = (values: any) => {
         setLoading(true)
@@ -50,6 +51,9 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
             }
         }).catch((error) => {
             console.log(error);
+            if(error.response.status === 400){
+                setShowError(true)
+            }
         }).finally(() => {
             setLoading(false)
         })
@@ -73,6 +77,7 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
                                     {visible ? <VisibilityOffIcon className={classes.icon} /> : <VisibilityIcon className={classes.icon} />}
                                 </label>
                                 <CssTextField {...LOGIN_FORM_VALUES.password} placeholder='Parol' type={visible ? 'text' : 'password'}/>
+                                {showError ? <Typography className={classes.showErrors}>Username yoki Parol xato</Typography>: null }
                             </Box>
                             <Box className={classes.submit}>
                                 <SubmitButton loading={loading} buttonText='Kirish'/>
