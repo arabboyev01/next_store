@@ -33,6 +33,10 @@ const Nav = () => {
         })
     }, [handleSendData, inputValue])
 
+    const directFilterPage = () => {
+        router.push({pathname: "/filter"})
+    }
+
     return (
         <>
             <LoginComponent open={open} handleClose={handleClose}/>
@@ -41,7 +45,7 @@ const Nav = () => {
                     <Link href="/" className={classes.link}><Image width={100} height={45} src={NextLogo}
                                                                    alt="logo"/></Link>
                     <Box className={classes.navLinks}>
-                        <Button className={classes.catalogButton}><MenuIcon/> Katalog</Button>
+                        <Button className={classes.catalogButton} onClick={directFilterPage}><MenuIcon/> Katalog</Button>
                         <Box className={classes.searchInputWrapper}>
                             <input type="search" placeholder="Mahsulotni izlash" className={classes.searchInput}
                                    onChange={(e) => setInputValue(e.target.value)}/>
