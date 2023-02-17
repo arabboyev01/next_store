@@ -107,7 +107,7 @@ export default makeStyles(() => ({
         marginTop: "55px",
     },
     chapter: {
-        paddingTop: '20px',
+        paddingTop: '25px',
         borderTop: "1px solid #E4E7EE",
         width: "100%",
         marginTop: "15px",

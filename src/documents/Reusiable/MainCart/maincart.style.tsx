@@ -34,8 +34,8 @@ export default makeStyles(() => ({
         marginTop: '30px',
         '@media(max-width: 650px)': {
             height: '310px',
-            maxWidth: '250px',
-            minWidth: '150px',
+            maxWidth: '230px',
+            minWidth: '100px',
             padding: '20px 5px',
             alignItems: 'center',
             '&:hover': {

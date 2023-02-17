@@ -7,6 +7,7 @@ export default makeStyles(() => ({
         margin: '60px auto',
         '@media(max-width: 650px)': {
             flexDirection: "column",
+            margin: "60px 10px",
         },
     },
     filters: {
@@ -26,9 +27,10 @@ export default makeStyles(() => ({
         height: 'auto',
         background: '#fff',
         padding: '20px',
+        borderRadius: '8px',
         '@media(max-width: 650px)': {
             maxWidth: "400px",
-            margin: "0 20px",
+            margin: "0 10px",
         },
     },
     rangePrices: {

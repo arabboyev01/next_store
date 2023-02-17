@@ -87,7 +87,7 @@ const MobileNav = () => {
                     <Box className={classes.chapter}>
                         <Typography className={classes.title}>Bo&apos;limlar</Typography>
                         <Typography className={classes.chapters} onClick={handlePersonalData} style={{color: "#000", textDecoration: "none"}}>Yoqtirgan mahsulotlarim </Typography>
-                        <Typography className={classes.chapters} onClick={directFilterPage}>Mahsulotlar katalogi</Typography>
+                        <Typography className={classes.chapters} onClick={directFilterPage} >Mahsulotlar katalogi</Typography>
                         <Typography className={classes.chapters}>Xizmatlarimiz</Typography>
                         <Typography className={classes.chapters}>Nasiya savdo</Typography>
                         <Typography className={classes.chapters}>Biz haqimizda </Typography>
