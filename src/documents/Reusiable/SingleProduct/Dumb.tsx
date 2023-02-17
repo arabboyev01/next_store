@@ -16,7 +16,7 @@ const Dumb = ({classes, handleCLose, single, handleOpen, query, suggestedData, o
                 <PaymentTerm open={open} handleCLose={handleCLose} price={single}/>
                 <Box className={classes.productHeader}>
                     <Box className={classes.imageWrapper}>
-                        <img src={`https://nextstore.in/nextstore/api/photo/download/${single.photosId}`}
+                        <img src={`https://nextstore.in/nextstore/api/photos/download/${single.photosId}`}
                              alt="product_image" width={query ? 226 : 350}
                              height={query ? 216 : 350} className={classes.image}
                         />
