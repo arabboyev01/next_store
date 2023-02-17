@@ -3,13 +3,16 @@ import Style from "./home.style"
 import MainCarousel from "../../documents/Reusiable/MainCarousel/MainCarousel";
 import {HomeCarouselData, SecondCarousel} from "./HomeCarouselData";
 import SecondaryCart from "../../documents/Reusiable/SecondaryCart/SecondaryCart";
-import {BrandsData, BrandsStore, CategoryCart} from "../../documents/DumbData/DumbData";
+import {BrandsData, BrandsStore} from "../../documents/DumbData/DumbData";
 import MainTitle from "../../documents/Reusiable/MainTitle/MainTitle";
 import SeeMoreButton from "../../documents/Reusiable/SeeMore/SeeMore";
 import {useMediaQuery} from "@mui/material";
 import Brands from "../../documents/Reusiable/Brands/Brands";
 import { useSelector } from "react-redux";
 import MainCart from "../../documents/Reusiable/MainCart/MainCart";
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { apiAddress } from '../../../config'
 
 const HomeComponent = () => {
     const classes = Style();
@@ -18,6 +21,12 @@ const HomeComponent = () => {
     const data = mainData[mainData.length - 1]
     const firstSlice = data === undefined ? undefined : data.content.slice(0, 5)
     const secondSlice = data === undefined ? undefined : data.content.slice(5, 10)
+    const [secondaryData, setSecondaryData] = useState([])
+
+    useEffect(() => {
+        axios.get(`${apiAddress}/category?parentId=0`).then(res => setSecondaryData(res.data))
+            .catch(err => console.log(err))
+    }, [])
 
     return (
         <Box className={classes.homeWrapper}>
@@ -26,7 +35,7 @@ const HomeComponent = () => {
             </Box>
             <Box>
                 <MainTitle title="Kategoriyalar" />
-                <SecondaryCart data={CategoryCart}/>
+                <SecondaryCart data={secondaryData}/>
             </Box>
             <Box className={classes.seeMore}>
                 <SeeMoreButton text='Batafsil'/>
@@ -35,7 +44,7 @@ const HomeComponent = () => {
                 <MainTitle title="Eng ko'p sotilganlar"/>
                 <MainCart mainData={firstSlice} carousel='carousel'/>
                 <Box className={classes.seeMore}>
-                    <SeeMoreButton text="Ko'proq korish"/>
+                    <SeeMoreButton text="Ko'proq ko'rish"/>
                 </Box>
             </Box>
             <Box className={classes.contentWrapper}>

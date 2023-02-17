@@ -9,6 +9,7 @@ import {makeValidate} from "mui-rff";
 import {MenuItem, Typography} from "@mui/material";
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+
 const schema = Yup.object().shape({
     name: Yup.string().required(`${SALES_FORM.name.label} kirgazing`),
     number: Yup.string().required(`${SALES_FORM.number.label} kirgazing`),

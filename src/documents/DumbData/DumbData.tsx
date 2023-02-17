@@ -26,10 +26,6 @@ import goodImage from '../../../public/assets/brands/goodzoone.png'
 import mediaImage from '../../../public/assets/brands/mediapark.png'
 import sandiqImage from '../../../public/assets/brands/sandiq.png'
 import texnoImage from '../../../public/assets/brands/texnomart.png'
-import mac from '../../../public/assets/categories/mac.png'
-import phone from '../../../public/assets/categories/phone.png'
-import tablet from '../../../public/assets/categories/tablet.png'
-import pots from '../../../public/assets/categories/pots.png'
 import image from '../../../public/assets/images/productImage.png'
 import LibraryAddCheckIcon from '@mui/icons-material/LibraryAddCheck'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
@@ -294,28 +290,6 @@ export const numsRange = [
     },
 ]
 
-export const CATEGORY_BUTTONS = [
-    {
-        id: 0,
-        category: 'MacBook',
-        image: mac,
-    },
-    {
-        id: 1,
-        category: 'iPhone',
-        image: phone,
-    },
-    {
-        id: 2,
-        category: 'iPad',
-        image: tablet,
-    },
-    {
-        id: 2,
-        category: 'AirPods',
-        image: pots,
-    },
-]
 export const deliveryDumbData: deliveryDumbDataType = {
     name: 'Apple',
     delivery: 15000,

@@ -3,27 +3,44 @@ import { useMediaQuery} from "@mui/material";
 import { useCallback, useEffect, useState } from 'react'
 import { apiAddress } from '../../../config'
 import axios from "axios"
-// import { useRouter } from 'next/router'
 import Dumb from "./Dumb"
+import { useSelector } from 'react-redux'
+import { categoryParentId } from '../../redux/CartSlice'
 
 const CategoryComponent = () => {
-    const classes = style()
-    // const router = useRouter()
-    // const {id} = router.query
-    const query = useMediaQuery('@media(max-width: 650px)')
+    const classes = style();
+    const query = useMediaQuery('@media(max-width: 650px)');
 
     const [categoryData, setMainData] = useState([])
+    const [categoryId, setProductId] = useState(0);
+    const [getFilteredData, setFilteredData] = useState([])
+
+    const categoriesParentId = useSelector(categoryParentId)
 
     const getDataByCategory = useCallback(() => {
-        axios.get(`${apiAddress}/category`).then((data) => {
+        axios.get(`${apiAddress}/category?parentId=${categoriesParentId}`).then((data) => {
             setMainData(data.data)
         }).catch(err => console.log(err))
-    }, [])
+    }, [categoriesParentId])
 
-    useEffect(() => {getDataByCategory()}, [getDataByCategory])
+    useEffect(() => {
+        getDataByCategory()
+    }, [getDataByCategory])
+
+    useEffect(() => {
+        axios.get(`${apiAddress}/product?categoryId=${categoryId}`).then((data) => {
+            setFilteredData(data.data.content)
+        }).catch(err => console.log(err))
+    }, [categoryId])
 
     return (
-       <Dumb classes={classes} query={query} categoryData={categoryData}/>
+       <Dumb
+           classes={classes}
+           query={query}
+           categoryData={categoryData}
+           setProductId={setProductId}
+           getFilteredData={getFilteredData}
+       />
     )
 }
 export default CategoryComponent;

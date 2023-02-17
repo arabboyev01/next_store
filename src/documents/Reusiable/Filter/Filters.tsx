@@ -8,8 +8,11 @@ export type Props = {
     classes: any
     handleChange: (event: Event, newValue: number | number[]) => void
     value: number | any
+    setBrands: string | any
+    setPurchaseType: string | null | any
+    setSomeValue:  string | null | any
 }
-const Filters: React.FC<Props> = ({classes, value, handleChange}) => (
+const Filters: React.FC<Props> = ({classes, value, handleChange, setBrands, setPurchaseType, setSomeValue}) => (
     <Box className={classes.filterWrapper}>
         <Typography className={classes.filterType}>Narxi so&apos;mda</Typography>
         <Box className={classes.rangePrices}>
@@ -21,20 +24,20 @@ const Filters: React.FC<Props> = ({classes, value, handleChange}) => (
         <Typography className={classes.filterType}>Barand bo&apos;yicha</Typography>
         {Brands.map(({id, name}) =>
             <Box key={id} className={classes.selector}>
-                <input type="checkbox"/>
+                <input type="checkbox" onChange={() => setBrands(name)}/>
                 <span>{name}</span>
             </Box>
         )}
         <hr className={classes.hr}/>
         <hr className={classes.hr}/>
         {SwitchesData.map(({name, id}: {name: string, id: number}) =>
-           <Switches name={name} key={id}/>
+           <Switches name={name} key={id} setPurchaseType={setPurchaseType}/>
         )}
         <hr className={classes.hr}/>
         <hr className={classes.hr}/>
         {ForMore.map(({id, name}) =>
             <Box key={id} className={classes.selector}>
-                <input type="checkbox"/>
+                <input type="checkbox" onChange={() => setSomeValue(name)}/>
                 <span>{name}</span>
             </Box>
         )}

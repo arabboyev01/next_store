@@ -3,11 +3,11 @@ import Switch from '@mui/material/Switch';
 
 const label = {inputProps: {'aria-label': 'Switch demo'}};
 
-export default function Switches({name}: string | any) {
+export default function Switches({name, setPurchaseType}: string | any) {
     return (
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: '250px'}}>
             <span style={{fontSize: '14px'}}>{name}</span>
-            <Switch {...label}  />
+            <Switch {...label}  onChange={() => setPurchaseType(name)}/>
         </div>
     );
 }

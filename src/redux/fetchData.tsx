@@ -11,6 +11,7 @@ export const initialState = {
     cartTotalQuantity: 0,
     inputName: '',
     validate: false,
+    categoryId: 0,
 }
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
 const config = {headers: {Authorization: `Bearer ${token}`}};
