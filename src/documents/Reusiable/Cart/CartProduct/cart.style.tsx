@@ -2,17 +2,14 @@ import {makeStyles} from "@mui/styles";
 
 export default makeStyles(() => ({
     item: {
-        maxWidth: "813px",
         display: "flex",
         flexDirection: "column",
         alignItems: 'start',
-        with: "100%",
-        '@media(max-width: 650px)' : {
-            maxWidth: "430px",
-        },
+        width: "100%",
     },
     cartWrapper: {
         width: "100%",
+        maxWidth: "813px",
         display: "flex",
         flexDirection: "row",
         alignItems: 'start',
@@ -22,19 +19,16 @@ export default makeStyles(() => ({
         position: "relative",
         marginBottom: '20px',
         '@media(max-width: 650px)' : {
-            width: "100%",
-            flexDirection: "column",
-            margin: "0 auto",
             marginTop: '20px',
+            flexDirection: "column",
+            alignItems: 'center',
+            maxWidth: "430px",
+            with: "100%",
         },
     },
     contentWrapper: {
-        maxWidth: "500px",
-        margin: "0 auto",
         paddingLeft: "10px",
         '@media(max-width: 650px)' : {
-            maxWidth: "360px",
-            margin: "0 auto",
             paddingLeft: 0,
         },
     },

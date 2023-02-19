@@ -2,17 +2,14 @@ import Styles from "./summary.style"
 import {Box} from "@mui/system";
 import { Button, Typography } from '@mui/material';
 import PrimaryButton from "../../PrimaryButton/PrimaryButton";
-import {useSelector} from "react-redux";
-import {selectTotalAmount} from "../../../../redux/CartSlice"
 import React, {useState, useEffect, useCallback} from "react";
 import boxImage from "../../../../../public/assets/images/box.png";
 import Image from "next/image";
 import {CartSummaryType} from "../../../../../types/types"
 import {commafy} from "../../Suggested/global";
 
-const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY}) => {
+const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY, totalAmount}) => {
     const classes = Styles();
-    const totalAmount = useSelector(selectTotalAmount);
     const [navState, setNavState] = useState(false);
 
     const onNavScroll = useCallback(() => {

@@ -5,17 +5,25 @@ import {Button, Typography} from "@mui/material";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import {ProductDetailType} from "../../../../../types/types";
 import PrimaryButton from "../../PrimaryButton/PrimaryButton";
-import {setAddItemToCart} from "../../../../redux/CartSlice";
+import { setAddItemToCart, setSingleProduct } from '../../../../redux/CartSlice';
 import { useDispatch } from "react-redux";
 import DeliveryService from "../../DeliveryService/DeliveryService";
 import {commafy} from "../../Suggested/global";
+import { useRouter } from 'next/router'
 
 const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
     const classes = Style();
     const dispatch = useDispatch();
+    const router = useRouter()
     const onAddToCart = (data: any) => {
         dispatch(setAddItemToCart(data));
     };
+
+    const handleSingleProduct = (data: any) => {
+        dispatch(setSingleProduct(data));
+        router.push({pathname: '/buy-now', query: {id: data.id}})
+    }
+
     return (
         <Box className={classes.detailWrapper}>
             <Typography className={classes.mainTitle}>{data.name}</Typography>
@@ -37,7 +45,7 @@ const ProductDetail:React.FC<ProductDetailType> = ({handleOpen, data}) => {
                 </Box>
             </Box>
             <Box className={classes.btnWrapper}>
-                <Box className={classes.buyBtn}>
+                <Box className={classes.buyBtn} onClick={() => handleSingleProduct(data)}>
                     <PrimaryButton text='Hozir sotib olish'/>
                 </Box>
                 <Button className={classes.add} onClick={() => onAddToCart(data)}>Savatchaga otish</Button>

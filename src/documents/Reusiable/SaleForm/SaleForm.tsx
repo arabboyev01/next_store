@@ -11,7 +11,6 @@ import { validate } from './Validation'
 
 export type SaleFormType = {
     handleForm: any
-    cartItems: any
     classess: any
     handleSendData: (e: any) => void
 }

@@ -12,6 +12,7 @@ export default makeStyles(() => ({
             maxWidth: "400px",
             height: "auto",
             padding: "30px 10px",
+            width: "100%",
         },
     },
     header: {

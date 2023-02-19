@@ -47,6 +47,7 @@ export type CartSummaryType = {
     handleForm: any
     cart: boolean
     totalQTY?: number
+    totalAmount: number
 }
 export type LoginFieldType = {
     handleClose?: (e: any) => void

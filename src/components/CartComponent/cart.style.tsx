@@ -17,6 +17,7 @@ export default makeStyles(() => ({
         '@media(max-width: 650px)' : {
             flexDirection: "column",
             alignItems: "center",
+            width: "100%",
         },
     },
     ordinaryText: {

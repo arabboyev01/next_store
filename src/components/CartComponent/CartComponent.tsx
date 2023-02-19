@@ -35,7 +35,6 @@ const CartComponent = () => {
                 {cart ?
                     <SaleForm
                         handleForm={handleForm}
-                        cartItems={cartItems}
                         classess={classess}
                         handleSendData={handleSendData}
                     /> :
@@ -45,6 +44,7 @@ const CartComponent = () => {
                     handleForm={handleForm}
                     cart={cart}
                     totalQTY={totalQTY}
+                    totalAmount={totalAmount}
                 />
             </Box>
         </Box>
