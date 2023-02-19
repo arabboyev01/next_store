@@ -6,12 +6,11 @@ import { Form } from 'react-final-form'
 import React from 'react'
 import PrimaryButton from '../../../documents/Reusiable/PrimaryButton/PrimaryButton'
 
-const Dumb = ({validate, classes}: any) => (
+const Dumb = ({classes, uploadNewPersonalData}: any) => (
     <Box className={classes.mainWrapper}>
         <Typography className={classes.title}>Shaxsiy ma&apos;lumotlar</Typography>
         <Form
-            onSubmit={() => console.log('Hello')}
-            validate={validate}
+            onSubmit={uploadNewPersonalData}
             render={({handleSubmit}) => (
                 <form onSubmit={handleSubmit} noValidate style={{width: '100%'}}>
                     <Box className={classes.mainData}>
@@ -48,12 +47,13 @@ const Dumb = ({validate, classes}: any) => (
                             <Button className={classes.button}>SMS kodni yuborish</Button>
                         </Box>
                     </Box>
+                    <Box className={classes.saveButton}>
+                        <PrimaryButton text="O'zgarishlarni saqlash"/>
+                    </Box>
+
                 </form>
             )}
         />
-        <Box className={classes.saveButton}>
-            <PrimaryButton text="O'zgarishlarni saqlash"/>
-        </Box>
     </Box>
 )
 export default Dumb;
