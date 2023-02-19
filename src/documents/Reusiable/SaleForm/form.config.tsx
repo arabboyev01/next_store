@@ -1,6 +1,6 @@
 export const SALES_FORM = {
-    name: {
-        name: 'name',
+    fullName: {
+        name: 'fullName',
         label: "Ismingizni kiriting",
         require: true,
         text: "To'liq ismingiz"

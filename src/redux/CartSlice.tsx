@@ -2,15 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 import { fetchData } from './fetchData';
 import { initialState } from './fetchData';
-import axios from 'axios'
-import { apiAddress } from '../../config';
-
-let searchData: any = []
-
-const getData = () => {
-    axios.get(`${apiAddress}/product`).then(res => searchData.push(res.data.content[0]))
-}
-getData();
 
 const CartSlice = createSlice({
     initialState,
@@ -37,10 +28,12 @@ const CartSlice = createSlice({
 
             localStorage.setItem('cart', JSON.stringify(state.cartItems));
         },
+
         setSearchValue: (state: any, action: any) => {
             const loweredValue = action.payload.toLowerCase();
-            if (searchData && action.payload) {
-                const searchValue = searchData.filter(({name}: any) => name.toLowerCase().includes(loweredValue))
+            console.log(loweredValue)
+            if (state.mainData !== 'undefined') {
+                const searchValue = state.mainData[0]?.content.filter(({name}: any) => name.toLowerCase().includes(loweredValue))
                 state.searchValue.push(searchValue);
 
                 state.inputName = action.payload;
@@ -52,7 +45,7 @@ const CartSlice = createSlice({
             state.validate = action.payload
         },
         setCategoryId: (state: any, action: any) => {
-             state.categoryId = action.payload
+            state.categoryId = action.payload
         },
         setRemoveItemFromCart: (state: any, action: any) => {
             state.cartItems = state.cartItems.filter(({id}: any) => id !== action.payload.id);

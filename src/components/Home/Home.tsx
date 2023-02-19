@@ -22,11 +22,17 @@ const HomeComponent = () => {
     const firstSlice = data === undefined ? undefined : data.content.slice(0, 5)
     const secondSlice = data === undefined ? undefined : data.content.slice(5, 10)
     const [secondaryData, setSecondaryData] = useState([])
+    const [bannerData, setBannerData] = useState([])
 
     useEffect(() => {
         axios.get(`${apiAddress}/category?parentId=0`).then(res => setSecondaryData(res.data))
             .catch(err => console.log(err))
     }, [])
+    useEffect(() => {
+        axios.get(`${apiAddress}/advertising`).then(res => setBannerData(res.data))
+            .catch(err => console.log(err))
+    }, [])
+    // console.log(bannerData)
 
     return (
         <Box className={classes.homeWrapper}>

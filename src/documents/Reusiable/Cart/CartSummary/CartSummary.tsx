@@ -1,11 +1,10 @@
 import Styles from "./summary.style"
 import {Box} from "@mui/system";
-import {Typography} from "@mui/material";
+import { Button, Typography } from '@mui/material';
 import PrimaryButton from "../../PrimaryButton/PrimaryButton";
 import {useSelector} from "react-redux";
 import {selectTotalAmount} from "../../../../redux/CartSlice"
 import React, {useState, useEffect, useCallback} from "react";
-import SubmitButton from "../../SubmitButton/SubmitButton";
 import boxImage from "../../../../../public/assets/images/box.png";
 import Image from "next/image";
 import {CartSummaryType} from "../../../../../types/types"
@@ -15,8 +14,6 @@ const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY}) =>
     const classes = Styles();
     const totalAmount = useSelector(selectTotalAmount);
     const [navState, setNavState] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const handleLoading = () => setLoading(!loading);
 
     const onNavScroll = useCallback(() => {
         window.scrollY > 75 ? setNavState(true) : setNavState(false);
@@ -48,7 +45,16 @@ const CartSummary: React.FC<CartSummaryType> = ({handleForm, cart, totalQTY}) =>
                 <Typography className={classes.priceCenter}>{commafy(totalAmount+ 40000)} so&apos;m</Typography>
             </Box>
             <Box className={classes.buyBtn}>
-                {cart ? <SubmitButton buttonText="Rasmiylashtirish" loading={loading} onClick={handleLoading}/> : <PrimaryButton text="Rasmiylashtirish" onClick={handleForm} />}
+                {cart ?
+                    <Button form="myForm" type='submit' className={classes.submitButton}>
+                        Rasmiylashtirish
+                    </Button>
+                    :
+                    <PrimaryButton
+                        text="Rasmiylashtirish"
+                        onClick={handleForm}
+                    />
+                }
             </Box>
         </Box>
     )

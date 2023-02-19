@@ -12,7 +12,7 @@ export type SubmitButtonType = {
 const SubmitButton: React.FC<SubmitButtonType> = ({loading, buttonText, onClick}) => {
     const classes = Style()
     return (
-        <Button variant="contained" className={classes.submitButton} type='submit' disabled={loading} onClick={onClick}>
+        <Button variant="contained"  className={classes.submitButton} type='submit' disabled={loading} onClick={onClick}>
             {loading ? <Loading/> : buttonText}
         </Button>
     )

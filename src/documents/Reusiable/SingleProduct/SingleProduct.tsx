@@ -24,7 +24,6 @@ const SingleProduct = () => {
         axios.get(`${apiAddress}/product/${id}`).then(res => setSingle(res.data)).catch(err => console.log(err))
     }, [id])
 
-    console.log(single)
     return (
         <Dumb classes={classes}
               handleCLose={handleCLose}

@@ -6,22 +6,20 @@ import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import DeleteIcon from '@mui/icons-material/Delete';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {
     setDecreaseItemQTY,
     setIncreaseItemQTY,
     setRemoveItemFromCart,
-    selectCartItems,
     setGetTotals
 } from "../../../../redux/CartSlice"
 import {useEffect} from "react"
 import DeleteModal from "../../../../components/CartComponent/Modals/Delete.Modal";
 import * as React from "react";
 
-const CartProduct = () => {
+const CartProduct = ({cartItems}: any) => {
     const classes = Styles();
     const dispatch = useDispatch();
-    const cartItems = useSelector(selectCartItems);
     const onRemoveItem = (data: any) => dispatch(setRemoveItemFromCart(data))
 
     useEffect(() => {
