@@ -3,7 +3,7 @@ import { apiAddress } from '../../../../config'
 
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
 export const orderForm = (values: any, cartItems: any, totalAmount: number) => {
-    console.log(token)
+    console.log(values)
     const payload = {
         'orders':
             cartItems.map((item: any) => (
@@ -16,7 +16,7 @@ export const orderForm = (values: any, cartItems: any, totalAmount: number) => {
         'passportNumber': values.passport,
         'phone': values.number,
         'totalPrice': totalAmount,
-        'territoryId': 4,
+        'territoryId': values.area,
     }
     axios.post(`${apiAddress}/user-order`, payload, {
             headers: {
@@ -32,7 +32,6 @@ export const orderForm = (values: any, cartItems: any, totalAmount: number) => {
 }
 
 export const orderObjectForm = (values: any, cartItems: any, totalAmount: number) => {
-    console.log(token)
     const payload = {
         'orders': [
             {
@@ -44,7 +43,7 @@ export const orderObjectForm = (values: any, cartItems: any, totalAmount: number
         'passportNumber': values.passport,
         'phone': values.number,
         'totalPrice': totalAmount,
-        'territoryId': 4,
+        'territoryId': values.area,
     }
     axios.post(`${apiAddress}/user-order`, payload, {
             headers: {

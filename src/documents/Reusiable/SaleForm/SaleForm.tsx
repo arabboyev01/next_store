@@ -13,8 +13,9 @@ export type SaleFormType = {
     handleForm: any
     classess: any
     handleSendData: (e: any) => void
+    region: any
 }
-const SaleForm: React.FC<SaleFormType> = ({handleForm, classess, handleSendData}) => (
+const SaleForm: React.FC<SaleFormType> = ({handleForm, classess, handleSendData, region}) => (
     <Box className={classess.saleWrapper}>
         <Box className={classess.header}>
             <Box onClick={handleForm.handleForm}><KeyboardArrowLeftIcon className={classess.leftIcon}/></Box>
@@ -45,7 +46,9 @@ const SaleForm: React.FC<SaleFormType> = ({handleForm, classess, handleSendData}
                                 placeholder="Misol: Andijon"
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select">
-                                <MenuItem value="andijan">Andijon</MenuItem>
+                                {region.map(({name, id}: { name: string, id: number }) =>
+                                    <MenuItem value={id} key={id}>{name}</MenuItem>
+                                )}
                             </CssSelectField>
                         </Box>
                     </Box>
