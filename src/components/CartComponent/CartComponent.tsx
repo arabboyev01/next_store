@@ -20,9 +20,10 @@ const CartComponent = () => {
     const cartItems = useSelector(selectCartItems);
     const totalAmount = useSelector(selectTotalAmount);
     const [region, setRegion] = useState([])
+    const [success, setSucces] = useState(false);
     const handleForm = () => setCart(!cart)
     const handleSendData = (values: any) => {
-        return orderForm(values, cartItems, totalAmount)
+        return orderForm(values, cartItems, totalAmount, setSucces)
     }
     useEffect(() => {
         axios.get(`${apiAddress}/territory`).then(data => {
@@ -54,6 +55,7 @@ const CartComponent = () => {
                     cart={cart}
                     totalQTY={totalQTY}
                     totalAmount={totalAmount}
+                    success={success}
                 />
             </Box>
         </Box>

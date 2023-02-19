@@ -19,6 +19,7 @@ const BuyNow = () => {
     const router = useRouter()
     const {id} = router.query
     const [region, setRegion] = useState([])
+    const [success, setSucces] = useState(false);
 
     useEffect(() => {
         axios.get(`${apiAddress}/product/${id}`).then(data => setCart(data.data))
@@ -26,7 +27,7 @@ const BuyNow = () => {
     }, [id]);
 
     const handleSendData = (values: any) => {
-        return orderObjectForm(values, cart, totalAmount)
+        return orderObjectForm(values, cart, totalAmount, setSucces)
     }
 
     useEffect(() => {
@@ -52,6 +53,7 @@ const BuyNow = () => {
                     totalQTY={1}
                     // @ts-ignore
                     totalAmount={cart?.price}
+                    success={success}
                 />
             </Box>
         </Box>

@@ -12,6 +12,7 @@ import LoginComponent from '../../../components/LoginComponent/LoginComponent';
 import { setSearchValue } from '../../../redux/CartSlice';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
+import Catalog from '../Catalog/Catalog'
 
 const Nav = () => {
     const classes = style();
@@ -21,6 +22,10 @@ const Nav = () => {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleOpen = () => setOpen(true);
+    const [catalogOpen, setCatalogOpen] = useState(false);
+
+    const handleCatalogOpen = () => setCatalogOpen(!catalogOpen)
+    const handleCatalogClose = () => setCatalogOpen(false)
 
     const handleSendData = useCallback((data: any,) => {
         dispatch(setSearchValue(data));
@@ -33,19 +38,17 @@ const Nav = () => {
         })
     }, [handleSendData, inputValue])
 
-    const directFilterPage = () => {
-        router.push({pathname: "/filter"})
-    }
 
     return (
         <>
             <LoginComponent open={open} handleClose={handleClose}/>
+            <Catalog catalogOpen={catalogOpen} handleCatalogClose={handleCatalogClose}/>
             <Box className={classes.navWrapper}>
                 <Box className={classes.contentWrapper}>
                     <Link href="/" className={classes.link}><Image width={100} height={45} src={NextLogo}
                                                                    alt="logo"/></Link>
                     <Box className={classes.navLinks}>
-                        <Button className={classes.catalogButton} onClick={directFilterPage}><MenuIcon/> Katalog</Button>
+                        <Button className={classes.catalogButton} onClick={handleCatalogOpen}><MenuIcon/> Katalog</Button>
                         <Box className={classes.searchInputWrapper}>
                             <input type="search" placeholder="Mahsulotni izlash" className={classes.searchInput}
                                    onChange={(e) => setInputValue(e.target.value)}/>

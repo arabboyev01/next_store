@@ -7,11 +7,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { setAddItemToCart } from '../../../redux/CartSlice'
 import React from 'react'
 
-const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, query, dispatch, PrimaryButton}: any) => (
+const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, query, dispatch, PrimaryButton, liked}: any) => (
     <>
         {mainData.map((item: any) =>
             <Box className={carousel ? classes.mainCartCarousel : classes.mainCart} key={item.id}>
-                {item.isFavorite ?
+                {liked === item.id || item.isFavorite ?
                     <FavoriteIcon className={classes.favoriteIconLiked}
                                   onClick={() => sendData(item.id)}/> :
                     <FavoriteBorderIcon className={classes.favoriteIcon}

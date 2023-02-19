@@ -2,7 +2,7 @@ import axios from 'axios'
 import { apiAddress } from '../../../../config'
 
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-export const orderForm = (values: any, cartItems: any, totalAmount: number) => {
+export const orderForm = (values: any, cartItems: any, totalAmount: number, setSucces: any) => {
     console.log(values)
     const payload = {
         'orders':
@@ -25,13 +25,15 @@ export const orderForm = (values: any, cartItems: any, totalAmount: number) => {
             },
         }
     ).then(data => {
-        console.log(data)
+        if(data.status === 200){
+            setSucces(true)
+        }
     }).catch(err => console.log(err))
 
     return
 }
 
-export const orderObjectForm = (values: any, cartItems: any, totalAmount: number) => {
+export const orderObjectForm = (values: any, cartItems: any, totalAmount: number, setSucces: any) => {
     const payload = {
         'orders': [
             {
@@ -52,7 +54,9 @@ export const orderObjectForm = (values: any, cartItems: any, totalAmount: number
             },
         }
     ).then(data => {
-        console.log(data)
+        if(data.status === 200){
+            setSucces(true)
+        }
     }).catch(err => console.log(err))
 
     return
