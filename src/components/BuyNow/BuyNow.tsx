@@ -18,6 +18,7 @@ const BuyNow = () => {
     const totalAmount = useSelector(selectTotalAmount);
     const router = useRouter()
     const {id} = router.query
+    const [region, setRegion] = useState([])
 
     useEffect(() => {
         axios.get(`${apiAddress}/product/${id}`).then(data => setCart(data.data))
@@ -28,6 +29,12 @@ const BuyNow = () => {
         return orderObjectForm(values, cart, totalAmount)
     }
 
+    useEffect(() => {
+        axios.get(`${apiAddress}/territory`).then(data => {
+            setRegion(data.data)
+        }).catch(err => console.log(err))
+    }, [])
+
     return (
         <Box className={classes.buyNowWrapper}>
             <Box className={classes.inputFile}>
@@ -35,6 +42,7 @@ const BuyNow = () => {
                     handleForm={true}
                     classess={classess}
                     handleSendData={handleSendData}
+                    region={region}
                 />
             </Box>
             <Box className={classes.summaryFile}>
