@@ -10,7 +10,7 @@ const SeeMoreButton: React.FC<SeeMoreType> = ({text}) => {
     const classes = Style()
     const router = useRouter()
     const pushQuery = () => {
-        router.push({pathname: '/category'})
+        router.push({pathname: '/filter'})
     }
     return(
         <Button className={classes.button} onClick={pushQuery}>{text}</Button>
