@@ -26,5 +26,32 @@ export default makeStyles(() => ({
     title: {
         marginTop: "20px",
         cursor: "pointer",
+        padding: "0 18px",
+    },
+    activeTitle: {
+        background: '#fff',
+         marginTop: "20px",
+        cursor: "pointer",
+        padding: "12px 18px",
+        borderRadius: "4px 0px 0px 4px",
+    },
+    catalogDescWrapper: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "start",
+    },
+    categorySubTitles: {
+        flex: 0.3,
+    },
+    descTitle: {
+        marginTop: "20px",
+        cursor: "pointer",
+        padding: "0 18px",
+        fontWeight: 600,
+    },
+    subtitle: {
+        marginTop: "20px",
+        cursor: "pointer",
+        padding: "0 18px",
     },
 }))
