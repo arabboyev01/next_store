@@ -12,7 +12,7 @@ export default makeStyles(() => ({
         borderRadius: "8px",
         overflow: "hidden",
         width: "100%",
-        display: "flex",
+        // display: "flex",
         justifyContent: "center",
         alignItems: "center",
         '@media(max-width: 650px)': {

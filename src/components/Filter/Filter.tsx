@@ -14,20 +14,22 @@ const FilterComponent = () => {
     const [purchaseType, setPurchaseType] = useState<null | string>(null)
     const [someValue, setSomeValue] = useState<null | string>(null)
 
-     const handleChange = (event: Event, newValue: number | number[]) => {
+    const handleChange = (event: Event, newValue: number | number[]) => {
         setValue(newValue as number[]);
     };
+    const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
+    const config = {headers: {Authorization: `Bearer ${token}`}};
     useEffect(() => {
-        axios.get(`${apiAddress}/product`).then(res => {
+        axios.get(`${apiAddress}/product`,config).then(res => {
             setData(res.data.content)
         }).catch(err => console.log(err))
     }, [])
 
     useEffect(() => {
-        if(brand !== null) {
+        if (brand !== null) {
             const brandType = data.filter(({name}: any) => name.toLowerCase().includes(brand.toLowerCase()))
             setData(brandType)
-        }else if(brand === null){
+        } else if (brand === null) {
             setData(data)
         }
 

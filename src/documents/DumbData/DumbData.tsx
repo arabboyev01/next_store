@@ -13,14 +13,6 @@ import cat5 from '../../../public/assets/categories/cat5.png'
 import cat6 from '../../../public/assets/categories/cat6.png'
 import cat7 from '../../../public/assets/categories/cat7.png'
 import cat8 from '../../../public/assets/categories/cat8.png'
-import hpImage from '../../../public/assets/brands/hp.png'
-import acerImage from '../../../public/assets/brands/acer.png'
-import asusImage from '../../../public/assets/brands/asus.png'
-import samsungImage from '../../../public/assets/brands/samsung.png'
-import appleImage from '../../../public/assets/brands/apple.png'
-import msiImage from '../../../public/assets/brands/msi.png'
-import miImage from '../../../public/assets/brands/mi.png'
-import vivoImage from '../../../public/assets/brands/vivo.png'
 import elmakonImage from '../../../public/assets/brands/elmakon.png'
 import goodImage from '../../../public/assets/brands/goodzoone.png'
 import mediaImage from '../../../public/assets/brands/mediapark.png'
@@ -194,40 +186,6 @@ export const CategoryCart: CategoryCartTypes[] = [
     }
 ]
 
-export const BrandsData: BrandsDataType[] = [
-    {
-        id: 0,
-        image: hpImage,
-    },
-    {
-        id: 1,
-        image: acerImage,
-    },
-    {
-        id: 2,
-        image: asusImage,
-    },
-    {
-        id: 3,
-        image: samsungImage,
-    },
-    {
-        id: 4,
-        image: appleImage,
-    },
-    {
-        id: 5,
-        image: msiImage,
-    },
-    {
-        id: 6,
-        image: miImage,
-    },
-    {
-        id: 7,
-        image: vivoImage,
-    },
-]
 export const BrandsStore: BrandsDataType[] = [
     {
         id: 0,

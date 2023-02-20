@@ -32,7 +32,6 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
         setParentId(id)
         axios.get(`${apiAddress}/product?categoryId=${id}`).then(data => setCatalogData(data.data.content)).catch(err => console.log(err))
     }
-    console.log(catalogData)
 
     return (
         <Rodal

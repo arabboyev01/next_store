@@ -34,6 +34,7 @@ export type CartType = {
 export type ProductDetailType = {
     handleOpen?: (e: any) => void
     data?: any
+    getProductColorImage: (id: number) => void
 }
 export type PrimaryButton = {
     text?: string

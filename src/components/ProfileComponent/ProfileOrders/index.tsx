@@ -5,12 +5,12 @@ import StoreIcon from '@mui/icons-material/Store'
 import CloseIcon from '@mui/icons-material/Close'
 import * as React from 'react'
 import style from './order.style'
-import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { apiAddress } from '../../../../config'
 import EmptyData from '../../../documents/Reusiable/EmptyData/EmptyData'
 import { emptyProfile } from '../../../documents/DumbData/DumbData'
+import jwt_decode from 'jwt-decode'
 
 
 const ProfileOrders = () => {
@@ -18,6 +18,10 @@ const ProfileOrders = () => {
     const query = useMediaQuery('@media(max-width: 600px)')
     const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
     const [orderData, setOrderData] = React.useState([])
+    // @ts-ignore
+    const decoded: unknown | any = jwt_decode(token)
+    console.log(decoded)
+
     useEffect(() => {
         axios.get(`${apiAddress}/user-order`, {headers: {Authorization: `Bearer ${token}`}})
             .then(res => setOrderData(res.data))

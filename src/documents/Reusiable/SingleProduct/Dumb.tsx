@@ -7,8 +7,9 @@ import Suggested from '../Suggested/Suggested'
 import MainCart from '../MainCart/MainCart'
 import MainCarousel from '../MainCarousel/MainCarousel'
 import { SuggestedDataCarousel } from '../../DumbData/DumbData'
+import ProductImage from '../SingleProduct/ProductImage/ProductImage'
 
-const Dumb = ({classes, handleCLose, single, handleOpen, query, suggestedData, open}: any) => (
+const Dumb = ({classes, handleCLose, single, handleOpen, query, suggestedData, open, getProductColorImage, getImage}: any) => (
     <Box className={classes.singleProducts}>
         {single.length === 0 ? <Box className={classes.loader}><MainLoader/></Box>
             :
@@ -16,12 +17,9 @@ const Dumb = ({classes, handleCLose, single, handleOpen, query, suggestedData, o
                 <PaymentTerm open={open} handleCLose={handleCLose} price={single}/>
                 <Box className={classes.productHeader}>
                     <Box className={classes.imageWrapper}>
-                        <img src={`https://nextstore.in/nextstore/api/photos/download/${single.photosId}`}
-                             alt="product_image" width={query ? 226 : 350}
-                             height={query ? 216 : 350} className={classes.image}
-                        />
+                        <ProductImage getImage={getImage}/>
                     </Box>
-                    <ProductDetail handleOpen={handleOpen} data={single}/>
+                    <ProductDetail handleOpen={handleOpen} data={single} getProductColorImage={getProductColorImage}/>
                 </Box>
             </Box>
         }

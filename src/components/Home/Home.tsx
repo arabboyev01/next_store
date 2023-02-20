@@ -3,7 +3,7 @@ import Style from "./home.style"
 import MainCarousel from "../../documents/Reusiable/MainCarousel/MainCarousel";
 import {HomeCarouselData, SecondCarousel} from "./HomeCarouselData";
 import SecondaryCart from "../../documents/Reusiable/SecondaryCart/SecondaryCart";
-import {BrandsData, BrandsStore} from "../../documents/DumbData/DumbData";
+import { BrandsStore} from "../../documents/DumbData/DumbData";
 import MainTitle from "../../documents/Reusiable/MainTitle/MainTitle";
 import SeeMoreButton from "../../documents/Reusiable/SeeMore/SeeMore";
 import {useMediaQuery} from "@mui/material";
@@ -23,6 +23,7 @@ const HomeComponent = () => {
     const secondSlice = data === undefined ? undefined : data.content.slice(5, 10)
     const [secondaryData, setSecondaryData] = useState([])
     const [bannerData, setBannerData] = useState([])
+    const [brand, setBrand] = useState([])
 
     useEffect(() => {
         axios.get(`${apiAddress}/category?parentId=0`).then(res => setSecondaryData(res.data))
@@ -32,7 +33,10 @@ const HomeComponent = () => {
         axios.get(`${apiAddress}/advertising`).then(res => setBannerData(res.data))
             .catch(err => console.log(err))
     }, [])
-    // console.log(bannerData)
+    useEffect(() => {
+        axios.get(`${apiAddress}/company`).then(res => setBrand(res.data))
+            .catch(err => console.log(err))
+    }, [])
 
     return (
         <Box className={classes.homeWrapper}>
@@ -65,7 +69,7 @@ const HomeComponent = () => {
             </Box>
             <Box className={classes.page}>
                 <MainTitle title="Brendlar bo'yicha"/>
-                <Brands data={BrandsData}/>
+                <Brands data={brand}/>
             </Box>
             <Box className={classes.contentWrapper}>
                 <MainCarousel data={SecondCarousel} height={240} bgColor='#333' color='#fff'/>

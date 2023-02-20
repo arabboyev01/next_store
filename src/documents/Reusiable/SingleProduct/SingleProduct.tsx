@@ -15,15 +15,28 @@ const SingleProduct = () => {
     const [open, setOpen] = useState(false);
     const [suggestedData, setSuggestData] = useState([])
     const [single, setSingle] = useState([]);
-
+    const [getImage, setImage] = useState([])
     const handleOpen = () => setOpen(true);
     const handleCLose = () => setOpen(false);
 
+    const [colorId, setColorId] = useState(0)
+
     useEffect(() => {
         axios.get(`${apiAddress}/advertising`).then(res => setSuggestData(res.data)).catch(err => console.log(err))
-        axios.get(`${apiAddress}/product/${id}`).then(res => setSingle(res.data)).catch(err => console.log(err))
-    }, [id])
+        axios.get(`${apiAddress}/product/${id}`).then(res => {
+            setSingle(res.data)
+            setColorId(res.data.productColorDTOS.at(0).id)
+        }).catch(err => console.log(err))
 
+        axios.get(`${apiAddress}/product-color/photo-url/${colorId}`).then(data => setImage(data.data))
+            .catch(err => console.log(err))
+    }, [id, setColorId, colorId])
+
+     const getProductColorImage = (id: number) => {
+        setColorId(id)
+        axios.get(`${apiAddress}/product-color/photo-url/${colorId}` ).then(res => setImage(res.data))
+            .catch(err => console.log(err))
+    }
     return (
         <Dumb classes={classes}
               handleCLose={handleCLose}
@@ -32,6 +45,8 @@ const SingleProduct = () => {
               query={query}
               suggestedData={suggestedData}
               open={open}
+              getProductColorImage={getProductColorImage}
+              getImage={getImage}
         />
     )
 }

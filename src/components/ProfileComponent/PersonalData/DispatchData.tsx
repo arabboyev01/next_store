@@ -13,12 +13,10 @@ export const uploadNewPersonalData = (values: any) => {
     }
 
     axios.put(`${apiAddress}/user`, {
-        'id': 0,
         'firstName': values.firstname,
         'lastName': values.lastname,
         'username': values.email,
         'password': values.new_password,
-        'smsCode': values.code,
     }, config).then(data => console.log(data))
         .catch(err => console.log(err))
 }
