@@ -31,6 +31,7 @@ const SingleProduct = () => {
         axios.get(`${apiAddress}/product-color/photo-url/${colorId}`).then(data => setImage(data.data))
             .catch(err => console.log(err))
     }, [id, setColorId, colorId])
+    console.log(suggestedData)
 
      const getProductColorImage = (id: number) => {
         setColorId(id)

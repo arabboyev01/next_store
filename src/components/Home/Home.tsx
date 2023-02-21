@@ -38,6 +38,7 @@ const HomeComponent = () => {
             .catch(err => console.log(err))
     }, [])
 
+
     return (
         <Box className={classes.homeWrapper}>
             <Box className={classes.contentWrapper}>

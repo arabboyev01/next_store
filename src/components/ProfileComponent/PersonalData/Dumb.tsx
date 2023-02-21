@@ -6,7 +6,7 @@ import { Form } from 'react-final-form'
 import React from 'react'
 import PrimaryButton from '../../../documents/Reusiable/PrimaryButton/PrimaryButton'
 
-const Dumb = ({classes, uploadNewPersonalData}: any) => (
+const Dumb = ({classes, uploadNewPersonalData, ResendPassword}: any) => (
     <Box className={classes.mainWrapper}>
         <Typography className={classes.title}>Shaxsiy ma&apos;lumotlar</Typography>
         <Form
@@ -44,7 +44,7 @@ const Dumb = ({classes, uploadNewPersonalData}: any) => (
                                 <CssTextField {...PERSONAL_DATA.code} placeholder="Sms-code"
                                               type="text"/>
                             </Box>
-                            <Button className={classes.button}>SMS kodni yuborish</Button>
+                            <Button className={classes.button} onClick={ResendPassword}>SMS kodni yuborish</Button>
                         </Box>
                     </Box>
                     <Box className={classes.saveButton}>

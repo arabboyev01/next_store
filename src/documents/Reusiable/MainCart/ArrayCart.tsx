@@ -9,8 +9,8 @@ import React from 'react'
 
 const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, query, dispatch, PrimaryButton, liked}: any) => (
     <>
-        {mainData.map((item: any) =>
-            <Box className={carousel ? classes.mainCartCarousel : classes.mainCart} key={item.id}>
+        {mainData.map((item: any, index: number) =>
+            <Box className={carousel ? classes.mainCartCarousel : classes.mainCart} key={index}>
                 {liked === item.id || item.isFavorite ?
                     <FavoriteIcon className={classes.favoriteIconLiked}
                                   onClick={() => sendData(item.id)}/> :
@@ -44,8 +44,7 @@ const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, 
                     />
                 </Box>
             </Box>
-        )
-        }
+        )}
     </>
 )
 

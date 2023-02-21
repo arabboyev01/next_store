@@ -5,11 +5,13 @@ import ProfileLikes from '../ProfileComponent/ProfileDescriptions/ProfileLikes'
 import ProfileOrders from '../ProfileComponent/ProfileOrders'
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import PersonalData from "./PersonalData"
+import PersonalData from './PersonalData'
+
 const ProfileComponent = () => {
     const classes = style()
-    const [profileItem, setProfileItem] = useState(<PersonalData />);
+    const [profileItem, setProfileItem] = useState(<PersonalData/>);
     const [isActive, setIsActive] = useState<null | number>(null)
+    const [stickySide, setNavState] = useState(false);
     const router = useRouter();
 
     const handlePage = (category: any) => {
@@ -32,7 +34,6 @@ const ProfileComponent = () => {
             setTimeout(() => router.reload(), 200)
         }
     }
-    const [stickySide, setNavState] = useState(false);
 
     const onNavScroll = useCallback(() => {
         window.scrollY > 75 ? setNavState(true) : setNavState(false);

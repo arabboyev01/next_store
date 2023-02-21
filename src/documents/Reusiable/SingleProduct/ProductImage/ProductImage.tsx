@@ -14,7 +14,6 @@ const ProductImage = ({getImage}: any) => {
         const filtered = getImage.find(({id}: any) => id === myId)
         setSingleImage(filtered)
     }
-    console.log(firstImage)
 
     return (
         <Box className={classes.swiperWrapper}>
