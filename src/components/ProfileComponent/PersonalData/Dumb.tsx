@@ -5,10 +5,15 @@ import { PERSONAL_DATA } from './config'
 import { Form } from 'react-final-form'
 import React from 'react'
 import PrimaryButton from '../../../documents/Reusiable/PrimaryButton/PrimaryButton'
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
-const Dumb = ({classes, uploadNewPersonalData, ResendPassword}: any) => (
+const Dumb = ({classes, uploadNewPersonalData, ResendSmsCode, countDown, success}: any) => (
     <Box className={classes.mainWrapper}>
-        <Typography className={classes.title}>Shaxsiy ma&apos;lumotlar</Typography>
+        {success ? <Box className={classes.success}>
+                Sizning ma&apos;lumotlarinigz o&apos;zgartirildi {' '} <CheckBoxIcon style={{color: 'fff', fontSize: '25px',}}/>
+        </Box> :
+            <Typography className={classes.title}>Shaxsiy ma&apos;lumotlar</Typography>
+        }
         <Form
             onSubmit={uploadNewPersonalData}
             render={({handleSubmit}) => (
@@ -44,7 +49,13 @@ const Dumb = ({classes, uploadNewPersonalData, ResendPassword}: any) => (
                                 <CssTextField {...PERSONAL_DATA.code} placeholder="Sms-code"
                                               type="text"/>
                             </Box>
-                            <Button className={classes.button} onClick={ResendPassword}>SMS kodni yuborish</Button>
+                            {countDown ?
+                                <Button className={classes.button}
+                                        style={{color: 'green'}}
+                                >yuborildi {' '} <CheckBoxIcon style={{color: 'green'}}/> </Button>
+                                :
+                                <Button className={classes.button} onClick={ResendSmsCode}>SMS kodni yuborish</Button>
+                            }
                         </Box>
                     </Box>
                     <Box className={classes.saveButton}>

@@ -2,8 +2,19 @@ import axios from 'axios'
 import { apiAddress } from '../../../../config'
 import jwt_decode from 'jwt-decode'
 
+export const ResendSmsCode = (code: any) => {
+    const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
+    axios.get(`${apiAddress}/sms-resend`, {headers: {'Authorization': `Bearer ${token}`}})
+        .then(data => {
+            if(data.status === 200) {
+                code(true)
+            }
+            setTimeout(() => code(false), 5000)
+        })
+        .catch(err => console.log(err))
+}
 
-export const uploadNewPersonalData = (values: any) => {
+export const uploadNewPersonalData = (values: any, setSuccess: any) => {
     const token: string | null | any = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
     const decoded: unknown | any = jwt_decode(token)
     const config = {headers: {'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json'}}
@@ -22,17 +33,14 @@ export const uploadNewPersonalData = (values: any) => {
                     'password': !values.new_password ? data.password : values.new_password,
                     'smsCode': values.code,
                 }
-                axios.put(`${apiAddress}/user`, dispatchData, config).then(data => console.log(data))
+                axios.put(`${apiAddress}/user`, dispatchData, config).then(data => {
+                    if(data.status === 200){
+                        setSuccess(true)
+                    }
+                })
                     .catch(err => console.log(err))
             })
     }
 
     fetchData()
-}
-
-export const ResendPassword = () => {
-    const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-    axios.get(`${apiAddress}/sms-resend`, {headers: {'Authorization': `Bearer ${token}`}})
-        .then(data => console.log(data.status))
-        .catch(err => console.log(err))
 }
