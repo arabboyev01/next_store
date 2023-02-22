@@ -9,11 +9,13 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 const Dumb = ({classes, uploadNewPersonalData, ResendSmsCode, countDown, success}: any) => (
     <Box className={classes.mainWrapper}>
-        {success ? <Box className={classes.success}>
-                Sizning ma&apos;lumotlarinigz o&apos;zgartirildi {' '} <CheckBoxIcon style={{color: 'fff', fontSize: '25px',}}/>
-        </Box> :
-            <Typography className={classes.title}>Shaxsiy ma&apos;lumotlar</Typography>
+
+        {success ? (<Box className={classes.success}>
+            Sizning ma&apos;lumotlarinigz o&apos;zgartirildi
+               <CheckBoxIcon style={{color: 'fff', fontSize: '25px',}}/>
+         </Box>) : (<Typography className={classes.title}>Shaxsiy ma&apos;lumotlar</Typography>)
         }
+
         <Form
             onSubmit={uploadNewPersonalData}
             render={({handleSubmit}) => (
