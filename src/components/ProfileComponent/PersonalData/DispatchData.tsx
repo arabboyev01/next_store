@@ -29,7 +29,7 @@ export const uploadNewPersonalData = (values: any, setSuccess: any) => {
                     'phone': data.phone,
                     'imageId': data.imageId,
                     'isDeleted': false,
-                    'username': !values.email ? values.email : data.username,
+                    'username': !values.email ? data.username : values.email ,
                     'password': !values.new_password ? data.password : values.new_password,
                     'smsCode': values.code,
                 }

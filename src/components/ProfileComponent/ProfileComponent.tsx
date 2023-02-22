@@ -16,15 +16,16 @@ const ProfileComponent = () => {
 
     const handlePage = (category: any) => {
         setIsActive(category)
+
+        if (category === null) {
+            setProfileItem(<PersonalData/>)
+        }
+
         if (category === 'likes') {
             setProfileItem(<ProfileLikes/>)
         }
         if (category === 'order') {
             setProfileItem(<ProfileOrders/>)
-        }
-
-        if (category === null) {
-            setProfileItem(<PersonalData/>)
         }
 
         if (category === 'logout') {
