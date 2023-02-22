@@ -17,15 +17,17 @@ const validate = makeValidate(schema);
 
 export type LoginFieldType = {
     handleCloseForget?: (e: any) => void
+    refresh: any
+    changePassword: any
 }
-const SendCode: React.FC<LoginFieldType> = ({handleCloseForget}) => {
+const SendCode: React.FC<LoginFieldType> = ({handleCloseForget, refresh, changePassword}) => {
     const classes = Style();
     return (
         <Box className={classes.fieldWrapper}>
             <CloseIcon className={classes.closeIcon} onClick={handleCloseForget}/>
             <Typography className={classes.title}>Kodni tasdiqlang</Typography>
             <Form
-                onSubmit={() => console.log('hi')}
+                onSubmit={changePassword}
                 validate={validate}
                 render={({handleSubmit}) => (
                     <form onSubmit={handleSubmit} noValidate style={{width: '100%'}}>
@@ -34,8 +36,16 @@ const SendCode: React.FC<LoginFieldType> = ({handleCloseForget}) => {
                                 <CssTextField {...SEND_CODE_FORM.approve} placeholder="Bir martalik kodni kiriting"
                                               type="number"/>
                             </Box>
+                            <Box className={classes.fieldContainer}>
+                                <CssTextField {...SEND_CODE_FORM.new_password} placeholder="Yangi parol"
+                                              type="password"/>
+                            </Box>
+                            <Box className={classes.fieldContainer}>
+                                <CssTextField {...SEND_CODE_FORM.re_new_password} placeholder="Yangi parolni qayta kiriting"
+                                              type="password"/>
+                            </Box>
                             <Box className={classes.submit}>
-                                <SubmitButton loading={false} buttonText="Kodni qabul qilish"/>
+                                <SubmitButton loading={refresh} buttonText="Kodni qabul qilish"/>
                             </Box>
                         </Box>
                     </form>

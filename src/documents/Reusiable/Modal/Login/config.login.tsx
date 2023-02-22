@@ -20,7 +20,17 @@ export const SEND_CODE_FORM = {
         name: 'approve',
         label: "Kod",
         require: true,
-    }
+    },
+    new_password: {
+        name: 'new_password',
+        label: "Yangi parolni kiriting",
+        require: true,
+    },
+    re_new_password: {
+        name: 're_new_password',
+        label: "Yangi parolni takrorlang",
+        require: true,
+    },
 }
 
 export const SIGN_UP_FORM_VALUES = {

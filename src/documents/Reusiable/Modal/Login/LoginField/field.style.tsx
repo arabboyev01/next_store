@@ -6,7 +6,7 @@ export default makeStyles(() => ({
         flexDirection: 'column',
         alignItems: 'center',
         position: 'relative',
-        padding: '80px 0',
+        padding: '40px 0',
         '@media(max-width: 600px)': {
             padding: '60px 0',
         },

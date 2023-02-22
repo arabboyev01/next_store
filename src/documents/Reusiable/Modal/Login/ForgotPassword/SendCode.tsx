@@ -17,16 +17,17 @@ const validate = makeValidate(schema);
 
 export type LoginFieldType = {
     handleCloseForget?: (e: any) => void
-    onClick?: (e: any) => void
+    sendSms?: any
+    loading: any
 }
-const SendCode: React.FC<LoginFieldType> = ({handleCloseForget, onClick}) => {
+const SendCode: React.FC<LoginFieldType> = ({handleCloseForget, sendSms, loading}) => {
     const classes = Style();
     return(
         <Box className={classes.fieldWrapper}>
             <CloseIcon className={classes.closeIcon} onClick={handleCloseForget}/>
             <Typography className={classes.title}>Emailingizni kiriting</Typography>
             <Form
-                onSubmit={() => console.log('hi')}
+                onSubmit={sendSms}
                 validate={validate}
                 render={({handleSubmit}) => (
                     <form onSubmit={handleSubmit} noValidate style={{width: '100%'}}>
@@ -34,8 +35,8 @@ const SendCode: React.FC<LoginFieldType> = ({handleCloseForget, onClick}) => {
                             <Box className={classes.fieldContainer}>
                                 <CssTextField {...SEND_CODE_FORM.number} type="text"/>
                             </Box>
-                            <Box className={classes.submit} onClick={onClick}>
-                                <SubmitButton loading={false} buttonText='Kodni qabul qilish'/>
+                            <Box className={classes.submit}>
+                                <SubmitButton loading={loading} buttonText='Kodni qabul qilish'/>
                             </Box>
                         </Box>
                     </form>
