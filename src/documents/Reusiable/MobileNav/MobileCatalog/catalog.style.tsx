@@ -39,7 +39,6 @@ export default makeStyles(() => ({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: "10px",
         padding: "10px 20px 10px 20px",
         borderBottom: ".1px solid rgba(0, 0, 0,0.1)",
     },
@@ -47,7 +46,6 @@ export default makeStyles(() => ({
          fontSize: '18px',
         lineHeight: '22px',
         fontWeight: 500,
-        marginTop: '20px',
         marginLeft: '10px',
     },
 }))

@@ -24,7 +24,7 @@ const MobileCatalog = ({categoryMain, handleSetCategory}: any) => {
             {categoryParent.map(({id, name}: any) =>
                 <Box className={classes.dividedMenu} key={id}>
                     <Typography className={classes.chapters}>{name}</Typography>
-                    <KeyboardArrowRightIcon style={{color: '#000', marginTop: '20px'}}/>
+                    <KeyboardArrowRightIcon style={{color: '#000'}}/>
                 </Box>
             )}
         </Box>
