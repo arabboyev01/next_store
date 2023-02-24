@@ -2,7 +2,7 @@ export interface HomeCarouselDataType {
     id: number,
     title: string,
     subtitle: string,
-    image: any,
+    imageUrl: any,
 }
 
 export type CategoryCartTypes = {
@@ -11,15 +11,7 @@ export type CategoryCartTypes = {
     img: any,
 
 }
-export type MainProductsType = {
-    id: number,
-    title: string,
-    img: any,
-    price: string,
-    status: string,
-    order: number,
-    color: any,
-}
+
 export type BrandsDataType = {
     id: number,
     image: any

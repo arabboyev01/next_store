@@ -1,7 +1,6 @@
 import {Box} from "@mui/system";
 import Style from "./home.style"
 import MainCarousel from "../../documents/Reusiable/MainCarousel/MainCarousel";
-import {HomeCarouselData, SecondCarousel} from "./HomeCarouselData";
 import SecondaryCart from "../../documents/Reusiable/SecondaryCart/SecondaryCart";
 import { BrandsStore} from "../../documents/DumbData/DumbData";
 import MainTitle from "../../documents/Reusiable/MainTitle/MainTitle";
@@ -38,11 +37,10 @@ const HomeComponent = () => {
             .catch(err => console.log(err))
     }, [])
 
-
     return (
         <Box className={classes.homeWrapper}>
             <Box className={classes.contentWrapper}>
-                <MainCarousel data={HomeCarouselData} height={query ? 200 : 330} bgColor='rgb(48, 149, 41)' color='#fff'/>
+                <MainCarousel data={bannerData.filter(({advertisingType}: any) => advertisingType === 'Body')} height={query ? 200 : 330} bgColor='rgb(48, 149, 41)' color='#fff'/>
             </Box>
             <Box>
                 <MainTitle title="Kategoriyalar" />
@@ -59,7 +57,9 @@ const HomeComponent = () => {
                 </Box>
             </Box>
             <Box className={classes.contentWrapper}>
-                <MainCarousel data={SecondCarousel} height={240} bgColor='#333' color='#fff'/>
+                <MainCarousel data={bannerData.filter(({advertisingType}: any) => advertisingType === 'Main')}
+                              height={240} bgColor='#333' color='#fff'
+                />
             </Box>
             <Box className={classes.mainSales}>
                 <MainTitle title="Eng ko'p sotilganlar"/>
@@ -73,7 +73,9 @@ const HomeComponent = () => {
                 <Brands data={brand}/>
             </Box>
             <Box className={classes.contentWrapper}>
-                <MainCarousel data={SecondCarousel} height={240} bgColor='#333' color='#fff'/>
+                <MainCarousel data={bannerData.filter(({advertisingType}: any) => advertisingType === 'Main')}
+                              height={240} bgColor='#333' color='#fff'
+                />
             </Box>
             <Box className={classes.page}>
                 <MainTitle title="Do'konlarimiz"/>

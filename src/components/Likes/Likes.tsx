@@ -7,7 +7,7 @@ import StoreIcon from '@mui/icons-material/Store';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import PrimaryButton from '../../documents/Reusiable/PrimaryButton/PrimaryButton';
 import { setAddItemToCart } from '../../redux/CartSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 import { useEffect } from 'react'
 import axios from 'axios'
@@ -19,16 +19,14 @@ import { emptyData } from '../../documents/DumbData/DumbData'
 const LikesComponent = () => {
     const classes = styles();
     const dispatch = useDispatch();
-    const onAddToCart = (data: any) => {
-        dispatch(setAddItemToCart(data));
-    };
-    const {mainData} = useSelector((state: any) => state.cart)
-    const data = mainData[mainData.length - 1]
     const query = useMediaQuery('@media(max-width: 600px)')
-
     const [favoriteData, setFavoriteData] = useState([])
     const token = typeof window !== 'undefined' ?
         window.localStorage.getItem('tokenKey') : null;
+
+    const onAddToCart = (data: any) => {
+        dispatch(setAddItemToCart(data));
+    };
 
     useEffect(() => {
         axios.get(`${apiAddress}/favorite-product`,  {headers: {

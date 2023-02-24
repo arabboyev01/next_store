@@ -5,7 +5,6 @@ import { Typography } from '@mui/material'
 import { commafy } from '../Suggested/global'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { setAddItemToCart } from '../../../redux/CartSlice'
-import React from 'react'
 
 const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, query, dispatch, PrimaryButton, liked}: any) => (
     <>

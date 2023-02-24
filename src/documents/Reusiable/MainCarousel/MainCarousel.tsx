@@ -6,8 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/bundle';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import Image from 'next/image';
-import { Button, grid2Classes, Typography, useMediaQuery } from '@mui/material';
+import { Button, Typography, useMediaQuery } from '@mui/material';
 import { HomeCarouselDataType } from '../../../../types/types'
 
 export type MainCarouselPropsType = {
@@ -35,13 +34,13 @@ const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height, bgColor, c
             <Swiper modules={[Pagination, Navigation]}{...setting}
             className={classes.swiper} style={{backgroundColor: bgColor, height: height}}
             >
-                {data?.map(({id, title, subtitle, image}: HomeCarouselDataType) =>
+                {data?.map(({id, title, subtitle, imageUrl}: HomeCarouselDataType) =>
                     <SwiperSlide key={id} className={classes.slide}>
                         <Box className={classes.textContent}>
                             <Typography className={buttonText ? classes.textTop : classes.title} style={{color: color}}>{title}</Typography>
                             <Typography className={classes.sub} style={{color: color}} >{subtitle}</Typography>
                         </Box>
-                        <Image src={image.src} alt="rasm" width={query ? 150 : 300} height={query ? 150 : 350}
+                        <img src={`https://nextstore.in/nextstore${imageUrl}`} alt="rasm" width={query ? 150 : 300} height={query ? 150 : 350}
                                className={sticky ? classes.showImage : classes.images}
                         />
                         {buttonText ? <Button className={classes.buttons}>{buttonText}</Button> : null}

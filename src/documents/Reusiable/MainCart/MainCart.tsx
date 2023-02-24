@@ -29,7 +29,7 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
                 Authorization: `Bearer ${token}`
             }
         }).then(res => {
-            console.log(res.data.productId)
+            console.log(res.status)
             setLiked(res.data.productId)
         }).catch(err => console.log(err))
     }
