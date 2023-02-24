@@ -14,7 +14,7 @@ const CategoryComponent = () => {
     const [categoryData, setMainData] = useState([])
     const [categoryId, setProductId] = useState(0);
     const [getFilteredData, setFilteredData] = useState([])
-
+    const [brands, setBrand] = useState([])
     const categoriesParentId = useSelector(categoryParentId)
 
     const getDataByCategory = useCallback(() => {
@@ -32,6 +32,11 @@ const CategoryComponent = () => {
             setFilteredData(data.data.content)
         }).catch(err => console.log(err))
     }, [categoryId])
+
+    useEffect(() => {
+        axios.get(`${apiAddress}/company`).then(res => setBrand(res.data))
+            .catch(err => console.log(err))
+    }, [])
 
     return (
        <Dumb

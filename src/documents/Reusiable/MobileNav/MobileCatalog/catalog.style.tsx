@@ -48,4 +48,9 @@ export default makeStyles(() => ({
         fontWeight: 500,
         marginLeft: '10px',
     },
+    goBack: {
+        position: "absolute",
+        top: "35px",
+        left: "30px",
+    },
 }))

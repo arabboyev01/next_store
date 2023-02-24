@@ -14,6 +14,7 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
     const [parentId, setParentId] = useState<null | number>(null)
     const [categoryChild, setCategoryChild] = useState([])
     const [catalogData, setCatalogData] = useState([])
+    const [brand, setBrand] = useState([])
     const classes = Style()
 
     useEffect(() => {
@@ -32,6 +33,10 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
         setParentId(id)
         axios.get(`${apiAddress}/product?categoryId=${id}`).then(data => setCatalogData(data.data.content)).catch(err => console.log(err))
     }
+    useEffect(() => {
+        axios.get(`${apiAddress}/company`).then(res => setBrand(res.data))
+            .catch(err => console.log(err))
+    }, [])
 
     return (
         <Rodal
@@ -52,7 +57,7 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
                     )}
                 </Box>
                 <Box className={classes.descSection}>
-                    <CatalogDescription categoryChild={categoryChild} getCatalogData={getCatalogData}/>
+                    <CatalogDescription categoryChild={brand} getCatalogData={getCatalogData}/>
                 </Box>
             </Box>
         </Rodal>

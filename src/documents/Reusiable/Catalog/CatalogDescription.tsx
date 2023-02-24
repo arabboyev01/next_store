@@ -10,7 +10,7 @@ const CatalogDescription = ({categoryChild, getCatalogData}: any) => {
                 <Typography className={classes.descTitle}>Brendlar</Typography>
                 {categoryChild.map(({id, name}: any) =>
                  <Typography className={classes.subtitle} key={id} onClick={() => getCatalogData(id)}>
-                     {name} Salom</Typography>
+                     {name} </Typography>
                 )}
             </Box>
         </Box>
