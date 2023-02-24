@@ -66,3 +66,11 @@ export type ProductDescriptionType = {
     saleCode: string,
     companyCode1: string,
 }
+export type MainCarouselPropsType = {
+    data?: any
+    height: number
+    bgColor: string
+    color: string
+    sticky?: any
+    buttonText?: string
+}

@@ -25,7 +25,9 @@ const SecondaryCart: React.FC<SecondaryCartType> = ({data}) => {
             {data.map((item:any) =>
                 <Box onClick={() => HandleDataById(item.id)} key={item.id}>
                     <Box className={classes.secondaryCart}>
-                        <img src={`https://nextstore.in/nextstore${item.imageUrl}`} loading="lazy" alt="image" width={query ? 120 : 136} height={query ? 120 : 136} className={classes.itemImage}/>
+                        <img src={`https://nextstore.in/nextstore${item.imageUrl}`}
+                             loading="lazy" alt="image" width={query ? 120 : 136} height={query ? 120 : 136}
+                             className={classes.itemImage}/>
                         <Typography className={classes.text}>{item.name}</Typography>
                     </Box>
                 </Box>

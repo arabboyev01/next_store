@@ -35,6 +35,8 @@ const ForgotPasswprd: React.FC<LoginType> = ({open, handleCloseForget}) => {
         setRefresh(true)
         ChangeNewPassword(values, email, setRefresh, setDirectPage)
         directPage && router.push({pathname: "/"})
+        // @ts-ignore
+        directPage && handleCloseForget()
     }
 
     return(

@@ -28,11 +28,12 @@ export const ChangeNewPassword = (values: any, userName: string, setLoading: any
 
     axios.post(`${apiAddress}/user/edit-password`, dispatchData, config)
         .then(data => {
-            if (data?.data?.id_token) {
+            if (data.data.id_token) {
                 localStorage.setItem("tokenKey", data?.data?.id_token)
+            }
+            if(data.status === 200) {
                 setDirectPage(true)
             }
-            console.log(data)
         })
         .catch(err => console.log(err))
         .finally(() => setLoading(false))

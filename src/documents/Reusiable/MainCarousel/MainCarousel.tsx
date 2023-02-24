@@ -7,16 +7,8 @@ import 'swiper/css/bundle';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Button, Typography, useMediaQuery } from '@mui/material';
-import { HomeCarouselDataType } from '../../../../types/types'
+import { HomeCarouselDataType, MainCarouselPropsType } from '../../../../types/types'
 
-export type MainCarouselPropsType = {
-    data?: any
-    height: number
-    bgColor: string
-    color: string
-    sticky?: any
-    buttonText?: string
-}
 const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height, bgColor, color, sticky, buttonText}) => {
     const classes = Style();
     const query = useMediaQuery('@media(max-width: 650px)');
