@@ -1,18 +1,9 @@
 import {
     BrandsDataType,
-    CategoryCartTypes,
     deliveryDumbDataType, HomeCarouselDataType, ProductDescriptionType,
     PROFILE_LINK_DATA_TYPE,
     SUGGESION_DATA_TYPE
 } from '../../../types/types';
-import cat1 from '../../../public/assets/categories/cat1.png'
-import cat2 from '../../../public/assets/categories/cat2.png'
-import cat3 from '../../../public/assets/categories/cat3.png'
-import cat4 from '../../../public/assets/categories/cat4.png'
-import cat5 from '../../../public/assets/categories/cat5.png'
-import cat6 from '../../../public/assets/categories/cat6.png'
-import cat7 from '../../../public/assets/categories/cat7.png'
-import cat8 from '../../../public/assets/categories/cat8.png'
 import elmakonImage from '../../../public/assets/brands/elmakon.png'
 import goodImage from '../../../public/assets/brands/goodzoone.png'
 import mediaImage from '../../../public/assets/brands/mediapark.png'
@@ -30,25 +21,25 @@ export const SuggestedDataCarousel: HomeCarouselDataType[] = [
         id: 0,
         title: 'Mahsulot narxidan 1% qaytaramiz.',
         subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
-        image: Iphone,
+        imageUrl: Iphone,
     },
     {
         id: 1,
        title: 'Mahsulot narxidan 1% qaytaramiz.',
         subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
-        image: Iphone,
+        imageUrl: Iphone,
     },
     {
         id: 2,
         title: 'Mahsulot narxidan 1% qaytaramiz.',
         subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
-        image: Iphone,
+        imageUrl: Iphone,
     },
     {
         id: 3,
         title: 'Mahsulot narxidan 1% qaytaramiz.',
         subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
-        image: Iphone,
+        imageUrl: Iphone,
     },
 ]
 export const PRODUCT_DESCRIPTION: ProductDescriptionType[] = [
@@ -142,48 +133,6 @@ export const PROFILE_LINK_DATA: PROFILE_LINK_DATA_TYPE[] = [
         name: 'Tizimdan chiqish',
         type: 'logout',
     },
-]
-export const CategoryCart: CategoryCartTypes[] = [
-    {
-        id: 1,
-        name: 'Smartfonlar',
-        img: cat1
-    },
-    {
-        id: 2,
-        name: 'Kompyuterlar va notebooklar',
-        img: cat2
-    },
-    {
-        id: 3,
-        name: 'Televizorlar',
-        img: cat3
-    },
-    {
-        id: 4,
-        name: 'Aqlli soatlar',
-        img: cat4
-    },
-    {
-        id: 5,
-        name: 'Quloqchinlar',
-        img: cat5
-    },
-    {
-        id: 6,
-        name: 'Konditsioner',
-        img: cat6
-    },
-    {
-        id: 7,
-        name: 'Sovutkichlar',
-        img: cat7
-    },
-    {
-        id: 8,
-        name: 'Kir yuvish mashinalari',
-        img: cat8
-    }
 ]
 
 export const BrandsStore: BrandsDataType[] = [

@@ -5,24 +5,11 @@ export interface HomeCarouselDataType {
     imageUrl: any,
 }
 
-export type CategoryCartTypes = {
-    id: number,
-    name: string,
-    img: any,
-
-}
-
 export type BrandsDataType = {
     id: number,
     image: any
 }
-export type SingleProductType = {
-    current?: any
-    addToCart?: any
-}
-export type CartType = {
-    cart: any,
-}
+
 export type ProductDetailType = {
     handleOpen?: (e: any) => void
     data?: any
