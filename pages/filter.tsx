@@ -7,7 +7,7 @@ const Cart = () => {
     return (
         <Box>
             <Head>
-                <title>Savatchangiz</title>
+                <title>Barcha mahsulotlar</title>
             </Head>
             <Layout>
                 <FilterComponent />

@@ -60,4 +60,8 @@ export default makeStyles(() => ({
         color: '#E4E7EE',
     },
     clear: {},
+    pagination: {
+        margin: "20px 0",
+        justifyContent: "flex-end",
+    },
 }))

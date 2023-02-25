@@ -5,36 +5,39 @@ import style from './filters.style'
 import MainCart from '../../documents/Reusiable/MainCart/MainCart'
 import axios from 'axios'
 import { apiAddress } from '../../../config'
+import PaginationComponent from './Pagination/Pagination'
+import { quantity } from './utilty'
 
 const FilterComponent = () => {
     const classes = style();
     const [data, setData] = useState([])
     const [value, setValue] = useState<number[]>([0, 1000000]);
-    const [brand, setBrands] = useState<null | string | any>([])
     const [purchaseType, setPurchaseType] = useState<null | string>(null)
-    const [someValue, setSomeValue] = useState<null | string>(null)
+    const [pagination1, setPagination1] = useState(0)
+    const [pagination2, setPagination2] = useState(8)
 
     const handleChange = (event: Event, newValue: number | number[]) => {
         setValue(newValue as number[]);
     };
     const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-    const config = {headers: {Authorization: `Bearer ${token}`}};
+
     useEffect(() => {
-        axios.get(`${apiAddress}/product`,config).then(res => {
+        const config = {headers: {Authorization: `Bearer ${token}`}};
+        axios.get(`${apiAddress}/product`, config).then(res => {
             setData(res.data.content)
         }).catch(err => console.log(err))
-    }, [])
+    }, [token])
 
-    useEffect(() => {
-        if (brand !== null) {
-            const brandType = data.filter(({name}: any) => name.toLowerCase().includes(brand.toLowerCase()))
-            setData(brandType)
-        } else if (brand === null) {
-            setData(data)
-        }
-
-    }, [brand])
-    console.log(data)
+    const quantityData = quantity(data)
+    const handlePaginateData = (target: any,number: any) => {
+        console.log(target, number, pagination1, pagination2)
+        // if (number > pagination1 || number > pagination2) {
+            setPagination1(pagination1 + 9)
+            setPagination2(pagination2 + 9)
+        // }
+    }
+    // console.log(pagination1)
+    // console.log(pagination2)
 
     return (
         <Box className={classes.mainWrapper}>
@@ -43,13 +46,14 @@ const FilterComponent = () => {
                     classes={classes}
                     value={value}
                     handleChange={handleChange}
-                    setBrands={setBrands}
                     setPurchaseType={setPurchaseType}
-                    setSomeValue={setSomeValue}
                 />
             </Box>
             <Box className={classes.datas}>
-                <MainCart mainData={data}/>
+                <MainCart mainData={data.slice(pagination1, pagination2)}/>
+                <Box className={classes.pagination}>
+                    <PaginationComponent handlePaginateData={handlePaginateData} quantity={quantityData}/>
+                </Box>
             </Box>
         </Box>
     )

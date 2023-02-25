@@ -4,7 +4,7 @@ import MainCart from '../../documents/Reusiable/MainCart/MainCart'
 
 const Dumb = ({classes, query, categoryData, setProductId, getFilteredData}: any) => (
      <Box className={classes.categoryWrapper}>
-            <Typography className={classes.title}>Apple mahsulotlari <span className={classes.span}>230 ta mahsulot mavjud</span></Typography>
+            {/*<Typography className={classes.title}>Apple mahsulotlari <span className={classes.span}>230 ta mahsulot mavjud</span></Typography>*/}
             <Box className={classes.contentWrapper}>
                 <Box className={classes.category}>
                     {categoryData.map(({id, imageUrl, name}: any) =>
