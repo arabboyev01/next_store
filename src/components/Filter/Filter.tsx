@@ -7,13 +7,14 @@ import axios from 'axios'
 import { apiAddress } from '../../../config'
 import PaginationComponent from './Pagination/Pagination'
 import { quantity } from './utilty'
+import { useMediaQuery } from '@mui/material'
 
 const FilterComponent = () => {
     const classes = style();
     const [data, setData] = useState([])
     const [value, setValue] = useState<number[]>([0, 1000000]);
     const [purchaseType, setPurchaseType] = useState<null | string>(null)
-
+    const query = useMediaQuery('@media(max-width: 600px)')
     const handleChange = (event: Event, newValue: number | number[]) => {
         setValue(newValue as number[]);
     };
@@ -35,6 +36,7 @@ const FilterComponent = () => {
     const quantityData = quantity(data)
     const handlePaginateData = (number: any) => {
         setCurrentPage(number)
+        window.scrollTo({ top: query ? 1000 : 0, behavior: 'smooth' });
     }
 
     return (
