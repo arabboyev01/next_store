@@ -52,7 +52,8 @@ const FilterComponent = () => {
             <Box className={classes.datas}>
                 <MainCart mainData={data.slice(indexOfFirstPost, indexOfLastPost)}/>
                 <Box className={classes.pagination}>
-                    <PaginationComponent handlePaginateData={handlePaginateData} quantity={quantityData}/>
+                   {data.length < 7 ?
+                       null : <PaginationComponent handlePaginateData={handlePaginateData} quantity={quantityData}/>}
                 </Box>
             </Box>
         </Box>
