@@ -5,7 +5,7 @@ import PrimaryButton from '../PrimaryButton/PrimaryButton'
 import ObjectData from './ObjectCart'
 import ArrayCart from './ArrayCart'
 
-const Dumb = ({classes, mainData, handleSingleProduct, carousel, sendData, query, dispatch, liked}: any) => (
+const Dumb = ({classes, mainData, handleSingleProduct, carousel, sendData, query, dispatch}: any) => (
     <Box className={carousel ? classes.carousel : classes.mainCartWrapper}>
         {mainData === undefined ?
             <Box className={carousel ? classes.carouselLoader : classes.loader}>
@@ -21,7 +21,6 @@ const Dumb = ({classes, mainData, handleSingleProduct, carousel, sendData, query
                     query={query}
                     dispatch={dispatch}
                     PrimaryButton={PrimaryButton}
-                    liked={liked}
                 />) :
                 (<ObjectData
                     mainData={mainData}
@@ -32,7 +31,6 @@ const Dumb = ({classes, mainData, handleSingleProduct, carousel, sendData, query
                     query={query}
                     dispatch={dispatch}
                     PrimaryButton={PrimaryButton}
-                    liked={liked}
                 />)
         }
     </Box>

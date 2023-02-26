@@ -30,14 +30,12 @@ const FilterComponent = () => {
 
     const quantityData = quantity(data)
     const handlePaginateData = (target: any,number: any) => {
-        console.log(target, number, pagination1, pagination2)
+        console.log(number, pagination1, pagination2)
         // if (number > pagination1 || number > pagination2) {
             setPagination1(pagination1 + 9)
             setPagination2(pagination2 + 9)
         // }
     }
-    // console.log(pagination1)
-    // console.log(pagination2)
 
     return (
         <Box className={classes.mainWrapper}>

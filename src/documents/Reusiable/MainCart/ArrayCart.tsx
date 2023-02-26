@@ -6,11 +6,11 @@ import { commafy } from '../Suggested/global'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { setAddItemToCart } from '../../../redux/CartSlice'
 
-const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, query, dispatch, PrimaryButton, liked}: any) => (
+const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, query, dispatch, PrimaryButton}: any) => (
     <>
         {mainData.map((item: any, index: number) =>
             <Box className={carousel ? classes.mainCartCarousel : classes.mainCart} key={index}>
-                {liked === item.id || item.isFavorite ?
+                {item.isFavorite ?
                     <FavoriteIcon className={classes.favoriteIconLiked}
                                   onClick={() => sendData(item.id)}/> :
                     <FavoriteBorderIcon className={classes.favoriteIcon}
