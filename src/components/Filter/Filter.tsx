@@ -13,8 +13,6 @@ const FilterComponent = () => {
     const [data, setData] = useState([])
     const [value, setValue] = useState<number[]>([0, 1000000]);
     const [purchaseType, setPurchaseType] = useState<null | string>(null)
-    const [pagination1, setPagination1] = useState(0)
-    const [pagination2, setPagination2] = useState(8)
 
     const handleChange = (event: Event, newValue: number | number[]) => {
         setValue(newValue as number[]);
@@ -28,13 +26,15 @@ const FilterComponent = () => {
         }).catch(err => console.log(err))
     }, [token])
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(12);
+
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
     const quantityData = quantity(data)
-    const handlePaginateData = (target: any,number: any) => {
-        console.log(number, pagination1, pagination2)
-        // if (number > pagination1 || number > pagination2) {
-            setPagination1(pagination1 + 9)
-            setPagination2(pagination2 + 9)
-        // }
+    const handlePaginateData = (number: any) => {
+        setCurrentPage(number)
     }
 
     return (
@@ -48,7 +48,7 @@ const FilterComponent = () => {
                 />
             </Box>
             <Box className={classes.datas}>
-                <MainCart mainData={data.slice(pagination1, pagination2)}/>
+                <MainCart mainData={data.slice(indexOfFirstPost, indexOfLastPost)}/>
                 <Box className={classes.pagination}>
                     <PaginationComponent handlePaginateData={handlePaginateData} quantity={quantityData}/>
                 </Box>
