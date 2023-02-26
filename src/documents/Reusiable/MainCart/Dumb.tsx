@@ -7,7 +7,7 @@ import ArrayCart from './ArrayCart'
 
 const Dumb = ({classes, mainData, handleSingleProduct, carousel, sendData, query, dispatch}: any) => (
     <Box className={carousel ? classes.carousel : classes.mainCartWrapper}>
-        {mainData === undefined ?
+        {mainData === undefined || mainData.length === 0 ?
             <Box className={carousel ? classes.carouselLoader : classes.loader}>
                 <MainLoader/>
             </Box> :

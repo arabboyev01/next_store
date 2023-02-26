@@ -10,9 +10,11 @@ export type Props = {
     handleChange: (event: Event, newValue: number | number[]) => void
     value: number | any
     setPurchaseType: any
+    setBrands: any
+    setCondition: any
 }
 
-const Filters: React.FC<Props> = ({classes, value, handleChange, setPurchaseType}) => (
+const Filters: React.FC<Props> = ({classes, value, handleChange, setPurchaseType, setBrands, setCondition}) => (
     <Box className={classes.filterWrapper}>
         <Typography className={classes.filterType}>Narxi so&apos;mda</Typography>
         <Box>
@@ -25,7 +27,7 @@ const Filters: React.FC<Props> = ({classes, value, handleChange, setPurchaseType
             <Typography className={classes.filterType}>Barand bo&apos;yicha</Typography>
             {Brands.map(({id, name}) =>
                 <Box key={id} className={classes.selector}>
-                    <input type="checkbox"/>
+                    <input type="checkbox" onChange={() => setBrands(name)}/>
                     <span>{name}</span>
                 </Box>
             )}
@@ -38,7 +40,7 @@ const Filters: React.FC<Props> = ({classes, value, handleChange, setPurchaseType
             <hr className={classes.hr}/>
             {ForMore.map(({id, name}) =>
                 <Box key={id} className={classes.selector}>
-                    <input type="checkbox"/>
+                    <input type="checkbox" onChange={() => setCondition(name)}/>
                     <span>{name}</span>
                 </Box>
             )}
