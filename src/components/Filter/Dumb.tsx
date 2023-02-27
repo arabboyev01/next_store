@@ -14,9 +14,10 @@ const Dumb = ({
                   handlePaginateData,
                   quantityData,
                   setBrands,
-                  setCondition
+                  setCondition,
+                  handleFilters
               }: any) => (
-        <Box className={classes.mainWrapper}>
+    <Box className={classes.mainWrapper}>
         <Box className={classes.filters}>
             <Filters
                 classes={classes}
@@ -25,10 +26,13 @@ const Dumb = ({
                 setPurchaseType={setPurchaseType}
                 setBrands={setBrands}
                 setCondition={setCondition}
+                handleFilters={handleFilters}
             />
         </Box>
         <Box className={classes.datas}>
-            <MainCart mainData={data.slice(indexOfFirstPost, indexOfLastPost)}/>
+            {data.length === null ? 'Siz so\'ragan mahsulot bo\'yicha xech narsa topilmadi' :
+                <MainCart mainData={data.slice(indexOfFirstPost, indexOfLastPost)}/>
+            }
             <Box className={classes.pagination}>
                 {data.length < 7 ?
                     null :

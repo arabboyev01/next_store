@@ -14,7 +14,7 @@ export default makeStyles(() => ({
         maxHeight: '500px',
         marginTop: '150px',
         '@media(max-width: 650px)': {
-             marginTop: 0,
+             marginTop:0,
         }
     },
     mainImages: {
@@ -46,5 +46,10 @@ export default makeStyles(() => ({
             width: '50px',
             height: '50px',
         }
+    },
+    tinyImages: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
     },
 }))

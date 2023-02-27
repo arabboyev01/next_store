@@ -1,11 +1,12 @@
 import { Box } from '@mui/system'
 import style from './style'
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 const ProductImage = ({getImage}: any) => {
     const classes = style()
+    console.log(getImage)
 
-    const firstImage = getImage !== 'undefined' ? getImage.at(0) : null
+    const firstImage = useCallback(() => getImage.length !== 0 ? getImage[0].id : null, [getImage])
     const [singleImage, setSingleImage] = useState(firstImage)
     const [active, setActive] = useState(singleImage?.id)
 
@@ -23,13 +24,15 @@ const ProductImage = ({getImage}: any) => {
                          alt='image'
                     />
             </Box>
-            {getImage.map(({id, photoUrl}: any) =>
+            <Box className={classes.tinyImages}>
+                {getImage.map(({id, photoUrl}: any) =>
                 <img key={id} src={`https://nextstore.in/nextstore${photoUrl}`}
                      className={active ? classes.activeImages : classes.images}
                      alt='image'
                      onClick={() => showIndividualImages(id)}
                 />
             )}
+            </Box>
         </Box>
     )
 }

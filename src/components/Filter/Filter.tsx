@@ -44,15 +44,12 @@ const FilterComponent = () => {
         setValue(newValue as number[]);
     };
 
-    useEffect(() => {
-        const filtered = data.filter(({name}: any) => {
-            if (brands) {
-                brands.toLowerCase().includes(name.toLowerCase())
-            }
 
-        })
-        setData(filtered)
-    }, [brands])
+    const handleFilters = (inputs: any) => {
+        const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
+        axios.get(`${apiAddress}/product?page=0&size=100&sort&price`, {headers: {Authorization: `Bearer ${token}`}})
+            .then((data) => setData(data.data.content))
+    }
 
     return (
         <Dumb
@@ -67,6 +64,7 @@ const FilterComponent = () => {
             setPurchaseType={setPurchaseType}
             setBrands={setBrands}
             setCondition={setCondition}
+            handleFilters={handleFilters}
         />
     )
 }

@@ -13,8 +13,8 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
     const [categoryParent, setCategory] = useState([])
     const [parentId, setParentId] = useState<null | number>(null)
     const [categoryChild, setCategoryChild] = useState([])
-    const [catalogData, setCatalogData] = useState([])
     const [brand, setBrand] = useState([])
+    const [catalogData, setCatalogData] = useState([])
     const classes = Style()
 
     useEffect(() => {
