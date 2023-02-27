@@ -9,7 +9,7 @@ import MainCarousel from '../MainCarousel/MainCarousel'
 import { SuggestedDataCarousel } from '../../DumbData/DumbData'
 import ProductImage from '../SingleProduct/ProductImage/ProductImage'
 
-const Dumb = ({classes, handleCLose, single, handleOpen, query, suggestedData, open, getProductColorImage, getImage, colorId}: any) => (
+const Dumb = ({classes, handleCLose, single, handleOpen, query, suggestedData, open, getProductColorImage, getImage, colorId, getFirstImage}: any) => (
     <Box className={classes.singleProducts}>
         {single.length === 0 ? <Box className={classes.loader}><MainLoader/></Box>
             :
@@ -17,7 +17,7 @@ const Dumb = ({classes, handleCLose, single, handleOpen, query, suggestedData, o
                 <PaymentTerm open={open} handleCLose={handleCLose} price={single}/>
                 <Box className={classes.productHeader}>
                     <Box className={classes.imageWrapper}>
-                        <ProductImage getImage={getImage}/>
+                        <ProductImage getImage={getImage} getFirstImage={getFirstImage}/>
                     </Box>
                     <ProductDetail
                         handleOpen={handleOpen}

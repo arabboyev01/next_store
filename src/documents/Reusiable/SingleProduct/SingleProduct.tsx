@@ -16,11 +16,11 @@ const SingleProduct = () => {
     const [suggestedData, setSuggestData] = useState([])
     const [single, setSingle] = useState([]);
     const [getImage, setImage] = useState([])
+    const [getFirstImage, setFirstImage] = useState([])
     const handleOpen = () => setOpen(true);
     const handleCLose = () => setOpen(false);
 
     const [colorId, setColorId] = useState(0)
-
     useEffect(() => {
         axios.get(`${apiAddress}/advertising`).then(res => setSuggestData(res.data)).catch(err => console.log(err))
         axios.get(`${apiAddress}/product/${id}`).then(res => {
@@ -33,14 +33,17 @@ const SingleProduct = () => {
      const getProductColorImage =  useCallback((id: number) => {
         setColorId(id)
         axios.get(`${apiAddress}/product-color/photo-url/${colorId}` )
-            .then(data => setImage(data.data))
+            .then(data => {
+                setImage(data.data)
+                setFirstImage(data.data[0])
+            })
             .catch(err => console.log(err))
-    }, [colorId])
+    }, [colorId, setFirstImage])
 
     useEffect(() => {
         getProductColorImage(colorId)
     }, [getProductColorImage, colorId])
-    console.log(single)
+
 
     return (
         <Dumb classes={classes}
@@ -53,6 +56,7 @@ const SingleProduct = () => {
               getProductColorImage={getProductColorImage}
               getImage={getImage}
               colorId={colorId}
+              getFirstImage={getFirstImage}
         />
     )
 }

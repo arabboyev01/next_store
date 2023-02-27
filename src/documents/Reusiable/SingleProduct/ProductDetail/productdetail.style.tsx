@@ -64,8 +64,9 @@ export default makeStyles(() => ({
         width: "46px",
         height: "46px",
         borderRadius: "4px",
-        border: "2px solid #000",
-        boxShadow: "0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5)",
+        border: "2px solid #fff",
+        boxShadow: "1px 1px 1px 0.5px #fff",
+        padding: "-30px",
         '@media(max-width: 650px)': {
             width: "64px",
         },
