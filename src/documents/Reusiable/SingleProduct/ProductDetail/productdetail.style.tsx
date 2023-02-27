@@ -60,6 +60,16 @@ export default makeStyles(() => ({
             marginTop: "20px",
         },
     },
+    activeBox:{
+        width: "46px",
+        height: "46px",
+        borderRadius: "4px",
+        border: "2px solid #000",
+        boxShadow: "0.5px 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5)",
+        '@media(max-width: 650px)': {
+            width: "64px",
+        },
+    },
     boxPrice: {
         display: "flex",
         flexDirection: "row",

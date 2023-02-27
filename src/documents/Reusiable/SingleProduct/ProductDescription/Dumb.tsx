@@ -5,7 +5,7 @@ import { ProductDescriptionType } from '../../../../../types/types'
 import { PRODUCT_DESCRIPTION } from '../../../DumbData/DumbData'
 import ProductSection from './ProductSection'
 
-const Dumb = () => {
+const Dumb = ({data}: any) => {
     const classes = style()
     return (
         <Box className={classes.mainWrapper}>

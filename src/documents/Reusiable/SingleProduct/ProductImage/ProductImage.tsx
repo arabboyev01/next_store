@@ -6,13 +6,14 @@ const ProductImage = ({getImage}: any) => {
     const classes = style()
     console.log(getImage)
 
-    const firstImage = useCallback(() => getImage.length !== 0 ? getImage[0].id : null, [getImage])
+    const firstImage = useCallback(() => getImage.length !== 0 ? getImage[0] : null, [getImage])
     useEffect(() => {
-    }, [firstImage]);
+         setInterval(() => firstImage, 100)
+    }, [firstImage])
 
     const [singleImage, setSingleImage] = useState(firstImage)
     const [active, setActive] = useState(firstImage)
-
+    console.log(singleImage)
     const showIndividualImages = (myId: any) => {
         setActive(myId)
         const filtered = getImage.find(({id}: any) => id === myId)

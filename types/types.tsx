@@ -14,6 +14,7 @@ export type ProductDetailType = {
     handleOpen?: (e: any) => void
     data?: any
     getProductColorImage: (id: number) => void
+    colorId: any
 }
 export type PrimaryButton = {
     text?: string

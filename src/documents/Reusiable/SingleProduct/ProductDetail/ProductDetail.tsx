@@ -11,10 +11,10 @@ import DeliveryService from '../../DeliveryService/DeliveryService';
 import { commafy } from '../../Suggested/global';
 import { useRouter } from 'next/router'
 
-const ProductDetail: React.FC<ProductDetailType> = ({handleOpen, data, getProductColorImage}) => {
+const ProductDetail: React.FC<ProductDetailType> = ({handleOpen, data, getProductColorImage, colorId}) => {
     const classes = Style();
     const dispatch = useDispatch();
-    const router = useRouter()
+    const router = useRouter();
     const onAddToCart = (data: any) => {
         dispatch(setAddItemToCart(data));
     };
@@ -31,7 +31,7 @@ const ProductDetail: React.FC<ProductDetailType> = ({handleOpen, data, getProduc
             <Box className={classes.colorBox}>
                 {data.productColorDTOS.map((item: any, index: number) =>
                     <Box
-                        className={classes.box}
+                        className={colorId === item.id ? classes.activeBox : classes.box}
                         key={index}
                         style={{backgroundColor: `${item.color}`}}
                         onClick={() => getProductColorImage(item.id)}

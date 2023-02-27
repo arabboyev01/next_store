@@ -36,6 +36,7 @@ const LikesComponent = () => {
         }).catch(err => console.log(err))
     }, [token])
 
+
     return (
         <Box className={classes.likeWrapper}>
             <Box className={classes.contentWrapper}>

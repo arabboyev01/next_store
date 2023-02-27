@@ -1,5 +1,5 @@
 import Styles from './singleproduct.style'
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 import { useRouter } from 'next/router'
 import axios from 'axios'
@@ -25,18 +25,23 @@ const SingleProduct = () => {
         axios.get(`${apiAddress}/advertising`).then(res => setSuggestData(res.data)).catch(err => console.log(err))
         axios.get(`${apiAddress}/product/${id}`).then(res => {
             setSingle(res.data)
-            setColorId(res.data.productColorDTOS.at(0).id)
+            setColorId(res.data.productColorDTOS[0].id)
         }).catch(err => console.log(err))
 
-        axios.get(`${apiAddress}/product-color/photo-url/${colorId}`).then(data => setImage(data.data))
-            .catch(err => console.log(err))
-    }, [id, setColorId, colorId])
+    }, [id, setColorId])
 
-     const getProductColorImage = (id: number) => {
+     const getProductColorImage =  useCallback((id: number) => {
         setColorId(id)
-        axios.get(`${apiAddress}/product-color/photo-url/${colorId}` ).then(res => setImage(res.data))
+        axios.get(`${apiAddress}/product-color/photo-url/${colorId}` )
+            .then(data => setImage(data.data))
             .catch(err => console.log(err))
-    }
+    }, [colorId])
+
+    useEffect(() => {
+        getProductColorImage(colorId)
+    }, [getProductColorImage, colorId])
+    console.log(single)
+
     return (
         <Dumb classes={classes}
               handleCLose={handleCLose}
@@ -47,6 +52,7 @@ const SingleProduct = () => {
               open={open}
               getProductColorImage={getProductColorImage}
               getImage={getImage}
+              colorId={colorId}
         />
     )
 }

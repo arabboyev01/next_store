@@ -19,7 +19,21 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
     const classes = Style();
     const query = useMediaQuery('@media(max-width: 600px)')
     const [initValue, setInitValue] = useState(1);
-    const newPrice = Math.trunc(price.price)
+    const newPrice = Math.ceil(price.price)
+
+    const countPrice = () => {
+        if(initValue == 1){
+           return  newPrice
+        }else if(initValue == 2){
+            return  Math.ceil(newPrice / 3)
+        }else if(initValue == 3){
+            return  Math.ceil(newPrice / 6)
+        } else if(initValue == 4){
+            return  Math.ceil(newPrice / 9)
+        }else if(initValue == 5){
+            return  Math.ceil(newPrice / 12)
+        }
+    }
 
     return(
         <Box>
@@ -43,12 +57,12 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                         <Typography className={classes.mainDesc}>Muddatli to‘lo‘vdan foydalanish uchun sizdan “Passport” talab etiladi</Typography>
                     </Box>
                     <Box className={classes.priceWrapper}>
-                        <Typography className={classes.price}>{ commafy(newPrice) / initValue} so&apos;m</Typography>
+                        <Typography className={classes.price}>{ commafy(countPrice())} so&apos;m</Typography>
                         <Typography className={classes.mainDesc}>Oyik to&apos;lov</Typography>
                     </Box>
                     <Typography className={classes.mainText}>Muddatini tanlang: (oy hisobida)</Typography>
                     <Box className={classes.form}>
-                        <input type="range" id="volume" name="volume" min="1" max="12" className={classes.range}
+                        <input type="range" id="volume" name="volume" min="1" max="5" className={classes.range}
                         value={initValue} onChange={(e: any) => setInitValue(e.target.value)}/>
                         <Box className={classes.nums}>
                             {numsRange.map(item =>
