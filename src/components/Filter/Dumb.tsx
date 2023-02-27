@@ -34,7 +34,7 @@ const Dumb = ({
                 <MainCart mainData={data.slice(indexOfFirstPost, indexOfLastPost)}/>
             }
             <Box className={classes.pagination}>
-                {data.length < 7 ?
+                {data.length <= 11 ?
                     null :
                     <PaginationComponent handlePaginateData={handlePaginateData} quantity={quantityData}/>
                 }
