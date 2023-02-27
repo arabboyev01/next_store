@@ -77,10 +77,10 @@ const HomeComponent = () => {
                               height={240} bgColor='#333' color='#fff'
                 />
             </Box>
-            <Box className={classes.page}>
-                <MainTitle title="Do'konlarimiz"/>
-                <Brands data={BrandsStore}/>
-            </Box>
+            {/*<Box className={classes.page}>*/}
+            {/*    <MainTitle title="Do'konlarimiz"/>*/}
+            {/*    <Brands data={BrandsStore}/>*/}
+            {/*</Box>*/}
         </Box>
     )
 }
