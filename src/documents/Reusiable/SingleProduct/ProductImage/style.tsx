@@ -29,7 +29,7 @@ export default makeStyles(() => ({
     images: {
         width: '80px',
         height: '80px',
-        opacity: 0.7,
+        opacity: 0.5,
         objectFit: "contain",
         '@media(max-width: 650px)': {
             width: '50px',

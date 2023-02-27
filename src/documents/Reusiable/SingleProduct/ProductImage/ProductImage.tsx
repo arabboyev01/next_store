@@ -1,14 +1,17 @@
 import { Box } from '@mui/system'
 import style from './style'
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const ProductImage = ({getImage}: any) => {
     const classes = style()
     console.log(getImage)
 
     const firstImage = useCallback(() => getImage.length !== 0 ? getImage[0].id : null, [getImage])
+    useEffect(() => {
+    }, [firstImage]);
+
     const [singleImage, setSingleImage] = useState(firstImage)
-    const [active, setActive] = useState(singleImage?.id)
+    const [active, setActive] = useState(firstImage)
 
     const showIndividualImages = (myId: any) => {
         setActive(myId)
