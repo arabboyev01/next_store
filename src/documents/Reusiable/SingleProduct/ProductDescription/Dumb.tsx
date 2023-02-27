@@ -2,7 +2,6 @@ import { Box } from '@mui/system'
 import style from './style'
 import { Typography } from '@mui/material'
 import { ProductDescriptionType } from '../../../../../types/types'
-import { PRODUCT_DESCRIPTION } from '../../../DumbData/DumbData'
 import ProductSection from './ProductSection'
 
 const Dumb = ({data}: any) => {
