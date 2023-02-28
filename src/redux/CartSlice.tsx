@@ -43,6 +43,9 @@ const CartSlice = createSlice({
         validateLogin: (state: any, action: any) => {
             state.validate = action.payload
         },
+        likedID: (state: any, action: any | number) => {
+            state.likes = action.payload
+        },
         setCategoryId: (state: any, action: any) => {
             state.categoryId = action.payload
         },
@@ -107,14 +110,15 @@ export const {
     setSingleProduct,
     setSearchValue,
     validateLogin,
-    setCategoryId
+    setCategoryId,
+    likedID
 } = CartSlice.actions;
 export const selectSingleItem = (state: any) => state.cart.singleProduct;
 export const selectCartItems = (state: any) => state.cart.cartItems;
 
 export const selectTotalAmount = (state: any) => state.cart.cartTotalAmount;
 export const selectTotalQTY = (state: any) => state.cart.cartTotalQuantity;
-
+export const likedId = (state: any) => state.cart.likes
 export const validataionCode = (state: any) => state.cart.validate
 export const categoryParentId = (state: any) => state.cart.categoryId
 

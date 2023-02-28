@@ -37,7 +37,7 @@ export default makeStyles(() => ({
         gap: "10px",
         marginTop: "17px",
         '@media(max-width: 650px)': {
-            justifyContent: "space-evenly",
+            justifyContent: "center",
         },
     },
     box: {

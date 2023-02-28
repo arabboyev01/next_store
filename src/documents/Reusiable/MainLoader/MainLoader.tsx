@@ -4,7 +4,6 @@ const MainLoader = () => {
         <Oval
             color="#0072b1"
             visible={true}
-            // @ts-ignore
             ariaLabel='oval-loading'
             height={60}
             width={60}
@@ -12,4 +11,5 @@ const MainLoader = () => {
         />
     )
 }
-export default MainLoader;
+
+export default MainLoader ;
