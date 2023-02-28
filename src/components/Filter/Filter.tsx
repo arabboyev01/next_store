@@ -51,6 +51,10 @@ const FilterComponent = () => {
             .then((data) => setData(data.data.content))
     }
 
+    const handleFilterProducts = (values: any) => {
+        console.log(values)
+    }
+
     return (
         <Dumb
             classes={classes}
@@ -65,6 +69,7 @@ const FilterComponent = () => {
             setBrands={setBrands}
             setCondition={setCondition}
             handleFilters={handleFilters}
+            handleFilterProducts={handleFilterProducts}
         />
     )
 }

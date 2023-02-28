@@ -10,7 +10,7 @@ const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, 
     <>
         {mainData.map((item: any, index: number) =>
             <Box className={carousel ? classes.mainCartCarousel : classes.mainCart} key={index}>
-                {(item.id == likedID && !item.isFavorite) ?
+                {(item.isFavorite) ?
                     <FavoriteIcon className={classes.favoriteIconLiked} onClick={() => sendData(item.id, dispatch)}/>
                     :
                     <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id, dispatch)}/>}

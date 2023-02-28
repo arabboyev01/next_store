@@ -120,6 +120,8 @@ export default makeStyles(() => ({
         lineHeight: '18px',
         fontWeight: 400,
         paddingTop: '10px',
+        height: '44px',
+        overflow: 'hidden',
         '@media(max-width: 650px)': {
             height: '25px',
             overflow: 'hidden',

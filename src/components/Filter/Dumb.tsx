@@ -15,7 +15,8 @@ const Dumb = ({
                   quantityData,
                   setBrands,
                   setCondition,
-                  handleFilters
+                  handleFilters,
+                  handleFilterProducts
               }: any) => (
     <Box className={classes.mainWrapper}>
         <Box className={classes.filters}>
@@ -27,6 +28,7 @@ const Dumb = ({
                 setBrands={setBrands}
                 setCondition={setCondition}
                 handleFilters={handleFilters}
+                handleFilterProducts={handleFilterProducts}
             />
         </Box>
         <Box className={classes.datas}>
