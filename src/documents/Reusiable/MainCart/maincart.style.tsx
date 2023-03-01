@@ -67,7 +67,7 @@ export default makeStyles(() => ({
             padding: '20px 5px',
             alignItems: 'center',
             '&:hover': {
-                transform: 'translateY(0)'
+                transform: 'none'
             },
         },
         '&:hover': {
