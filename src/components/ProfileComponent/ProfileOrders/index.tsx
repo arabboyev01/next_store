@@ -40,7 +40,7 @@ const ProfileOrders = () => {
                         orderData.map((item: any, index: any) =>
                             <Box className={classes.content} key={index}>
                                 <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt="image"
-                                     width={query ? 150 : 200} height={query ? 150 : 200}/>
+                                     width={query ? 150 : 200} height={query ? 150 : 200} style={{objectFit: "contain"}}/>
                                 <Box className={classes.mainContent}>
                                     <Typography className={classes.name}>{item.name}</Typography>
                                     <Typography className={classes.price}>{item.price} so&apos;m</Typography>
