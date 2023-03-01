@@ -12,12 +12,11 @@ export default makeStyles(() => ({
         borderRadius: "8px",
         overflow: "hidden",
         width: "100%",
-        // display: "flex",
         justifyContent: "center",
         alignItems: "center",
         '@media(max-width: 650px)': {
             width: "320px",
-            height: "320px",
+            height: "250px",
         },
     },
     productHeader: {

@@ -50,7 +50,7 @@ const LikesComponent = () => {
                             <FavoriteIcon className={classes.likeIcon}/>
                             <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt="image"
                                  width={query ? 180 : 236}
-                                 height={query ? 180 : 236}/>
+                                 height={query ? 180 : 236} style={{objectFit: "contain"}} />
                             <Box className={classes.mainContent}>
                                 <Typography className={classes.name}>{item.name}</Typography>
                                 <Typography className={classes.price}>{item.price} so&apos;m</Typography>

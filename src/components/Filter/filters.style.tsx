@@ -59,7 +59,14 @@ export default makeStyles(() => ({
         margin: '30px 0 20px 0',
         color: '#E4E7EE',
     },
-    clear: {},
+    clear: {
+        background: "#0D63F3",
+        color: "#fff",
+        '&:hover': {
+            opacity: 0.8,
+            background: "#0D63F3 !important",
+        },
+    },
     pagination: {
         margin: "20px 0",
         justifyContent: "flex-end",

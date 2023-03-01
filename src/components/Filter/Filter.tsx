@@ -12,12 +12,12 @@ const FilterComponent = () => {
 
     // ---mainData---
     const [data, setData] = useState([])
-
+    const quantityData = quantity(data);
     // ---filters data---
     const [value, setValue] = useState<number[]>([0, 1000000]);
-    const [brands, setBrands] = useState('')
+    const [brands, setBrands] = useState<string>('')
     const [purchaseType, setPurchaseType] = useState<string>('')
-    const [condition, setCondition] = useState(0)
+    const [condition, setCondition] = useState<string>('')
 
     // ---paginate numbers---
     const [currentPage, setCurrentPage] = useState(1);
@@ -26,7 +26,11 @@ const FilterComponent = () => {
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-    const quantityData = quantity(data);
+    const [installment, setInstallment] = useState(false)
+    const [discount, setDiscount] = useState(false)
+    const [debt, setDebt] = useState(false)
+    const [credit, setCredit] = useState(false)
+    const [delivery, setDelivery] = useState(false);
 
     useEffect(() => {
         const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
@@ -44,15 +48,41 @@ const FilterComponent = () => {
         setValue(newValue as number[]);
     };
 
+    const handleFilters = () => {
+        if (brands !== '') {
+            const filtered = data.filter(({name}: any) => name.toLowerCase().includes(brands.toLowerCase()))
+            setData(filtered)
+        }
 
-    const handleFilters = (inputs: any) => {
+        if (purchaseType !== '') {
+            if (purchaseType === 'Bo\'lib to\'lash') {
+                setInstallment(true)
+            }
+            if (purchaseType === 'Chegirmali mahsulot') {
+                setDiscount(true)
+            }
+        }
+
+        if (condition !== '') {
+            if (condition === 'Nasiya orqali') {
+                setDebt(true)
+            }
+            if (condition === 'Nasiya orqali') {
+                setDebt(true)
+            }
+            if (condition === 'Kreditga olish') {
+                setCredit(true)
+            }
+            if (condition === 'Yetkazib berish ') {
+                setDelivery(true)
+            }
+        }
+
         const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-        axios.get(`${apiAddress}/product?page=0&size=100&sort&price`, {headers: {Authorization: `Bearer ${token}`}})
+        axios.get(
+            `${apiAddress}/product?page=0&size=100&sort&price, desc&payInstallments=${installment}&discounted=${discount}&&takeCredit=${credit}&debt=${debt}&deliver=${delivery}`,
+            {headers: {Authorization: `Bearer ${token}`}})
             .then((data) => setData(data.data.content))
-    }
-
-    const handleFilterProducts = (values: any) => {
-        console.log(values)
     }
 
     return (
@@ -69,8 +99,7 @@ const FilterComponent = () => {
             setBrands={setBrands}
             setCondition={setCondition}
             handleFilters={handleFilters}
-            handleFilterProducts={handleFilterProducts}
         />
     )
 }
-export default FilterComponent;
+export default FilterComponent ;

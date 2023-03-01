@@ -2,6 +2,7 @@ import { Box } from '@mui/system'
 import Filters from '../../documents/Reusiable/Filter/Filters'
 import MainCart from '../../documents/Reusiable/MainCart/MainCart'
 import PaginationComponent from './Pagination/Pagination'
+import { Typography } from '@mui/material'
 
 const Dumb = ({
                   classes,
@@ -15,8 +16,7 @@ const Dumb = ({
                   quantityData,
                   setBrands,
                   setCondition,
-                  handleFilters,
-                  handleFilterProducts
+                  handleFilters
               }: any) => (
     <Box className={classes.mainWrapper}>
         <Box className={classes.filters}>
@@ -28,11 +28,12 @@ const Dumb = ({
                 setBrands={setBrands}
                 setCondition={setCondition}
                 handleFilters={handleFilters}
-                handleFilterProducts={handleFilterProducts}
             />
         </Box>
         <Box className={classes.datas}>
-            {data.length === null ? 'Siz so\'ragan mahsulot bo\'yicha xech narsa topilmadi' :
+            {data.length === 0 ?
+                <Box style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", height: '60vh'}}>
+                    <Typography>Siz so&apos;ragan mahsulot bo&apos;yicha xech narsa topilmadi</Typography></Box> :
                 <MainCart mainData={data.slice(indexOfFirstPost, indexOfLastPost)}/>
             }
             <Box className={classes.pagination}>
