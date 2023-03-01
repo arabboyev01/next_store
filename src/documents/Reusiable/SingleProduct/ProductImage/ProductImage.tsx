@@ -6,10 +6,10 @@ import MainLoader from '../../MainLoader/MainLoader'
 const ProductImage = ({getImage, getFirstImage}: any) => {
     const classes = style()
     const [singleImage, setSingleImage] = useState<any>(null)
-    const [active, setActive] = useState(getFirstImage?.id)
+    const [active, setActive] = useState(0)
     const showIndividualImages = (myId: any) => {
         setActive(myId)
-        const filtered = getImage.find(({id}: any) => id == active)
+        const filtered = getImage?.find(({id}: any) => id == myId)
         setSingleImage(filtered)
     }
 
