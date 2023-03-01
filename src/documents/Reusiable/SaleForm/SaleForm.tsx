@@ -10,7 +10,7 @@ import { validate } from './Validation'
 
 
 export type SaleFormType = {
-    handleForm: any
+    handleForm?: any
     classess: any
     handleSendData: (e: any) => void
     region: any
@@ -18,7 +18,7 @@ export type SaleFormType = {
 const SaleForm: React.FC<SaleFormType> = ({handleForm, classess, handleSendData, region}) => (
     <Box className={classess.saleWrapper}>
         <Box className={classess.header}>
-            <Box onClick={handleForm.handleForm}><KeyboardArrowLeftIcon className={classess.leftIcon}/></Box>
+            <Box onClick={handleForm}><KeyboardArrowLeftIcon className={classess.leftIcon}/></Box>
             <Typography className={classess.headerTitle}>Ma’lumotlarni to‘ldiring</Typography>
         </Box>
         <Form

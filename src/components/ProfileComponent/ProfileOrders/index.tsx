@@ -20,14 +20,13 @@ const ProfileOrders = () => {
     const [orderData, setOrderData] = React.useState([])
     // @ts-ignore
     const decoded: unknown | any = jwt_decode(token)
-    console.log(decoded)
 
     useEffect(() => {
         axios.get(`${apiAddress}/user-order`, {headers: {Authorization: `Bearer ${token}`}})
             .then(res => setOrderData(res.data))
             .catch((err) => console.log(err))
     }, [token])
-
+    console.log(orderData)
     return (
         orderData.length === 0 ? <EmptyData data={emptyProfile}/> :
             <Box className={classes.likeWrapper}>
