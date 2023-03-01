@@ -6,7 +6,7 @@ import MainLoader from '../../MainLoader/MainLoader'
 const ProductImage = ({getImage, getFirstImage}: any) => {
     const classes = style()
     const [singleImage, setSingleImage] = useState<any>(null)
-    const [active, setActive] = useState(0)
+    const [active, setActive] = useState(getFirstImage?.id)
     const showIndividualImages = (myId: any) => {
         setActive(myId)
         const filtered = getImage?.find(({id}: any) => id == myId)
@@ -30,7 +30,7 @@ const ProductImage = ({getImage, getFirstImage}: any) => {
             <Box className={classes.tinyImages}>
                 {getImage.map(({id, photoUrl}: any) =>
                     <img key={id} src={`https://nextstore.in/nextstore${photoUrl}`}
-                         className={active ? classes.activeImages : classes.images}
+                         className={active == id ? classes.activeImages : classes.images}
                          alt="image"
                          onClick={() => showIndividualImages(id)}
                     />
