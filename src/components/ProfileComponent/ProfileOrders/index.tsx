@@ -10,23 +10,20 @@ import axios from 'axios'
 import { apiAddress } from '../../../../config'
 import EmptyData from '../../../documents/Reusiable/EmptyData/EmptyData'
 import { emptyProfile } from '../../../documents/DumbData/DumbData'
-import jwt_decode from 'jwt-decode'
-
+import jwt_decode from "jwt-decode";
 
 const ProfileOrders = () => {
     const classes = style()
     const query = useMediaQuery('@media(max-width: 600px)')
-    const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
+    const token: any | unknown = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
     const [orderData, setOrderData] = React.useState([])
-    // @ts-ignore
-    const decoded: unknown | any = jwt_decode(token)
-
+    const decoded = jwt_decode(token);
     useEffect(() => {
-        axios.get(`${apiAddress}/user-order`, {headers: {Authorization: `Bearer ${token}`}})
+        // @ts-ignore
+        axios.get(`${apiAddress}/user-order/info/${decoded?.sub}`, {headers: {Authorization: `Bearer ${token}`}})
             .then(res => setOrderData(res.data))
             .catch((err) => console.log(err))
-    }, [token])
-    console.log(orderData)
+    }, [decoded,token])
     return (
         orderData.length === 0 ? <EmptyData data={emptyProfile}/> :
             <Box className={classes.likeWrapper}>
