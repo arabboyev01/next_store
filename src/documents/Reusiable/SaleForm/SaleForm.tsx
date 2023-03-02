@@ -36,10 +36,6 @@ const SaleForm: React.FC<SaleFormType> = ({handleForm, classess, handleSendData,
                             <CssTextField {...SALES_FORM.number} placeholder="+998 9* *** ** **"/>
                         </Box>
                         <Box className={classess.fieldContainer}>
-                            <Typography className={classess.label}>{SALES_FORM.passport.text}</Typography>
-                            <CssTextField {...SALES_FORM.passport} placeholder="AB123456"/>
-                        </Box>
-                        <Box className={classess.fieldContainer}>
                             <Typography className={classess.label}>{SALES_FORM.areas.text}</Typography>
                             <CssSelectField
                                 {...SALES_FORM.areas}

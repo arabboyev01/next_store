@@ -3,7 +3,6 @@ import { apiAddress } from '../../../../config'
 
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
 export const orderForm = (values: any, cartItems: any, totalAmount: number, setSucces: any) => {
-    console.log(values)
     const payload = {
         'orders':
             cartItems.map((item: any) => (
@@ -13,7 +12,7 @@ export const orderForm = (values: any, cartItems: any, totalAmount: number, setS
                 }
             )),
         'fullName': values.fullName,
-        'passportNumber': values.passport,
+        'passportNumber': values.textArea,
         'phone': values.number,
         'totalPrice': totalAmount,
         'territoryId': values.area,
@@ -42,7 +41,7 @@ export const orderObjectForm = (values: any, cartItems: any, totalAmount: number
             }
         ],
         'fullName': values.fullName,
-        'passportNumber': values.passport,
+        'passportNumber': values.textArea,
         'phone': values.number,
         'totalPrice': totalAmount,
         'territoryId': values.area,

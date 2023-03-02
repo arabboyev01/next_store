@@ -11,12 +11,6 @@ export const SALES_FORM = {
         require: true,
         text: "Telefon raqam"
     },
-    passport: {
-        name: 'passport',
-        label: "Passport raqamingizni kiriting",
-        require: true,
-        text: "Passport raqam",
-    },
     areas: {
         name: 'area',
         label: "Hudud tanlanmagan",
