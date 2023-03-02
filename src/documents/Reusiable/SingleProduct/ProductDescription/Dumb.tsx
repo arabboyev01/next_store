@@ -10,10 +10,8 @@ const Dumb = ({data}: any) => {
         <Box className={classes.mainWrapper}>
             <Typography className={classes.title}>Mahsulot xususiyatlari</Typography>
             <Box className={classes.mainProductWrapper}>
-               {data?.params?.map(({id, nameEn, nameRu, nameUz, valueEn, valueUz, valueRu}: ProductDescriptionType) => (
-                    <ProductSection key={id} nameEn={nameEn} nameRu={nameRu} nameUz={nameUz}
-                                    valueEn={valueEn} valueUz={valueUz} valueRu={valueRu}
-                    />
+               {data?.params?.map(({id, nameUz, valueUz}: ProductDescriptionType) => (
+                    <ProductSection key={id} nameUz={nameUz} valueUz={valueUz}/>
                ))}
             </Box>
         </Box>
