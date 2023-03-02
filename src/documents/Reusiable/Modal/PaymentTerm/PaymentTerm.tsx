@@ -10,6 +10,7 @@ import {numsRange} from "../../../DumbData/DumbData";
 import PrimaryButton from "../../PrimaryButton/PrimaryButton";
 import {useState} from "react";
 import {commafy} from "../../Suggested/global";
+import { useRouter } from 'next/router'
 export type PaymentTermType = {
     open: boolean
     handleCLose: (e: any) => void
@@ -20,7 +21,7 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
     const query = useMediaQuery('@media(max-width: 600px)')
     const [initValue, setInitValue] = useState(1);
     const newPrice = Math.ceil(price.price)
-
+    const router = useRouter()
     const countPrice = () => {
         if(initValue == 1){
            return  newPrice
@@ -34,7 +35,11 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
             return  Math.ceil(newPrice / 12)
         }
     }
-
+    const handlePageDirection = () => {
+        // @ts-ignore
+        handleCLose()
+        router.push({pathname: '/buy-now'})
+    }
     return(
         <Box>
             <Rodal
@@ -74,8 +79,8 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                         <Typography className={classes.title}>Umumiy to&apos;lov miqdori:</Typography>
                         <Typography className={classes.priceUniq}>{commafy(price.price)} so&apos;m</Typography>
                     </Box>
-                    <Box className={classes.button}>
-                        <PrimaryButton text='Rasmiylashtirish' />
+                    <Box className={classes.button} onClick={handlePageDirection}>
+                        <PrimaryButton text='Sotib olish' />
                     </Box>
                 </Box>
             </Rodal>

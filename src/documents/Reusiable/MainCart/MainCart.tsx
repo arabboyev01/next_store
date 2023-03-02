@@ -1,17 +1,18 @@
 import Styles from './maincart.style';
 import { useMediaQuery } from '@mui/material';
-import { likedId, setSingleProduct } from '../../../redux/CartSlice'
-import { useDispatch, useSelector } from 'react-redux';
+import { setSingleProduct } from '../../../redux/CartSlice'
+import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { mainDataType } from '../../../../types/types';
 import Dumb from './Dumb'
 import { sendData } from './Utility'
+import { useState } from "react";
 
 const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
     const query = useMediaQuery('@media(max-width: 650px)');
     const dispatch = useDispatch();
-    const likedID = useSelector(likedId)
+    const [render, setRender] = useState(false)
     const router = useRouter();
     const classes = Styles();
 
@@ -19,8 +20,7 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
-    console.log(mainData)
-
+    console.log(render)
     return (
         <Dumb
             classes={classes}
@@ -30,8 +30,9 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
             sendData={sendData}
             query={query}
             dispatch={dispatch}
-            likedID={likedID}
+            setRender={setRender}
+            render={render}
         />
     )
 }
-export default MainCart;
+export default MainCart ;

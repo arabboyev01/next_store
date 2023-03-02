@@ -3,7 +3,7 @@ import { apiAddress } from '../../../../config'
 import {likedID} from "../../../redux/CartSlice"
 
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-export const sendData = (id: number, dispatch: any) => {
+export const sendData = (id: number, dispatch: any, setRender: any) => {
     axios.get(`${apiAddress}/favorite-product/${id}`, {
         headers: {Authorization: `Bearer ${token}`}
     }).then(res => {
@@ -11,6 +11,7 @@ export const sendData = (id: number, dispatch: any) => {
         if (res.status === 200) {
             // @ts-ignore
             dispatch(likedID(id))
+            setRender(true)
         }
     }).catch(err => console.log(err))
 }
