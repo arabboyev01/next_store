@@ -61,11 +61,12 @@ export type PROFILE_LINK_DATA_TYPE = {
 }
 export type ProductDescriptionType = {
     id?: number,
-    nameEng: any,
+    nameEn: any,
     nameRu: string,
     nameUz: string,
-    paramId: number,
     valueEn: string,
+    valueUz: any
+    valueRu: any
 }
 export type MainCarouselPropsType = {
     data?: any
