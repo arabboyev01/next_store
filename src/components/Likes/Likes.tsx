@@ -15,10 +15,12 @@ import { apiAddress } from '../../../config'
 import { useState } from 'react'
 import EmptyData from '../../documents/Reusiable/EmptyData/EmptyData'
 import { emptyData } from '../../documents/DumbData/DumbData'
+import { useRouter } from 'next/router'
 
 const LikesComponent = () => {
     const classes = styles();
     const dispatch = useDispatch();
+    const router = useRouter()
     const query = useMediaQuery('@media(max-width: 600px)')
     const [favoriteData, setFavoriteData] = useState([])
     const token = typeof window !== 'undefined' ?
@@ -35,7 +37,9 @@ const LikesComponent = () => {
             setFavoriteData(res.data);
         }).catch(err => console.log(err))
     }, [token])
-
+    const handleDirectPage = (data: any) => {
+        router.push({pathname: "/buy-now", query: {id: data.id}})
+    }
 
     return (
         <Box className={classes.likeWrapper}>
@@ -72,7 +76,7 @@ const LikesComponent = () => {
                                 <Box className={classes.button} onClick={() => onAddToCart(item)}>
                                     <PrimaryButton text="Savatchaga otish"/>
                                 </Box>
-                                <Box className={classes.button}>
+                                <Box className={classes.button} onClick={() => handleDirectPage(item)}>
                                     <Button className={classes.buynow}>Hoziroq sotib olish</Button>
                                 </Box>
                             </Box>

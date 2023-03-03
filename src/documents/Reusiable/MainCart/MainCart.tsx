@@ -21,10 +21,12 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
     console.log(render)
+    const rendered = render ? mainData : mainData
+
     return (
         <Dumb
             classes={classes}
-            mainData={mainData}
+            mainData={rendered}
             carousel={carousel}
             handleSingleProduct={handleSingleProduct}
             sendData={sendData}

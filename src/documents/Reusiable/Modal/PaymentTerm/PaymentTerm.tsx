@@ -35,11 +35,12 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
             return  Math.ceil(newPrice / 12)
         }
     }
-    const handlePageDirection = () => {
+    const handlePageDirection = (data: any) => {
         // @ts-ignore
         handleCLose()
-        router.push({pathname: '/buy-now'})
+        router.push({pathname: '/buy-now', query: {id: data.id}})
     }
+
     return(
         <Box>
             <Rodal
@@ -79,7 +80,7 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                         <Typography className={classes.title}>Umumiy to&apos;lov miqdori:</Typography>
                         <Typography className={classes.priceUniq}>{commafy(price.price)} so&apos;m</Typography>
                     </Box>
-                    <Box className={classes.button} onClick={handlePageDirection}>
+                    <Box className={classes.button} onClick={() => handlePageDirection(price)}>
                         <PrimaryButton text='Sotib olish' />
                     </Box>
                 </Box>
