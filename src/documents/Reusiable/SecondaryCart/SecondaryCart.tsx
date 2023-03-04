@@ -3,8 +3,6 @@ import Styles from "./secondarycart.style"
 import React from "react";
 import {Typography, useMediaQuery} from "@mui/material";
 import {useRouter} from "next/router";
-import { useDispatch } from 'react-redux'
-import { setCategoryId } from "../../../redux/CartSlice"
 
 export type SecondaryCartType = {
     data?: any,
@@ -13,11 +11,8 @@ const SecondaryCart: React.FC<SecondaryCartType> = ({data}) => {
     const classes = Styles();
     const query = useMediaQuery('@media(max-width: 650px)')
     const router = useRouter();
-    const dispatch = useDispatch();
     const HandleDataById = (item: any) => {
         router.push({pathname: '/category', query: {id: item}})
-        // @ts-ignore
-        dispatch(setCategoryId(item))
     }
 
     return(

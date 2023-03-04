@@ -3,7 +3,7 @@ import { useMediaQuery } from '@mui/material';
 import { setSingleProduct } from '../../../redux/CartSlice'
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { mainDataType } from '../../../../types/types';
 import Dumb from './Dumb'
 import { sendData } from './Utility'
@@ -20,7 +20,6 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
-    console.log(render)
     const rendered = render ? mainData : mainData
 
     return (

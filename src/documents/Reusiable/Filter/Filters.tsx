@@ -15,7 +15,7 @@ export type Props = {
     handleFilters: any
 }
 
-const Filters: React.FC<Props> = ({classes, value, handleChange, setPurchaseType, setBrands, setCondition, handleFilters}) => (
+const Filters: React.FC<Props> = ({ classes, value, handleChange, setPurchaseType, setBrands, setCondition, handleFilters }) => (
     <Box className={classes.filterWrapper}>
         <Typography className={classes.filterType}>Narxi so&apos;mda</Typography>
         <Box>
@@ -47,7 +47,9 @@ const Filters: React.FC<Props> = ({classes, value, handleChange, setPurchaseType
             )}
             <hr className={classes.hr}/>
             <Button className={classes.clear} type="submit" onClick={handleFilters}>Mahsulotlarni saralash</Button>
+            <Button type="submit" onClick={handleFilters}>Filterni tozalash</Button>
         </Box>
     </Box>
 )
+
 export default Filters;

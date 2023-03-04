@@ -46,9 +46,6 @@ const CartSlice = createSlice({
         likedID: (state: any, action: any | number) => {
             state.likes = action.payload
         },
-        setCategoryId: (state: any, action: any) => {
-            state.categoryId = action.payload
-        },
         setRemoveItemFromCart: (state: any, action: any) => {
             state.cartItems = state.cartItems.filter(({id}: any) => id !== action.payload.id);
             if (state.cartTotalQuantity == 1) {
@@ -110,7 +107,6 @@ export const {
     setSingleProduct,
     setSearchValue,
     validateLogin,
-    setCategoryId,
     likedID
 } = CartSlice.actions;
 export const selectSingleItem = (state: any) => state.cart.singleProduct;
@@ -120,6 +116,5 @@ export const selectTotalAmount = (state: any) => state.cart.cartTotalAmount;
 export const selectTotalQTY = (state: any) => state.cart.cartTotalQuantity;
 export const likedId = (state: any) => state.cart.likes
 export const validataionCode = (state: any) => state.cart.validate
-export const categoryParentId = (state: any) => state.cart.categoryId
 
 export default CartSlice.reducer;

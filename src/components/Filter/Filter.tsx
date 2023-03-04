@@ -49,33 +49,27 @@ const FilterComponent = () => {
     };
 
     const handleFilters = () => {
-        if (brands !== '') {
-            const filtered = data.filter(({name}: any) => name.toLowerCase().includes(brands.toLowerCase()))
-            setData(filtered)
+        const filtered = data.filter(({name}: any) => name.toLowerCase().includes(brands.toLowerCase()))
+        setData(filtered)
+
+        if (purchaseType === 'Bo\'lib to\'lash') {
+            setInstallment(true)
+        }
+        if (purchaseType === 'Chegirmali mahsulot') {
+            setDiscount(true)
         }
 
-        if (purchaseType !== '') {
-            if (purchaseType === 'Bo\'lib to\'lash') {
-                setInstallment(true)
-            }
-            if (purchaseType === 'Chegirmali mahsulot') {
-                setDiscount(true)
-            }
+        if (condition === 'Nasiya orqali') {
+            setDebt(true)
         }
-
-        if (condition !== '') {
-            if (condition === 'Nasiya orqali') {
-                setDebt(true)
-            }
-            if (condition === 'Nasiya orqali') {
-                setDebt(true)
-            }
-            if (condition === 'Kreditga olish') {
-                setCredit(true)
-            }
-            if (condition === 'Yetkazib berish ') {
-                setDelivery(true)
-            }
+        if (condition === 'Nasiya orqali') {
+            setDebt(true)
+        }
+        if (condition === 'Kreditga olish') {
+            setCredit(true)
+        }
+        if (condition === 'Yetkazib berish ') {
+            setDelivery(true)
         }
 
         const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
@@ -83,8 +77,10 @@ const FilterComponent = () => {
             `${apiAddress}/product?page=0&size=100&sort&price, desc&payInstallments=${installment}&discounted=${discount}&&takeCredit=${credit}&debt=${debt}&deliver=${delivery}`,
             {headers: {Authorization: `Bearer ${token}`}})
             .then((data) => setData(data.data.content))
-    }
 
+        return data
+    }
+    console.log(data)
     return (
         <Dumb
             classes={classes}
@@ -102,4 +98,4 @@ const FilterComponent = () => {
         />
     )
 }
-export default FilterComponent ;
+export default FilterComponent;
