@@ -20,25 +20,25 @@ export const SuggestedDataCarousel: HomeCarouselDataType[] = [
     {
         id: 0,
         title: 'Mahsulot narxidan 1% qaytaramiz.',
-        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        subTitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
         imageUrl: Iphone,
     },
     {
         id: 1,
        title: 'Mahsulot narxidan 1% qaytaramiz.',
-        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        subTitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
         imageUrl: Iphone,
     },
     {
         id: 2,
         title: 'Mahsulot narxidan 1% qaytaramiz.',
-        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        subTitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
         imageUrl: Iphone,
     },
     {
         id: 3,
         title: 'Mahsulot narxidan 1% qaytaramiz.',
-        subtitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
+        subTitle: 'Nasiya savdo uchun har bir tolovdan 1% qaytaramiz.',
         imageUrl: Iphone,
     },
 ]
