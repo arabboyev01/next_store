@@ -37,8 +37,6 @@ const HomeComponent = () => {
             .catch(err => console.log(err))
     }, [])
 
-    console.log(bannerData)
-
     return (
         <Box className={classes.homeWrapper}>
             <Box className={classes.contentWrapper}>
