@@ -26,11 +26,11 @@ const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height, bgColor, c
             <Swiper modules={[Pagination, Navigation]}{...setting}
             className={classes.swiper} style={{backgroundColor: bgColor, height: height}}
             >
-                {data?.map(({id, title, subtitle, imageUrl}: HomeCarouselDataType) =>
+                {data?.map(({id, title, subTitle, imageUrl}: HomeCarouselDataType) =>
                     <SwiperSlide key={id} className={classes.slide}>
                         <Box className={classes.textContent}>
                             <Typography className={buttonText ? classes.textTop : classes.title} style={{color: color}}>{title}</Typography>
-                            <Typography className={classes.sub} style={{color: color}} >{subtitle}</Typography>
+                            <Typography className={classes.sub} style={{color: color}} >{subTitle}</Typography>
                         </Box>
                         <img src={`https://nextstore.in/nextstore${imageUrl}`} alt="rasm" width={query ? 150 : 300} height={query ? 150 : 350}
                                className={sticky ? classes.showImage : classes.images}

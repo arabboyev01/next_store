@@ -1,7 +1,7 @@
 export interface HomeCarouselDataType {
     id: number,
     title: string,
-    subtitle: string,
+    subTitle: string,
     imageUrl: any,
 }
 
