@@ -2,13 +2,13 @@ import { Box } from '@mui/system'
 import { Typography } from '@mui/material'
 import MainCart from '../../documents/Reusiable/MainCart/MainCart'
 
-const Dumb = ({classes, query, categoryData, setProductId, getFilteredData}: any) => (
+const Dumb = ({classes, query, categoryData, setProductId, getFilteredData, productsID}: any) => (
      <Box className={classes.categoryWrapper}>
-            {/*<Typography className={classes.title}>Apple mahsulotlari <span className={classes.span}>230 ta mahsulot mavjud</span></Typography>*/}
             <Box className={classes.contentWrapper}>
                 <Box className={classes.category}>
                     {categoryData.map(({id, imageUrl, name}: any) =>
-                        <Box key={id} className={classes.categoryBox} onClick={() => setProductId(id)}>
+                        <Box key={id} className={productsID === id ? classes.activeBox : classes.categoryBox}
+                             onClick={() => setProductId(id)}>
                             <Box>
                                 <img src={`https://nextstore.in/nextstore${imageUrl}`} alt='category_image' width={query ? 130 : 180} height={query ? 100 : 134}
                                 className={classes.image}

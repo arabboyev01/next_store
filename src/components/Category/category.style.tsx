@@ -64,6 +64,22 @@ export default makeStyles(() => ({
         justifyContent: "center",
         alignItems:"center",
         borderRadius: "15px",
+        padding: "0.5px",
+        '@media(max-width: 650px)' : {
+            width:'210px',
+            height: '170px',
+        },
+    },
+    activeBox: {
+        maxWidth:'210px',
+        height: '210px',
+        background: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems:"center",
+        borderRadius: "15px",
+        border: "1px solid rgba(0, 0, 0, 0.2)",
         '@media(max-width: 650px)' : {
             width:'210px',
             height: '170px',
