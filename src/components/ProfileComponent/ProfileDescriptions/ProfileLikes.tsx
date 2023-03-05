@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { apiAddress } from '../../../../config'
 import { useRouter } from 'next/router'
+import { sendData } from '../../../documents/Reusiable/MainCart/Utility'
 
 const ProfileLikes = () => {
     const classes = style()
@@ -38,7 +39,7 @@ const ProfileLikes = () => {
         }).then(res => {
             setFavoriteData(res.data);
         }).catch(err => console.log(err))
-    }, [token])
+    }, [token, favoriteData])
 
     const directionPage = (data: any) => {
         router.push({pathname: '/buy-now', query: {id: data.id}})
@@ -78,7 +79,7 @@ const ProfileLikes = () => {
                                         <Button className={classes.buynow}>Hoziroq sotib olish</Button>
                                     </Box>
                                 </Box>
-                                <Box className={classes.close}>
+                                <Box className={classes.close} onClick={() => sendData(item.id, dispatch)}>
                                     <CloseIcon className={classes.closeIcon}/>
                                 </Box>
                             </Box>

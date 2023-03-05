@@ -5,7 +5,7 @@ export default makeStyles(() => ({
         width: "100%",
     },
     contentWrapper: {
-        maxWidth: "1230px",
+        maxWidth: "1030px",
         width: "100%",
         margin: "60px auto",
         '@media(max-width: 600px)': {
@@ -47,6 +47,7 @@ export default makeStyles(() => ({
         position: "absolute",
         left: '280px',
         color: "#FF0101",
+        cursor: 'pointer',
         '@media(max-width: 600px)': {
             left: '20px',
             top: "20px",
@@ -149,11 +150,15 @@ export default makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        cursor: 'pointer',
         '@media(max-width: 600px)': {
             right: '10px',
             top: "20px",
             width: "30px",
             height: "30px",
+        },
+        '&:hover': {
+            background: "#ed7e93",
         },
     },
     closeIcon: {

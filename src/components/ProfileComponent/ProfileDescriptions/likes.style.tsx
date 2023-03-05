@@ -145,11 +145,15 @@ export default makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        cursor: "pointer",
         '@media(max-width: 600px)': {
             right: '10px',
             top: "20px",
             width: "30px",
             height: "30px",
+        },
+         '&:hover': {
+            background: "#ed7e93",
         },
     },
     closeIcon: {

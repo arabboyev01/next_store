@@ -16,6 +16,7 @@ import { useState } from 'react'
 import EmptyData from '../../documents/Reusiable/EmptyData/EmptyData'
 import { emptyData } from '../../documents/DumbData/DumbData'
 import { useRouter } from 'next/router'
+import { sendData } from '../../documents/Reusiable/MainCart/Utility'
 
 const LikesComponent = () => {
     const classes = styles();
@@ -36,7 +37,7 @@ const LikesComponent = () => {
             }}).then(res => {
             setFavoriteData(res.data);
         }).catch(err => console.log(err))
-    }, [token])
+    }, [token,favoriteData])
     const handleDirectPage = (data: any) => {
         router.push({pathname: "/buy-now", query: {id: data.id}})
     }
@@ -51,7 +52,7 @@ const LikesComponent = () => {
                     </Box> :
                     favoriteData.map((item: any, index: any) =>
                         <Box className={classes.content} key={index}>
-                            <FavoriteIcon className={classes.likeIcon}/>
+                            <FavoriteIcon className={classes.likeIcon} onClick={() => sendData(item.id, dispatch)}/>
                             <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt="image"
                                  width={query ? 180 : 236}
                                  height={query ? 180 : 236} style={{objectFit: "contain"}} />
@@ -80,7 +81,7 @@ const LikesComponent = () => {
                                     <Button className={classes.buynow}>Hoziroq sotib olish</Button>
                                 </Box>
                             </Box>
-                            <Box className={classes.close}>
+                            <Box className={classes.close} onClick={() => sendData(item.id, dispatch)}>
                                 <CloseIcon className={classes.closeIcon}/>
                             </Box>
                         </Box>

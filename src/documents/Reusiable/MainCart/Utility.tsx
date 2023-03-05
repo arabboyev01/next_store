@@ -4,7 +4,7 @@ import { likedID } from '../../../redux/CartSlice'
 import { fetchData } from '../../../redux/fetchData'
 
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-export const sendData = (id: number, dispatch: any, setRender: any) => {
+export const sendData = (id: number, dispatch: any) => {
     axios.get(`${apiAddress}/favorite-product/${id}`, {
         headers: {Authorization: `Bearer ${token}`}
     }).then(res => {
@@ -12,7 +12,6 @@ export const sendData = (id: number, dispatch: any, setRender: any) => {
         if (res.status === 200) {
             // @ts-ignore
             dispatch(fetchData())
-            setRender(true)
         }
     }).catch(err => {
         console.log(err)
