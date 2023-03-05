@@ -1,4 +1,3 @@
-import Styles from './maincart.style';
 import { useMediaQuery } from '@mui/material';
 import { setSingleProduct } from '../../../redux/CartSlice'
 import { useDispatch } from 'react-redux';
@@ -8,6 +7,7 @@ import { mainDataType } from '../../../../types/types';
 import Dumb from './Dumb'
 import { sendData } from './Utility'
 import { useState } from "react";
+import Styles from './maincart.style';
 
 const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
     const query = useMediaQuery('@media(max-width: 650px)');
@@ -20,12 +20,11 @@ const MainCart: React.FC<mainDataType> = ({mainData, carousel}) => {
         dispatch(setSingleProduct(data));
         router.push({pathname: '/single-products', query: {id: data.id}})
     }
-    const rendered = render ? mainData : mainData
 
     return (
         <Dumb
             classes={classes}
-            mainData={rendered}
+            mainData={mainData}
             carousel={carousel}
             handleSingleProduct={handleSingleProduct}
             sendData={sendData}

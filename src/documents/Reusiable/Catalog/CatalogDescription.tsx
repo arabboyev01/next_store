@@ -16,4 +16,4 @@ const CatalogDescription = ({categoryChild, getCatalogData}: any) => {
         </Box>
     )
 }
-export default CatalogDescription
+export default CatalogDescription ;

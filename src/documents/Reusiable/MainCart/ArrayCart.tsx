@@ -11,9 +11,10 @@ const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, 
         {mainData.map((item: any, index: number) =>
             <Box className={carousel ? classes.mainCartCarousel : classes.mainCart} key={index}>
                 {(item.isFavorite) ?
-                    <FavoriteIcon className={render ? classes.favoriteIconLiked : classes.favoriteIconLiked} onClick={() => sendData(item.id, dispatch, setRender)}/>
-                    :
-                    <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id, dispatch, setRender)}/>}
+                    <FavoriteIcon className={render ? classes.favoriteIconLiked : classes.favoriteIconLiked}
+                                  onClick={() => sendData(item.id, dispatch, setRender)}/> :
+                    <FavoriteBorderIcon className={classes.favoriteIcon} onClick={() => sendData(item.id, dispatch, setRender)}/>
+                }
 
                 <Box onClick={() => handleSingleProduct(item)}>
                     {item.state === 'New' ?

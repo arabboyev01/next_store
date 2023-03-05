@@ -38,7 +38,7 @@ const FilterComponent = () => {
         axios.get(`${apiAddress}/product`, config).then(res => {
             setData(res.data.content)
         }).catch(err => console.log(err))
-    }, [])
+    }, [data])
 
     const handlePaginateData = (number: any) => {
         setCurrentPage(number)
@@ -62,9 +62,6 @@ const FilterComponent = () => {
         if (condition === 'Nasiya orqali') {
             setDebt(true)
         }
-        if (condition === 'Nasiya orqali') {
-            setDebt(true)
-        }
         if (condition === 'Kreditga olish') {
             setCredit(true)
         }
@@ -80,7 +77,7 @@ const FilterComponent = () => {
 
         return data
     }
-    console.log(data)
+
     return (
         <Dumb
             classes={classes}
