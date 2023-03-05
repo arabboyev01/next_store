@@ -62,9 +62,6 @@ const MobileNav = () => {
     const handlePersonalData = () => {
         return validate ? router.push({pathname: '/likes'}) : handleOpen()
     }
-    // const directFilterPage = () => {
-    //     router.push({pathname: '/filter'})
-    // }
 
     const [categoryMain, setCategory] = useState(false);
     const handleSetCategory = () => setCategory(false);
@@ -108,10 +105,6 @@ const MobileNav = () => {
                                         mahsulotlarim</Typography>
                                     <KeyboardArrowRightIcon style={{color: '#000', marginTop: '20px'}}/>
                                 </Box>
-                                {/*<Box className={classes.dividedMenu} onClick={directFilterPage}>*/}
-                                {/*    <Typography className={classes.chapters} >Mahsulotlar kategoriyasi</Typography>*/}
-                                {/*    <KeyboardArrowRightIcon style={{color: '#000', marginTop: '20px'}}/>*/}
-                                {/*</Box>*/}
                                 <Box className={classes.dividedMenu}  onClick={handleOpenCategory}>
                                     <Typography className={classes.chapters}>Bizning Catalog</Typography>
                                     <KeyboardArrowRightIcon style={{color: '#000', marginTop: '20px'}}/>
