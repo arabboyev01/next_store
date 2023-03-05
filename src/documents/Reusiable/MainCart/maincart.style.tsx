@@ -80,11 +80,7 @@ export default makeStyles(() => ({
         right: '2%',
         marginTop: '17px',
         top: '-3px',
-        backgroundImage: 'linear-gradient(to right, #4D5EF6, #F64D4D);',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text',
-        textFillColor: 'transparent',
+        color: '#000',
         '@media(max-width: 650px)': {
             right: '8%',
         },
@@ -94,7 +90,7 @@ export default makeStyles(() => ({
         right: '2%',
         marginTop: '17px',
         top: '-3px',
-        color: '#bf0000',
+        color:"red",
         '@media(max-width: 650px)': {
             right: '8%',
         },
