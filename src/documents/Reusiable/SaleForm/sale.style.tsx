@@ -66,6 +66,8 @@ export default makeStyles(() => ({
         height: '140px !important',
         borderRadius: "10px",
         border: ".5px solid rgba(0, 0, 0, 0.4)",
+        padding: "10px 20px",
+        fontSize: "16px",
         '@media(max-width: 600px)': {
             height: '100px !important',
         },
