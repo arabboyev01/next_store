@@ -13,10 +13,11 @@ import Link from 'next/link';
 export type LoginType = {
     open?: boolean
     handleClose?: (e: any) => void
+    likedOpen: boolean
 }
 
 
-const LoginModal: React.FC<LoginType> = ({open, handleClose}) => {
+const LoginModal: React.FC<LoginType> = ({open, handleClose, likedOpen}) => {
     const query = useMediaQuery('@media(max-width: 600px)')
     const classes = style();
     const [login, setLogin] = useState(false);
@@ -28,7 +29,7 @@ const LoginModal: React.FC<LoginType> = ({open, handleClose}) => {
                 animation="slideDown"
                 closeOnEsc={true}
                 showCloseButton={false}
-                visible={open}
+                visible={open && likedOpen}
                 onClose={handleClose}
                 width={query ? 350 : 466}
                 height={425}

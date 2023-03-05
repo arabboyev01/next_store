@@ -5,11 +5,12 @@ import React from 'react';
 export type LoginComponentType = {
     open?: boolean
     handleClose?: (e: any) => void
+    likedOpen: boolean
 }
-const LoginComponent: React.FC<LoginComponentType> = ({open, handleClose}) => {
+const LoginComponent: React.FC<LoginComponentType> = ({open, handleClose, likedOpen}) => {
     return (
         <Box>
-            <Login open={open} handleClose={handleClose}/>
+            <Login open={open} handleClose={handleClose} likedOpen={likedOpen}/>
         </Box>
     )
 }

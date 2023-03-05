@@ -9,8 +9,8 @@ import { useEffect, useState, useCallback } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import NavLinks from './NavLinks';
 import LoginComponent from '../../../components/LoginComponent/LoginComponent';
-import { setSearchValue } from '../../../redux/CartSlice';
-import { useDispatch } from 'react-redux';
+import { likedId, setSearchValue } from '../../../redux/CartSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Catalog from '../Catalog/Catalog'
 
@@ -21,7 +21,12 @@ const Nav = () => {
     const [inputValue, setInputValue] = useState('')
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
-    const handleOpen = () => setOpen(true);
+    const likedOpen = useSelector(likedId)
+    const handleOpen = () => {
+        setOpen(true)
+    }
+
+
     const [catalogOpen, setCatalogOpen] = useState(false);
 
     const handleCatalogOpen = () => setCatalogOpen(!catalogOpen)
@@ -38,10 +43,9 @@ const Nav = () => {
         })
     }, [handleSendData, inputValue])
 
-
     return (
         <>
-            <LoginComponent open={open} handleClose={handleClose}/>
+            <LoginComponent open={open} likedOpen={likedOpen} handleClose={handleClose}/>
             <Catalog catalogOpen={catalogOpen} handleCatalogClose={handleCatalogClose}/>
             <Box className={classes.navWrapper}>
                 <Box className={classes.contentWrapper}>

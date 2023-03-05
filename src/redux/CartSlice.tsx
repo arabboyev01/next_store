@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 import { fetchData } from './fetchData';
 import { initialState } from './fetchData';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 const CartSlice = createSlice({
     initialState,
@@ -42,6 +43,17 @@ const CartSlice = createSlice({
         },
         validateLogin: (state: any, action: any) => {
             state.validate = action.payload
+        },
+        likedID: (state: any, action: any | number) => {
+            state.likes = action.payload
+
+            toast("Iltimos hisobingizga kiring", {
+                duration: 5000,
+                icon: <AssignmentIndIcon />,
+                style: {
+                    color: "darkorange",
+                },
+            })
         },
         setRemoveItemFromCart: (state: any, action: any) => {
             state.cartItems = state.cartItems.filter(({id}: any) => id !== action.payload.id);
@@ -104,12 +116,14 @@ export const {
     setSingleProduct,
     setSearchValue,
     validateLogin,
+    likedID
 } = CartSlice.actions;
 export const selectSingleItem = (state: any) => state.cart.singleProduct;
 export const selectCartItems = (state: any) => state.cart.cartItems;
 
 export const selectTotalAmount = (state: any) => state.cart.cartTotalAmount;
 export const selectTotalQTY = (state: any) => state.cart.cartTotalQuantity;
+export const likedId = (state: any) => state.cart.likes
 export const validataionCode = (state: any) => state.cart.validate
 
 export default CartSlice.reducer;

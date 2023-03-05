@@ -12,6 +12,7 @@ export const initialState = {
     inputName: '',
     validate: false,
     categoryId: 0,
+    likes: false,
 }
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
 const config = {headers: {Authorization: `Bearer ${token}`}};

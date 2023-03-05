@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { apiAddress } from '../../../../config'
+import { likedID } from '../../../redux/CartSlice'
 import { fetchData } from '../../../redux/fetchData'
 
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
@@ -13,5 +14,11 @@ export const sendData = (id: number, dispatch: any, setRender: any) => {
             dispatch(fetchData())
             setRender(true)
         }
-    }).catch(err => console.log(err))
+    }).catch(err => {
+        console.log(err)
+        if (err.response.status === 400) {
+            // @ts-ignore
+            dispatch(likedID(true))
+        }
+    })
 }
