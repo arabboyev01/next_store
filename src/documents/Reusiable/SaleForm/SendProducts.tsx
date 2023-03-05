@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { apiAddress } from '../../../../config'
+import { likedID } from '../../../redux/CartSlice'
 
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
 export const orderForm = (values: any, cartItems: any, totalAmount: number, setSucces: any) => {
@@ -27,7 +28,13 @@ export const orderForm = (values: any, cartItems: any, totalAmount: number, setS
         if(data.status === 200){
             setSucces(true)
         }
-    }).catch(err => console.log(err))
+    }).catch(err => {
+        console.log(err)
+         if (err.response.status === 400) {
+            // @ts-ignore
+            dispatch(likedID(true))
+        }
+    })
 
     return
 }
@@ -56,7 +63,12 @@ export const orderObjectForm = (values: any, cartItems: any, totalAmount: number
         if(data.status === 200){
             setSucces(true)
         }
-    }).catch(err => console.log(err))
+    }).catch(err => {
+         if (err.response.status === 400) {
+            // @ts-ignore
+            dispatch(likedID(true))
+        }
+    })
 
     return
 }

@@ -1,21 +1,26 @@
-import axios from "axios";
-import {apiAddress} from "../../../config";
+import axios from 'axios';
+import { apiAddress } from '../../../config';
 import { validateLogin } from '../../redux/CartSlice'
+import { fetchData } from '../../redux/fetchData'
 
 export const signUp = (values: any, setLoading: any, setValidation: any, setUserName: any, dispatch: any | never, setError: boolean | any) => {
     setLoading(true)
-    axios.post(`${apiAddress}/user`,{
+    axios.post(`${apiAddress}/user`, {
         firstName: values.firstname,
         lastName: values.lastname,
         phone: values.phone,
-        imageId: "",
+        imageId: '',
         username: values.email,
         password: values.password1,
-    }, { headers: {'Content-Type': 'application/json'}} ).then((data) => {
+    }, {headers: {'Content-Type': 'application/json'}}).then((data) => {
         if (data?.data?.message) {
             console.log('here', data?.data?.message)
             localStorage.setItem('tokenKey', data?.data?.token)
             setUserName(data?.data?.message)
+        }
+        if (data.status === 200) {
+            // @ts-ignore
+            dispatch(fetchData())
         }
         setValidation(true)
         // @ts-ignore
@@ -23,7 +28,7 @@ export const signUp = (values: any, setLoading: any, setValidation: any, setUser
 
     }).catch((error) => {
         console.log(error);
-        if(error.response.status === 400){
+        if (error.response.status === 400) {
             setError(true)
         }
     }).finally(() => {

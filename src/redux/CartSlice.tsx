@@ -51,7 +51,7 @@ const CartSlice = createSlice({
                 duration: 5000,
                 icon: <AssignmentIndIcon />,
                 style: {
-                    color: "darkorange",
+                    color: "#bf0000",
                 },
             })
         },
