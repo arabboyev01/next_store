@@ -45,7 +45,8 @@ export default makeStyles(() => ({
     },
     likeIcon: {
         position: "absolute",
-        left: '280px',
+        left: '230px',
+        top:" 20px",
         color: "#FF0101",
         cursor: 'pointer',
         '@media(max-width: 600px)': {

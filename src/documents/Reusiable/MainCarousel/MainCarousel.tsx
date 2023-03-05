@@ -32,7 +32,7 @@ const MainCarousel: React.FC<MainCarouselPropsType> = ({data, height, bgColor, c
                             <Typography className={buttonText ? classes.textTop : classes.title} style={{color: color}}>{title}</Typography>
                             <Typography className={classes.sub} style={{color: color}} >{subTitle}</Typography>
                         </Box>
-                        <img src={`https://nextstore.in/nextstore${imageUrl}`} alt="rasm" width={query ? 150 : 300} height={query ? 150 : 350}
+                        <img src={`https://nextstore.in/nextstore${imageUrl}`} alt="rasm" width={query ? 150 : 300} height={query ? 150 : 300}
                                className={sticky ? classes.showImage : classes.images}
                         />
                         {buttonText ? <Button className={classes.buttons}>{buttonText}</Button> : null}
