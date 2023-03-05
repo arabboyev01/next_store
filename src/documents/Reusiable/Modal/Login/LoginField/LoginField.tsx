@@ -17,7 +17,6 @@ import { apiAddress } from '../../../../../../config';
 import { LoginFieldType } from '../../../../../../types/types';
 import { validateLogin } from '../../../../../redux/CartSlice';
 import { useDispatch } from 'react-redux';
-import { fetchData } from '../../../../../redux/fetchData'
 
 const schema = Yup.object().shape({
     username: Yup.string().required(`${LOGIN_FORM_VALUES.username.label}. majburiy.`),
@@ -49,11 +48,7 @@ const LoginField: React.FC<LoginFieldType> = ({handleClose}) => {
                 dispatch(validateLogin(true))
                 // @ts-ignore
                 handleClose()
-            }
-
-            if (data.status === 200) {
-                // @ts-ignore
-                dispatch(fetchData())
+                window.location.reload()
             }
         }).catch((error) => {
             console.log(error);

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { apiAddress } from '../../../config';
 import { validateLogin } from '../../redux/CartSlice'
-import { fetchData } from '../../redux/fetchData'
 
 export const signUp = (values: any, setLoading: any, setValidation: any, setUserName: any, dispatch: any | never, setError: boolean | any) => {
     setLoading(true)
@@ -17,10 +16,7 @@ export const signUp = (values: any, setLoading: any, setValidation: any, setUser
             console.log('here', data?.data?.message)
             localStorage.setItem('tokenKey', data?.data?.token)
             setUserName(data?.data?.message)
-        }
-        if (data.status === 200) {
-            // @ts-ignore
-            dispatch(fetchData())
+             window.location.reload()
         }
         setValidation(true)
         // @ts-ignore
