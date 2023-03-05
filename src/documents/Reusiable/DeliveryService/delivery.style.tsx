@@ -36,6 +36,18 @@ export default makeStyles(() => ({
     brandName: {
         fontSize: "18px",
         lineHeight: "22px",
+        color: "#000",
+        fontWeight: 600,
+        marginLeft: '10px',
+        '@media(max-width: 650px)': {
+            fontSize: "15px",
+            lineHeight: "16px",
+            fontWeight: 400,
+        },
+    },
+    deliveryInfo: {
+        fontSize: "18px",
+        lineHeight: "22px",
         color: "#2CB708",
         fontWeight: 600,
         marginLeft: '10px',

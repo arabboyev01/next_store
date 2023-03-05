@@ -33,8 +33,8 @@ export default makeStyles(() => ({
     images: {
         width: '80px',
         height: '80px',
-        opacity: 0.5,
-        objectFit: 'contain',
+        objectFit: 'cover',
+        marginLeft:"30px",
         '@media(max-width: 650px)': {
             width: '50px',
             height: '50px',
@@ -43,9 +43,9 @@ export default makeStyles(() => ({
     activeImages: {
         width: '80px',
         height: '80px',
-        objectFit: 'contain',
-        border: '1px solid #fff',
-        opacity: 1,
+        objectFit: 'cover',
+        border: '1px solid rgba(0, 0, 0, 0.5)',
+        marginLeft:"30px",
         '@media(max-width: 650px)': {
             width: '50px',
             height: '50px',

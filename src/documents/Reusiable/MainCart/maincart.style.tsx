@@ -38,13 +38,13 @@ export default makeStyles(() => ({
             minWidth: '100px',
             padding: '20px 5px',
             alignItems: 'center',
-            '&:hover': {
-                transform: 'translateY(0)'
-            },
         },
         '&:hover': {
             cursor: 'pointer',
             transform: 'translateY(-5px)',
+            '@media(max-width: 650px)': {
+                transform: 'none',
+            }
         },
     },
     mainCartCarousel: {

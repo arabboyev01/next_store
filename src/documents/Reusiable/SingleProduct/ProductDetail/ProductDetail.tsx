@@ -28,6 +28,7 @@ const ProductDetail: React.FC<ProductDetailType> = ({handleOpen, data, getProduc
         <Box className={classes.detailWrapper}>
             <Typography className={classes.mainTitle}>{data.name}</Typography>
             <Typography className={classes.text}>{data.description}</Typography>
+            <Typography className={classes.additional}>Ranglar: </Typography>
             <Box className={classes.colorBox}>
                 {data.productColorDTOS.map((item: any, index: number) =>
                     <Box
@@ -39,6 +40,7 @@ const ProductDetail: React.FC<ProductDetailType> = ({handleOpen, data, getProduc
                     </Box>
                 )}
             </Box>
+            <Typography className={classes.additional}>Narxi: </Typography>
             <Typography className={classes.price}>{commafy(data.price)} so&apos;m</Typography>
             <Box className={classes.boxPrice}>
                 <Box className={classes.priceInfo}>

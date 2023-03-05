@@ -17,7 +17,7 @@ const DeliveryService = ({name}: any) => {
             <Box className={classes.singleLine}>
                 <DeliveryDiningIcon className={classes.icon} />
                 <Typography className={classes.name}>Yetkazib berish: </Typography>
-                <Typography className={classes.brandName}>{deliveryDumbData.delivery} so&apos;m</Typography>
+                <Typography className={classes.deliveryInfo}>{deliveryDumbData.delivery} so&apos;m</Typography>
             </Box>
             <Box className={classes.singleLine}>
                 <LoopIcon className={classes.icon} />

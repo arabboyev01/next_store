@@ -4,7 +4,7 @@ export default makeStyles(() => ({
     detailWrapper: {
         maxWidth: "560px",
         margin: "0 auto",
-        marginLeft: "100px",
+        marginLeft: "39px",
         '@media(max-width: 650px)': {
             maxWidth: "380px",
             marginLeft: 0,
@@ -48,16 +48,26 @@ export default makeStyles(() => ({
             width: "64px",
         },
     },
-    price: {
-        fontSize: "48px",
+    additional: {
+        marginTop: "20px",
+        fontSize: "18px",
         fontWeight: 600,
-        lineHeight: "58px",
-        marginTop: "40px",
         '@media(max-width: 650px)': {
             fontSize: "24px",
             fontWeight: 600,
             lineHeight: "29px",
             marginTop: "20px",
+        },
+    },
+    price: {
+        fontSize: "48px",
+        fontWeight: 600,
+        lineHeight: "58px",
+        '@media(max-width: 650px)': {
+            fontSize: "24px",
+            fontWeight: 600,
+            lineHeight: "29px",
+            marginTop: "10px",
         },
     },
     activeBox:{
@@ -125,7 +135,7 @@ export default makeStyles(() => ({
     btnWrapper: {
         display: "flex",
         alignItems: "center",
-        margin: "62px 0",
+        margin: "20px 0",
         maxWidth: "400px",
         gap: "30px",
         '@media(max-width: 650px)': {
