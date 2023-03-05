@@ -51,7 +51,7 @@ const PaymentTerm: React.FC<PaymentTermType> = ({open, handleCLose, price}) => {
                 visible={open}
                 onClose={handleCLose}
                 width={query ? 350 : 800}
-                height={query ? 588 : 711}
+                height={query ? 588 : 751}
             >
                 <Box className={classes.contentWrapper}>
                     <Box className={classes.header}>
