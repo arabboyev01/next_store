@@ -79,8 +79,7 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
                 <Box className={classes.descrField}>
                     {catalogData.map(({name, id}: any) =>
                         <Box key={id}>
-                            <Typography onClick={() => handleSendData(name)}>{name}
-                            </Typography>
+                            <Typography onClick={() => handleSendData(name)} style={{cursor: 'pointer'}} >{name}</Typography>
                         </Box>
                     )}
                 </Box>

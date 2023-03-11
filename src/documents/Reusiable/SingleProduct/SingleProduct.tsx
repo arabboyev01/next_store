@@ -22,7 +22,7 @@ const SingleProduct = () => {
 
     const [colorId, setColorId] = useState(0)
     useEffect(() => {
-        axios.get(`${apiAddress}/advertising`).then(res => setSuggestData(res.data)).catch(err => console.log(err))
+        axios.get(`${apiAddress}/product`).then(res => setSuggestData(res.data.content)).catch(err => console.log(err))
         axios.get(`${apiAddress}/product/${id}`).then(res => {
             setSingle(res.data)
             setColorId(res.data.productColorDTOS[0].id)
@@ -44,6 +44,7 @@ const SingleProduct = () => {
         getProductColorImage(colorId)
     }, [getProductColorImage, colorId])
 
+    console.log(suggestedData)
 
     return (
         <Dumb classes={classes}
