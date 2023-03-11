@@ -17,4 +17,4 @@ const SingleProduct = () => {
         </Box>
     )
 }
-export default SingleProduct ;
+export default SingleProduct;

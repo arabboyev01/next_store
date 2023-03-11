@@ -34,7 +34,7 @@ const Suggested = () => {
                         <Typography className={classes.price}>{commafy(price)} so&apos;m</Typography>
                     </Box>
                     <Box className={classes.header}>
-                        <Typography className={classes.status}>{status}</Typography>
+                        <Typography className={status !== 'B/U' ? classes.status : classes.statusBu} >{status}</Typography>
                         <Button className={classes.button}>Do&apos;kondan ko&apos;rish</Button>
                     </Box>
                 </Box>

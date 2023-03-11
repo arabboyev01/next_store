@@ -72,6 +72,9 @@ export default makeStyles(() => ({
     status: {
         color: "#0D63F3",
     },
+    statusBu:{
+        color: "green",
+    },
     button: {
         background: "#ECF4FF",
         color: "#0D63F3",
