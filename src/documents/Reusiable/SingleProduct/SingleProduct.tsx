@@ -44,8 +44,6 @@ const SingleProduct = () => {
         getProductColorImage(colorId)
     }, [getProductColorImage, colorId])
 
-    console.log(suggestedData)
-
     return (
         <Dumb classes={classes}
               handleCLose={handleCLose}
