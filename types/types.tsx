@@ -5,11 +5,6 @@ export interface HomeCarouselDataType {
     imageUrl: any,
 }
 
-export type BrandsDataType = {
-    id: number,
-    image: any
-}
-
 export type ProductDetailType = {
     handleOpen?: (e: any) => void
     data?: any

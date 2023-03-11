@@ -1,9 +1,4 @@
-import { BrandsDataType, deliveryDumbDataType, HomeCarouselDataType, PROFILE_LINK_DATA_TYPE, SUGGESION_DATA_TYPE } from '../../../types/types';
-import elmakonImage from '../../../public/assets/brands/elmakon.png'
-import goodImage from '../../../public/assets/brands/goodzoone.png'
-import mediaImage from '../../../public/assets/brands/mediapark.png'
-import sandiqImage from '../../../public/assets/brands/sandiq.png'
-import texnoImage from '../../../public/assets/brands/texnomart.png'
+import { deliveryDumbDataType, HomeCarouselDataType, PROFILE_LINK_DATA_TYPE, SUGGESION_DATA_TYPE } from '../../../types/types';
 import image from '../../../public/assets/images/productImage.png'
 import LibraryAddCheckIcon from '@mui/icons-material/LibraryAddCheck'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
@@ -62,29 +57,6 @@ export const PROFILE_LINK_DATA: PROFILE_LINK_DATA_TYPE[] = [
         icon: <LogoutIcon/>,
         name: 'Tizimdan chiqish',
         type: 'logout',
-    },
-]
-
-export const BrandsStore: BrandsDataType[] = [
-    {
-        id: 0,
-        image: elmakonImage,
-    },
-    {
-        id: 1,
-        image: goodImage,
-    },
-    {
-        id: 2,
-        image: mediaImage,
-    },
-    {
-        id: 3,
-        image: sandiqImage,
-    },
-    {
-        id: 4,
-        image: texnoImage,
     },
 ]
 

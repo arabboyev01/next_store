@@ -47,7 +47,6 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
         axios.get(`${apiAddress}/product`)
             .then(data => setCatalogData(data.data.content)).catch(err => console.log(err))
     }, [])
-    console.log(catalogData)
 
     const handleSendData = (data: any,) => {
         dispatch(setSearchValue(data));
