@@ -1,9 +1,4 @@
-import {
-    BrandsDataType,
-    deliveryDumbDataType, HomeCarouselDataType,
-    PROFILE_LINK_DATA_TYPE,
-    SUGGESION_DATA_TYPE
-} from '../../../types/types';
+import { BrandsDataType, deliveryDumbDataType, HomeCarouselDataType, PROFILE_LINK_DATA_TYPE, SUGGESION_DATA_TYPE } from '../../../types/types';
 import elmakonImage from '../../../public/assets/brands/elmakon.png'
 import goodImage from '../../../public/assets/brands/goodzoone.png'
 import mediaImage from '../../../public/assets/brands/mediapark.png'
@@ -116,6 +111,7 @@ export const deliveryDumbData: deliveryDumbDataType = {
     delivery: 15000,
     day: '15 kun',
 }
+
 export const SUGGESTION_DATA: SUGGESION_DATA_TYPE[] = [
     {
         id: 0,
@@ -171,7 +167,7 @@ export const SUGGESTION_DATA: SUGGESION_DATA_TYPE[] = [
         name: 'Notebook Apple Macbook Pro 13" 2.4 2019 Intel core i5  DDR3 8 GB SSD 256 GB',
         shop: 'Sandiq shop',
         price: '7232000',
-        status: 'Yangi',
+        status: 'B/U',
     },
 ]
 
@@ -182,6 +178,7 @@ export const emptyData = {
     desc3: "Yurakcha tugmasini bosing",
     buttonText: "Mahsulotlarga qaytish",
 }
+
 export const emptyProfile = {
     title: "Buyutmalar sahifangizda xech narsa topilmadi",
     desc1: "Biror bir mahsulotni tanlang",

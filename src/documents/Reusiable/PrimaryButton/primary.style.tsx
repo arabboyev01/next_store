@@ -10,7 +10,8 @@ export default makeStyles(() => ({
         fontSize: "14px",
         '&:hover': {
             opacity: 0.8,
-            background: "#0D63F3 !important",
+            background: "#000 !important",
+            color: "#fff",
         },
         '@media(max-width: 650px)': {
             fontSize: "12px",
