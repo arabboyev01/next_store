@@ -3,10 +3,20 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Typography } from '@mui/material';
 import { commafy } from '../Suggested/global';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { setAddItemToCart } from '../../../redux/CartSlice';
+import ShoppingCart from '../../../../public/assets/icons/shoppingCart.png'
+import Image from 'next/image'
 
-const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, query, dispatch, PrimaryButton}: any) => (
+const ArrayCart = ({
+                       mainData,
+                       classes,
+                       carousel,
+                       handleSingleProduct,
+                       sendData,
+                       query,
+                       dispatch,
+                       PrimaryButton
+                   }: any) => (
     <>
         {mainData.map((item: any, index: number) =>
             <Box className={carousel ? classes.mainCartCarousel : classes.mainCart} key={index}>
@@ -36,11 +46,18 @@ const ArrayCart = ({mainData, classes, carousel, handleSingleProduct, sendData, 
                 </Box>
                 <Box className={classes.footer}>
                     <Box onClick={() => handleSingleProduct(item)}><PrimaryButton text="Sotib olish"/></Box>
-                    <ShoppingCartIcon className={classes.shoppingCart} onClick={() => dispatch(setAddItemToCart(item))}/>
+                    <Image
+                        className={classes.shoppingCart}
+                        src={ShoppingCart.src}
+                        onClick={() => dispatch(setAddItemToCart(item))}
+                        width={20}
+                        height={20}
+                        alt='shoppingCart'
+                    />
                 </Box>
             </Box>
         )}
     </>
 )
 
-export default ArrayCart ;
+export default ArrayCart;
