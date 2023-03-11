@@ -31,11 +31,11 @@ const Dumb = ({
             />
         </Box>
         <Box className={classes.datas}>
-            {data.length === 0 ?
-                <Box style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", height: '60vh'}}>
-                    <Typography style={{textAlign: 'center'}}>Siz so&apos;ragan mahsulot bo&apos;yicha xech narsa topilmadi</Typography></Box> :
+            {/*{data.length === 0 ?*/}
+            {/*    <Box style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", height: '60vh'}}>*/}
+            {/*        <Typography style={{textAlign: 'center'}}>Siz so&apos;ragan mahsulot bo&apos;yicha xech narsa topilmadi</Typography></Box> :*/}
                 <MainCart mainData={data.slice(indexOfFirstPost, indexOfLastPost)}/>
-            }
+            {/*}*/}
             <Box className={classes.pagination}>
                 {data.length <= 11 ?
                     null :
