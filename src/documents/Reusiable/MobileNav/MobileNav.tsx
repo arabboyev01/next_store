@@ -5,18 +5,18 @@ import Image from 'next/image';
 import NextLogo from '../../../../public/assets/images/next_logo.png';
 import Link from 'next/link';
 import SearchIcon from '@mui/icons-material/Search';
-import { selectTotalQTY, setSearchValue, validataionCode } from '../../../redux/CartSlice';
+import { setSearchValue, validataionCode } from '../../../redux/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import Badge from '@mui/material/Badge';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Button, Typography } from '@mui/material';
 import LoginComponent from '../../../components/LoginComponent/LoginComponent';
 import User from '../Navbar/User';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import MobileCatalog from './MobileCatalog/MobileCatalog'
+import store from '../../../../public/assets/icons/store.png'
 
 const MobileNav = () => {
     const classes = style();
@@ -37,7 +37,6 @@ const MobileNav = () => {
         setMobile(!mobile)
     }
     const validateLogin = useSelector(validataionCode)
-    const totalQTY = useSelector(selectTotalQTY);
     useEffect(() => {
         if (open) {
             setMobile(false)
@@ -66,6 +65,8 @@ const MobileNav = () => {
     const [categoryMain, setCategory] = useState(false);
     const handleSetCategory = () => setCategory(false);
     const handleOpenCategory = () => setCategory(true)
+    const storedData: any = typeof window !== 'undefined' ? window.localStorage.getItem('CartItems') : null;
+    const parsedData = JSON.parse(storedData)
 
     return (
         <>
@@ -80,8 +81,10 @@ const MobileNav = () => {
                             <Link href="/" className={classes.link}><Image width={81} height={31} src={NextLogo}
                                                                            alt="logo"/></Link>
                             <Box>
-                                <Badge badgeContent={totalQTY} color="primary" style={{marginTop: '10px'}}>
-                                    <Link href="/cart"> <ShoppingCartIcon className={classes.likeIcon}/></Link>
+                                <Badge badgeContent={parsedData?.length} color="primary" style={{marginTop: '10px'}}>
+                                    <Link href="/cart">
+                                        <Image src={store.src} className={classes.likeIcon} width={20} height={20} alt="store"/>
+                                    </Link>
                                 </Badge>
                             </Box>
                         </Box>
