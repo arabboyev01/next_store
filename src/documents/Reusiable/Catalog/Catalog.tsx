@@ -8,6 +8,9 @@ import Style, { LoginModalStyle } from './catalog.style'
 import axios from 'axios'
 import { apiAddress } from '../../../../config'
 import CatalogDescription from './CatalogDescription'
+import { setSearchValue } from '../../../redux/CartSlice'
+import { useDispatch } from 'react-redux'
+import { useRouter } from 'next/router'
 
 const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
     const classes = Style()
@@ -20,6 +23,8 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
     const [singleId, setSingleId] = useState([])
     const [productId, setProductId] = useState(null)
     const productsId = productId === null ? singleId : productId
+    const dispatch = useDispatch()
+    const router = useRouter()
 
     useEffect(() => {
         axios.get(`${apiAddress}/category?parentId=0`).then(data => setCategory(data.data))
@@ -33,11 +38,21 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
             .catch(err => console.log(err.response.status))
     }, [activeParentId])
 
-    useEffect(() => {
-        axios.get(`${apiAddress}/product?categoryId=${productsId}`)
-            .then(data => setCatalogData(data.data.content)).catch(err => console.log(err))
-    }, [productsId])
+    // useEffect(() => {
+    //     axios.get(`${apiAddress}/product?categoryId=${productsId}`)
+    //         .then(data => setCatalogData(data.data.content)).catch(err => console.log(err))
+    // }, [productsId])
 
+    useEffect(() => {
+        axios.get(`${apiAddress}/product`)
+            .then(data => setCatalogData(data.data.content)).catch(err => console.log(err))
+    }, [])
+    console.log(catalogData)
+
+    const handleSendData = (data: any,) => {
+        dispatch(setSearchValue(data));
+        router.push({pathname: '/search'})
+    }
 
     return (
         <Rodal
@@ -52,13 +67,22 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
             <Box className={classes.mainWrapper}>
                 <Box className={classes.mainSection}>
                     {categoryParent.map(({id, name}: { id: number, name: string }) =>
-                        <Typography className={activeParentId === id ? classes.activeTitle : classes.title} key={id} onClick={() => setParentId(id)}>
+                        <Typography className={activeParentId === id ? classes.activeTitle : classes.title} key={id}
+                                    onClick={() => setParentId(id)}>
                             {name}
                         </Typography>
                     )}
                 </Box>
                 <Box className={classes.descSection}>
                     <CatalogDescription categoryChild={categoryChild} getCatalogData={setProductId}/>
+                </Box>
+                <Box className={classes.descrField}>
+                    {catalogData.map(({name, id}: any) =>
+                        <Box key={id}>
+                            <Typography onClick={() => handleSendData(name)}>{name}
+                            </Typography>
+                        </Box>
+                    )}
                 </Box>
             </Box>
         </Rodal>
