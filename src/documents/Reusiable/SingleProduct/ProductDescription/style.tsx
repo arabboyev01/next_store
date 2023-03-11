@@ -19,7 +19,6 @@ export default makeStyles(() => ({
     mainProductWrapper: {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
-        gridGap: '10px',
         marginTop: '20px',
         '@media(max-width: 650px)': {
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -43,11 +42,11 @@ export default makeStyles(() => ({
     desc: {
         lineHeight: '19.8px',
         color: '#6C757D',
-        width: '170px',
+        width: '120px',
     },
     line: {
         width: '258px',
-        height: '20px',
+        height: '5px',
         borderBottom: '1px dashed #E4E7EE',
         margin: '0 10px',
     },
