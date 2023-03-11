@@ -27,7 +27,7 @@ const CartSlice = createSlice({
                 toast.success(`${action.payload.name} Savatga qo'shildi`);
             }
 
-            localStorage.setItem('cart', JSON.stringify(state.cartItems));
+            localStorage.setItem('CartItems', JSON.stringify(state.cartItems));
         },
 
         setSearchValue: (state: any, action: any) => {
@@ -61,7 +61,7 @@ const CartSlice = createSlice({
             } else {
                 state.cartItems.cartQuantity -= 1;
             }
-            localStorage.setItem('cart', JSON.stringify(state.cartItems));
+            localStorage.setItem('CartItems', JSON.stringify(state.cartItems));
             toast.success(`${action.payload.name} savatchadan o'chirib tashlandi.`);
         },
         setSingleProduct: (state: any, action: any) => {
@@ -74,7 +74,7 @@ const CartSlice = createSlice({
                 state.cartItems[itemIndex].cartQuantity += 1;
                 toast.success(`Mahsulot soni qo'shildi.`);
             }
-            localStorage.setItem('cart', JSON.stringify(state.cartItems));
+            localStorage.setItem('CartItems', JSON.stringify(state.cartItems));
         },
         setDecreaseItemQTY: (state: any, action: any) => {
             const itemIndex = state.cartItems.findIndex(
@@ -84,7 +84,7 @@ const CartSlice = createSlice({
                 state.cartItems[itemIndex].cartQuantity -= 1;
                 toast.success(`Mahsulot soni ayrildi`);
             }
-            localStorage.setItem('cart', JSON.stringify(state.cartItems));
+            localStorage.setItem('CartItems', JSON.stringify(state.cartItems));
         },
         setGetTotals: (state: any) => {
             let {totalAmount, totalQTY} = state.cartItems.reduce((cartTotal: any, cartItem: any) => {

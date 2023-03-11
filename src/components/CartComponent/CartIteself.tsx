@@ -7,7 +7,9 @@ const CartItself = () => {
     const cartItems = useSelector(selectCartItems);
     return(
         <Box>
-            {cartItems.length === 0 ? <EmptyCart /> : <CartComponent />}
+            {!cartItems?.length  || cartItems == null || !cartItems ?
+                <EmptyCart /> : <CartComponent />
+            }
         </Box>
     )
 }
