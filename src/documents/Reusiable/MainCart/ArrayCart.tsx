@@ -31,8 +31,8 @@ const ArrayCart =
                     <Box onClick={() => handleSingleProduct(item)}>
                         {item.state === 'New' ?
                             <Typography className={classes.sale}>Yangilik</Typography> :
-                            item.status === 'New' ?
-                                <Typography className={classes.new}>Yangilik</Typography> : null
+                            item.status === 'Sale' ?
+                                <Typography className={classes.new}>Chegirma</Typography> : null
                         }
                         <Box className={classes.imageWrapper}>
                             <img src={`https://nextstore.in/nextstore${item.photoUrl}`}

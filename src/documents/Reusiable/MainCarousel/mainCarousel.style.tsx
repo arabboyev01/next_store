@@ -134,8 +134,8 @@ export default makeStyles(() => ({
         maxWidth: "600px",
         marginTop: "-10px",
         '@media(max-width: 650px)': {
-            fontSize: '28px',
-            lineHeight: '30px',
+            fontSize: '25px',
+            lineHeight: '28px',
             color: '#fff',
             maxWidth: '300px',
         },
@@ -157,6 +157,9 @@ export default makeStyles(() => ({
         fontSize: '18px',
         color: '#fff',
         marginTop: '20px',
+        '@media(max-width: 650px)': {
+            fontSize: '16px',
+        },
     },
     images: {
         objectFit: 'contain',
