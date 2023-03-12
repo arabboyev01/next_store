@@ -2,7 +2,8 @@ import { Box } from '@mui/system'
 import style from './style'
 import { useState } from 'react';
 import MainLoader from '../../MainLoader/MainLoader'
-
+// @ts-ignore
+import { Magnifier } from "react-image-magnifiers";
 const ProductImage = ({getImage, getFirstImage}: any) => {
     const classes = style()
     const [singleImage, setSingleImage] = useState<any>(null)
@@ -20,8 +21,8 @@ const ProductImage = ({getImage, getFirstImage}: any) => {
                     <MainLoader/>
                 </Box> :
                 <Box className={classes.mainImage}>
-                    <img
-                        src={`https://nextstore.in/nextstore${singleImage === null ? getFirstImage?.photoUrl : singleImage?.photoUrl}`}
+                    <Magnifier
+                        imageSrc={`https://nextstore.in/nextstore${singleImage === null ? getFirstImage?.photoUrl : singleImage?.photoUrl}`}
                         className={classes.mainImages}
                         alt="image"
                     />
