@@ -7,20 +7,18 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useDispatch} from "react-redux";
-import {
-    setDecreaseItemQTY,
-    setIncreaseItemQTY,
-    setRemoveItemFromCart,
-    setGetTotals
-} from "../../../../redux/CartSlice"
-import {useEffect} from "react"
+import { setDecreaseItemQTY, setIncreaseItemQTY, setRemoveItemFromCart, setGetTotals } from "../../../../redux/CartSlice"
+import {useEffect, useState} from "react"
 import DeleteModal from "../../../../components/CartComponent/Modals/Delete.Modal";
 import * as React from "react";
+import { commafy } from '../../Suggested/global'
+import ColorPicker from '../../ColorPicker'
 
 const CartProduct = ({cartItems}: any) => {
     const classes = Styles();
     const dispatch = useDispatch();
     const onRemoveItem = (data: any) => dispatch(setRemoveItemFromCart(data))
+    const [color, setColor] = useState('')
 
     useEffect(() => {
         dispatch(setGetTotals())
@@ -29,6 +27,7 @@ const CartProduct = ({cartItems}: any) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
     return (
         <Box className={classes.item}>
             {cartItems?.map((item: any, index: number) =>
@@ -42,10 +41,10 @@ const CartProduct = ({cartItems}: any) => {
                         <Box className={classes.contentWrapper}>
                             <DeleteIcon className={classes.deleteIcon} onClick={handleOpen}/>
                             <Typography className={classes.name}>{item?.name}</Typography>
-                            <Typography className={classes.price}>{item?.price}</Typography>
+                            <Typography className={classes.price}>{commafy(item?.price)} so&apos;m</Typography>
                             <Box className={classes.color}>
-                                <Box className={classes.boxColor}></Box>
-                                <Typography className={classes.colorName}>Kosmik kulrang</Typography>
+                                <Box className={classes.boxColor} style={{background: `${color}`}}></Box>
+                                <ColorPicker setColor={setColor} color={color} dataID={item?.id}/>
                             </Box>
                             <Box className={classes.store}>
                                 <Typography className={classes.storeName}>
