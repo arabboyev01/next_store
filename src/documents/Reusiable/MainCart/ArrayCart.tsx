@@ -49,9 +49,9 @@ const ArrayCart =
                     <Box className={classes.footer}>
                         <Box onClick={() => handleSingleProduct(item)}><PrimaryButton text="Sotib olish"/></Box>
                         <Image
+                            onClick={() => dispatch(setAddItemToCart(item))}
                             className={classes.shoppingCart}
                             src={ShoppingCart.src}
-                            onClick={() => dispatch(setAddItemToCart(item))}
                             width={20}
                             height={20}
                             alt="shoppingCart"

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import NextLogo from '../../../../public/assets/images/next_logo.png';
 import Link from 'next/link';
 import SearchIcon from '@mui/icons-material/Search';
-import { setSearchValue, validataionCode } from '../../../redux/CartSlice';
+import { selectTotalQTY, setSearchValue, validataionCode } from '../../../redux/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -65,8 +65,8 @@ const MobileNav = () => {
     const [categoryMain, setCategory] = useState(false);
     const handleSetCategory = () => setCategory(false);
     const handleOpenCategory = () => setCategory(true)
-    const storedData: any = typeof window !== 'undefined' ? window.localStorage.getItem('CartItems') : null;
-    const parsedData = JSON.parse(storedData)
+
+    const totalQTY = useSelector(selectTotalQTY)
 
     return (
         <>
@@ -81,7 +81,7 @@ const MobileNav = () => {
                             <Link href="/" className={classes.link}><Image width={81} height={31} src={NextLogo}
                                                                            alt="logo"/></Link>
                             <Box>
-                                <Badge badgeContent={parsedData?.length} color="primary" style={{marginTop: '10px'}}>
+                                <Badge badgeContent={totalQTY} color="primary" style={{marginTop: 0}}>
                                     <Link href="/cart">
                                         <Image src={store.src} className={classes.likeIcon} width={20} height={20} alt="store"/>
                                     </Link>

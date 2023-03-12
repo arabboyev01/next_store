@@ -33,16 +33,16 @@ const CartProduct = ({cartItems}: any) => {
         <Box className={classes.item}>
             {cartItems?.map((item: any, index: number) =>
                 <Box key={index}>
-                    <DeleteModal title={`Siz rostdan ham ushbu ${item.title} o‘chirmoqchimisiz?`} item={item}
+                    <DeleteModal title={`Siz rostdan ham ushbu ${item?.title} o‘chirmoqchimisiz?`} item={item}
                                  open={open} handleClose={handleClose} onRemoveItem={onRemoveItem}/>
                     <Box className={classes.cartWrapper}>
-                        <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt='image' width={236} height={236}
+                        <img src={`https://nextstore.in/nextstore${item?.photoUrl}`} alt='image' width={236} height={236}
                          style={{objectFit: "contain"}}
                         />
                         <Box className={classes.contentWrapper}>
                             <DeleteIcon className={classes.deleteIcon} onClick={handleOpen}/>
-                            <Typography className={classes.name}>{item.name}</Typography>
-                            <Typography className={classes.price}>{item.price}</Typography>
+                            <Typography className={classes.name}>{item?.name}</Typography>
+                            <Typography className={classes.price}>{item?.price}</Typography>
                             <Box className={classes.color}>
                                 <Box className={classes.boxColor}></Box>
                                 <Typography className={classes.colorName}>Kosmik kulrang</Typography>

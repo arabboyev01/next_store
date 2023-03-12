@@ -3,11 +3,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const storedData: any = typeof window !== 'undefined' ? window.localStorage.getItem('CartItems') : null;
 const parsedData = JSON.parse(storedData)
+console.log(parsedData)
 
 export const initialState = {
     mainData: [],
     cartState: false,
-    cartItems: parsedData,
+    cartItems: parsedData === null ? [] : parsedData,
     singleProduct: [],
     searchValue: [],
     cartTotalAmount: 0,
