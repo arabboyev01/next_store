@@ -11,6 +11,7 @@ export default makeStyles(() => ({
         '@media(max-width: 650px)': {
             maxWidth: '400px',
             height: '250px',
+            position: 'relative',
         },
     },
     mainImage: {
@@ -25,16 +26,17 @@ export default makeStyles(() => ({
         width: '400px',
         height: '400px',
         objectFit: 'contain',
+        marginTop: "-50px",
         '@media(max-width: 650px)': {
             width: '200px',
-            height: '150px',
+            height: '200px',
         }
     },
     images: {
         width: '80px',
         height: '80px',
         objectFit: 'cover',
-        marginLeft:"30px",
+        marginLeft: '30px',
         '@media(max-width: 650px)': {
             width: '50px',
             height: '50px',
@@ -45,7 +47,7 @@ export default makeStyles(() => ({
         height: '80px',
         objectFit: 'cover',
         border: '1px solid rgba(0, 0, 0, 0.5)',
-        marginLeft:"30px",
+        marginLeft: '30px',
         '@media(max-width: 650px)': {
             width: '50px',
             height: '50px',
@@ -55,5 +57,9 @@ export default makeStyles(() => ({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
+        '@media(max-width: 650px)': {
+            position: 'absolute',
+            bottom: 0,
+        },
     },
 }))

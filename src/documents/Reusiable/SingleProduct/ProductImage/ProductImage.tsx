@@ -37,7 +37,6 @@ const ProductImage = ({getImage, getFirstImage}: any) => {
                     />
                 )}
             </Box>
-
         </Box>
     )
 }
