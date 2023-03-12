@@ -15,7 +15,7 @@ const HomePageLoader = () => {
                 height="80"
                 width="80"
                 ariaLabel="progress-bar-loading"
-                wrapperStyle={{}}
+                wrapperStyle={{width: '300px'}}
                 wrapperClass="progress-bar-wrapper"
                 borderColor="#000"
                 barColor="#51E5FF"

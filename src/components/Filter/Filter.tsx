@@ -49,9 +49,6 @@ const FilterComponent = () => {
     };
 
     const handleFilters = () => {
-        const filtered = data.filter(({name}: any) => name.toLowerCase().includes(brands.toLowerCase()))
-        setData(filtered)
-
         if (purchaseType === 'Bo\'lib to\'lash') {
             setInstallment(true)
         }
@@ -75,7 +72,8 @@ const FilterComponent = () => {
             {headers: {Authorization: `Bearer ${token}`}})
             .then((data) => setData(data.data.content))
 
-        return data
+        const filtered = data.filter(({name}: any) => name.toLowerCase().includes(brands.toLowerCase()))
+        setData(filtered)
     }
 
     return (
