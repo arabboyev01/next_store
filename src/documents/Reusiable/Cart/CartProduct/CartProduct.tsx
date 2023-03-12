@@ -43,7 +43,6 @@ const CartProduct = ({cartItems}: any) => {
                             <Typography className={classes.name}>{item?.name}</Typography>
                             <Typography className={classes.price}>{commafy(item?.price)} so&apos;m</Typography>
                             <Box className={classes.color}>
-                                <Box className={classes.boxColor} style={{background: `${color}`}}></Box>
                                 <ColorPicker setColor={setColor} color={color} dataID={item?.id}/>
                             </Box>
                             <Box className={classes.store}>

@@ -62,7 +62,6 @@ export default makeStyles(() => ({
     boxColor: {
         width: "22px",
         height: "22px",
-        background: "#BEBBC2",
         borderRadius: "4px",
     },
     colorName: {
