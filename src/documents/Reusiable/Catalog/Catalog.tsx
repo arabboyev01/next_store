@@ -38,15 +38,10 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
             .catch(err => console.log(err.response.status))
     }, [activeParentId])
 
-    // useEffect(() => {
-    //     axios.get(`${apiAddress}/product?categoryId=${productsId}`)
-    //         .then(data => setCatalogData(data.data.content)).catch(err => console.log(err))
-    // }, [productsId])
-
     useEffect(() => {
-        axios.get(`${apiAddress}/product`)
+        axios.get(`${apiAddress}/product?categoryId=${productsId}`)
             .then(data => setCatalogData(data.data.content)).catch(err => console.log(err))
-    }, [])
+    }, [productsId])
 
     const handleSendData = (data: any,) => {
         dispatch(setSearchValue(data));
@@ -66,8 +61,11 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
             <Box className={classes.mainWrapper}>
                 <Box className={classes.mainSection}>
                     {categoryParent.map(({id, name}: { id: number, name: string }) =>
-                        <Typography className={activeParentId === id ? classes.activeTitle : classes.title} key={id}
-                                    onClick={() => setParentId(id)}>
+                        <Typography
+                            className={activeParentId === id ? classes.activeTitle : classes.title}
+                            key={id}
+                            onClick={() => setParentId(id)}
+                        >
                             {name}
                         </Typography>
                     )}
@@ -78,7 +76,8 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
                 <Box className={classes.descrField}>
                     {catalogData.map(({name, id}: any) =>
                         <Box key={id}>
-                            <Typography onClick={() => handleSendData(name)} style={{cursor: 'pointer'}} >{name}</Typography>
+                            <Typography onClick={() => handleSendData(name)}
+                                        style={{cursor: 'pointer'}}>{name}</Typography>
                         </Box>
                     )}
                 </Box>
