@@ -12,6 +12,7 @@ export default makeStyles(() => ({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        transition: 'all 0.5s',
     },
     stickyHeader: {
         position: 'fixed',
@@ -26,6 +27,7 @@ export default makeStyles(() => ({
         background: '#fff',
         zIndex: 1000,
         padding: '0 20px',
+        transition: 'all 0.5s ease-in-out',
     },
     likeIcon: {
         fontSize: '1.7rem',
