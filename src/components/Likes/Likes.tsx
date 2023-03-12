@@ -17,6 +17,7 @@ import EmptyData from '../../documents/Reusiable/EmptyData/EmptyData'
 import { emptyData } from '../../documents/DumbData/DumbData'
 import { useRouter } from 'next/router'
 import { sendData } from '../../documents/Reusiable/MainCart/Utility'
+import ColorPicker from '../../documents/Reusiable/ColorPicker'
 
 const LikesComponent = () => {
     const classes = styles();
@@ -24,6 +25,8 @@ const LikesComponent = () => {
     const router = useRouter()
     const query = useMediaQuery('@media(max-width: 600px)')
     const [favoriteData, setFavoriteData] = useState([])
+    const [color, setColor] = useState('');
+
     const token = typeof window !== 'undefined' ?
         window.localStorage.getItem('tokenKey') : null;
 
@@ -60,8 +63,9 @@ const LikesComponent = () => {
                                 <Typography className={classes.name}>{item.name}</Typography>
                                 <Typography className={classes.price}>{item.price} so&apos;m</Typography>
                                 <Box className={classes.color}>
-                                    <Box className={classes.boxColor}></Box>
-                                    <Typography className={classes.colorName}>Kosmik kulrang</Typography>
+                                    {/*<Box className={classes.boxColor}></Box>*/}
+                                    {/*<Typography className={classes.colorName}>Kosmik kulrang</Typography>*/}
+                                    <ColorPicker setColor={setColor} color={color} dataID={item?.id}/>
                                 </Box>
                                 <Typography className={classes.storeName}>
                                     <StoreIcon className={classes.icon}/><span>Do&apos;kon</span> <span
