@@ -21,18 +21,21 @@ const SingleProduct = () => {
     const handleCLose = () => setOpen(false);
 
     const [colorId, setColorId] = useState(0)
+
     useEffect(() => {
-        axios.get(`${apiAddress}/product`).then(res => setSuggestData(res.data.content)).catch(err => console.log(err))
+        const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
+        const config = {headers: {Authorization: `Bearer ${token}`}};
+        axios.get(`${apiAddress}/product`, config).then(res => setSuggestData(res.data.content)).catch(err => console.log(err))
         axios.get(`${apiAddress}/product/${id}`).then(res => {
             setSingle(res.data)
             setColorId(res.data.productColorDTOS[0].id)
         }).catch(err => console.log(err))
 
-    }, [id, setColorId])
+    }, [id, setColorId, suggestedData])
 
-     const getProductColorImage =  useCallback((id: number) => {
+    const getProductColorImage = useCallback((id: number) => {
         setColorId(id)
-        axios.get(`${apiAddress}/product-color/photo-url/${colorId}` )
+        axios.get(`${apiAddress}/product-color/photo-url/${colorId}`)
             .then(data => {
                 setImage(data.data)
                 setFirstImage(data.data[0])
