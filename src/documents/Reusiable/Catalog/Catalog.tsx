@@ -11,6 +11,7 @@ import CatalogDescription from './CatalogDescription'
 import { setSearchValue } from '../../../redux/CartSlice'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
+import MainLoader from '../MainLoader/MainLoader'
 
 const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
     const classes = Style()
@@ -74,7 +75,8 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
                     <CatalogDescription categoryChild={categoryChild} getCatalogData={setProductId}/>
                 </Box>
                 <Box className={classes.descrField}>
-                    {catalogData.map(({name, id}: any) =>
+                    {catalogData === undefined ? <MainLoader /> :
+                    catalogData.map(({name, id}: any) =>
                         <Box key={id}>
                             <Typography onClick={() => handleSendData(name)}
                                         style={{cursor: 'pointer'}}>{name}</Typography>
