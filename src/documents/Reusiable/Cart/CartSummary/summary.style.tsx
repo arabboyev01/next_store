@@ -129,7 +129,7 @@ export default makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        // justifyContent: "center",
         '@media(max-width: 650px)': {
             padding: '20px 10px',
             marginLeft: 0,
@@ -137,14 +137,48 @@ export default makeStyles(() => ({
             height: "auto",
         },
     },
-    succesText: {
+    successText: {
         margin: "30px 0",
-        fontSize: "22px",
-        lineHeight: "25px",
+        fontSize: "26px",
+        lineHeight: "32px",
+        fontWeight:600,
         textAlign: "center",
+    },
+    successSub: {
+        fontSize: "18px",
+        lineHeight: "20px",
+        fontWeight:500,
+        textAlign: "center",
+    },
+    successOrdinaryText: {
+        fontSize: "16px",
+        lineHeight: "16px",
+        fontWeight:500,
+        textAlign: "center",
+        margin: "30px 0",
+        color: "#6C757D",
+        width: '500px',
+    },
+    successOrdinaryTextColor:{
+        color: "#0D63F3",
     },
     successButton: {
         height: "40px",
         width: "70%",
+    },
+
+    successIcon: {
+        width: "90px",
+        height: '90px',
+        background: "#DFF3D5",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "50%",
+    },
+    verifiedIcon: {
+        fontSize: "2rem",
+        color: "#369609",
     },
 }))
