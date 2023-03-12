@@ -6,5 +6,10 @@ export default makeStyles(() => ({
         lineHeight: "33.2px",
         fontWeight: 600,
         padding: "10px 0",
+        '@media(max-width: 650px)': {
+            fontSize: "22px",
+            lineHeight: "24px",
+            fontWeight: 500,
+        },
     }
 }))
