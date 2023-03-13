@@ -161,6 +161,7 @@ export default makeStyles(() => ({
     },
     successOrdinaryTextColor:{
         color: "#0D63F3",
+        cursor: "pointer",
     },
     successButton: {
         height: "40px",

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import { apiAddress } from '../../../../config'
 import Dumb from './Dumb'
+import { useSelector } from 'react-redux'
 
 const SingleProduct = () => {
     const classes = Styles();
@@ -13,25 +14,22 @@ const SingleProduct = () => {
     const {id} = router.query
 
     const [open, setOpen] = useState(false);
-    const [suggestedData, setSuggestData] = useState([])
     const [single, setSingle] = useState([]);
     const [getImage, setImage] = useState([])
     const [getFirstImage, setFirstImage] = useState([])
     const handleOpen = () => setOpen(true);
+    const {mainData} = useSelector((state: any) => state.cart);
+    const data = mainData[mainData.length - 1]
     const handleCLose = () => setOpen(false);
 
     const [colorId, setColorId] = useState(0)
 
     useEffect(() => {
-        const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-        const config = {headers: {Authorization: `Bearer ${token}`}};
-        axios.get(`${apiAddress}/product`, config).then(res => setSuggestData(res.data.content)).catch(err => console.log(err))
         axios.get(`${apiAddress}/product/${id}`).then(res => {
             setSingle(res.data)
             setColorId(res.data.productColorDTOS[0].id)
         }).catch(err => console.log(err))
-
-    }, [id, setColorId, suggestedData])
+    }, [id, setColorId])
 
     const getProductColorImage = useCallback((id: number) => {
         setColorId(id)
@@ -53,7 +51,7 @@ const SingleProduct = () => {
               single={single}
               handleOpen={handleOpen}
               query={query}
-              suggestedData={suggestedData}
+              suggestedData={data?.content}
               open={open}
               getProductColorImage={getProductColorImage}
               getImage={getImage}
