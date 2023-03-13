@@ -1,7 +1,11 @@
 import { ProgressBar } from 'react-loader-spinner'
 import { Box } from '@mui/system'
+import Image from 'next/image'
+import MainLogo from "../../../../public/assets/images/next_logo.png"
+import { useMediaQuery } from '@mui/material'
 
 const HomePageLoader = () => {
+    const query = useMediaQuery('@media(max-width: 650px')
     return (
         <Box style={{
             position: 'absolute', top: 0, left: 0,
@@ -11,11 +15,11 @@ const HomePageLoader = () => {
             background: '#ECF4FF',
             zIndex: 2000,
         }}>
+            <Image src={MainLogo.src} alt='logo' width={query ? 70 : 100} height={query ? 30 : 45} />
             <ProgressBar
                 height="80"
                 width="80"
                 ariaLabel="progress-bar-loading"
-                wrapperStyle={{width: '300px'}}
                 wrapperClass="progress-bar-wrapper"
                 borderColor="#000"
                 barColor="#51E5FF"
