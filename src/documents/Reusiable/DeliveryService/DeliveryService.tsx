@@ -12,7 +12,7 @@ const DeliveryService = ({name}: any) => {
             <Box className={classes.singleLine}>
                 <StoreIcon className={classes.icon} />
                 <Typography className={classes.name}>Brend: </Typography>
-                <Typography className={classes.brandName}>{name}</Typography>
+                <Typography className={classes.brandName}>{name?.split(' ')[0]}</Typography>
             </Box>
             <Box className={classes.singleLine}>
                 <DeliveryDiningIcon className={classes.icon} />
@@ -29,3 +29,5 @@ const DeliveryService = ({name}: any) => {
 }
 
 export default DeliveryService
+
+// substring(0,30)
