@@ -1,6 +1,6 @@
 import { Box } from '@mui/system'
 import React from 'react'
-import { Button, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import RangeSlider from './Range'
 import Switches from './Switch'
 import { SwitchesData, ForMore, Brands } from './config'
@@ -12,10 +12,9 @@ export type Props = {
     setPurchaseType: any
     setBrands: any
     setCondition: any
-    handleFilters: any
 }
 
-const Filters: React.FC<Props> = ({ classes, value, handleChange, setPurchaseType, setBrands, setCondition, handleFilters }) => (
+const Filters: React.FC<Props> = ({ classes, value, handleChange, setPurchaseType, setBrands, setCondition }) => (
     <Box className={classes.filterWrapper}>
         <Typography className={classes.filterType}>Narxi so&apos;mda</Typography>
         <Box>
@@ -46,8 +45,8 @@ const Filters: React.FC<Props> = ({ classes, value, handleChange, setPurchaseTyp
                 </Box>
             )}
             <hr className={classes.hr}/>
-            <Button className={classes.clear} type="submit" onClick={handleFilters}>Mahsulotlarni saralash</Button>
-            <Button type="submit" onClick={handleFilters}>Filterni tozalash</Button>
+            {/*<Button className={classes.clear} type="submit" onClick={handleFilters}>Mahsulotlarni saralash</Button>*/}
+            {/*<Button type="submit" onClick={handleFilters}>Filterni tozalash</Button>*/}
         </Box>
     </Box>
 )

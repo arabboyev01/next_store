@@ -27,6 +27,7 @@ export const orderForm = (values: any, cartItems: any, totalAmount: number, setS
     ).then(data => {
         if(data.status === 200){
             setSucces(true)
+            window.localStorage.removeItem('CartItems')
         }
     }).catch(err => {
         console.log(err)
@@ -62,6 +63,7 @@ export const orderObjectForm = (values: any, cartItems: any, totalAmount: number
     ).then(data => {
         if(data.status === 200){
             setSucces(true)
+            window.localStorage.removeItem('CartItems')
         }
     }).catch(err => {
          if (err.response.status === 400) {

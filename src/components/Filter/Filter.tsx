@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import style from './filters.style'
 import axios from 'axios'
 import { apiAddress } from '../../../config'
 import { quantity } from './utilty'
 import { useMediaQuery } from '@mui/material'
 import Dumb from './Dumb';
+import { useSelector } from 'react-redux'
 
 const FilterComponent = () => {
     const classes = style();
     const query = useMediaQuery('@media(max-width: 600px)')
-
     // ---mainData---
-    const [data, setData] = useState([])
-    const quantityData = quantity(data);
+    // const [data, setData] = useState([])
+    const { mainData } = useSelector((state: any) => state.cart)
+    const data = mainData[mainData?.length - 1]
+    const quantityData = quantity(data?.content);
+    const [filtered, setFiltered] = useState([]);
+
     // ---filters data---
     const [value, setValue] = useState<number[]>([0, 1000000]);
     const [brands, setBrands] = useState<string>('')
@@ -32,14 +36,6 @@ const FilterComponent = () => {
     const [credit, setCredit] = useState(false)
     const [delivery, setDelivery] = useState(false);
 
-    useEffect(() => {
-        const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-        const config = {headers: {Authorization: `Bearer ${token}`}};
-        axios.get(`${apiAddress}/product`, config).then(res => {
-            setData(res.data.content)
-        }).catch(err => console.log(err))
-    }, [data])
-
     const handlePaginateData = (number: any) => {
         setCurrentPage(number)
         window.scrollTo({top: query ? 1000 : 0, behavior: 'smooth'});
@@ -48,21 +44,21 @@ const FilterComponent = () => {
         setValue(newValue as number[]);
     };
 
-    const handleFilters = () => {
-        if (purchaseType === 'Bo\'lib to\'lash') {
+    const handleFilters = useCallback(() => {
+        if ( purchaseType === 'Bo\'lib to\'lash' ) {
             setInstallment(true)
         }
-        if (purchaseType === 'Chegirmali mahsulot') {
+        if ( purchaseType === 'Chegirmali mahsulot' ) {
             setDiscount(true)
         }
 
-        if (condition === 'Nasiya orqali') {
+        if ( condition === 'Nasiya orqali' ) {
             setDebt(true)
         }
-        if (condition === 'Kreditga olish') {
+        if ( condition === 'Kreditga olish' ) {
             setCredit(true)
         }
-        if (condition === 'Yetkazib berish ') {
+        if ( condition === 'Yetkazib berish' ) {
             setDelivery(true)
         }
 
@@ -70,11 +66,15 @@ const FilterComponent = () => {
         axios.get(
             `${apiAddress}/product?page=0&size=100&sort&price, desc&payInstallments=${installment}&discounted=${discount}&&takeCredit=${credit}&debt=${debt}&deliver=${delivery}`,
             {headers: {Authorization: `Bearer ${token}`}})
-            .then((data) => setData(data.data.content))
+            .then((data) => setFiltered(data.data.content))
 
-        const filtered = data.filter(({name}: any) => name.toLowerCase().includes(brands.toLowerCase()))
-        setData(filtered)
-    }
+        const filtered = data?.content.filter(({name}: any) => name.toLowerCase().includes(brands.toLowerCase()))
+        setFiltered(filtered)
+    }, [ brands, credit, condition, purchaseType, installment, discount, delivery, debt ])
+
+    useEffect(() => {
+        handleFilters()
+    }, [handleFilters]);
 
     return (
         <Dumb
@@ -82,15 +82,15 @@ const FilterComponent = () => {
             value={value}
             indexOfLastPost={indexOfLastPost}
             indexOfFirstPost={indexOfFirstPost}
-            data={data}
+            data={data?.content}
             quantityData={quantityData}
             handlePaginateData={handlePaginateData}
             handleChange={handleChange}
             setPurchaseType={setPurchaseType}
             setBrands={setBrands}
             setCondition={setCondition}
-            handleFilters={handleFilters}
+            filtered={filtered}
         />
     )
 }
-export default FilterComponent;
+export default FilterComponent ;

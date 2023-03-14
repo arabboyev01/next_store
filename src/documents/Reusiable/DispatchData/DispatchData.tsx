@@ -1,6 +1,6 @@
-import {useDispatch} from "react-redux";
-import {useEffect} from "react";
-import {fetchData} from "../../../redux/fetchData";
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchData } from '../../../redux/fetchData';
 
 const SendData = () => {
     const dispatch = useDispatch();

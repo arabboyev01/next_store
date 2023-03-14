@@ -23,8 +23,6 @@ const ColorPicker = ({color, setColor, dataID}: any) => {
 
     }, [dataID])
 
-    console.log(dataColor)
-
     return (
         <FormControl variant="standard" sx={{width: 150}}>
             <Select
@@ -36,18 +34,17 @@ const ColorPicker = ({color, setColor, dataID}: any) => {
             >
                 {dataColor?.map(({color, name, id}: any) =>
                     <MenuItem value={color} key={id} style={{display: 'flex !important', alignItems: 'center'}}>
-                        {/*<Typography style={{color: `${color}`}}>{name}*/}
                         <Box style={{
                             width: '20px',
                             height: '20px',
                             borderRadius: '4px',
                             background: `${color}`,
-                        }}><Typography style={{marginLeft: "25px"}}>{name}</Typography></Box>
-                        {/*</Typography>*/}
+                        }}><Typography style={{marginLeft: "25px"}}>{name}</Typography>
+                        </Box>
                     </MenuItem>
                 )}
             </Select>
         </FormControl>
     )
 }
-export default ColorPicker
+export default ColorPicker ;
