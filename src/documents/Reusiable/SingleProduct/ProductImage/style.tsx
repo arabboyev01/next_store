@@ -2,8 +2,8 @@ import { makeStyles } from '@mui/styles'
 
 export default makeStyles(() => ({
     swiperWrapper: {
-        maxWidth: '500px',
-        height: '400px',
+        // maxWidth: '500px',
+        // height: '500px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -15,9 +15,9 @@ export default makeStyles(() => ({
         },
     },
     mainImage: {
-        maxWidth: '500px',
-        maxHeight: '500px',
-        marginTop: '150px',
+        width: '500px',
+        weight: '400px',
+        marginLeft: "100px",
         '@media(max-width: 650px)': {
             marginTop: 0,
         },
@@ -26,7 +26,6 @@ export default makeStyles(() => ({
         width: '400px',
         height: '400px',
         objectFit: 'contain',
-        marginTop: "-50px",
         '@media(max-width: 650px)': {
             width: '200px',
             height: '200px',
@@ -35,7 +34,7 @@ export default makeStyles(() => ({
     images: {
         width: '80px',
         height: '80px',
-        objectFit: 'cover',
+        objectFit: 'contain',
         marginLeft: '30px',
         '@media(max-width: 650px)': {
             width: '50px',
@@ -45,7 +44,7 @@ export default makeStyles(() => ({
     activeImages: {
         width: '80px',
         height: '80px',
-        objectFit: 'cover',
+        objectFit: 'contain',
         border: '1px solid rgba(0, 0, 0, 0.5)',
         marginLeft: '30px',
         '@media(max-width: 650px)': {
