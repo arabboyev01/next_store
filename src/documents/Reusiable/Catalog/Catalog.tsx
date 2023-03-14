@@ -50,14 +50,10 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
     }
 
     return (
-        <Rodal
-            customStyles={LoginModalStyle}
-            animation="slideDown"
-            closeOnEsc={true}
+        <Rodal customStyles={LoginModalStyle} animation="slideDown" closeOnEsc={true}
             showCloseButton={false}
             visible={catalogOpen}
             onClose={handleCatalogClose}
-
         >
             <Box className={classes.mainWrapper}>
                 <Box className={classes.mainSection}>
