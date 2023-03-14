@@ -31,6 +31,11 @@ export default makeStyles(() => ({
         marginTop: '30px',
         height: '800px',
         overflow: 'scroll',
+        '&::-webkit-scrollbar': {
+            display: 'none',
+        },
+        msOverflowStyle: 'none',
+        scrollbarWidth: 'none',
     },
     title: {
         marginTop: '20px',
@@ -69,6 +74,14 @@ export default makeStyles(() => ({
     subTitle: {
         cursor: 'pointer',
         fontSize: '14px',
-        maxWidth: "130px",
+        maxWidth: '130px',
+    },
+    active: {
+        fontWeight: 600,
+        marginTop: '20px',
+        cursor: 'pointer',
+        padding: '0 18px',
+        width: '208px',
+        fontSize: '14px',
     },
 }))

@@ -72,7 +72,7 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
                     )}
                 </Box>
                 <Box className={classes.descSection}>
-                    <CatalogDescription categoryChild={categoryChild} getCatalogData={setProductId}/>
+                    <CatalogDescription categoryChild={categoryChild} getCatalogData={setProductId} productsId={productsId}/>
                 </Box>
                 <Box className={classes.descrField}>
                     {catalogData === undefined ? <MainLoader /> :

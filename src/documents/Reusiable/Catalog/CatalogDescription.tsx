@@ -1,7 +1,7 @@
 import { Box } from '@mui/system'
 import style from "./catalog.style"
 import { Typography } from '@mui/material'
-const CatalogDescription = ({categoryChild, getCatalogData}: any) => {
+const CatalogDescription = ({categoryChild, getCatalogData, productsId}: any) => {
     const classes = style()
 
     return (
@@ -9,7 +9,7 @@ const CatalogDescription = ({categoryChild, getCatalogData}: any) => {
             <Box className={classes.categorySubTitles}>
                 <Typography className={classes.descTitle}>Brendlar</Typography>
                 {categoryChild.map(({id, name}: any) =>
-                 <Typography className={classes.subtitle} key={id} onClick={() => getCatalogData(id)}>
+                 <Typography className={productsId === id ? classes.active : classes.subtitle} key={id} onClick={() => getCatalogData(id)}>
                      {name} </Typography>
                 )}
             </Box>
