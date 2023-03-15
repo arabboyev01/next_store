@@ -27,7 +27,7 @@ const CartSlice = createSlice({
                 toast.success(`${action.payload.name} Savatga qo'shildi`);
             }
 
-            localStorage.setItem('CartItems', JSON.stringify(state.cartItems));
+            // localStorage.setItem('CartItems', JSON.stringify(state.cartItems));
         },
 
         setSearchValue: (state: any, action: any) => {
