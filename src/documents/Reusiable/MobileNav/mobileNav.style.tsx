@@ -8,11 +8,16 @@ export default makeStyles(() => ({
         padding: '20px 20px 0 20px',
     },
     header: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         transition: 'all 0.5s',
+        padding: "20px 5px",
     },
     stickyHeader: {
         position: 'fixed',
@@ -26,7 +31,6 @@ export default makeStyles(() => ({
         height: '55px',
         background: '#fff',
         zIndex: 1000,
-        padding: '0 20px',
         transition: 'all 0.5s ease-in-out',
     },
     likeIcon: {
@@ -38,6 +42,7 @@ export default makeStyles(() => ({
     },
     menuIcon: {
         fontSize: '1.7rem',
+        marginLeft: "20px",
     },
     searchInputWrapper: {
         maxWidth: '850px',
@@ -48,7 +53,7 @@ export default makeStyles(() => ({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        margin: '30px auto 0 auto',
+        margin: '80px auto 0 auto',
     },
     searchInput: {
         maxWidth: '850px',
@@ -140,6 +145,6 @@ export default makeStyles(() => ({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: "10px",
+        marginTop: '10px',
     },
 }))

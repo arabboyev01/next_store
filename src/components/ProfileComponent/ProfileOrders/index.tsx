@@ -17,13 +17,14 @@ const ProfileOrders = () => {
     const query = useMediaQuery('@media(max-width: 600px)')
     const token: any | unknown = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
     const [orderData, setOrderData] = React.useState([])
-    const decoded = jwt_decode(token);
+    const decoded : any = jwt_decode(token);
+
     useEffect(() => {
-        // @ts-ignore
         axios.get(`${apiAddress}/user-order/info/${decoded?.sub}`, {headers: {Authorization: `Bearer ${token}`}})
             .then(res => setOrderData(res.data))
             .catch((err) => console.log(err))
     }, [decoded,token])
+
     return (
         orderData.length === 0 ? <EmptyData data={emptyProfile}/> :
             <Box className={classes.likeWrapper}>
