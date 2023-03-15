@@ -81,7 +81,7 @@ const MobileNav = () => {
                                                                            alt="logo"/></Link>
                             <Box>
                                 <Badge badgeContent={cartQty} color="primary"
-                                       style={{marginTop: 0, marginRight: '20px'}}>
+                                       style={{marginTop: 0}}>
                                     <Link href="/cart">
                                         <Image src={store.src} className={classes.likeIcon} width={20} height={20}
                                                alt="store"/>

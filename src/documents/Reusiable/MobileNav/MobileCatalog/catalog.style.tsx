@@ -53,4 +53,8 @@ export default makeStyles(() => ({
         top: "35px",
         left: "30px",
     },
+    text: {
+        margin: '10px 0 0 10px',
+        color: "#333",
+    },
 }))

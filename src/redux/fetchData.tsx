@@ -17,7 +17,6 @@ export const initialState = {
     categoryId: 0,
     likes: false,
 }
-console.log(initialState)
 
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
 const config = {headers: {Authorization: `Bearer ${token}`}};
