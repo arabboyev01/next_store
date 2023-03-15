@@ -24,7 +24,7 @@ const CatalogDumb: React.FC<Props> = ({categoryParent, brand, handleChangeParent
                     onClick={() => handleChangeParent(id)}
                     sx={{gap: 0, margin: 0, padding: '0 20px'}}
                 >
-                    <Typography onClick={() => handleChangeParent(id)}>{name}</Typography>
+                    <Typography onClick={() => handleChangeParent(id)} className={classes.chapters}>{name}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     {brand.map(({name, id}: any) =>
