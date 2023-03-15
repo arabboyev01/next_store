@@ -17,7 +17,7 @@ const MobileCatalog = ({categoryMain, handleSetCategory}: any) => {
     const [categoryParent, setCategory] = React.useState([])
     const [brand, setBrand] = React.useState([])
     const [first, setFirst] = React.useState(false);
-    const [parentId, setParentId] = useState<null | number>(0)
+    const [parentId, setParentId] = useState<null | number>(null)
     const [products, setProducts] = useState([])
     const dispatch = useDispatch()
     const router = useRouter()
