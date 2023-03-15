@@ -61,21 +61,22 @@ const MobileCatalog = ({categoryMain, handleSetCategory}: any) => {
                     <ArrowBackIosIcon style={{color: '#000', fontSize: '16px'}}/>
                 </Box>) : null
             }
-
-            {first ?
-                products.map(({id, name}: any) =>
-                    <Box className={classes.dividedMenu} key={id} onClick={() => handleSendData(name)}>
-                        <Typography className={classes.chapters}>{name.substring(0,20)}</Typography>
-                        <KeyboardArrowRightIcon style={{color: '#000'}}/>
-                    </Box>) :
-                <CatalogDumb
-                    categoryParent={categoryParent}
-                    brand={brand}
-                    handleChangeParent={handleChangeParent}
-                    handleChangeDirection={handleChangeDirection}
-                    classes={classes}
-                />
-            }
+            <Box className={classes.contents}>
+                {first ?
+                    products.map(({id, name}: any) =>
+                        <Box className={classes.dividedMenu} key={id} onClick={() => handleSendData(name)}>
+                            <Typography className={classes.chapters}>{name.substring(0, 20)}</Typography>
+                            <KeyboardArrowRightIcon style={{color: '#000'}}/>
+                        </Box>) :
+                    <CatalogDumb
+                        categoryParent={categoryParent}
+                        brand={brand}
+                        handleChangeParent={handleChangeParent}
+                        handleChangeDirection={handleChangeDirection}
+                        classes={classes}
+                    />
+                }
+            </Box>
         </Box>
     )
 }

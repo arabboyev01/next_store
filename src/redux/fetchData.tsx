@@ -2,7 +2,7 @@ import { apiAddress } from '../../config';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const storedData: any = typeof window !== 'undefined' ? window.localStorage.getItem('CartItems') : null;
-export const parsedData = storedData !== null ? JSON.parse(storedData) : [{name: 'initialData'}]
+const parsedData = storedData !== null ? JSON.parse(storedData) : [{name: 'initialData'}]
 
 export const initialState = {
     mainData: [],

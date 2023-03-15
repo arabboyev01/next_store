@@ -21,6 +21,10 @@ export default makeStyles(() => ({
         zIndex: 0,
         transition: '2s ease-in-out',
     },
+    contents:{
+        height:"700px",
+        overflowY: 'scroll',
+    },
     title: {
         fontSize: "24px",
         lineHeight: "25px",
