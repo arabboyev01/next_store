@@ -2,8 +2,6 @@ import { makeStyles } from '@mui/styles'
 
 export default makeStyles(() => ({
     swiperWrapper: {
-        // maxWidth: '500px',
-        // height: '500px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -20,6 +18,9 @@ export default makeStyles(() => ({
         marginLeft: "100px",
         '@media(max-width: 650px)': {
             marginTop: 0,
+            marginLeft: "100px",
+            height: "250px",
+            width: "300px",
         },
     },
     mainImages: {
