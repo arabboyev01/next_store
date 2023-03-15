@@ -5,7 +5,7 @@ import Image from 'next/image';
 import NextLogo from '../../../../public/assets/images/next_logo.png';
 import Link from 'next/link';
 import SearchIcon from '@mui/icons-material/Search';
-import { selectCartItems, setSearchValue, validataionCode } from '../../../redux/CartSlice';
+import { setSearchValue, validataionCode } from '../../../redux/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -17,6 +17,7 @@ import User from '../Navbar/User';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import MobileCatalog from './MobileCatalog/MobileCatalog'
 import store from '../../../../public/assets/icons/store.png'
+import { parsedData } from '../../../redux/fetchData'
 
 const MobileNav = () => {
     const classes = style();
@@ -66,7 +67,7 @@ const MobileNav = () => {
     const handleSetCategory = () => setCategory(false);
     const handleOpenCategory = () => setCategory(true)
 
-    const cartItems = useSelector(selectCartItems);
+    const quantity = parsedData.length ? parsedData.length : 0
 
     return (
         <>
@@ -81,9 +82,11 @@ const MobileNav = () => {
                             <Link href="/" className={classes.link}><Image width={81} height={31} src={NextLogo}
                                                                            alt="logo"/></Link>
                             <Box>
-                                <Badge badgeContent={cartItems?.length} color="primary" style={{marginTop: 0, marginRight: "20px"}}>
+                                <Badge badgeContent={quantity} color="primary"
+                                       style={{marginTop: 0, marginRight: '20px'}}>
                                     <Link href="/cart">
-                                        <Image src={store.src} className={classes.likeIcon} width={20} height={20} alt="store"/>
+                                        <Image src={store.src} className={classes.likeIcon} width={20} height={20}
+                                               alt="store"/>
                                     </Link>
                                 </Badge>
                             </Box>
@@ -104,11 +107,12 @@ const MobileNav = () => {
                             <Box className={classes.chapter}>
                                 <Typography className={classes.title}>Bo&apos;limlar</Typography>
                                 <Box className={classes.dividedMenu} onClick={handlePersonalData}>
-                                    <Typography className={classes.chapters} style={{color: '#000', textDecoration: 'none'}}>Yoqtirgan
+                                    <Typography className={classes.chapters}
+                                                style={{color: '#000', textDecoration: 'none'}}>Yoqtirgan
                                         mahsulotlarim</Typography>
                                     <KeyboardArrowRightIcon style={{color: '#000', marginTop: '20px'}}/>
                                 </Box>
-                                <Box className={classes.dividedMenu}  onClick={handleOpenCategory}>
+                                <Box className={classes.dividedMenu} onClick={handleOpenCategory}>
                                     <Typography className={classes.chapters}>Bizning Catalog</Typography>
                                     <KeyboardArrowRightIcon style={{color: '#000', marginTop: '20px'}}/>
                                 </Box>

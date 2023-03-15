@@ -2,12 +2,12 @@ import { apiAddress } from '../../config';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const storedData: any = typeof window !== 'undefined' ? window.localStorage.getItem('CartItems') : null;
-const parsedData = JSON.parse(storedData)
+export const parsedData = storedData !== null ? JSON.parse(storedData) : []
 
 export const initialState = {
     mainData: [],
     cartState: false,
-    cartItems: parsedData === null ? [] : parsedData,
+    cartItems: parsedData,
     singleProduct: [],
     searchValue: [],
     cartTotalAmount: 0,
@@ -17,6 +17,7 @@ export const initialState = {
     categoryId: 0,
     likes: false,
 }
+
 const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
 const config = {headers: {Authorization: `Bearer ${token}`}};
 
