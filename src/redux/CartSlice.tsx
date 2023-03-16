@@ -28,6 +28,7 @@ const CartSlice = createSlice({
             }
 
             localStorage.setItem('CartItems', JSON.stringify(state.cartItems));
+
         },
 
         setSearchValue: (state: any, action: any) => {
