@@ -44,7 +44,7 @@ const ArrayCart =
                         </Box>
                         <Typography className={classes.price}>{commafy(item.price)} so&apos;m</Typography>
                         <Typography className={classes.title}>{item.name}</Typography>
-                        <Typography className={classes.order}>{item.phone}</Typography>
+                        <Typography className={classes.order}>{item.phone === "" ? "Tel raqam kirgazilmagan" : item.phone}</Typography>
                     </Box>
                     <Box className={classes.footer}>
                         <Box onClick={() => handleSingleProduct(item)}><PrimaryButton text="Sotib olish"/></Box>
