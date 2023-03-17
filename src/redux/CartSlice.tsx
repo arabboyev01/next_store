@@ -15,6 +15,7 @@ const CartSlice = createSlice({
     reducers: {
         setAddItemToCart: (state: any, action: any) => {
             const itemIndex = state?.cartItems?.findIndex((item: any) => item.id === action.payload.id);
+
             if (itemIndex >= 0) {
                 state.cartItems[itemIndex].cartQuantity += 1;
                 state.cartTotalQuantity += 1
@@ -57,8 +58,8 @@ const CartSlice = createSlice({
         },
         setRemoveItemFromCart: (state: any, action: any) => {
             const removeId = action.payload.id
-            const findIndexOfObject = state.cartItems.findIndex(({id}: any) => id === removeId)
             state.cartItems = state.cartItems.filter(({id}: any) => id !== removeId);
+
             if (state.cartTotalQuantity == 1) {
                 state.cartTotalQuantity = 0;
             } else {
