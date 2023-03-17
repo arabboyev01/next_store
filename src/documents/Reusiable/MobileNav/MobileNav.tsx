@@ -5,7 +5,7 @@ import Image from 'next/image';
 import NextLogo from '../../../../public/assets/images/next_logo.png';
 import Link from 'next/link';
 import SearchIcon from '@mui/icons-material/Search';
-import { setSearchValue, validataionCode } from '../../../redux/CartSlice';
+import { selectTotalQTY, setSearchValue, validataionCode } from '../../../redux/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -65,14 +65,14 @@ const MobileNav = () => {
     const [categoryMain, setCategory] = useState(false);
     const handleSetCategory = () => setCategory(false);
     const handleOpenCategory = () => setCategory(true)
-    // const cartQty = useSelector(selectTotalQTY)
 
-    const [productLength, setProductLength] = useState('0')
+    const cartQty = useSelector(selectTotalQTY)
+    const [productLength, setProductLength] = useState(cartQty)
+    const cartLength: any = typeof window !== 'undefined' ? window.localStorage.getItem('CartItems') : null
+    const data = JSON.parse(cartLength)
     useEffect(() => {
-        const cartLength: any = typeof window !== 'undefined' ? window.localStorage.getItem('CartItems') : null
-        const data = JSON.parse(cartLength)
         setProductLength(data?.length)
-    }, [])
+    }, [productLength, data?.length])
 
     return (
         <>

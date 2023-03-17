@@ -17,7 +17,9 @@ import ColorPicker from '../../ColorPicker'
 const CartProduct = ({cartItems}: any) => {
     const classes = Styles();
     const dispatch = useDispatch();
-    const onRemoveItem = (data: any) => dispatch(setRemoveItemFromCart(data))
+    const onRemoveItem = (data: any) => {
+        dispatch(setRemoveItemFromCart(data))
+    }
     const [color, setColor] = useState('')
 
     useEffect(() => {

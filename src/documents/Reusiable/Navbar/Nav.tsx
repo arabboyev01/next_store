@@ -12,7 +12,7 @@ import LoginComponent from '../../../components/LoginComponent/LoginComponent';
 import { setSearchValue } from '../../../redux/CartSlice';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import Catalog from '../Catalog/Catalog'
+import { CatalogComponent } from '../Catalog/Catalog'
 
 const Nav = () => {
     const classes = style();
@@ -45,7 +45,7 @@ const Nav = () => {
     return (
         <>
             <LoginComponent open={open}  handleClose={handleClose}/>
-            <Catalog catalogOpen={catalogOpen} handleCatalogClose={handleCatalogClose}/>
+            <CatalogComponent catalogOpen={catalogOpen} handleCatalogClose={handleCatalogClose}/>
             <Box className={classes.navWrapper}>
                 <Box className={classes.contentWrapper}>
                     <Link href="/" className={classes.link}><Image width={100} height={45} src={NextLogo}

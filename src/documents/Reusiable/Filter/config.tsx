@@ -1,31 +1,3 @@
-
-export const Brands = [
-    {
-        id: 0,
-        name: "Apple",
-    },
-    {
-        id: 1,
-        name: "Samsung",
-    },
-    {
-        id: 2,
-        name: "Xiaomi",
-    },
-    {
-        id: 3,
-        name: "Huawei",
-    },
-    {
-        id: 4,
-        name: "Artel",
-    },
-    {
-        id: 5,
-        name: "Boshqalar",
-    },
-]
-
 export const SwitchesData = [
     {
         id: 0,

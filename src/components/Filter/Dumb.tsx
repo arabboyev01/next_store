@@ -10,15 +10,16 @@ const Dumb =
          value,
          handleChange,
          setPurchaseType,
-         data,
          indexOfFirstPost,
          indexOfLastPost,
          handlePaginateData,
          quantityData,
          setBrands,
          setCondition,
-        filtered
-     }: any) => (
+         filtered,
+        category,
+        brand
+    }: any) => (
         <Box className={classes.mainWrapper}>
             <Box className={classes.filters}>
                 <Filters
@@ -28,16 +29,16 @@ const Dumb =
                     setPurchaseType={setPurchaseType}
                     setBrands={setBrands}
                     setCondition={setCondition}
+                    category={category}
+                    brand={brand}
                 />
             </Box>
             <Box className={classes.datas}>
-                {data === undefined ? <HomePageLoader/> :
-                    <MainCart mainData={!filtered.length ? data?.slice(indexOfFirstPost, indexOfLastPost) :
-                        filtered?.slice(indexOfFirstPost, indexOfLastPost)}
-                    />
+                {filtered === undefined ? <HomePageLoader/> :
+                    <MainCart mainData={filtered?.slice(indexOfFirstPost, indexOfLastPost)}/>
                 }
                 <Box className={classes.pagination}>
-                    {data?.length <= 11 ?
+                    {filtered?.length <= 11 ?
                         null :
                         <PaginationComponent handlePaginateData={handlePaginateData} quantity={quantityData}/>
                     }

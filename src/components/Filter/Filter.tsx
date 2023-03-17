@@ -10,16 +10,16 @@ import { useSelector } from 'react-redux'
 const FilterComponent = () => {
     const classes = style();
     const query = useMediaQuery('@media(max-width: 600px)')
+    const {mainData} = useSelector((state: any) => state.cart);
     // ---mainData---
-    // const [data, setData] = useState([])
-    const { mainData } = useSelector((state: any) => state.cart)
-    const data = mainData[mainData?.length - 1]
-    const quantityData = quantity(data?.content);
     const [filtered, setFiltered] = useState([]);
+    const quantityData = quantity(filtered);
+    const [category, setCategory] = useState([])
+    const [filteringData] = useState(mainData[mainData.length - 1]?.content)
 
     // ---filters data---
     const [value, setValue] = useState<number[]>([0, 1000000]);
-    const [brands, setBrands] = useState<string>('')
+    const [brand, setBrands] = useState<string>('hammasi')
     const [purchaseType, setPurchaseType] = useState<string>('')
     const [condition, setCondition] = useState<string>('')
 
@@ -30,11 +30,11 @@ const FilterComponent = () => {
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-    const [installment, setInstallment] = useState(false)
-    const [discount, setDiscount] = useState(false)
-    const [debt, setDebt] = useState(false)
-    const [credit, setCredit] = useState(false)
-    const [delivery, setDelivery] = useState(false);
+    const [installment, setInstallment] = useState<any>('')
+    const [discount, setDiscount] = useState<any>('')
+    const [debt, setDebt] = useState<any>('')
+    const [credit, setCredit] = useState<any>('')
+    const [delivery, setDelivery] = useState<any>('');
 
     const handlePaginateData = (number: any) => {
         setCurrentPage(number)
@@ -45,36 +45,47 @@ const FilterComponent = () => {
     };
 
     const handleFilters = useCallback(() => {
-        if ( purchaseType === 'Bo\'lib to\'lash' ) {
+        if (purchaseType === 'Bo\'lib to\'lash') {
             setInstallment(true)
         }
-        if ( purchaseType === 'Chegirmali mahsulot' ) {
+        if (purchaseType === 'Chegirmali mahsulot') {
             setDiscount(true)
         }
 
-        if ( condition === 'Nasiya orqali' ) {
+        if (condition === 'Nasiya orqali') {
             setDebt(true)
         }
-        if ( condition === 'Kreditga olish' ) {
+        if (condition === 'Kreditga olish') {
             setCredit(true)
         }
-        if ( condition === 'Yetkazib berish' ) {
+        if (condition === 'Yetkazib berish') {
             setDelivery(true)
         }
 
         const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
         axios.get(
-            `${apiAddress}/product?page=0&size=100&sort&price, desc&payInstallments=${installment}&discounted=${discount}&&takeCredit=${credit}&debt=${debt}&deliver=${delivery}`,
+            `${apiAddress}/product?page=0&size=100&sort&price,desc&${installment && 'payInstallments=true'}${discount && '&discounted=true'}${credit && '&takeCredit=true'}${debt && '&debt=true'}${delivery && '&deliver=true'}`,
             {headers: {Authorization: `Bearer ${token}`}})
             .then((data) => setFiltered(data.data.content))
 
-        const filtered = data?.content.filter(({name}: any) => name.toLowerCase().includes(brands.toLowerCase()))
-        setFiltered(filtered)
-    }, [ brands, credit, condition, purchaseType, installment, discount, delivery, debt ])
+        if (brand !== 'all') {
+            const filtering = filteringData?.filter(({name}: any) => name.toLowerCase().includes(brand.toLowerCase()))
+            setFiltered(filtering)
+        }
+        if(brand === 'all'){
+            return filtered
+        }
+    },  [filteringData, purchaseType, condition, installment, discount, credit, debt, delivery, brand])
 
     useEffect(() => {
         handleFilters()
     }, [handleFilters]);
+
+    useEffect(() => {
+        axios.get(`${apiAddress}/category?parentId=0`).then(data => {
+            setCategory(data.data)
+        }).catch(err => console.log(err))
+    }, [])
 
     return (
         <Dumb
@@ -82,7 +93,6 @@ const FilterComponent = () => {
             value={value}
             indexOfLastPost={indexOfLastPost}
             indexOfFirstPost={indexOfFirstPost}
-            data={data?.content}
             quantityData={quantityData}
             handlePaginateData={handlePaginateData}
             handleChange={handleChange}
@@ -90,7 +100,9 @@ const FilterComponent = () => {
             setBrands={setBrands}
             setCondition={setCondition}
             filtered={filtered}
+            category={category}
+            brand={brand}
         />
     )
 }
-export default FilterComponent ;
+export default FilterComponent;

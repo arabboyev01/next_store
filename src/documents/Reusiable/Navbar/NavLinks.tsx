@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
-import { validataionCode } from '../../../redux/CartSlice';
+import { selectTotalQTY, validataionCode } from '../../../redux/CartSlice';
 import React, { useEffect } from 'react';
 import { NavLinksType } from '../../../../types/types';
 import User from './User';
@@ -20,12 +20,13 @@ const NavLinks: React.FC<NavLinksType> = ({handleOpen}) => {
     const validate = useSelector(validataionCode)
     const router = useRouter()
 
-    const [productLength, setProductLength] = useState('0')
+    const cartQty = useSelector(selectTotalQTY)
+    const [productLength, setProductLength] = useState(cartQty)
+    const cartLength: any = typeof window !== 'undefined' ? window.localStorage.getItem('CartItems') : null
+    const data = JSON.parse(cartLength)
     useEffect(() => {
-        const cartLength: any = typeof window !== 'undefined' ? window.localStorage.getItem('CartItems') : null
-        const data = JSON.parse(cartLength)
         setProductLength(data?.length)
-    }, [])
+    }, [productLength, data?.length])
 
     const handlePersonalData = () => {
         return validate ? router.push({pathname: '/likes'}) : handleOpen()

@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import MainLoader from '../MainLoader/MainLoader'
 
-const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
+export const CatalogComponent = ({catalogOpen, handleCatalogClose}: any) => {
     const classes = Style()
     const [categoryParent, setCategory] = useState<any>([])
     const [parentId, setParentId] = useState<null | number>(null)
@@ -83,4 +83,3 @@ const Catalog = ({catalogOpen, handleCatalogClose}: any) => {
         </Rodal>
     )
 }
-export default Catalog;
