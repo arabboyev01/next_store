@@ -36,7 +36,7 @@ export const CatalogComponent = ({catalogOpen, handleCatalogClose}: any) => {
             setCategoryChild(data.data)
             setSingleId(data.data[0]?.id)
         })
-            .catch(err => console.log(err.response.status))
+            .catch(err => console.log(err?.response?.status))
     }, [activeParentId])
 
     useEffect(() => {

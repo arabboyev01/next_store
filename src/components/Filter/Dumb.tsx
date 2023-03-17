@@ -35,10 +35,11 @@ const Dumb =
             <Box className={classes.datas}>
                 <MainCart mainData={filtered?.slice(indexOfFirstPost, indexOfLastPost)}/>
                 <Box className={classes.pagination}>
-                    {filtered?.length <= 11 ?
-                        null :
-                        <PaginationComponent handlePaginateData={handlePaginateData} quantity={quantityData}/>
-                    }
+                    <PaginationComponent
+                        handlePaginateData={handlePaginateData}
+                        quantity={quantityData}
+                        data={filtered}
+                    />
                 </Box>
             </Box>
         </Box>
