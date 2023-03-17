@@ -18,7 +18,6 @@ const Dumb =
          filtered,
          category,
          brand,
-        callAllData
      }: any) => (
         <Box className={classes.mainWrapper}>
             <Box className={classes.filters}>
@@ -31,7 +30,6 @@ const Dumb =
                     setCondition={setCondition}
                     category={category}
                     brand={brand}
-                    callAllData={callAllData}
                 />
             </Box>
             <Box className={classes.datas}>

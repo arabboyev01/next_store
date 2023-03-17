@@ -71,11 +71,11 @@ const FilterComponent = () => {
         }).catch(err => console.log(err))
     }, [])
 
-    const callAllData = () => {
-        axios.get(`${apiAddress}/product`).then(data => {
-            setFiltered(data.data.content)
-        }).catch(err => console.log(err))
-    }
+    // const callAllData = () => {
+    //     axios.get(`${apiAddress}/product`).then(data => {
+    //         setFiltered(data.data.content)
+    //     }).catch(err => console.log(err))
+    // }
 
     useEffect(() => {
         FilterPrice(filteringData?.current, value[0], value[1], setFiltered)
@@ -96,7 +96,6 @@ const FilterComponent = () => {
             filtered={filtered}
             category={category}
             brand={brand}
-            callAllData={callAllData}
         />
     )
 }

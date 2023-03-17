@@ -1,6 +1,6 @@
 import { Box } from '@mui/system'
 import React from 'react'
-import { Button, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import RangeSlider from './Range'
 import Switches from './Switch'
 import { SwitchesData, ForMore } from './config'
@@ -15,7 +15,6 @@ export type Props = {
     setCondition: any
     category: any,
     brand: any
-    callAllData: any
 }
 
 const Filters: React.FC<Props> =
@@ -28,7 +27,6 @@ const Filters: React.FC<Props> =
          setCondition,
          category,
          brand,
-         callAllData
      }) => (
         <Box className={classes.filterWrapper}>
             <Typography className={classes.filterType}>Narxi so&apos;mda</Typography>
@@ -66,7 +64,7 @@ const Filters: React.FC<Props> =
                         </Box>
                     )}
                     <hr className={classes.hr}/>
-                    <Button type="submit" onClick={callAllData}>Filterni tozalash</Button>
+                    {/*<Button type="submit" onClick={callAllData}>Filterni tozalash</Button>*/}
                 </form>
             </Box>
         </Box>
