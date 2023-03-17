@@ -26,6 +26,10 @@ const ProfileSidebar: React.FC<Props> = ({handlePage, isActive}) => {
             .then(res => setPd(res.data)).catch(err => console.log(err))
     }, [decoded])
 
+    const names = decoded.fullName.split(' ');
+    const firstInitial = names[0].charAt(0);
+    const lastInitial = names[1].charAt(0);
+
     return (
         <Box className={classes.sidebar}>
             <Box className={classes.header} onClick={() => handlePage(null)}>
@@ -34,7 +38,8 @@ const ProfileSidebar: React.FC<Props> = ({handlePage, isActive}) => {
                         bgcolor: randomColor,
                         width: 108,
                         height: 108
-                    }}></Avatar>
+                    }}>{firstInitial}{lastInitial}
+                    </Avatar>
                 </Stack>
                 {typeof pd === 'undefined' ? null : <Typography className={classes.names}>{pd?.firstName} {pd?.lastName}</Typography>}
             </Box>

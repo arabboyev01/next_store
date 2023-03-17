@@ -15,10 +15,16 @@ const User = () => {
     const decoded: unknown | any = jwt_decode(token)
     const query = useMediaQuery('@media(max-width: 650px)')
 
+    const names = decoded.fullName.split(' ');
+    const firstInitial = names[0].charAt(0);
+    const lastInitial = names[1].charAt(0);
+
     return (
         <Box onClick={sendData} style={{display: 'flex', alignItems: 'center'}}>
             <Stack direction="row" spacing={2}>
-                <Avatar sx={{bgcolor: randomColor}}></Avatar>
+                <Avatar sx={{bgcolor: randomColor}}>
+                    <Typography style={{fontSize: "15px"}}>{firstInitial}{lastInitial}</Typography>
+                </Avatar>
             </Stack>
             {query ? <Typography style={{fontSize: '15px', fontWeight: 500, marginLeft: '10px',}}>
                     {decoded.fullName}
