@@ -1,15 +1,21 @@
-import { Oval } from  'react-loader-spinner'
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
+
+const style = {
+    position: "fixed",
+    top:'74px',
+    left:0,
+    width: '100%',
+    '@media(max-width: 650px)': {
+        top: 0,
+    },
+}
 const MainLoader = () => {
-    return(
-        <Oval
-            color="#0072b1"
-            visible={true}
-            ariaLabel='oval-loading'
-            height={60}
-            width={60}
-            secondaryColor="#ccc"
-        />
+    return (
+        <Box sx={style}>
+            <LinearProgress/>
+        </Box>
     )
 }
 
-export default MainLoader ;
+export default MainLoader;

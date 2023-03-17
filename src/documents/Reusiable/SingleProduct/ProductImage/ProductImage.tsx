@@ -1,7 +1,7 @@
 import { Box } from '@mui/system'
 import style from './style'
 import { useState } from 'react';
-import MainLoader from '../../MainLoader/MainLoader'
+import CircleLoader from '../../MainLoader/CircleLoader'
 // @ts-ignore
 import { Magnifier } from "react-image-magnifiers";
 import { useMediaQuery } from '@mui/material'
@@ -21,7 +21,7 @@ const ProductImage = ({getImage, getFirstImage}: any) => {
             {getImage === null || getFirstImage === undefined ?
                 <Box style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: '100%',
                     marginTop: `${query ?  '0' : '200px'}`}}>
-                    <MainLoader/>
+                    <CircleLoader/>
                 </Box> :
                 <Box className={classes.mainImage}>
                     <Magnifier
