@@ -1,15 +1,16 @@
 import { Box } from '@mui/system'
 import React, { useEffect, useState } from 'react'
-import style from "./sidebar.style"
-import user from "../../../public/assets/images/user.png"
-import Image from 'next/image'
+import style from './sidebar.style'
 import { Typography } from '@mui/material'
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 import { PROFILE_LINK_DATA } from '../../documents/DumbData/DumbData'
 import Links from './Links'
 import { PROFILE_LINK_DATA_TYPE } from '../../../types/types'
 import axios from 'axios'
 import { apiAddress } from '../../../config'
+import Stack from '@mui/material/Stack'
+import Avatar from '@mui/material/Avatar'
+import { randomColor } from './RandomColor'
 
 export type Props = {
     handlePage: (category: any) => any
@@ -28,12 +29,19 @@ const ProfileSidebar: React.FC<Props> = ({handlePage, isActive}) => {
     return (
         <Box className={classes.sidebar}>
             <Box className={classes.header} onClick={() => handlePage(null)}>
-                <Image src={user.src} alt='user' width={108} height={108}/>
-                <Typography className={classes.names}>{ pd?.firstName} {pd?.lastName}</Typography>
+                <Stack direction="row" spacing={2}>
+                    <Avatar sx={{
+                        bgcolor: randomColor,
+                        width: 108,
+                        height: 108
+                    }}></Avatar>
+                </Stack>
+                {typeof pd === 'undefined' ? null : <Typography className={classes.names}>{pd?.firstName} {pd?.lastName}</Typography>}
             </Box>
             <Box className={classes.links}>
-                {PROFILE_LINK_DATA.map(({id, name, icon, type }: PROFILE_LINK_DATA_TYPE) =>
-                     <Links id={id} name={name} icon={icon} key={id} type={type} handlePage={handlePage} isActive={isActive} />
+                {PROFILE_LINK_DATA.map(({id, name, icon, type}: PROFILE_LINK_DATA_TYPE) =>
+                    <Links id={id} name={name} icon={icon} key={id} type={type} handlePage={handlePage}
+                           isActive={isActive}/>
                 )}
             </Box>
         </Box>

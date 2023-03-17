@@ -15,6 +15,7 @@ import axios from 'axios'
 import { apiAddress } from '../../../../config'
 import { useRouter } from 'next/router'
 import { sendData } from '../../../documents/Reusiable/MainCart/Utility'
+import Tooltip from '@mui/material/Tooltip';
 
 const ProfileLikes = () => {
     const classes = style()
@@ -57,8 +58,8 @@ const ProfileLikes = () => {
                         favoriteData.map((item: any, index: any) =>
                             <Box className={classes.content} key={index}>
                                 <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt="image"
-                                     style={{objectFit: "contain"}}
-                                     width={query ? 150 : 200} height={query ? 150 : 200} />
+                                     style={{objectFit: 'contain'}}
+                                     width={query ? 150 : 200} height={query ? 150 : 200}/>
                                 <Box className={classes.mainContent}>
                                     <Typography className={classes.name}>{item.name}</Typography>
                                     <Typography className={classes.price}>{item.price} so&apos;m</Typography>
@@ -80,7 +81,9 @@ const ProfileLikes = () => {
                                     </Box>
                                 </Box>
                                 <Box className={classes.close} onClick={() => sendData(item.id, dispatch)}>
-                                    <CloseIcon className={classes.closeIcon}/>
+                                    <Tooltip title="O'chirish">
+                                        <CloseIcon className={classes.closeIcon}/>
+                                    </Tooltip>
                                 </Box>
                             </Box>
                         )}
