@@ -36,3 +36,9 @@ export const handleFilteringData =
             setDelivery('')
         }
     }
+
+export const FilterPrice = (arr: any, start: any, end: any, seFilteredData: any) => {
+    const result  = arr.filter(({price}: any) => price >= start && price <= end)
+    const newArr = result?.sort((a:any, b: any) => b?.price - a?.price); // Sort the selected elements in ascending order
+    seFilteredData(newArr);
+}

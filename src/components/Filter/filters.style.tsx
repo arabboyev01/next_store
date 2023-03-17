@@ -42,7 +42,8 @@ export default makeStyles(() => ({
         color: '#1E1E1E',
         border: '1px solid #E4E7EE',
         width: '100px',
-        paddingLeft: '20px',
+        paddingLeft: '5px',
+        fontSize: '14px',
     },
     filterType: {
         fontSize: '18px',

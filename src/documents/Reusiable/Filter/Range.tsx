@@ -8,7 +8,10 @@ const RangeSlider = ({value, handleChange}: any) => (
             value={value}
             onChange={handleChange}
             valueLabelDisplay="auto"
+            min={0}
+            max={50000000}
+            step={100000}
         />
     </Box>
 )
-export default RangeSlider
+export default RangeSlider;
