@@ -18,6 +18,7 @@ import { emptyData } from '../../documents/DumbData/DumbData'
 import { useRouter } from 'next/router'
 import { sendData } from '../../documents/Reusiable/MainCart/Utility'
 import ColorPicker from '../../documents/Reusiable/ColorPicker'
+import Tooltip from '@mui/material/Tooltip';
 
 const LikesComponent = () => {
     const classes = styles();
@@ -35,20 +36,23 @@ const LikesComponent = () => {
     };
 
     useEffect(() => {
-        axios.get(`${apiAddress}/favorite-product`,  {headers: {
-            Authorization: `Bearer ${token}`
-            }}).then(res => {
+        axios.get(`${apiAddress}/favorite-product`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
             setFavoriteData(res.data);
         }).catch(err => console.log(err))
-    }, [token,favoriteData])
+    }, [token, favoriteData])
     const handleDirectPage = (data: any) => {
-        router.push({pathname: "/buy-now", query: {id: data.id}})
+        router.push({pathname: '/buy-now', query: {id: data.id}})
     }
 
     return (
         <Box className={classes.likeWrapper}>
             <Box className={classes.contentWrapper}>
-                {favoriteData.length === 0 ? null : <Typography className={classes.ordinaryText}>Saralangan mahsulotlar</Typography>}
+                {favoriteData.length === 0 ? null :
+                    <Typography className={classes.ordinaryText}>Saralangan mahsulotlar</Typography>}
                 {favoriteData.length === 0 ?
                     <Box className={classes.loader}>
                         <EmptyData data={emptyData}/>
@@ -58,13 +62,11 @@ const LikesComponent = () => {
                             <FavoriteIcon className={classes.likeIcon} onClick={() => sendData(item.id, dispatch)}/>
                             <img src={`https://nextstore.in/nextstore${item.photoUrl}`} alt="image"
                                  width={query ? 180 : 236}
-                                 height={query ? 180 : 236} style={{objectFit: "contain"}} />
+                                 height={query ? 180 : 236} style={{objectFit: 'contain'}}/>
                             <Box className={classes.mainContent}>
                                 <Typography className={classes.name}>{item.name}</Typography>
                                 <Typography className={classes.price}>{item.price} so&apos;m</Typography>
                                 <Box className={classes.color}>
-                                    {/*<Box className={classes.boxColor}></Box>*/}
-                                    {/*<Typography className={classes.colorName}>Kosmik kulrang</Typography>*/}
                                     <ColorPicker setColor={setColor} color={color} dataID={item?.id}/>
                                 </Box>
                                 <Typography className={classes.storeName}>
@@ -86,7 +88,9 @@ const LikesComponent = () => {
                                 </Box>
                             </Box>
                             <Box className={classes.close} onClick={() => sendData(item.id, dispatch)}>
-                                <CloseIcon className={classes.closeIcon}/>
+                                <Tooltip title="O'chirish" placement="top-start">
+                                    <CloseIcon className={classes.closeIcon}/>
+                                </Tooltip>
                             </Box>
                         </Box>
                     )}

@@ -81,7 +81,7 @@ const ProfileLikes = () => {
                                     </Box>
                                 </Box>
                                 <Box className={classes.close} onClick={() => sendData(item.id, dispatch)}>
-                                    <Tooltip title="O'chirish">
+                                    <Tooltip title="O'chirish" placement="top-start">
                                         <CloseIcon className={classes.closeIcon}/>
                                     </Tooltip>
                                 </Box>
