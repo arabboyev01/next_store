@@ -49,16 +49,19 @@ const FilterComponent = () => {
     };
 
     useEffect(() => {
-            handleFilteringData({purchaseType, setInstallment, setDiscount, condition, setDebt, setCredit, setDelivery})
-            const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-            axios.get(
-                `${apiAddress}/product?page=0&size=100&sort&price,desc&${installment && 'payInstallments=true'}${discount && '&discounted=true'}${credit && '&takeCredit=true'}${debt && '&debt=true'}${delivery && '&deliver=true'}`,
-                {headers: {Authorization: `Bearer ${token}`}})
-                .then((data) => setFiltered(data.data.content))
+        handleFilteringData({purchaseType, setInstallment, setDiscount, condition, setDebt, setCredit, setDelivery})
+        const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
+        axios.get(
+            `${apiAddress}/product?page=0&size=100&sort&price,desc&${installment && 'payInstallments=true'}${discount && '&discounted=true'}${credit && '&takeCredit=true'}${debt && '&debt=true'}${delivery && '&deliver=true'}`,
+            {headers: {Authorization: `Bearer ${token}`}})
+            .then((data) => setFiltered(data.data.content))
 
-            const filtering = filteringData?.current?.filter(({name}: any) => name.toLowerCase().includes(brand.toLowerCase()))
-            brand === 'all' ? setFiltered(filteringData?.current) : setFiltered(filtering)
-        }, [brand, purchaseType, condition, installment, discount, credit, debt, delivery]);
+    }, [purchaseType, condition, installment, discount, credit, debt, delivery]);
+
+    useEffect(() => {
+        const filtering = filteringData?.current?.filter(({name}: any) => name.toLowerCase().includes(brand.toLowerCase()))
+        brand === 'all' ? setFiltered(filteringData?.current) : setFiltered(filtering)
+    }, [brand])
 
     useEffect(() => {
         axios.get(`${apiAddress}/category?parentId=0`).then(data => {

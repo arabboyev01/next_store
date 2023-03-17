@@ -16,9 +16,9 @@ const Dumb =
          setBrands,
          setCondition,
          filtered,
-        category,
-        brand
-    }: any) => (
+         category,
+         brand
+     }: any) => (
         <Box className={classes.mainWrapper}>
             <Box className={classes.filters}>
                 <Filters
@@ -34,7 +34,7 @@ const Dumb =
             </Box>
             <Box className={classes.datas}>
                 {/*{filtered === undefined ? <HomePageLoader/> :*/}
-                    <MainCart mainData={filtered?.slice(indexOfFirstPost, indexOfLastPost)}/>
+                <MainCart mainData={filtered?.slice(indexOfFirstPost, indexOfLastPost)}/>
                 {/*}*/}
                 <Box className={classes.pagination}>
                     {filtered?.length <= 11 ?
