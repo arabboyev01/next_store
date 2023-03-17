@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Golos+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Golos Text', sans-serif !important;
+  font-family: 'Lato', sans-serif !important;
 }
 body{
   background-color: #ECF4FF !important;
-  font-family: 'Montserrat', sans-serif !important;
 }
