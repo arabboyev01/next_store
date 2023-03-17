@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import style from './filters.style'
 import axios from 'axios'
 import { apiAddress } from '../../../config'
@@ -6,6 +6,7 @@ import { quantity } from './utilty'
 import { useMediaQuery } from '@mui/material'
 import Dumb from './Dumb';
 import { useSelector } from 'react-redux'
+import { handleFilteringData } from './Utility'
 
 const FilterComponent = () => {
     const classes = style();
@@ -15,11 +16,14 @@ const FilterComponent = () => {
     const [filtered, setFiltered] = useState([]);
     const quantityData = quantity(filtered);
     const [category, setCategory] = useState([])
-    const [filteringData] = useState(mainData[mainData.length - 1]?.content)
+    const filteringData = useRef(filtered);
+    useEffect(() => {
+        filteringData.current = mainData[mainData?.length - 1]?.content
+    })
 
     // ---filters data---
     const [value, setValue] = useState<number[]>([0, 1000000]);
-    const [brand, setBrands] = useState<string>('hammasi')
+    const [brand, setBrands] = useState<string>('all')
     const [purchaseType, setPurchaseType] = useState<string>('')
     const [condition, setCondition] = useState<string>('')
 
@@ -44,42 +48,17 @@ const FilterComponent = () => {
         setValue(newValue as number[]);
     };
 
-    const handleFilters = useCallback(() => {
-        if (purchaseType === 'Bo\'lib to\'lash') {
-            setInstallment(true)
-        }
-        if (purchaseType === 'Chegirmali mahsulot') {
-            setDiscount(true)
-        }
-
-        if (condition === 'Nasiya orqali') {
-            setDebt(true)
-        }
-        if (condition === 'Kreditga olish') {
-            setCredit(true)
-        }
-        if (condition === 'Yetkazib berish') {
-            setDelivery(true)
-        }
-
-        const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
-        axios.get(
-            `${apiAddress}/product?page=0&size=100&sort&price,desc&${installment && 'payInstallments=true'}${discount && '&discounted=true'}${credit && '&takeCredit=true'}${debt && '&debt=true'}${delivery && '&deliver=true'}`,
-            {headers: {Authorization: `Bearer ${token}`}})
-            .then((data) => setFiltered(data.data.content))
-
-        if (brand !== 'all') {
-            const filtering = filteringData?.filter(({name}: any) => name.toLowerCase().includes(brand.toLowerCase()))
-            setFiltered(filtering)
-        }
-        if(brand === 'all'){
-            return filtered
-        }
-    },  [filtered, filteringData, purchaseType, condition, installment, discount, credit, debt, delivery, brand])
-
     useEffect(() => {
-        handleFilters()
-    }, [handleFilters]);
+            handleFilteringData({purchaseType, setInstallment, setDiscount, condition, setDebt, setCredit, setDelivery})
+            const token = typeof window !== 'undefined' ? window.localStorage.getItem('tokenKey') : null;
+            axios.get(
+                `${apiAddress}/product?page=0&size=100&sort&price,desc&${installment && 'payInstallments=true'}${discount && '&discounted=true'}${credit && '&takeCredit=true'}${debt && '&debt=true'}${delivery && '&deliver=true'}`,
+                {headers: {Authorization: `Bearer ${token}`}})
+                .then((data) => setFiltered(data.data.content))
+
+            const filtering = filteringData?.current?.filter(({name}: any) => name.toLowerCase().includes(brand.toLowerCase()))
+            brand === 'all' ? setFiltered(filteringData?.current) : setFiltered(filtering)
+        }, [brand, purchaseType, condition, installment, discount, credit, debt, delivery]);
 
     useEffect(() => {
         axios.get(`${apiAddress}/category?parentId=0`).then(data => {
