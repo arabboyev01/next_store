@@ -75,7 +75,7 @@ const FilterComponent = () => {
         if(brand === 'all'){
             return filtered
         }
-    },  [filteringData, purchaseType, condition, installment, discount, credit, debt, delivery, brand])
+    },  [filtered, filteringData, purchaseType, condition, installment, discount, credit, debt, delivery, brand])
 
     useEffect(() => {
         handleFilters()
