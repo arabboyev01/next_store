@@ -21,14 +21,16 @@ const ProfileSidebar: React.FC<Props> = ({handlePage, isActive}) => {
     const token: any | string | null = window.localStorage.getItem('tokenKey')
     const decoded: unknown | any = jwt_decode(token)
     const [pd, setPd] = useState<any>([]);
+    const [firstName, setFirstName] = useState<any>(null)
+    const [lastName, setLastName] = useState<any>(null)
     useEffect(() => {
         axios.get(`${apiAddress}/user/${decoded.sub}`)
-            .then(res => setPd(res.data)).catch(err => console.log(err))
+            .then(res => {
+                setPd(res.data)
+                setFirstName(res.data.firstName)
+                setLastName(res.data.lastName)
+            }).catch(err => console.log(err))
     }, [decoded])
-
-    const names = decoded.fullName.split(' ');
-    const firstInitial = names[0].charAt(0);
-    const lastInitial = names[1].charAt(0);
 
     return (
         <Box className={classes.sidebar}>
@@ -38,7 +40,8 @@ const ProfileSidebar: React.FC<Props> = ({handlePage, isActive}) => {
                         bgcolor: randomColor,
                         width: 108,
                         height: 108
-                    }}>{firstInitial}{lastInitial}
+                    }}>
+                        {firstName?.charAt(0)}{lastName?.charAt(0)}
                     </Avatar>
                 </Stack>
                 {typeof pd === 'undefined' ? null : <Typography className={classes.names}>{pd?.firstName} {pd?.lastName}</Typography>}
