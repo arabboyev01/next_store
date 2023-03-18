@@ -74,6 +74,7 @@ const MobileNav = () => {
         setProductLength(data?.length)
     }, [productLength, data?.length])
 
+
     return (
         <>
             <Box className={classes.mobileNavWrapper}>
@@ -105,8 +106,8 @@ const MobileNav = () => {
                         </Box>
                         <Box className={mobile ? classes.activeMainContent : classes.mainContent}>
                             <CloseIcon onClick={handleMobileMenu} className={classes.closeMenuIcon}/>
-                            <Link href="/" className={classes.link}><Image width={81} height={31} src={NextLogo}
-                                                                           alt="logo"/></Link>
+                            <Link href="/" className={classes.link}>
+                                <Image width={81} height={31} src={NextLogo} alt="logo"/></Link>
                             {validateLogin ? <User/> :
                                 <Button className={classes.loginButton} onClick={handleOpen}>Kirish</Button>}
                             <Box className={classes.chapter}>

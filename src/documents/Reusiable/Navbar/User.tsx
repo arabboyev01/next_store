@@ -36,7 +36,7 @@ const User = () => {
                 </Avatar>
             </Stack>
             {query ? <Typography style={{fontSize: '15px', fontWeight: 500, marginLeft: '10px',}}>
-                    {decoded.fullName}
+                    {firstName} {lastName}
                 </Typography> :
                 null
             }

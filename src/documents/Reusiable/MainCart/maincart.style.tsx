@@ -98,7 +98,7 @@ export default makeStyles(() => ({
     mainImage: {
         objectFit: 'contain',
         '@media(max-width: 650px)': {
-            marginLeft: '5px',
+            // marginLeft: '20px',
         },
     },
     price: {
@@ -187,6 +187,10 @@ export default makeStyles(() => ({
         width: '180px',
         height: '180px',
         marginTop: '30px',
+        display:"flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
         '@media(max-width: 650px)': {
             width: '120px',
             height: '120px',
