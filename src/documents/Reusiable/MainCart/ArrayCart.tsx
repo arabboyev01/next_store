@@ -6,6 +6,8 @@ import { commafy } from '../Suggested/global';
 import { setAddItemToCart } from '../../../redux/CartSlice';
 import ShoppingCart from '../../../../public/assets/icons/shoppingCart.png'
 import Image from 'next/image'
+import defaultImage from '../../../../public/assets/images/defaul_image.png'
+
 
 const ArrayCart =
     ({
@@ -35,7 +37,7 @@ const ArrayCart =
                                 <Typography className={classes.new}>Chegirma</Typography> : null
                         }
                         <Box className={classes.imageWrapper}>
-                            <img src={`https://nextstore.in/nextstore${item.photoUrl}`}
+                            <img src={!item.photoUrl ? defaultImage.src : `https://nextstore.in/nextstore${item?.photoUrl}`}
                                  className={classes.mainImage}
                                  width={query ? '120px' : '180px'}
                                  height={query ? '120px' : '180px'}

@@ -14,4 +14,4 @@ export function commafy( num: any ) {
     return  Math.trunc(num)
 }
 
-export const sortByPriceDumb = (data: any) => [...data].sort((a, b) => (+a.price - +b.price))
+export const sortByPriceDumb = (data: any) => [...data].sort((a, b) => (+a?.price - +b?.price))

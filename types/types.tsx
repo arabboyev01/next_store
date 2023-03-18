@@ -40,11 +40,11 @@ export type deliveryDumbDataType = {
 }
 export type SUGGESION_DATA_TYPE = {
     id: number,
-    image: any,
+    photoUrl: any,
     name: string,
     shop: string,
     price: string,
-    status: string,
+    state: string,
 }
 export type PROFILE_LINK_DATA_TYPE = {
     id: number,
