@@ -38,6 +38,11 @@ const Filters: React.FC<Props> =
                     </Box>
                     <RangeSlider value={value} handleChange={handleChange}/>
                     <hr className={classes.hr}/>
+                    {SwitchesData.map(({name, id}: { name: string, id: number }) =>
+                        <Switches name={name} key={id} setPurchaseType={setPurchaseType}/>
+                    )}
+                    <hr className={classes.hr}/>
+                    <hr className={classes.hr}/>
                     <Typography className={classes.filterType}>Barand bo&apos;yicha</Typography>
                     <Box className={classes.selector}>
                         <input type="radio" name="brands" value={brand} onChange={() => setBrands('all')}/>
@@ -49,11 +54,6 @@ const Filters: React.FC<Props> =
                                    onChange={() => setBrands(name)}/>
                             <span>{name}</span>
                         </Box>
-                    )}
-                    <hr className={classes.hr}/>
-                    <hr className={classes.hr}/>
-                    {SwitchesData.map(({name, id}: { name: string, id: number }) =>
-                        <Switches name={name} key={id} setPurchaseType={setPurchaseType}/>
                     )}
                     <hr className={classes.hr}/>
                     <hr className={classes.hr}/>

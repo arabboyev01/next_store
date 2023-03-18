@@ -66,7 +66,7 @@ const FilterComponent = () => {
     }, [brand])
 
     useEffect(() => {
-        axios.get(`${apiAddress}/category?parentId=0`).then(data => {
+        axios.get(`${apiAddress}/company`).then(data => {
             setCategory(data.data)
         }).catch(err => console.log(err))
     }, [])
